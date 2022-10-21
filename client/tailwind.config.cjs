@@ -3,6 +3,9 @@ module.exports = {
   content: [],
   theme: {
     extend: {
+      screens:{
+
+      },
       colors: {
         redGray:'#FEE2E2',
         semiRed: '#FCA5A5',
