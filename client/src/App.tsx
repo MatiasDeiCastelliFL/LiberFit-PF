@@ -2,6 +2,9 @@ import React from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { Landing,Home } from "./page/Index";
+import CardsContent from "./components/Molecules/CardsContent/CardsContent";
+
+import CardsContainer from "./components/Molecules/CardsContainer/CardsContainer";
 
 
 function App() {
