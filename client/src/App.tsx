@@ -2,9 +2,17 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
+import CardsContent from './components/CardsContent/CardsContent'
+import fondo from './assets/fondo-maquinas.png'
+
+
+
 function App() {
   const [count, setCount] = useState(0)
-
+  const [data, setData] = useState({
+    category: 'Maquinas',
+    image: fondo,
+  })
   return (
     <div className="App">
       <div>
@@ -27,6 +35,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <CardsContent />
     </div>
   )
 }
