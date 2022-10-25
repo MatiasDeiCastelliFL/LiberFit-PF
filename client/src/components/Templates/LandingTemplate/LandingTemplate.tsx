@@ -24,13 +24,13 @@ function LandingTemplate() {
             <Link to="/home">
               <span className="w-custom_2 h-custom_2 bg-redClare translate-y-custom_2 absolute left-custom_2">
                 <div className={Styles.title}>
-                  <h2 className="font-poppins font-extrabold">CLICK</h2>
+                  <h2 className="font-poppins font-extrabold text-white">CLICK</h2>
                 </div>
               </span>
             </Link>
           </div>
 
-          <div className="font-poppins font-extrabold text-90 z-50">
+          <div className="font-poppins font-extrabold text-90 z-50 text-white">
             <p className="absolute left-custom_3 translate-y-custom_3">TU</p>
             <p className="absolute left-custom_4 translate-y-custom_4">MUNDO</p>
             <p className="absolute left-custom_5 translate-y-custom_5">
