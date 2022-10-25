@@ -1,7 +1,7 @@
 import server from './src/app'
-import  db from './src/db'
-// const { PORT } = process.env
-const PORT = 3001
+import db from './src/db'
+ const { PORT } = process.env
+
 
 // Syncing all the models at once.
 db.conn.sync({ force: false }).then(() => {
