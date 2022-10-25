@@ -5,6 +5,8 @@ import { Landing, Home } from "./page/Index";
 import CardsCategory from "./components/Molecules/CardCategory/CardsCategory";
 import Nav from "./components/Molecules/nav/Nav";
 import CardsContent from "./components/Molecules/CardsContent/CardsContent";
+import About from "./components/Atoms/About/About"
+import Login from "./components/Atoms/Login/Login"
 
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
         <Route path="/home" element={<Home />}>
           <Route path="/home/:category" element={<CardsCategory />} />
         </Route>
+        <Route path="/about" element={<About/>} />
+        <Route path="/login" element={<Login/>} />
       </Routes>
     </div>
   );
