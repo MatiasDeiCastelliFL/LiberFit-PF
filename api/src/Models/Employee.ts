@@ -4,9 +4,10 @@ interface EmployeeAttributes {
   id: string
   name: string
   phone: string
+  email:string
   password: string
   account: boolean
-  avatar: string
+  image: string
 }
 
 export default (sequelize: Sequelize) => {

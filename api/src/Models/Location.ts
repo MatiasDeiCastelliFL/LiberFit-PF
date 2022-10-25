@@ -5,6 +5,7 @@ import {
 
 interface LocationAttributes {
   id: string
+  name:string
   address: string
   phone: string
 }
@@ -17,11 +18,15 @@ export default (sequelize:Sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
-    address: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     phone: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    address: {
       type: DataTypes.STRING,
       allowNull: false,
     },
