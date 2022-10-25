@@ -4,17 +4,18 @@
     position: relative;
     width: 14.8125rem;
     height: 21.0625rem;
-    background-color: black;
     align-items: center;
     justify-content: center;
 
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
 }
 
-.image{
-    position: absolute;
-    width: 14.8125rem;
-    height: 21.0625rem;
-    left: 0px;
-    top: 0px;
-    opacity: 0.7;
+.bgCard{
+    background: #000;
+    height: 100%;
+    width: 100%;
+    opacity: 0.6;
+    z-index: 0;
 }
