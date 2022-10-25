@@ -15,6 +15,16 @@ module.exports = {
         white: '#FFF'
       },
       fontFamily: {
+        
+      },
+      backgroundImage: {
+        landing: "url('./src/assets/IMG/LandingBG.png')",
+      },
+      width: {
+        max: '100%'
+      },
+      height: {
+        max: '100vh'
       }
     },
   },
