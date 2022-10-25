@@ -7,4 +7,4 @@ server.use(express.urlencoded({extended:true}))
 
 server.use('/', router )
 
-export default server
+export default server 

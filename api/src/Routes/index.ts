@@ -6,4 +6,4 @@ const router = Router()
 router.get('/', init )
 router.post('/data', postData )
 
-export default router
+export default router 
