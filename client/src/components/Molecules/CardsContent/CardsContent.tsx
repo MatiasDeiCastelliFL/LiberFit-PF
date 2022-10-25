@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./CardsContent.module.css";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useParams } from "react-router-dom";
 
 import CategoryCard from "../../Atoms/CategoryCard/CategoryCard";
 import Card from "../../Atoms/Card/Card";
@@ -26,6 +26,8 @@ const CardsContent = () => {
             image: productos,
         },
     ]
+
+    const {category} = useParams();
 
 
     return (
