@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon",
+    "dev": "nodemon",
+    "build": "tsc",
+    "build:prod": "rimraf ./build && tsc",
+    "start:prod": "npm run build:prod && node build/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -23,6 +26,7 @@
     "nodemon": "^2.0.20",
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
+    "rimraf": "^3.0.2",
     "sequelize": "^6.25.3"
   },
   "devDependencies": {
