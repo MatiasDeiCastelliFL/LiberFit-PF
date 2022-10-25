@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 
-const Cards = () => {
+const Card = () => {
 
     const {category} = useParams();
     return (
@@ -12,4 +12,4 @@ const Cards = () => {
     );
     }
 
-export default Cards;
+export default Card;
