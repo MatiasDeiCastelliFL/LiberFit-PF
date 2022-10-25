@@ -1,15 +1,18 @@
 import React from "react";
+import style from "./Card.module.css";
 import { useParams } from "react-router-dom";
 
 
-const Card = () => {
-
-    const {category} = useParams();
+interface Props {
+    name: any
+    image: React.CSSProperties
+}
+const Card = ({name , image}:Props) => {
     return (
-        <div>
-            <h1>{category}</h1>
+        <div className={`${style.container} text-white`} style={image}>
+            <h1>{name}</h1>
         </div>
     );
-    }
+}
 
 export default Card;
