@@ -2,8 +2,8 @@ import React from "react";
 import style from "./CardsContent.module.css";
 import { Link, Route, Routes } from "react-router-dom";
 
-import CategoryCard from "../CategoryCard/CategoryCard";
-import Cards from "../Cards/Cards";
+import CategoryCard from "../../Atoms/CategoryCard/CategoryCard";
+import Card from "../../Atoms/Card/Card";
 
 import maquinas from "../../assets/fondo-maquinas.png";
 import clases from "../../assets/fondo-clases.png";
@@ -38,7 +38,7 @@ const CardsContent = () => {
                         })
                     }
                 </div> />
-            <Route path="/:category" element={<Cards />} />
+            <Route path="/:category" element={<Card />} />
         </Routes>
     );
 }
