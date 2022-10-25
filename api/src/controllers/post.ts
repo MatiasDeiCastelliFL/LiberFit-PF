@@ -9,4 +9,4 @@ res.status(201).json("listo")
 
 
 
-export default postData;
+export default postData; 
