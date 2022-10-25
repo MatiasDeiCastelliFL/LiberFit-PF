@@ -1,0 +1,17 @@
+.containerMain {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: black; */
+    color: black;
+    border: 1px solid #ccc;
+    height: 3rem;
+}
+
+/* .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: brown;
+    margin-inline: 3rem;
+} */

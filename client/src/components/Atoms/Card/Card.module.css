@@ -3,8 +3,11 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 160px;
-    height: 163px;
-    background-color: #F87171;
+    width: 15rem;
+    height: 18rem;
     padding: 200;
+
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
 }

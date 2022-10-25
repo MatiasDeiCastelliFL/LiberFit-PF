@@ -9,7 +9,7 @@ interface Props {
 }
 const Card = ({name , image}:Props) => {
     return (
-        <div className={`${style.container} text-white`}>
+        <div className={`${style.container} text-white`} style={image}>
             <h1>{name}</h1>
         </div>
     );

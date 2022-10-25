@@ -6,6 +6,7 @@ function SHom() {
   return (
     <div>
         <CardsContent/>
+        
     </div>
   )
 }

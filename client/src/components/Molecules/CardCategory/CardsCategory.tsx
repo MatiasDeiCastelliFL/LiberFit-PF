@@ -16,7 +16,7 @@ function CardsCategory() {
         <div className="flex justify-center flex-wrap gap-5 ">
           {maquinas.map((d) => (
             <div key={Math.random()}>
-              <Card name={d.nombre} image={{}} key={d.nombre} />
+              <Card name={d.nombre} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${d.imagen}')`}} key={d.nombre} />
             </div>
           ))}
         </div>
