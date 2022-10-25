@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./CardsContent.module.css";
+import { Link } from "react-router-dom";
 
 import CategoryCard from "../CategoryCard/CategoryCard";
 import maquinas from "../../assets/fondo-maquinas.png";
@@ -29,7 +30,7 @@ const CardsContent = () => {
         <div className={style.container}>
             {
                 data.map((item) => {
-                    return <CategoryCard data={item} />
+                    return <Link to={`/${item.category}`}> <CategoryCard data={item} /> </Link>
                 })
             }
         </div>
