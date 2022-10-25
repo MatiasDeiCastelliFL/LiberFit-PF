@@ -11,12 +11,13 @@ interface Props {
 const Card = ({data}:Props) => {
 
     const {category} = useParams();
+    console.log(category);
     
     return (
         <div className={style.container}>
             <h1>{data.title}</h1>
         </div>
     );
-    }
+}
 
 export default Card;
