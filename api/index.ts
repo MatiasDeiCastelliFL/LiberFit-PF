@@ -3,7 +3,6 @@ import  db from './src/db'
 const { PORT } = process.env
 
 
-
 // Syncing all the models at once.
 db.conn.sync({ force: false }).then(() => {
   server.listen(PORT, () => {
