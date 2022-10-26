@@ -12,13 +12,13 @@ function CardsCategory() {
 
 
   return (
-      <div className={`${style.container} container max-w-max max-h-96 overflow-hidden flex mx-auto overflow-y-auto`}>
-        <div className="flex-column justify-center  ">
-          <h1>{category}</h1>
+      <div className={`${style.container} container w-cards max-h-96 overflow-hidden flex mx-auto overflow-y-auto`}>
+        <div className="flex-column justify-center text-center ">
+          <h1 className="text-redClare text-3xl font-black font-sans">{category?.toUpperCase()}</h1>
           {sedes.map((d) => (
             <div key={Math.random()} className="flex-column mx-auto gap-5">
-                <h1>{d.nomSede}</h1>
-                <div className="flex gap-5">
+                <h1 className="bg-redClare  text-start text-white p-2 m-2">{d.nomSede}</h1>
+                <div className={`${style.cardsDiv} flex w-max gap-5`}>
                   {(category?.toLowerCase() === "maquinas") ? d.maquinas.map((m) => (
                     <Card name={m.nombre} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${m.imagen}')`}} key={m.nombre} />
                   )) : (category?.toLowerCase() === "clases") ? d.clases.map((c) => (
