@@ -18,10 +18,9 @@ const NavForm = () => {
   ];
 
   const params = useLocation();
-  //  console.log(params.pathname)
+
 
   const name = params.pathname.split("/").map((e, i) => e);
-  console.log(name[1]);
 
   return (
     <div className="flex w-full  h-16 items-end item-center font-medium  justify-between ">
