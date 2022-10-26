@@ -1,5 +1,4 @@
-import { Sequelize, Model, DataTypes } from 'sequelize'
-import { EmployeeInstance } from './Employee'
+import { Model, DataTypes } from 'sequelize'
 import db from '../db'
 // TODO review LOcation methods for data Base
 // TODO create associations
@@ -10,9 +9,7 @@ interface LocationAttributes {
   phone: string
 }
 
-export class LocationInstance extends Model<LocationAttributes> {
-  
-}
+class LocationInstance extends Model<LocationAttributes> {}
 
 LocationInstance.init(
   {
@@ -42,3 +39,4 @@ LocationInstance.init(
   }
 )
 
+export default LocationInstance

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { LocationInstance } from '../Models/Locacion'
+import LocationInstance from '../Models/Locacion'
 import crearLocacion from '../services/locationServices'
 // import crearLocation from "../services/locationServices"
 

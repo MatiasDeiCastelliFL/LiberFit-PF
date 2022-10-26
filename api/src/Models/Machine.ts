@@ -1,8 +1,6 @@
-import { Sequelize, Model, DataTypes } from 'sequelize'
+import { Model, DataTypes } from 'sequelize'
 // import { Sequelize, Model, DataTypes } from 'sequelize-typescritp'
 import db from '../db'
-import { LocationInstance } from './Locacion'
-
 
 interface MachineAttributes {
   id: any
@@ -10,7 +8,7 @@ interface MachineAttributes {
   image: string
   muscle:string
 }
-export class MachineInstance extends Model<MachineAttributes> {}
+class MachineInstance extends Model<MachineAttributes> {}
 
 MachineInstance.init(
   {
@@ -39,3 +37,5 @@ MachineInstance.init(
     freezeTableName:true
   }
 )
+
+export default MachineInstance
