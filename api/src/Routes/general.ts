@@ -1,6 +1,10 @@
-import * as E from 'express';
-import { getApi } from '../controllers/general';
+import {Router} from 'express';
+import {getApi} from "../controllers/generalControllers"
 
-const router= E.Router();
+const routerGeneral = Router() 
+routerGeneral.get('/info', getApi )
 
-router.get("/datosGym",getApi);
+
+
+
+export default routerGeneral 
