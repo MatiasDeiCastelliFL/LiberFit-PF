@@ -51,6 +51,6 @@ EmployeeInstance.init(
   },
   {
     sequelize: db,
-    tableName: 'employees',
+    tableName: 'employee',
   }
 )
