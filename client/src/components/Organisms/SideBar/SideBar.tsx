@@ -6,7 +6,7 @@ import style from './Style/sidebar.module.css'
 
 function SideBar() {
   return (
-    <div className='flex h-max w-sidebar flex-col justify-between border-r border-redGray bg-white select-none'>
+    <div className='flex h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none'>
         <div className=''>
             <div className='mt-5 ml-5'>
                 <Logo/>
