@@ -11,7 +11,7 @@ const Card = ({name , image}:Props) => {
     return (
         <div className={`${style.container} text-white mt-2 mb-2 shadow-lg shadow-redClare`} style={image}>
             <div className={style.hoverName}>
-                <h1 className={style.name}>
+                <h1 className={`${style.name} font-black font-sans`}>
                     {name}
                 </h1>
             </div>

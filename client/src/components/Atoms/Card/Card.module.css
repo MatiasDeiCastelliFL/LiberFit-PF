@@ -26,8 +26,8 @@
     color: transparent;
 }
 .hoverName:hover{
-    color: white;
-    -webkit-text-stroke: 0.05rem black;
+    color: #F87171;
+    -webkit-text-stroke: 0.07rem rgb(0, 0, 0);
     /* background: rgba(248, 113, 113, 0.2);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 1px );
@@ -37,7 +37,7 @@
 }
 
 .name{
-    font-size: 1.5rem;
+    font-size: 2rem;
 
-    font-weight: 600;
+    /* font-weight: 900; */
 }
