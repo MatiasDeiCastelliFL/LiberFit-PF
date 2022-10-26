@@ -10,7 +10,7 @@ interface Props {
 const Card = ({name , image}:Props) => {
     return (
         <div className={`${style.container} text-white`} style={image}>
-            <h1>{name}</h1>
+            <h1 className={`${style.name} text-2xl font-black`}>{name}</h1>
         </div>
     );
 }

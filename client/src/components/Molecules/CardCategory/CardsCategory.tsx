@@ -12,7 +12,7 @@ function CardsCategory() {
   console.log(category);
 
   return (
-      <div className=" container max-w-max max-h-96 overflow-hidden flex mx-auto items-center border-2 overflow-y-auto">
+      <div className=" container max-w-max max-h-96 overflow-hidden flex mx-auto border-2 overflow-y-auto">
         <div className="flex justify-center flex-wrap gap-5 ">
           {maquinas.map((d) => (
             <div key={Math.random()}>
