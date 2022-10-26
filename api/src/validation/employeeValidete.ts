@@ -17,7 +17,7 @@ export function validate(input:any) {
   }
 
   if (input.email) {
-    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(input.email)) {
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3})+$/.test(input.email)) {
       errors.email = "Email incorrecto, por favor ingrese caracteres validos.";
     }
   } else {

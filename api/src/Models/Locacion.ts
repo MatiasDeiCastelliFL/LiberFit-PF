@@ -10,7 +10,9 @@ interface LocationAttributes {
   phone: string
 }
 
-export class LocationInstance extends Model<LocationAttributes> {}
+export class LocationInstance extends Model<LocationAttributes> {
+  
+}
 
 LocationInstance.init(
   {
@@ -40,4 +42,3 @@ LocationInstance.init(
   }
 )
 
-// LocationInstance.belongsToMany(EmployeeInstance,through:'f')
