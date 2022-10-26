@@ -6,21 +6,26 @@ import CategoryCard from "../../Atoms/CategoryCard/CategoryCard";
 import Card from "../../Atoms/Card/Card";
 
 import maquinas from "../../../assets/IMG/fondo-maquinas.png";
-import clases from "../../../assets/IMG/fondo-clases.png";
+import clases from "../../../assets/IMG/fondo-clases.jpg"
+import ejercicios from "../../../assets/IMG/fondo-ejercicios.png";
 import productos from "../../../assets/IMG/fondo-productos.png";
 
 const CardsContent = () => {
   const data = [
     {
-      category: "Maquinas",
+      category: "Exersices",
+      image: ejercicios,
+    },
+    {
+      category: "Machines",
       image: maquinas,
     },
     {
-      category: "Clases",
+      category: "Trainings",
       image: clases,
     },
     {
-      category: "Productos",
+      category: "Products",
       image: productos,
     },
   ];

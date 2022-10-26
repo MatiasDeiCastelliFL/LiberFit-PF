@@ -1,11 +1,11 @@
-.container{
+.image{
     display: flex;
     box-sizing: border-box;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-end;
     width: 15rem;
-    height: 18rem;
+    height: 12rem;
     background-repeat: no-repeat !important;
     background-size: cover !important;
     background-position: center !important;
