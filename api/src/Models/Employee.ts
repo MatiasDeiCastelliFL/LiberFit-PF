@@ -11,11 +11,8 @@ interface EmployeeAttributes {
   image: string
 }
 
-
-
-
 export class EmployeeInstance extends Model<EmployeeAttributes> {}
-
+ 
 EmployeeInstance.init(
   {
     id: {
