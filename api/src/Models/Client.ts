@@ -49,5 +49,6 @@ ClientInstance.init(
   {
     sequelize: db,
     tableName: 'client',
+    freezeTableName:true
   }
 )

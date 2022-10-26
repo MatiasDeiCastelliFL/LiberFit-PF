@@ -2,7 +2,7 @@ import { Sequelize, Model, DataTypes } from 'sequelize'
 import db from '../db'
 
 interface GymAttributes {
-  id: string
+  id: any
   name: string
   email: string
   phone: string
@@ -40,5 +40,6 @@ GymInstance.init(
   {
     sequelize: db,
     tableName: 'gym',
+    freezeTableName:true
   }
 )

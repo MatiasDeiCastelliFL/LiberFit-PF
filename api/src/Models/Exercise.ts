@@ -48,5 +48,6 @@ ExerciseInstance.init(
   {
     sequelize: db,
     tableName: 'exercise',
+    freezeTableName:true
   }
 )

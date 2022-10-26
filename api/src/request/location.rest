@@ -1,11 +1,11 @@
-POST http://localhost:3001/empleado
+###
+GET http://localhost:3001/locacion
+###
+POST http://localhost:3001/locacion
 Content-Type: application/json
 
-{
-  "name":"ricardo",
-  "email":"ricardo1@gamil.com",
-  "phone":"123123",
-  "password":"1234Ac",
-  "account":true,
-  "image":"https://ui-avatars.com/api/?name=Elon+Musk"
+{ 
+  "name":"Ricardo",
+  "address":"rusia",
+  "phone":"123412"
 } 

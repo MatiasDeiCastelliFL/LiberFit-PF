@@ -1,8 +1,10 @@
 import { Sequelize, Model, DataTypes } from 'sequelize'
+import { EmployeeInstance } from './Employee'
 import db from '../db'
-// TODO review LOcation metods for data Base
+// TODO review LOcation methods for data Base
+// TODO create associations
 interface LocationAttributes {
-  id: string
+  id: any
   name: string
   address: string
   phone: string
@@ -34,5 +36,8 @@ LocationInstance.init(
   {
     sequelize: db,
     tableName: 'location',
+    freezeTableName:true
   }
 )
+
+// LocationInstance.belongsToMany(EmployeeInstance,through:'f')

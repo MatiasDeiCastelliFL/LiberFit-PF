@@ -52,5 +52,6 @@ EmployeeInstance.init(
   {
     sequelize: db,
     tableName: 'employee',
+    freezeTableName:true
   }
 )
