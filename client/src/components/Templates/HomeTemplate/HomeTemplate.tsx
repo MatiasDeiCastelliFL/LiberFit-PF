@@ -17,9 +17,9 @@ function HomeTemplate() {
         <NavForm/>
       </div>
       
-      {/* <Anuncio />
+      <Anuncio />
       <BreadCrumbs />
-      {params.category ? <CardsCategory /> : <SHom />} */}
+      {params.category ? <CardsCategory /> : <SHom />}
     </div>
   );
 }

@@ -25,6 +25,7 @@ module.exports = {
         custom_1: '30.25rem',
         custom_2: '21.4rem',
         sidebar: '18.688rem',
+        cards:'80vw',
         input: '17.75rem'
       },
       height: {
@@ -51,8 +52,6 @@ module.exports = {
         custom_4: '27.60rem',
         custom_5: '32.55rem',
         custom_6: '40.55rem'
-
-       
       },
       fontSize:{
         90: '90px',
