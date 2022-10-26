@@ -1,16 +1,17 @@
 import { Sequelize, Model, DataTypes } from 'sequelize'
 import db from '../db'
-// TODO review LOcation metods for data Base
-interface LocationAttributes {
+
+interface GymAttributes {
   id: string
   name: string
-  address: string
+  email: string
   phone: string
+  image: string
 }
 
-export class LocationInstance extends Model<LocationAttributes> {}
+export class GymInstance extends Model<GymAttributes> {}
 
-LocationInstance.init(
+GymInstance.init(
   {
     id: {
       type: DataTypes.UUID,
@@ -22,17 +23,22 @@ LocationInstance.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     phone: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    address: {
+    image: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+
   },
   {
     sequelize: db,
-    tableName: 'location',
+    tableName: 'gym',
   }
 )

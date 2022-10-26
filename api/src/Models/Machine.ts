@@ -1,16 +1,16 @@
 import { Sequelize, Model, DataTypes } from 'sequelize'
 import db from '../db'
-// TODO review LOcation metods for data Base
-interface LocationAttributes {
+
+interface MachineAttributes {
   id: string
   name: string
-  address: string
-  phone: string
+  image: string
+  muscle:string
 }
 
-export class LocationInstance extends Model<LocationAttributes> {}
+export class MachineInstance extends Model<MachineAttributes> {}
 
-LocationInstance.init(
+MachineInstance.init(
   {
     id: {
       type: DataTypes.UUID,
@@ -22,17 +22,17 @@ LocationInstance.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    phone: {
+    image: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    address: {
+    muscle: {
       type: DataTypes.STRING,
       allowNull: false,
     },
   },
   {
     sequelize: db,
-    tableName: 'location',
+    tableName: 'machine',
   }
 )
