@@ -25,7 +25,8 @@ const postEmpleado =async (req:Request, res:Response)=>{
             console.log(passwordEncript);
             const datoEmpleado= await  crearEmpleado(name,email,phone,passwordEncript,account,image)
             console.log(datoEmpleado);
-            res.status(200).json(datoEmpleado);    
+            res.status(200).json(datoEmpleado);
+            console.log("finish")    
         }
     } catch (error) {
         console.log(error)
