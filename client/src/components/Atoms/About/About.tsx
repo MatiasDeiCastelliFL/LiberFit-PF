@@ -1,13 +1,12 @@
-import NavBar from "../../Molecules/Navbar/NavBar"
+import NavBar from "../../Molecules/NavForm/NavForm";
 
 const About = () => {
-    
-    return (
-        <div>
-            <NavBar />
-            <h1>About</h1>
-        </div>
-    )
-}
+  return (
+    <div>
+      <NavBar />
+      <h1>About</h1>
+    </div>
+  );
+};
 
-export default About
+export default About;

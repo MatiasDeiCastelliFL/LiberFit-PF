@@ -11,11 +11,11 @@ module.exports = {
         semiRed: '#FCA5A5',
         orange: '#C2410C',
         redClare: '#F87171',
-        gray: '#9B9B9B',
+        gray: '##9B9B9B',
         white: '#FFF'
       },
       fontFamily: {
-        poppins: 'Poppins'
+        poppins: 'Poppins',
       },
       backgroundImage: {
         landing: "url('./src/assets/IMG/LandingBG.png')",
@@ -23,12 +23,15 @@ module.exports = {
       width: {
         max: '100%',
         custom_1: '30.25rem',
-        custom_2: '21.4rem'
+        custom_2: '21.4rem',
+        sidebar: '18.688rem',
+        input: '17.75rem'
       },
       height: {
         max: '100vh',
         custom_1: '5.25rem',
-        custom_2: '7.391rem'
+        custom_2: '7.391rem',
+        73: '4.563rem'
       },
       blur:{
         default: '30px'

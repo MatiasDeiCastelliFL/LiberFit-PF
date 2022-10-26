@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.3",
+    "@heroicons/react": "^2.0.12",
     "@reduxjs/toolkit": "^1.8.6",
     "autoprefixer": "^10.4.12",
     "axios": "^1.1.3",

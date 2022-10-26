@@ -1,15 +1,12 @@
-import React from 'react'
-import HomeTemplate from '../../components/Templates/HomeTemplate/HomeTemplate'
-import NavBar from '../../components/Molecules/Navbar/NavBar'
-import Anuncio from "../../components/Molecules/Anuncio/Anuncio"
-
+import React from "react";
+import HomeTemplate from "../../components/Templates/HomeTemplate/HomeTemplate";
+import NavBar from "../../components/Molecules/NavForm/NavForm";
+import Anuncio from "../../components/Molecules/Anuncio/Anuncio";
 
 function Home() {
   return (
-    <div>
-    <HomeTemplate/>
-    </div>
-  )
+      <HomeTemplate />
+  );
 }
 
-export default Home
+export default Home;
