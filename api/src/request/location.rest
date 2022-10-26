@@ -1,0 +1,11 @@
+POST http://localhost:3001/empleado
+Content-Type: application/json
+
+{
+  "name":"ricardo",
+  "email":"ricardo1@gamil.com",
+  "phone":"123123",
+  "password":"1234Ac",
+  "account":true,
+  "image":"https://ui-avatars.com/api/?name=Elon+Musk"
+} 
