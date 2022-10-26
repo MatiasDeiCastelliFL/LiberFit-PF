@@ -1,7 +1,8 @@
-import { Sequelize, CreationOptional, DataTypes } from 'sequelize'
+import { DataTypes, Model,CreationOptional, Sequelize} from 'sequelize'
+import db from '../db'
 
 interface EmployeeAttributes {
-  id: string
+  id:any;
   name: string
   phone: string
   email:string
@@ -10,15 +11,24 @@ interface EmployeeAttributes {
   image: string
 }
 
-export default (sequelize: Sequelize) => {
-  sequelize.define('employee', {
+
+
+
+export class EmployeeInstance extends Model<EmployeeAttributes> {}
+
+EmployeeInstance.init(
+  {
     id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
       primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4, // I expected this set the column default
     },
     name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -32,10 +42,15 @@ export default (sequelize: Sequelize) => {
     },
     account: {
       type: DataTypes.BOOLEAN,
+      defaultValue:false
     },
-    avatar: {
+    image: {
       type: DataTypes.STRING,
       defaultValue: 'https://ui-avatars.com/api/?background=random',
     },
-  })
-}
+  },
+  {
+    sequelize: db,
+    tableName: 'employees',
+  }
+)

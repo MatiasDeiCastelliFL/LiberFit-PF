@@ -4,9 +4,9 @@ import CardsCategory from "../../Molecules/CardCategory/CardsCategory";
 import SHom from "../../Organisms/Section/ContentHome/SHom";
 import Anuncio from "./../../Molecules/Anuncio/Anuncio";
 import BreadCrumbs from "../../Atoms/BreadCrumbs/BreadCrumbs";
-import NavForm from "../../Molecules/NavForm/NavForm";
 import SideBar from "../../Organisms/SideBar/SideBar";
 import Content from "../../Atoms/Filters/Content";
+import NavBar from "../../Organisms/Navbar/NavBar";
 
 function HomeTemplate() {
   const params = useParams();
@@ -14,7 +14,7 @@ function HomeTemplate() {
     <div>
       <div className="flex flex-row">
         <SideBar/>
-        <NavForm/>
+        <NavBar/>
       </div>
       
       <Anuncio />
