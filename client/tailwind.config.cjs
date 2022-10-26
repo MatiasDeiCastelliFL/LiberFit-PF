@@ -42,7 +42,8 @@ module.exports = {
         'custom_3': '30rem',
         'custom_4': '36rem',
         'custom_5': '41rem',
-        'custom_6': '45rem'
+        'custom_6': '45rem',
+        'custom_7': '-0.375rem'
       },
       inset:{
         custom: '41rem',
