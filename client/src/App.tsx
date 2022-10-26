@@ -1,18 +1,20 @@
 import React from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import { Landing,Home } from "./page/Index";
-import CardsContent from "./components/Molecules/CardsContent/CardsContent";
+import { Landing, Home } from "./page/Index";
+import CardsCategory from "./components/Molecules/CardCategory/CardsCategory";
 
-import CardsContainer from "./components/Molecules/CardsContainer/CardsContainer";
+
 
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Landing/>} />
-        <Route path="/home" element={<Home/>} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/home" element={<Home />}>
+          <Route path="/home/:category" element={<CardsCategory />} />
+        </Route>
       </Routes>
     </div>
   );

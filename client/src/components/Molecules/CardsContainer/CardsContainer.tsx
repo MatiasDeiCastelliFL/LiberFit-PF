@@ -80,7 +80,7 @@ const CardsContainer = () => {
         <div className="grid grid-cols-6 gap-1">
             {
                 cardsData.map((item) => {
-                    return <Card data={item} />
+                    return <Card name={item.title} image={{}}/>
                 })
             }
         </div>

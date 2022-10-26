@@ -4,18 +4,13 @@ import { useParams } from "react-router-dom";
 
 
 interface Props {
-    data:{
-        title: string;
-    }
+    name: any
+    image: React.CSSProperties
 }
-const Card = ({data}:Props) => {
-
-    const {category} = useParams();
-    console.log(category);
-    
+const Card = ({name , image}:Props) => {
     return (
-        <div className={style.container}>
-            <h1>{data.title}</h1>
+        <div className={`${style.container} text-white`} style={image}>
+            <h1>{name}</h1>
         </div>
     );
 }
