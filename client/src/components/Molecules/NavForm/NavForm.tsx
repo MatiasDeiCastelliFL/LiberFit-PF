@@ -3,7 +3,7 @@ import { useParams, useLocation, Link } from "react-router-dom";
 import style from "./NavBar.module.css"
 import { ChatBubbleBottomCenterIcon, BanknotesIcon } from "@heroicons/react/24/outline";
 
-const NavBar = () => {
+const NavForm = () => {
     const links = [
         {name:"home",link:"/home"},
         {name:"about",link:"/about"},
@@ -52,4 +52,4 @@ const NavBar = () => {
     )
 }
 
-export default NavBar
+export default NavForm
