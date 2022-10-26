@@ -10,7 +10,11 @@ interface Props {
 const Card = ({name , image}:Props) => {
     return (
         <div className={`${style.container} text-white`} style={image}>
-            <h1>{name}</h1>
+            <div className={style.hoverName}>
+                <h1 className={style.name}>
+                    {name}
+                </h1>
+            </div>
         </div>
     );
 }

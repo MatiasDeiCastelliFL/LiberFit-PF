@@ -46,26 +46,4 @@ const CardsContent = () => {
   );
 };
 
-<<<<<<< HEAD
-    const {category} = useParams();
-
-
-    return (
-        (!category) ? (
-        <div className={`${style.container} m-5`}>
-            {
-                data.map((item) => {
-                    return <Link to={`${item.category}`}> <CategoryCard data={item} /> </Link>
-                })
-            }
-            <CardsContainer />
-        </div>) : (
-            null
-        )
-    );
-}
-
-export default CardsContent;
-=======
 export default CardsContent
->>>>>>> 7de8a474802fe50d2df7e070466d4fa64ebdffab
