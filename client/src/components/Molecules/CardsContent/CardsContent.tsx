@@ -38,8 +38,9 @@ const CardsContent = () => {
                     return <Link to={`${item.category}`}> <CategoryCard data={item} /> </Link>
                 })
             }
-        </div>) : (
             <CardsContainer />
+        </div>) : (
+            null
         )
     );
 }

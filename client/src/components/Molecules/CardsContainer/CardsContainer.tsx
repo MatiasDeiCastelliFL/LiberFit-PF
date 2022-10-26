@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../../Atoms/Card/Card";
+import Json from "./gim.json";
 
 const cardsData = [
     {
@@ -65,6 +66,16 @@ const cardsData = [
 ]
 
 const CardsContainer = () => {
+
+
+    // const sedes = Json[0].sedes;
+    const sedes = Json[0].sedes
+  const maquinas = sedes.map(sede => sede.maquinas).flat()
+  const clases = sedes.map(sede => sede.clases)
+  const productos =sedes.map(sede => sede.productos)
+
+  console.log(maquinas)
+
     return (
         <div className="grid grid-cols-6 gap-1">
             {
