@@ -17,10 +17,8 @@ export function validate(input: any) {
         errors.arreglo.push("Ingrese solo letras en el campo nombre.");
     }
 
-  if (input.email) {
-    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3})+$/.test(input.email)) {
-      errors.arreglo.push ( "Email incorrecto, por favor ingrese caracteres validos.");
-    }
+
+   
 
     if (input.email) {
         if(!ValidacionEmail.exec(input.email)){
@@ -45,5 +43,4 @@ export function validate(input: any) {
     }
    
     return errors;
-}
 }
