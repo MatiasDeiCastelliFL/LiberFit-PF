@@ -2,3 +2,7 @@
     box-sizing: border-box;
     padding: 1rem;
 }
+
+.cardsDiv{
+    flex-wrap: wrap;
+}

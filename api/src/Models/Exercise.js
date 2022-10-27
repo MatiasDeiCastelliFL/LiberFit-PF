@@ -1,28 +1,27 @@
-import { Sequelize, Model, DataTypes } from 'sequelize'
-import db from '../db'
+import { DataTypes } from 'sequelize'
 
-interface TrainingAttributes {
-    id: number
-    idClient: number
-    name: string
-    image: string
-    timeSlot: string
-  }
-  
-  export class TrainingInstance extends Model<TrainingAttributes> {}
-  
-  TrainingInstance.init(
+module.exports = (sequelize) => {
+  sequelize.define(
+    'exercise',
     {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
       },
-      idClient: {
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      repetition: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      name: {
+      series: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      video: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -30,14 +29,14 @@ interface TrainingAttributes {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      timeSlot: {
+      muscle: {
         type: DataTypes.STRING,
         allowNull: false,
-      }
+      },
     },
     {
       sequelize: db,
-      tableName: 'training',
-      freezeTableName: true
+      freezeTableName: true,
     }
   )
+}

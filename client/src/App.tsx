@@ -3,6 +3,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { Landing, Home } from "./page/Index";
 import CardsCategory from "./components/Molecules/CardCategory/CardsCategory";
+import LoginForm from "./components/Molecules/LoginForm/LoginForm";
 
 
 
@@ -21,6 +22,8 @@ function App() {
         >
           <Route path="/home/:category" element={<CardsCategory />} />
         </Route>
+
+        <Route path="/login" element={<LoginForm />} />
       </Routes>
     </div>
   );
