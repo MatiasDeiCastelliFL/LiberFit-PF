@@ -9,6 +9,5 @@ const db = new Sequelize(
     logging: false,
   }
 )
-Location
 
 export default db
