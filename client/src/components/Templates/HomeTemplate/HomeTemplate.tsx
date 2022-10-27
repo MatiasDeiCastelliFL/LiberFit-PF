@@ -7,14 +7,21 @@ import BreadCrumbs from "../../Atoms/BreadCrumbs/BreadCrumbs";
 import SideBar from "../../Organisms/SideBar/SideBar";
 import Content from "../../Atoms/Filters/Content";
 import NavBar from "../../Organisms/Navbar/NavBar";
+import Modal from "../../Molecules/Modal/Modal";
 
-function HomeTemplate() {
+interface Props {
+  handle : any
+  name : any
+}
+
+function HomeTemplate({handle, name}:Props) {
   const params = useParams();
   return (
     <div>
       <div className="flex flex-row">
-        <SideBar/>
+        <SideBar handle={handle} setName={name}/>
         <NavBar/>
+        <Modal/>
       </div>
       
       <Anuncio />

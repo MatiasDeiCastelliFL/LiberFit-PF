@@ -1,17 +1,17 @@
-import { Model, DataTypes } from 'sequelize'
+import { Sequelize, Model, DataTypes } from 'sequelize'
 import db from '../db'
-// TODO review LOcation methods for data Base
-// TODO create associations
-interface LocationAttributes {
+
+interface GymAttributes {
   id: any
   name: string
-  address: string
+  email: string
   phone: string
+  image: string
 }
 
-class LocationInstance extends Model<LocationAttributes> {}
+export class GymInstance extends Model<GymAttributes> {}
 
-LocationInstance.init(
+GymInstance.init(
   {
     id: {
       type: DataTypes.UUID,
@@ -23,20 +23,23 @@ LocationInstance.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     phone: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    address: {
+    image: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+
   },
   {
     sequelize: db,
-    tableName: 'location',
+    tableName: 'gym',
     freezeTableName:true
   }
 )
-
-export default LocationInstance

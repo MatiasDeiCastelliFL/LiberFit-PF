@@ -1,28 +1,50 @@
-export function validate(input:any) {
-    console.log(input.name)
-  // ,email:string,phone:string,password:string,image:string
-  let errors = {
-    name: "",
-    email: "",
-    phone: "",
-    password: "",
-    account: "",
-    image: "",
-  };
+export function validate(input: any) {
+   
+    let errors = {
+        arreglo: new Array()
+    };
 
-  if (!input.name) {
-    errors.name = "Nombre es requerido.";
-  } else if (!/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/.test(input.name)) {
-    errors.name = "Ingrese solo letras en el campo nombre.";
-  }
+    //valida que sea solo numero
+    let valoresAceptados = /^[0-9]+$/;
+    
+    //expresion regular que sirve para validar que sea de tipo email
+    let ValidacionEmail=/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
+<<<<<<< HEAD
+    if (!input.name) {
+        errors.arreglo.push("Nombre es requerido.");
+    } else if (!/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/.test(input.name)) {
+        errors.arreglo.push("Ingrese solo letras en el campo nombre.");
+=======
   if (input.email) {
-    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(input.email)) {
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3})+$/.test(input.email)) {
       errors.email = "Email incorrecto, por favor ingrese caracteres validos.";
+>>>>>>> 0f92aa917326a84fd30c639c05b8e97f6b3e7cef
     }
-  } else {
-    errors.email = "Email es requerido.";
-  }
-    console.log(errors);
-  return errors;
+
+    if (input.email) {
+        if(!ValidacionEmail.exec(input.email)){
+            errors.arreglo.push("Email incorrecto, por favor ingrese caracteres validos.");
+        }
+      
+    } else {
+
+        errors.arreglo.push("Email es requerido.");
+    }
+
+    if(input.phone){
+        if (!input.phone.match(valoresAceptados)){
+            errors.arreglo.push("Ingrese solo numero.");
+        } 
+    }else{
+        errors.arreglo.push("El numero de telefono es requerido.");
+    }
+
+    if(!input.password){
+        errors.arreglo.push("La password es requerida.");
+    }
+   
+    return errors;
 }
+
+
