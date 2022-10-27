@@ -1,5 +1,4 @@
-const { DataTypes } = require("sequelize");
-
+const {DataTypes}= require('sequelize')
 module.exports = (sequelize) => {
   sequelize.define(
     'Locacions',
@@ -25,24 +24,7 @@ module.exports = (sequelize) => {
     },
     {
       freezeTableName: true,
-      timestamps: false,
+      timestamps: false
     }
   )
 }
-/* 
-
-module.exports = (sequelize) => {
-  sequelize.define(
-    'gym',
-    {
-      
-    },
-    {
-      sequelize: db,
-      tableName: 'employees',
-      freezeTableName: true,
-    }
-  )
-}
-
-*/

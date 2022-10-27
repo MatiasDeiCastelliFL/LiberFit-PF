@@ -3,7 +3,7 @@ const axios = require("axios");
 
 const api= require("./gym.json")
 
-export const getApi = async(req,res)=>{
+const getApi = async(req,res)=>{
     
     try {
    
@@ -15,4 +15,5 @@ export const getApi = async(req,res)=>{
 
 }
 
+module.exports = {getApi}
 
