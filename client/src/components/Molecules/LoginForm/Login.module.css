@@ -1,0 +1,28 @@
+/* <div className=" flex justify-center items-center">
+        // <div className="h-96 w-96 bg-red-600 bg-opacity-10 relative z-2 rounded-3xl shadow-5xl border-3 border-redGray">
+        //     <form onSubmit={handleSubmit}  className="h-full flex flex-col justify-evenly items-center ">
+        //         <div className="font-poppins text-xl tracking-wider" >Login Form</div>
+        //         <div>
+        //             <span></span>
+        //             <input onChange={handleChange} value={input.username} type="username" name="username" placeholder="username.." className="font-poppins bg-transparent focus:outline-none border-b-2 border-white tracking-wider" />
+        //         </div>
+        //         <div>
+        //             <span></span>
+        //             <input onChange={handleChange} value={input.password} type="password" name="password" placeholder="password.." className="font-poppins bg-transparent focus:outline-none border-b-2 border-white tracking-wider" />
+        //         </div>
+        //         <BtnLogin />
+        //     </form>
+        //     <div className="flex justify-around items-center">
+        //        <div className="bg-blue-500 py-2 px-4 text-white">
+        //           <i className="fab fa-facebook-f"><span>Facebook</span></i>
+        //        </div>
+        //        <div className="bg-white py-2 px-4">
+        //           <i className="fab fa-instagram"><span>Google</span></i>
+        //        </div>
+        //     </div>
+        //     <div className="flex justify-around items-center pt-4">
+        //         <span>Don't have account?</span> 
+        //         <Link to="" className="border-b-2 border-redGray">Signup Now</Link>
+        //     </div>
+        // </div>
+        // </div> */
