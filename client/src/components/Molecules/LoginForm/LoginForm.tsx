@@ -10,6 +10,19 @@ interface Inp {
     password: string 
 }
 const LoginForm = () => {
+
+    const validate = (input: Inp) => {
+        const errors = {}
+        if (!input.username) errors
+
+        return errors
+    }
+
+    const [errors, setErrors] = useState<Inp>({
+        username: "",
+        password: ""
+    })
+
     const [input, setInput] = useState<Inp>({
         username: "",
         password: ""
@@ -17,10 +30,17 @@ const LoginForm = () => {
     console.log(input)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInput({
-            ...input,
-            [e.target.name] : e.target.value
+        setInput((input) =>{
+            return {
+                ...input,
+                [e.target.name] : e.target.value
+            }
         })
+        // setErrors(validate({
+        //     ...input,
+        //     [e.target.name] : e.target.value
+        // }))
+        console.log(input)
     }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) =>{
@@ -38,7 +58,7 @@ const LoginForm = () => {
                         <span className="text-green-500 text-2xl px-2">Liberfit</span>Gym
                     </div>
                     <div className="py-4">
-                        <h2 className="text-3xl font-bold text-green-500">Sing in to Account</h2>
+                        <h2 className="text-3xl font-bold text-green-500">Sign in to Account</h2>
                         <div className="border-2 w-14 border-green-500 inline-block mb-2"></div>
                     </div>
                     <div className="flex justify-center my-2">
@@ -68,8 +88,8 @@ const LoginForm = () => {
                             </label>
                             <Link to="" className="text-xs">Forgot Password?</Link>
                         </div>
-                        <Link to="" className="border-2 border-green-500 rounded-full px-10 py-2 inline-block font-semibold 
-                        hover:bg-green-600 hover:text-white">Sing Up</Link>
+                        <Link to="/signup" className="border-2 border-green-500 rounded-full px-10 py-2 inline-block font-semibold 
+                        hover:bg-green-600 hover:text-white">Sign in</Link>
                     </div>
                  </div>
                 {/* Sing un */}
@@ -77,8 +97,8 @@ const LoginForm = () => {
                         <h2 className="text-3xl font-bold mb-2">Hello, Friend!</h2>
                         <div className="border-2 w-10 border-whithe inline-block mb-2"></div>
                         <p className="mb-2">Empieza Tu nueva Rutina y cambia tu vida...</p>
-                        <Link to="" className="border-2 border-white rounded-full px-10 py-2 inline-block font-semibold 
-                        hover:bg-white hover:text-green-600">Sing Up</Link>
+                        <Link to="/signup" className="border-2 border-white rounded-full px-10 py-2 inline-block font-semibold 
+                        hover:bg-white hover:text-green-600">Sign up</Link>
                     </div>
             </div>
         </div>

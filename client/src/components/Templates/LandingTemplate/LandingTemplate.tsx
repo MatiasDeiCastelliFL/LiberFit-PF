@@ -7,14 +7,14 @@ import { Link } from "react-router-dom";
 
 function LandingTemplate() {
   return (
-    <div className="bg-landing w-max h-max object-cover bg-cover select-none overflow-hidden">
+    <div className="bg-landing w-max h-max xl:h-screen object-cover bg-cover select-none overflow-hidden">
       <div className="z-50 2xl:ml-0 lg:ml-10">
         <div className="flex justify-center">
-          <div className="2xl:mt-72 lg:mt-64 absolute z-0 ">
+          <div className="2xl:mt-72 xl:mt-44 lg:mt-64  xl:w-custom_3 absolute z-0 ">
             <img src={Elipse} alt="Elipse" />
           </div>
-          <div className="z-10 2xl:mt-28 absolute lg:mt-16">
-            <img className="" src={Person} alt="person" />
+          <div className="z-10 2xl:mt-28 xl:mt-14 xl:w-72 absolute lg:mt-16">
+            <img src={Person} alt="person" />
           </div>
           <div className="container z-20">
             <span className="w-custom_1 h-custom_1 bg-redGray  2xl:translate-y-custom absolute 2xl:left-custom lg:translate-y-mobile_6 lg:left-mobile_6 xl:left-mobile_12 xl:translate-y-mobile_6"></span>
@@ -22,7 +22,7 @@ function LandingTemplate() {
 
           <div className="container z-30">
             <Link to="/home">
-              <span className="w-custom_2 h-custom_2 bg-redClare 2xl:translate-y-custom_2 absolute 2xl:left-custom_2 lg:translate-y-mobile_5 lg:left-mobile_5 xl:left-mobile_11 xl:translate-y-mobile_8">
+              <span className=" w-custom_2 h-custom_2 bg-redClare 2xl:translate-y-custom_2 absolute 2xl:left-custom_2 lg:translate-y-mobile_5 lg:left-mobile_5 xl:left-mobile_11 xl:translate-y-mobile_8">
                 <div className={Styles.title}>
                   <h2 className="font-poppins font-extrabold text-white">
                     CLICK
@@ -33,8 +33,8 @@ function LandingTemplate() {
           </div>
 
           <div className="font-poppins font-extrabold text-90 z-50 text-white">
-            <p className="absolute 2xl:left-custom_3 2xl:translate-y-custom_3 lg:translate-y-mobile_1 lg:left-mobile_1 xl:left-mobile_6 xl:translate-y-mobile_1">TU</p>
-            <p className="absolute 2xl:left-custom_4 2xl:translate-y-custom_4 lg:translate-y-mobile_2 lg:left-mobile_2 xl:left-mobile_8 xl:translate-y-mobile_7">MUNDO</p>
+            <p className="absolute 2xl:left-custom_3 2xl:translate-y-custom_3 lg:translate-y-mobile_1 lg:left-mobile_1 xl:left-mobile_13 xl:text-80 xl:translate-y-mobile_1">TU</p>
+            <p className="absolute 2xl:left-custom_4 2xl:translate-y-custom_4 lg:translate-y-mobile_2 lg:left-mobile_2 xl:left-mobile_8 xl:text-80 xl:translate-y-mobile_7">MUNDO</p>
             <p className="absolute 2xl:left-custom_5 2xl:translate-y-custom_5 lg:translate-y-mobile_3 lg:left-mobile_3 xl:left-mobile_9 xl:translate-y-mobile_3">
               FIT<span className="text-redClare">NES</span>
             </p>
@@ -43,7 +43,7 @@ function LandingTemplate() {
             </p>
           </div>
         </div>
-      </div>
+    </div>
     </div>
   );
 }
