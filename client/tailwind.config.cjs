@@ -39,6 +39,7 @@ module.exports = {
         custom_2: "21.4rem",
         sidebar: "18.688rem",
         input: "17.75rem",
+        custom_3: "33rem"
       },
       height: {
         max: "100vh",
@@ -59,14 +60,14 @@ module.exports = {
         custom_5: "41rem",
         custom_6: "45rem",
         custom_7: "-0.375rem",
-        mobile_1: '28rem',
+        mobile_1: '19rem',
         mobile_2: '33rem',
-        mobile_3: '38.5rem',
-        mobile_4: '42.5rem',
+        mobile_3: '29rem',
+        mobile_4: '33.1rem',
         mobile_5: '39rem',
-        mobile_6: '36.5rem',
-        mobile_7: '33.5rem',
-        mobile_8: '38.9rem',
+        mobile_6: '27rem',
+        mobile_7: '24rem',
+        mobile_8: '28.1rem',
       },
       inset: {
         custom: "41rem",
@@ -82,16 +83,19 @@ module.exports = {
         mobile_5: '31.5rem',
         mobile_6: '14.5rem',
         mobile_7: '14.5rem',
-        mobile_8: '10rem',
+        mobile_8: '18rem',
         mobile_9: '15rem',
         mobile_10: '22rem',
         mobile_11: '39rem',
-        mobile_12: '23.4rem'
+        mobile_12: '23.4rem',
+        mobile_13: "22rem"
       },
       fontSize: {
         90: "90px",
         51: "51px",
         12: "12px",
+        30: "30px",
+        80: "80px"
       },
     },
   },
