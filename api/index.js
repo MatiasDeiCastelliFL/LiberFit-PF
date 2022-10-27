@@ -1,11 +1,8 @@
-import server from './src/app'
-import db from './src/db'
+import server from './src/app.js'
+import dotenv from 'dotenv'
+dotenv.config()
 const { PORT } = process.env
 
-
-db.sync().then(() => {
-	console.log("connect to db");
-});
 
 server.listen(PORT, () => {
 	console.log("server is running on port " + PORT);
