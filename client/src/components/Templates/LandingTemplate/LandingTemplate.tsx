@@ -7,36 +7,38 @@ import { Link } from "react-router-dom";
 
 function LandingTemplate() {
   return (
-    <div className="bg-landing w-max h-max object-cover bg-cover z-0 select-none">
-      <div className="z-50">
+    <div className="bg-landing w-max h-max object-cover bg-cover select-none overflow-hidden">
+      <div className="z-50 2xl:ml-0 lg:ml-10">
         <div className="flex justify-center">
-          <div className="mt-72 absolute z-0">
+          <div className="2xl:mt-72 lg:mt-64 absolute z-0 ">
             <img src={Elipse} alt="Elipse" />
           </div>
-          <div className="z-10 mt-28 absolute">
-            <img src={Person} alt="" />
+          <div className="z-10 2xl:mt-28 absolute lg:mt-16">
+            <img className="" src={Person} alt="person" />
           </div>
           <div className="container z-20">
-            <span className="w-custom_1 h-custom_1 bg-redGray  translate-y-custom absolute left-custom"></span>
+            <span className="w-custom_1 h-custom_1 bg-redGray  2xl:translate-y-custom absolute 2xl:left-custom lg:translate-y-mobile_6 lg:left-mobile_6 xl:left-mobile_12 xl:translate-y-mobile_6"></span>
           </div>
 
           <div className="container z-30">
             <Link to="/home">
-              <span className="w-custom_2 h-custom_2 bg-redClare translate-y-custom_2 absolute left-custom_2">
+              <span className="w-custom_2 h-custom_2 bg-redClare 2xl:translate-y-custom_2 absolute 2xl:left-custom_2 lg:translate-y-mobile_5 lg:left-mobile_5 xl:left-mobile_11 xl:translate-y-mobile_8">
                 <div className={Styles.title}>
-                  <h2 className="font-poppins font-extrabold text-white">CLICK</h2>
+                  <h2 className="font-poppins font-extrabold text-white">
+                    CLICK
+                  </h2>
                 </div>
               </span>
             </Link>
           </div>
 
           <div className="font-poppins font-extrabold text-90 z-50 text-white">
-            <p className="absolute left-custom_3 translate-y-custom_3">TU</p>
-            <p className="absolute left-custom_4 translate-y-custom_4">MUNDO</p>
-            <p className="absolute left-custom_5 translate-y-custom_5">
+            <p className="absolute 2xl:left-custom_3 2xl:translate-y-custom_3 lg:translate-y-mobile_1 lg:left-mobile_1 xl:left-mobile_6 xl:translate-y-mobile_1">TU</p>
+            <p className="absolute 2xl:left-custom_4 2xl:translate-y-custom_4 lg:translate-y-mobile_2 lg:left-mobile_2 xl:left-mobile_8 xl:translate-y-mobile_7">MUNDO</p>
+            <p className="absolute 2xl:left-custom_5 2xl:translate-y-custom_5 lg:translate-y-mobile_3 lg:left-mobile_3 xl:left-mobile_9 xl:translate-y-mobile_3">
               FIT<span className="text-redClare">NES</span>
             </p>
-            <p className="absolute left-custom_6 translate-y-custom_6 text-51">
+            <p className="absolute 2xl:left-custom_6 2xl:translate-y-custom_6 text-51 lg:translate-y-mobile_4 lg:left-mobile_4 xl:left-mobile_10 xl:translate-y-mobile_4">
               A UN SOLO
             </p>
           </div>
