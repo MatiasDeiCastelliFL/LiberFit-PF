@@ -1,17 +1,18 @@
-import {
-  Sequelize,
-  DataTypes,
-} from 'sequelize'
-
+import { Model, DataTypes } from 'sequelize'
+import db from '../db'
+// TODO review LOcation methods for data Base
+// TODO create associations
 interface LocationAttributes {
-  id: string
-  name:string
+  id: any
+  name: string
   address: string
   phone: string
 }
 
-export default (sequelize:Sequelize) => {
-  sequelize.define('location', {
+class LocationInstance extends Model<LocationAttributes> {}
+
+LocationInstance.init(
+  {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -30,5 +31,12 @@ export default (sequelize:Sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-  })
-}
+  },
+  {
+    sequelize: db,
+    tableName: 'location',
+    freezeTableName:true
+  }
+)
+
+export default LocationInstance

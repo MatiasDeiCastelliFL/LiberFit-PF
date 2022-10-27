@@ -1,0 +1,12 @@
+###
+GET http://localhost:3001/machine
+###
+POST http://localhost:3001/machine
+Content-Type: application/json
+
+{ 
+  "name":"pesas",
+  "image":"https://ui-avatars.com/api/?name=Elon+Musk",
+  "muscle":"brazos"
+} 
+
