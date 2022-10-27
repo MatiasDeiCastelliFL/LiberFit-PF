@@ -10,8 +10,6 @@ server.use(cors());
 
 server.set ('port', 3004 || process.env.PORT)
 
-
-
 server.use(morgan("dev"));
 server.use(express.json());
 server.use(express.urlencoded({extended:true}));
