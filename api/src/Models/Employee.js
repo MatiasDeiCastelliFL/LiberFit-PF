@@ -1,8 +1,8 @@
-const {DataTypes}= require('sequelize')
+const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    'employees',
+    'Employees',
     {
       id: {
         allowNull: false,

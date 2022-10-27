@@ -3,7 +3,6 @@ const path =require('path')
 const fs = require("fs")
 require('dotenv').config();
 
- 
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env
 const sequelize =  new Sequelize(
 	`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/gym`,
@@ -30,22 +29,22 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // Traemos los modelos:
 const { 
-  clients, 
-  employees, 
-  exercises, 
-  gyms, 
-  locacions, 
-  machines, 
-  owners, 
-  products, 
-  rols, 
-  rutines, 
-  subscriptions, 
-  trainings } = sequelize.models;
+  Clients, 
+  Employees, 
+  Exercises, 
+  Gyms, 
+  Locacions, 
+  Machines, 
+  Owners, 
+  Products, 
+  Rols, 
+  Rutines, 
+  Subscriptions, 
+  Trainings } = sequelize.models;
 
 // Declaramos las relaciones:
-
-
+Locacions.belongsToMany(Clients, { through: 'LocationClient' });
+Clients.belongsToMany(Locacions, { through: 'LocationClient' });
 
 module.exports= {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

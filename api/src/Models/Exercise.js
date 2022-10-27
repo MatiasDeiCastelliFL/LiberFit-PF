@@ -2,7 +2,7 @@ const {DataTypes}= require('sequelize')
 
 module.exports = (sequelize) => {
   sequelize.define(
-    'exercise',
+    'Exercises',
     {
       id: {
         type: DataTypes.INTEGER,
@@ -36,7 +36,7 @@ module.exports = (sequelize) => {
     },
     {
       freezeTableName: true,
-      timestamps: false
+      timestamps: false,
     }
   )
 }
