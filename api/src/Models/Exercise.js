@@ -2,23 +2,34 @@ import { DataTypes } from 'sequelize'
 
 module.exports = (sequelize) => {
   sequelize.define(
-    'locations',
+    'exercise',
     {
       id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
       },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      phone: {
+      repetition: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      series: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      video: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      address: {
+      image: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      muscle: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -29,20 +40,3 @@ module.exports = (sequelize) => {
     }
   )
 }
-/* 
-
-module.exports = (sequelize) => {
-  sequelize.define(
-    'gym',
-    {
-      
-    },
-    {
-      sequelize: db,
-      tableName: 'employees',
-      freezeTableName: true,
-    }
-  )
-}
-
-*/
