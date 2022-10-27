@@ -1,6 +1,7 @@
 const { Sequelize } =require('sequelize')
 const path =require('path')
-const fs = require("fs")
+const fs = require("fs");
+const Rutine = require('./Models/Rutine');
 require('dotenv').config();
 
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env
@@ -74,17 +75,23 @@ Rutines.belongsToMany(Trainings, { through: 'TrainingsRutines' })
 Clients.belongsToMany(Employees, { through: 'ClientsEmployees' })
 Employees.belongsToMany(Clients, { through: 'ClientsEmployees' })
 
-Clients.belongsToMany(Payments)
+Clients.hasMany(Payments)
 Payments.belongsTo(Clients)
 
 Clients.belongsTo(Subscriptions)
-Subscriptions.belongsToMany(Clients)
+Subscriptions.hasMany(Clients)
 
-Clients.hasOne(Rutines)
-Rutines.hasMany(Clients)
+Clients.hasMany(Rutines)
+Rutines.belongsTo(Clients)
 
 Rutines.belongsToMany(Exercises, { through: 'RutinesExercises' })
 Exercises.belongsToMany(Rutines, { through: 'RutinesExercises' })
+
+Employees.hasMany(Rutines)
+Rutines.belongsTo(Employees)
+
+Employees.belongsToMany(Rols, { through: 'EmployeesRols' })
+Rols.belongsToMany(Employees, { through: 'EmployeesRols' })
 
 
 
