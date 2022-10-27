@@ -1,18 +1,20 @@
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
 const BreadCrums = () => {
     let location = useLocation();
-
-
     return (
-        <div>
+        <div className="flex">
             {
                 location.pathname.split("/").map((item, index) => {
                     return (
-                        <Link to={(item==='home')?'/home':item} key={index}>
-                            {item}
-                        </Link>
+                            <div className="flex gap-0">
+                                {item !== "" ? <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" /> : null}
+                                <Link to={(item==='home')?'/home':item} key={index} className={location.pathname.split("/")[location.pathname.split("/").length - 1]===item?`text-redClare`:`text-black`}>
+                                    {item}
+                                </Link>
+                            </div>
                     )
                 })
             }
