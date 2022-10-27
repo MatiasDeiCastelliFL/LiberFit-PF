@@ -13,7 +13,7 @@ import productos from "../../../assets/IMG/fondo-productos.png";
 const CardsContent = () => {
   const data = [
     {
-      category: "Exersices",
+      category: "Exercises",
       image: ejercicios,
     },
     {

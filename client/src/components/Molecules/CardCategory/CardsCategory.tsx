@@ -16,7 +16,7 @@ function CardsCategory() {
       <div className={`${style.container} container w-cards max-h-96 overflow-hidden flex mx-auto overflow-y-auto`}>
         <div className="flex-column justify-center text-center ">
           <h1 className="text-redClare text-3xl font-black font-sans">{category?.toUpperCase()}</h1>
-          {(category !== 'Exersices')?sedes.map((d) => (
+          {(category !== 'Exercises')?sedes.map((d) => (
             <div key={Math.random()} className="flex-column mx-auto gap-5">
                 <h1 className="bg-redClare  text-start text-white font-extrabold text-2xl p-2 m-2">{d.name}</h1>
                 <div className={`${style.cardsDiv} flex w-max gap-5`}>

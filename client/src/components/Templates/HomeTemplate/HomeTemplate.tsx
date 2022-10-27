@@ -8,6 +8,7 @@ import SideBar from "../../Organisms/SideBar/SideBar";
 import Content from "../../Atoms/Filters/Content";
 import NavBar from "../../Organisms/Navbar/NavBar";
 import Modal from "../../Molecules/Modal/Modal";
+import Plan from "../../Molecules/Plan/Plan";
 
 interface Props {
   handle : any
@@ -27,6 +28,7 @@ function HomeTemplate({handle, name}:Props) {
       <Anuncio />
       <BreadCrumbs />
       {params.category ? <CardsCategory /> : <SHom />}
+      <Plan/>
     </div>
   );
 }
