@@ -1,9 +1,9 @@
-import type * as E from 'express';
+
 const axios = require("axios");
 
 const api= require("./gym.json")
 
-export const getApi = async(req:E.Request,res:E.Response)=>{
+export const getApi = async(req,res)=>{
     
     try {
    

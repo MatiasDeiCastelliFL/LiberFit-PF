@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import {getApi} from "../controllers/generalControllers"
+import {getApi} from "../controllers/generalControllers.js"
 
 
 

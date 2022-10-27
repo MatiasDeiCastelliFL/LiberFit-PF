@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import HomeTemplate from "../../components/Templates/HomeTemplate/HomeTemplate";
-import NavBar from "../../components/Molecules/NavForm/NavForm";
-import Anuncio from "../../components/Molecules/Anuncio/Anuncio";
+import { useAppSelector, useAppDispatch } from "../../App/Hooks/Hooks";
+import { getDataByName } from "./../../App/Action/Action";
 
 function Home() {
+  const { filter } = useAppSelector((state) => state);
+  const dispatch = useAppDispatch();
+  const [name, setName] = useState("");
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    if(name.trim().length){
+      dispatch(getDataByName(name))
+      setName('')
+    }
+  };
+
   return (
-      <HomeTemplate />
-  );
+      <HomeTemplate handle={handleSubmit} name={setName}/>
+  )
 }
 
 export default Home;

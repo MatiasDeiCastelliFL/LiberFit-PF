@@ -1,14 +1,16 @@
 import { Model, DataTypes } from 'sequelize'
+// import { Sequelize, Model, DataTypes } from 'sequelize-typescritp'
 import db from '../db'
-interface LocationAttributes {
+
+interface MachineAttributes {
   id: any
   name: string
-  address: string
-  phone: string
+  image: string
+  muscle:string
 }
+class MachineInstance extends Model<MachineAttributes> {}
 
-class LocationInstance extends Model<LocationAttributes> {}
-LocationInstance.init(
+MachineInstance.init(
   {
     id: {
       type: DataTypes.UUID,
@@ -20,21 +22,20 @@ LocationInstance.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    phone: {
+    image: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    address: {
+    muscle: {
       type: DataTypes.STRING,
       allowNull: false,
     },
   },
   {
     sequelize: db,
-    tableName: 'location',
+    tableName: 'machine',
     freezeTableName:true
   }
 )
 
-
-export default LocationInstance
+export default MachineInstance

@@ -1,0 +1,11 @@
+###
+GET http://localhost:3001/locacion
+###
+POST http://localhost:3001/locacion
+Content-Type: application/json
+
+{ 
+  "name":"Ricardo",
+  "address":"rusia",
+  "phone":"123412"
+} 

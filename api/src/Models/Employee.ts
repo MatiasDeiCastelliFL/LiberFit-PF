@@ -4,8 +4,8 @@ import db from '../db'
 interface EmployeeAttributes {
   id:any;
   name: string
-  phone: string
   email:string
+  phone: string
   password: string
   account: boolean
   image: string
@@ -49,5 +49,6 @@ EmployeeInstance.init(
   {
     sequelize: db,
     tableName: 'employees',
+    freezeTableName:true
   }
 )
