@@ -13,7 +13,7 @@ function CardsCategory() {
 
 
   return (
-      <div className={`${style.container} container w-cards max-h-96 overflow-hidden flex mx-auto overflow-y-auto`}>
+      <div className={`${style.container} container w-cards h-custom_4 overflow-hidden flex mx-auto overflow-y-auto`}>
         <div className="flex-column justify-center text-center ">
           <h1 className="text-redClare text-3xl font-black font-sans">{category?.toUpperCase()}</h1>
           {(category !== 'Exercises')?sedes.map((d) => (

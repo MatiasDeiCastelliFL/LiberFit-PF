@@ -10,6 +10,7 @@ module.exports = {
         orange: "#C2410C",
         redClare: "#F87171",
         white: "#FFF",
+        gray_custom: '#9B9B9B'
       },
       fontFamily: {
         poppins: "Poppins",
@@ -29,6 +30,8 @@ module.exports = {
         custom_1: "5.25rem",
         custom_2: "7.391rem",
         73: "4.563rem",
+        custom_3: '31.25rem',
+        custom_4: '34rem'
       },
       blur: {
         default: "30px",

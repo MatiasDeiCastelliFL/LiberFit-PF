@@ -4,14 +4,14 @@ import Filter from "../../Molecules/Filter/Filter";
 import Search from "./../../Atoms/Inputs/Search/Search";
 import style from "./Style/sidebar.module.css";
 
-interface Props{ 
-  handle : any
-  setName: any
+interface Props {
+  handle: any;
+  setName: any;
 }
 
-function SideBar({handle,setName}:Props) {
+function SideBar({ handle, setName }: Props) {
   return (
-    <div className="flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none">
+    <div className="fixed flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none">
       <div className="">
         <div className="mt-5 ml-5">
           <Logo />
@@ -19,10 +19,12 @@ function SideBar({handle,setName}:Props) {
         <div className="w-max h-full flex items-center flex-col mt-28">
           <div className="mb-10">
             <form onSubmit={handle}>
-                <Search Placeholder="Search" setName={setName}/>
+              <Search Placeholder="Search" setName={setName} />
             </form>
           </div>
-          <Filter />
+          <div className="w-full overflow-y-visible h-full">
+            <Filter />
+          </div>
         </div>
       </div>
       <div className="border-t border-redGray w-max h-73 flex flex-row">

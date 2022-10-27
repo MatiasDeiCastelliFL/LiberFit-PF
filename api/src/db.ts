@@ -9,15 +9,6 @@ const db = new Sequelize(
     logging: false,
   }
 )
-
-import LocationInstance from './Models/Locacion'
-import MachineInstance from './Models/Machine'
-
-//Declaramos las relaciones.
-// LocationInstance.belongsTo(MachineInstance, { targetKey: 'id' })
-// MachineInstance.hasMany(LocationInstance, { sourceKey: 'id' })
-
-// LocationInstance.hasMany(MachineInstance)
-// MachineInstance.belongsTo(LocationInstance)
+Location
 
 export default db
