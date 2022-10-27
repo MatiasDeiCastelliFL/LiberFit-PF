@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize'
 
 module.exports = (sequelize) => {
   sequelize.define(
-    'locations',
+    'machines',
     {
       id: {
         allowNull: false,
@@ -14,11 +14,11 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      phone: {
+      image: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      address: {
+      muscle: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -29,20 +29,5 @@ module.exports = (sequelize) => {
     }
   )
 }
-/* 
 
-module.exports = (sequelize) => {
-  sequelize.define(
-    'gym',
-    {
-      
-    },
-    {
-      sequelize: db,
-      tableName: 'employees',
-      freezeTableName: true,
-    }
-  )
-}
 
-*/

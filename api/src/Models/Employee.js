@@ -2,23 +2,23 @@ import { DataTypes } from 'sequelize'
 
 module.exports = (sequelize) => {
   sequelize.define(
-    'employee',
+    'employees',
     {
       id: {
         allowNull: false,
         primaryKey: true,
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4, // I expected this set the column default
+        defaultValue: DataTypes.UUIDV4,
       },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      email: {
+      phone: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      phone: {
+      email: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -37,7 +37,6 @@ module.exports = (sequelize) => {
     },
     {
       sequelize: db,
-      tableName: 'employees',
       freezeTableName: true,
     }
   )
