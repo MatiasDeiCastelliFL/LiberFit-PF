@@ -1,7 +1,7 @@
-import { DataTypes } from 'sequelize';
+const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  sequelize.define('rutines', {
+  sequelize.define('Rutines', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,

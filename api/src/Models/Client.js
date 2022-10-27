@@ -1,8 +1,8 @@
-const { DataTypes } = require('sequelize')
+const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    'clients',
+    'Clients',
     {
       id: {
         allowNull: false,
@@ -36,8 +36,8 @@ module.exports = (sequelize) => {
       },
     },
     {
-      sequelize: db,
       freezeTableName: true,
+      timestamps: false
     }
   )
 }

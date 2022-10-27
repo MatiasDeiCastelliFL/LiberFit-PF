@@ -1,8 +1,7 @@
-import { DataTypes } from 'sequelize'
-
+const {DataTypes}= require('sequelize')
 module.exports = (sequelize) => {
   sequelize.define(
-    'machines',
+    'Machines',
     {
       id: {
         allowNull: false,
@@ -24,8 +23,8 @@ module.exports = (sequelize) => {
       },
     },
     {
-      sequelize: db,
       freezeTableName: true,
+      timestamps: false
     }
   )
 }

@@ -1,6 +1,6 @@
 import Gym from '../db'
 const crearGym = async (name, email, phone, image) => {
-  const location = await Gym.create({
+  const gym = await Gym.create({
     name,
     email,
     phone,
