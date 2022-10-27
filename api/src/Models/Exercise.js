@@ -1,8 +1,8 @@
-import { DataTypes } from 'sequelize'
+const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    'exercise',
+    'Exercises',
     {
       id: {
         type: DataTypes.INTEGER,
@@ -35,8 +35,8 @@ module.exports = (sequelize) => {
       },
     },
     {
-      sequelize: db,
       freezeTableName: true,
+      timestamps: false,
     }
   )
 }
