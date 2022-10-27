@@ -18,6 +18,7 @@ module.exports = {
   
         '2xl': '1536px',
         // => @media (min-width: 1536px) { ... }
+        '3xl': '1600px'
       },
       colors: {
         redGray: "#FEE2E2",
@@ -39,6 +40,7 @@ module.exports = {
         custom_2: "21.4rem",
         sidebar: "18.688rem",
         input: "17.75rem",
+        swiper: '95.9rem'
       },
       height: {
         max: "100vh",

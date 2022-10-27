@@ -1,12 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import filterReducer from './FeatureSlices/Filters/Filter'
-import contryReducer from './FeatureSlices/Data/Data'
+import modalReducer from './FeatureSlices/Modal/Modal'
 
 
 export const store = configureStore({
     reducer: {
         filter: filterReducer,
-        country: contryReducer
+        modal: modalReducer
+
     }
 })
 

@@ -7,6 +7,7 @@ function Home() {
   const { filter } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
   const [name, setName] = useState("");
+ 
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
