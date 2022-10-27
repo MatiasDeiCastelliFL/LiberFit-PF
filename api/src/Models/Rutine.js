@@ -7,10 +7,6 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
-    idEmployee: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,

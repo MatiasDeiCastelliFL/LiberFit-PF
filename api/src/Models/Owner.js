@@ -6,10 +6,6 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
-    idGym: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,

@@ -40,11 +40,62 @@ const {
   Rols, 
   Rutines, 
   Subscriptions, 
-  Trainings } = sequelize.models;
+  Trainings,
+  Payments } = sequelize.models;
 
 // Declaramos las relaciones:
-Locacions.belongsToMany(Clients, { through: 'LocationClient' });
-Clients.belongsToMany(Locacions, { through: 'LocationClient' });
+Gyms.hasMany(Owners)
+Owners.belongsTo(Gyms)
+
+Locacions.belongsTo(Gyms)
+Gyms.hasMany(Locacions)
+
+Locacions.hasMany(Machines)
+Machines.belongsTo(Locacions)
+
+Locacions.belongsToMany(Products, { through: 'LocacionsProducts' })
+Products.belongsToMany(Locacions, { through: 'LocacionsProducts' })
+
+Locacions.belongsToMany(Trainings, { through: 'LocacionsTrainings' })
+Trainings.belongsToMany(Locacions, { through: 'LocacionsTrainings' })
+
+Locacions.belongsToMany(Clients, { through: 'LocacionsClients' })
+Clients.belongsToMany(Locacions, { through: 'LocacionsClients' })
+
+Locacions.belongsToMany(Employees, { through: 'LocacionsEmployees' })
+Employees.belongsToMany(Locacions, { through: 'LocacionsEmployees' })
+
+Locacions.belongsToMany(Subscriptions, { through: 'LocacionsSubscription' })
+Subscriptions.belongsToMany(Locacions, { through: 'LocacionsSubscription' })
+
+Trainings.belongsToMany(Rutines, { through: 'TrainingsRutines' })
+Rutines.belongsToMany(Trainings, { through: 'TrainingsRutines' })
+
+Clients.belongsToMany(Employees, { through: 'ClientsEmployees' })
+Employees.belongsToMany(Clients, { through: 'ClientsEmployees' })
+
+Clients.belongsToMany(Payments)
+Payments.belongsTo(Clients)
+
+Clients.belongsTo(Subscriptions)
+Subscriptions.belongsToMany(Clients)
+
+Clients.hasOne(Rutines)
+Rutines.hasMany(Clients)
+
+Rutines.belongsToMany(Exercises, { through: 'RutinesExercises' })
+Exercises.belongsToMany(Rutines, { through: 'RutinesExercises' })
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports= {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
