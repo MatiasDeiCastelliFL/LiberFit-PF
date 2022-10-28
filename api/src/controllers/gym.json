@@ -73,31 +73,38 @@
         "products": [
           {
             "name": "Quemador de Grasa",
-            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq"
+            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Guantes",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Remeras",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Musculosa",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Proteinas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Barra de Cereales",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Mancuernas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           }
         ],
         "machines": [
@@ -164,31 +171,38 @@
         "products": [
           {
             "name": "Quemador de Grasa",
-            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq"
+            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Guantes",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Remeras",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Musculosa",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Proteinas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Barra de Cereales",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Mancuernas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           }
         ],
         "machines": [
@@ -243,31 +257,38 @@
         "products": [
           {
             "name": "Quemador de Grasa",
-            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq"
+            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Guantes",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Remeras",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Musculosa",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Proteinas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Barra de Cereales",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Mancuernas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           }
         ],
         "machines": [
@@ -326,31 +347,38 @@
         "products": [
           {
             "name": "Quemador de Grasa",
-            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq"
+            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Guantes",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Remeras",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Musculosa",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Proteinas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Barra de Cereales",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Mancuernas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           }
         ],
         "machines": [
@@ -409,31 +437,38 @@
         "products": [
           {
             "name": "Quemador de Grasa",
-            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq"
+            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Guantes",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Remeras",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Musculosa",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Proteinas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Barra de Cereales",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Mancuernas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           }
         ],
         "machines": [
@@ -476,31 +511,38 @@
         "products": [
           {
             "name": "Quemador de Grasa",
-            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq"
+            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Guantes",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Remeras",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Musculosa",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Proteinas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Barra de Cereales",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Mancuernas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           }
         ],
         "machines": [
@@ -543,31 +585,38 @@
         "products": [
           {
             "name": "Quemador de Grasa",
-            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq"
+            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Guantes",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Remeras",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Musculosa",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Proteinas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Barra de Cereales",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Mancuernas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           }
         ],
         "machines": [
@@ -630,31 +679,38 @@
         "products": [
           {
             "name": "Quemador de Grasa",
-            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq"
+            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Guantes",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Remeras",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Musculosa",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Proteinas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Barra de Cereales",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Mancuernas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           }
         ],
         "machines": [
@@ -714,31 +770,38 @@
         "products": [
           {
             "name": "Quemador de Grasa",
-            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq"
+            "image": "http://d3ugyf2ht6aenh.cloudfront.net/stores/123/325/products/ena-con-intense1-e6ec34bc82543392e916591934035722-640-0.jpgefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Guantes",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Remeras",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Musculosa",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Proteinas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           },
           {
             "name": "Barra de Cereales",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+            "price": 3400
           },
           {
             "name": "Mancuernas",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+            "price": 3400
           }
         ],
         "machines": [
