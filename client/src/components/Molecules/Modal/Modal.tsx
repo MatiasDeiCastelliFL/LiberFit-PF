@@ -4,7 +4,9 @@ import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import Input from "./../../Atoms/Inputs/Modal/Input";
 import Select from "../../Atoms/Inputs/Modal/Select";
 import { useAppDispatch, useAppSelector } from "./../../../App/Hooks/Hooks";
-import { getDataNum } from "./../../../App/Action/Action";
+import { openModal } from "../../../App/Action/Action";
+
+
 
 interface Props {
   active: boolean;
@@ -21,23 +23,16 @@ const inputs = [
 ];
 
 function Modal() {
-  const { country } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
-  const [open, setOpen] = useState(false);
-  const openModal = () => {
-    setOpen(!open);
+  const { modal } = useAppSelector((state) => state);
+  const closeModal = () => {
+    dispatch(openModal(false))
   };
-
-  useEffect(() => {
-    dispatch(getDataNum());
-  }, []);
-
-  let d = country.data
 
  console.log()
   return (
     <>
-      {open ? (
+      {modal.open ? (
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
@@ -48,7 +43,7 @@ function Modal() {
                   <h3 className="text-3xl font-semibold">PASARELA DE PAGO</h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                    onClick={openModal}
+                    onClick={closeModal}
                   >
                     <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
                       ×
@@ -74,14 +69,14 @@ function Modal() {
                   <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={openModal}
+                    onClick={closeModal}
                   >
                     Cerrar
                   </button>
                   <button
                     className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={openModal}
+                    onClick={closeModal}
                   >
                     Continuar
                   </button>

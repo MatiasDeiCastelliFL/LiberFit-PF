@@ -3,6 +3,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { Landing, Home } from "./page/Index";
 import CardsCategory from "./components/Molecules/CardCategory/CardsCategory";
+import Details from "./components/Organisms/Details/Details";
 import LoginForm from "./components/Molecules/LoginForm/LoginForm";
 import SingUp from "./components/Molecules/LoginSignup/LoginSignup";
 
@@ -22,6 +23,7 @@ function App() {
           }}
         >
           <Route path="/home/:category" element={<CardsCategory />} />
+          <Route path="/home/:category/:name" element={<Details />} />
         </Route>
 
         <Route path="/login" element={<LoginForm />} />
