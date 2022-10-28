@@ -5,11 +5,13 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Transition } from "@headlessui/react";
 import { useAppDispatch, useAppSelector } from "./../../../App/Hooks/Hooks";
 import { openFilters } from "./../../../App/Action/Action";
+import { useLocation } from "react-router-dom";
 
 function Filter() {
   const dispatch = useAppDispatch();
+  const location = useLocation()
   const { filter } = useAppSelector((state) => state);
-
+  console.log(location.pathname)
   const open = () => {
     dispatch(openFilters(!filter.open));
   };
