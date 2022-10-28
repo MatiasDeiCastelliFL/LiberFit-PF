@@ -42,7 +42,8 @@ module.exports = {
         custom_4:"30%",
         sidebar: "18.688rem",
         input: "17.75rem",
-        swiper: '95.9rem'
+        swiper: '95.9rem',
+        card: '92rem'
       },
       height: {
         max: "100vh",

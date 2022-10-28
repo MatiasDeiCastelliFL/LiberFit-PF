@@ -3,6 +3,7 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 export interface filterState {
     data: any
     dataByName : any
+    open: boolean
     exercisesByMuscle : any
     dataByPrice : any
 }
@@ -10,6 +11,7 @@ export interface filterState {
 const initialState: filterState = {
     data : [],
     dataByName : [],
+    open: false,
     exercisesByMuscle : [],
     dataByPrice : []
 }
@@ -18,6 +20,9 @@ const filterSlice = createSlice( {
     name: 'filter',
     initialState,
     reducers: {
+        openFilter : (state, action:PayloadAction<any>) => {
+            state.open = action.payload
+        },
         filterDataName : (state , action:PayloadAction<any>) => {
             state.dataByName = action.payload
         },
@@ -35,4 +40,4 @@ const filterSlice = createSlice( {
 
 
 export default filterSlice.reducer
-export const {filterDataName, filterExercisesByMuscles, filterDataPrice} = filterSlice.actions
+export const {filterDataName, filterExercisesByMuscles, filterDataPrice, openFilter} = filterSlice.actions

@@ -2,6 +2,7 @@ import React from "react";
 import { Fragment, useState } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { useParams } from "react-router-dom";
 import {
   ChevronDownIcon,
   FunnelIcon,
@@ -61,14 +62,14 @@ function classNames(...classes: any) {
 
 function Content() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-
+  const params = useParams()
   return (
     <div className="bg-white">
       <div>
         <main className="max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-baseline justify-between  border-gray-200 pb-6">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">
-              New Arrivals
+              {params.category} FILTROS
             </h1>
 
             <div className="flex items-center">
