@@ -1,10 +1,9 @@
 const { Router} = require("express");
 
-const postEmpleado = require("../controllers/employeControllers");
-
+const {postEmpleado,getEmpleado} = require("../controllers/employeControllers");
 const routerEmpleado = Router();
 
 routerEmpleado.post("/empleado", postEmpleado);
-
+routerEmpleado.get("/empleado,",getEmpleado);
 
 module.exports = routerEmpleado;

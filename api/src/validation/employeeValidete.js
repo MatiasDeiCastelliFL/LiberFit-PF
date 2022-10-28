@@ -1,4 +1,6 @@
-export function validate(input) {
+const { prototype } = require("mocha");
+
+function validate(input) {
    
     let errors = {
         arreglo: new Array()
@@ -16,9 +18,6 @@ export function validate(input) {
     } else if (!/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/.test(input.name)) {
         errors.arreglo.push("Ingrese solo letras en el campo nombre.");
     }
-
-
-   
 
     if (input.email) {
         if(!ValidacionEmail.exec(input.email)){
@@ -41,6 +40,6 @@ export function validate(input) {
     if(!input.password){
         errors.arreglo.push("La password es requerida.");
     }
-   
-    return errors;
+    return  errors
 }
+module.exports=validate;
