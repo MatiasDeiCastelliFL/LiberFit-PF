@@ -1,16 +1,17 @@
 const express = require('express')
 const cors = require('cors')
 const morgan = require('morgan')
+ 
 
 const routerGeneral = require('./Routes/general')
 const routerClient = require('./Routes/client')
 const routerEmpleado = require('./Routes/employe')
-const routerExercise = require('./Routes/exercise') // richi
+const routerExercise = require('./Routes/exercise') 
 const routerGym = require('./Routes/gym')
 const routerLocacion = require('./Routes/location')
 const routerMachine = require('./Routes/machine')
 const routerOwner = require('./Routes/owner')
-const routerPayment = require('./Routes/payment') // richi
+const routerPayment = require('./Routes/payment') 
 const routerProduct = require('./Routes/product')
 const routerRol = require('./Routes/rol')
 const routerRutine = require('./Routes/rutine')
