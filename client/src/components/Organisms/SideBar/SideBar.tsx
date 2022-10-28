@@ -84,8 +84,11 @@ function SideBar({ handle, setName, dashboard }: Props) {
           leaveTo="opacity-0 scale-95 "
         >
           <div className="border-t border-redGray w-max h-73 flex flex-row">
+          <Link to="/login">
             <Perfil width="14" />
+          </Link>
             <Items />
+          
           </div>
         </Transition>
       )}

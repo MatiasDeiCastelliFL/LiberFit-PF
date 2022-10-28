@@ -115,14 +115,16 @@ const NavForm = ({ dashboard }: Props) => {
             </div>
           ))
         ) : (
-          <div className="w-max flex flex-row gap-2">
-            <div className="w-max h-73  flex flex-row gap-3">
+          <div className="w-max flex flex-row gap-2 ">
+            <div className="flex flex-row gap-3">
               <div className="flex items-center">
                 <span className="border-l border-redGray h-10"></span>
               </div>
-              <Perfil width="10" />
+              <div>
+                <Perfil width="10" />
+              </div>
             </div>
-            <div className="w-full h-full relative">
+            <div className="h-full relative">
               <Popover>
                 {({ open }) => (
                   <>
