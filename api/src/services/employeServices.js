@@ -1,7 +1,6 @@
 const { Employees } = require('../db')
-
+const {Op}= require("sequelize");
 const crearEmpleado = async (
-   
     name,
     email,
     phone,
@@ -9,7 +8,7 @@ const crearEmpleado = async (
     account,
     image
 ) => {
-  const empleado = await Employees.create({
+  await Employees.create({
     name,
     email,
     phone,
@@ -17,7 +16,32 @@ const crearEmpleado = async (
     account,
     image,
   })
-  console.log(empleado)
+
 }
 
-module.exports = crearEmpleado
+const buscarEmpleadoTotal= async ()=>{
+  
+  const Employee= await Employees.findAll();
+  console.log(Employee);
+  return Employee
+}
+
+const buscarEmpleadoPorNameAndCorreo= async(name,email)=>{
+  const Employee= await Employees.findOne({
+    where:{[Op.and]:[
+      {name:name},
+      {email:email}
+    ]}
+  });
+  return Employee
+}
+
+
+const buscarEmpleadoPorName= async(name)=>{
+  const Employee= await Employees.findOne({
+    where:{name:name}
+  });
+  return Employee
+}
+
+module.exports = {crearEmpleado,buscarEmpleadoTotal,buscarEmpleadoPorNameAndCorreo,buscarEmpleadoPorName}
