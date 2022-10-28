@@ -13,7 +13,7 @@ function LandingTemplate() {
           <div className="2xl:mt-72 xl:mt-44 lg:mt-64  xl:w-custom_3 absolute z-0 ">
             <img src={Elipse} alt="Elipse" />
           </div>
-          <div className="z-10 2xl:mt-28 xl:mt-14 xl:w-72 absolute lg:mt-16">
+          <div className="z-10 2xl:mt-28 xl:mt-14 2xl:w-max flex justify-center xl:w-72 absolute lg:mt-16">
             <img src={Person} alt="person" />
           </div>
           <div className="container z-20">

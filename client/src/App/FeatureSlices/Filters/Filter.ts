@@ -3,11 +3,13 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 export interface filterState {
     data: any
     dataByName : any
+    open: boolean
 }
 
 const initialState: filterState = {
     data : [],
-    dataByName : []
+    dataByName : [],
+    open: false
 }
 
 const filterSlice = createSlice( {

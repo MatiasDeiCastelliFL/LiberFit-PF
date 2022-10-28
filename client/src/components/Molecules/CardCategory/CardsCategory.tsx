@@ -19,7 +19,7 @@ function CardsCategory() {
           {(category !== 'Exercises')?sedes.map((d) => (
             <div key={Math.random()} className="flex-column mx-auto gap-5">
                 <h1 className="bg-redClare  text-start text-white font-extrabold text-2xl p-2 m-2">{d.name}</h1>
-                <div className={`${style.cardsDiv} flex w-max gap-5`}>
+                <div className={`${style.cardsDiv} flex w-swiper gap-5 justify-center`}>
                   {(category?.toLowerCase() === "machines") ? d.machines.map((m) => (
                     <Card name={m.name} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${m.image}')`}} key={m.name} />
                   )) : (category?.toLowerCase() === "trainings") ? d.trainings.map((c) => (
@@ -29,7 +29,7 @@ function CardsCategory() {
                   )) : null}
                 </div>
             </div>)): 
-              <div className={`${style.cardsDiv} flex w-max gap-5`}>
+              <div className={`${style.cardsDiv} flex w-max gap-5 justify-center`}>
                 {Exersices.map((e) => (
                   <Card name={e.name} muscle={e.muscle} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${e.image}')`}} key={e.name} />
                 ))}
