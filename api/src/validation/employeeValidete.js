@@ -2,9 +2,9 @@ const { prototype } = require("mocha");
 
 function validate(input) {
    
-    let errors = {
-        arreglo: new Array()
-    };
+   
+        let errors= new Array()
+  
 
     //valida que sea solo numero
     let valoresAceptados = /^[0-9]+$/;
@@ -14,31 +14,31 @@ function validate(input) {
 
 
     if (!input.name) {
-        errors.arreglo.push("Nombre es requerido.");
+        errors.push("Nombre es requerido.");
     } else if (!/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/.test(input.name)) {
-        errors.arreglo.push("Ingrese solo letras en el campo nombre.");
+        errors.push("Ingrese solo letras en el campo nombre.");
     }
 
     if (input.email) {
         if(!ValidacionEmail.exec(input.email)){
-            errors.arreglo.push("Email incorrecto, por favor ingrese caracteres validos.");
+            errors.push("Email incorrecto, por favor ingrese caracteres validos.");
         }
       
     } else {
 
-        errors.arreglo.push("Email es requerido.");
+        errors.push("Email es requerido.");
     }
 
     if(input.phone){
         if (!input.phone.match(valoresAceptados)){
-            errors.arreglo.push("Ingrese solo numero.");
+            errors.push("Ingrese solo numero.");
         } 
     }else{
-        errors.arreglo.push("El numero de telefono es requerido.");
+        errors.push("El numero de telefono es requerido.");
     }
 
     if(!input.password){
-        errors.arreglo.push("La password es requerida.");
+        errors.push("La password es requerida.");
     }
     return  errors
 }

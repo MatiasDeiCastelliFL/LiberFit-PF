@@ -8,7 +8,7 @@ const postEmpleado =async (req, res)=>{
         const datoValidacion=validate(req.body);
         console.log(datoValidacion)
         
-         if(datoValidacion.arreglo.length>0){
+         if(datoValidacion.length>0){
         
              res.status(404).json(datoValidacion)
         }else{
