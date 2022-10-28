@@ -22,6 +22,8 @@ module.exports = {
         max: "100%",
         custom_1: "30.25rem",
         custom_2: "21.4rem",
+        custom_3:"75vw",
+        custom_4:"30%",
         sidebar: "18.688rem",
         input: "17.75rem",
       },

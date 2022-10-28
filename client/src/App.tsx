@@ -3,6 +3,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { Landing, Home } from "./page/Index";
 import CardsCategory from "./components/Molecules/CardCategory/CardsCategory";
+import Details from "./components/Organisms/Details/Details";
 
 
 
@@ -20,6 +21,7 @@ function App() {
           }}
         >
           <Route path="/home/:category" element={<CardsCategory />} />
+          <Route path="/home/:category/:name" element={<Details />} />
         </Route>
       </Routes>
     </div>
