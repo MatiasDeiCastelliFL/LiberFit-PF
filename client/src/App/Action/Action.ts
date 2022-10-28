@@ -1,8 +1,8 @@
 import axios from "axios";
 import { filterDataName } from "../FeatureSlices/Filters/Filter";
 import Json from '../../assets/gim.json'
-import Prefix from '../../assets/prefijo.json'
 import { getData } from "../FeatureSlices/Data/Data";
+import { modalOpen } from "../FeatureSlices/Modal/Modal";
 
 const data = Json[0].sedes.map(d => d.productos.map(d => d.nombre))
 
@@ -14,6 +14,6 @@ export const getDataByName = (name:any) => (dispatch:any) => {
 }
 
 
-export const getDataNum = () => (dispatch:any) => {
-   
+export const openModal = (active:boolean) => (dispatch:any) => {
+    dispatch(modalOpen(active))
 }

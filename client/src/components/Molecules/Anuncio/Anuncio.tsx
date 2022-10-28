@@ -1,10 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, EffectFade } from "swiper";
-
-
+import { Link } from "react-router-dom";
 
 import React from "react";
-
 
 import "swiper/css/pagination";
 import "swiper/css";
@@ -20,7 +18,7 @@ import anuncio4 from "./gym/anuncio4.jpg";
 
 const Anuncio = () => {
   return (
-    <div className="container ">
+
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -35,25 +33,28 @@ const Anuncio = () => {
         navigation={false}
         modules={[Autoplay, Pagination, Navigation, EffectFade]}
         effect="fade"
-        className={`${style.mySwiper}`}
+        className="w-swiper"
+        
       >
         <SwiperSlide>
-          <img src={anuncio} className='w-full h-52 object-cover '/>
+          <Link to="/">
+            <img src={anuncio} className="w-full h-52 object-cover " />
+          </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={anuncio1}  className='w-full h-52 object-cover ' />
+          <img src={anuncio1} className="w-full h-52 object-cover " />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={anuncio2} className='w-full h-52  object-cover' />
+          <img src={anuncio2} className="w-full h-52  object-cover" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={anuncio3} className='w-full h-52 object-cover' />
+          <img src={anuncio3} className="w-full h-52 object-cover" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={anuncio4}  className='w-full h-52  object-cover'/>
+          <img src={anuncio4} className="w-full h-52  object-cover" />
         </SwiperSlide>
       </Swiper>
-    </div>
+ 
   );
 };
 

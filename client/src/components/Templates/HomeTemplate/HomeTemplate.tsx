@@ -20,7 +20,8 @@ function HomeTemplate({ handle, name }: Props) {
   return (
     <div>
       <div className="flex flex-row">
-        <div className="z-50 flex flex-row">
+        <div className="z-40 flex flex-row">
+          <Modal />
           <SideBar handle={handle} setName={name} />
         </div>
 

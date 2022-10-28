@@ -1,12 +1,22 @@
-import React from "react";
+import React,{useState} from "react";
 import Json from "../../../assets/gym.json";
 import { BoltIcon } from "@heroicons/react/24/outline";
 import gold from "../../../assets/IMG/gold.svg";
 import silver from "../../../assets/IMG/silver.svg";
 import bronze from "../../../assets/IMG/bronze.svg";
+import { useAppDispatch, useAppSelector } from './../../../App/Hooks/Hooks';
+import { openModal } from "../../../App/Action/Action";
+
 
 const Plan = () => {
   const subscription = Json[0].subscriptions;
+  const dispatch = useAppDispatch()
+  const { modal } = useAppSelector((state) => state);
+  const modalOpen = () => {
+    dispatch(openModal(true))
+  }
+
+  console.log(modal.open)
 
   return (
     <div className="flex flex-col justify-center items-center pt-5">
@@ -45,9 +55,9 @@ const Plan = () => {
                 <p className="text-xl font-bold">{item.description}</p>
               </div>
               <div>
-                <button className="bg-white text-redClare p-5 rounded-lg">
+                <button className="bg-white text-redClare p-5 rounded-lg" onClick={modalOpen}>
                   Subscribe
-                </button>
+                </button >
               </div>
             </div>
           );
