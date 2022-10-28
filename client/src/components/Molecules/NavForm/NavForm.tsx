@@ -115,28 +115,25 @@ const NavForm = ({ dashboard }: Props) => {
             </div>
           ))
         ) : (
-          <div className="w-max flex flex-row gap-2 ">
-            <div className="flex flex-row gap-3">
-              <div className="flex items-center">
-                <span className="border-l border-redGray h-10"></span>
-              </div>
-              <div>
-                <Perfil width="10" />
-              </div>
+          <div className="w-max h-full flex items-center mb-2 ">
+            <div className="">
+              <span className="border-l border-redGray h-10"></span>
             </div>
-            <div className="h-full relative">
+            <div className=" relative">
               <Popover>
                 {({ open }) => (
                   <>
                     <Popover.Button
                       className={`
                 ${open ? "" : "text-opacity-90"}
-                 group px-1 py-6 h-full text-white hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
+                 group   text-white hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
                     >
-                      <div className="flex flex-row">
+                      <div className="flex flex-row gap-2 items-center">
+                        <Perfil width="10" />
                         <p className="text-sm font-poppins font-light text-gray-400 ">
                           User 1
                         </p>
+
                         <ChevronDownIcon
                           className={`ml-1.5 h-5 w-4 flex-shrink-0 transition duration-300 ${
                             open ? "rotate-180" : null
@@ -160,7 +157,7 @@ const NavForm = ({ dashboard }: Props) => {
                               <a
                                 key={item.name}
                                 href={item.href}
-                                className="-m-3 flex items-center rounded-lg transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                                className="-m-3 flex items-center rounded-lg transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                               >
                                 <div className="flex h-10 w-10 shrink-0 items-center justify-center text-white sm:h-12 sm:w-12"></div>
                                 <div className="">
