@@ -6,4 +6,4 @@ const routerRol= Router();
 
 routerRol.post("/rol",postRol);
 
-module.exports={routerRol} ;
+module.exports=routerRol ;

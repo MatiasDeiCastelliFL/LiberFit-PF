@@ -6,4 +6,4 @@ const routerRutine= Router();
 
 routerRutine.post("/rol",postRutine);
 
-module.exports={routerRutine};
+module.exports=routerRutine;

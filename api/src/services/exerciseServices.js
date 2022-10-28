@@ -18,5 +18,5 @@ const crearEmpleado = async (
       })
   console.log(ejercicio)
 }
-module.exports =crearExercise 
+module.exports = crearEmpleado 
 

@@ -4,6 +4,6 @@ const {postTraining}= require ("../controllers/trainingControllers");
 
 const routerTraining= Router();
 
-routerSuscription.post("/training",postTraining);
+routerTraining.post("/training",postTraining);
 
-module.exports={routerTraining};
+module.exports=routerTraining;

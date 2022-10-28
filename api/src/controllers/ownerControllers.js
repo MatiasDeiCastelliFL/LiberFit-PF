@@ -1,4 +1,4 @@
-const crearOwner= require("services")
+const crearOwner= require("../services/clientServices")
 const postClient = async (req, res) => {
     try {
         const { 

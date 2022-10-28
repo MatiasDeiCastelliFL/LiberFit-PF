@@ -6,4 +6,4 @@ const routerProduct= Router();
 
 routerProduct.post("/product",postProduct);
 
-module.exports={routerProduct} ;
+module.exports=routerProduct ;

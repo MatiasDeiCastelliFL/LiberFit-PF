@@ -6,4 +6,4 @@ const routerSuscription= Router();
 
 routerSuscription.post("/suscription",postSuscription);
 
-module.exports={routerSuscription} ;
+module.exports=routerSuscription ;
