@@ -1,4 +1,4 @@
-import Products from '../db'
+const {Products} = require('../db')
 const crearProduct = async (
     name,
     price,
@@ -20,5 +20,5 @@ const crearProduct = async (
     brand
     })
 }
-export default crearProduct
+module.exports={crearProduct} 
 

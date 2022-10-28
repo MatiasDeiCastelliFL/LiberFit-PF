@@ -1,4 +1,4 @@
-import Rols from '../db'
+const {Rols}= require('../db')  
 const crearRol = async (
     name,
     ) => {
@@ -6,5 +6,5 @@ const crearRol = async (
     name,
     })
 }
-export default crearRol
+module.exports={crearRol} 
 

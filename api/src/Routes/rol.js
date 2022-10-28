@@ -1,9 +1,9 @@
-import { Router} from "express";
+const {Router}= require('express')
 
-import postRol from "../controllers/rolControllers";
+const {postRol} = require("../controllers/rolControllers");
 
 const routerRol= Router();
 
 routerRol.post("/rol",postRol);
 
-export default routerRol;
+module.exports={routerRol} ;

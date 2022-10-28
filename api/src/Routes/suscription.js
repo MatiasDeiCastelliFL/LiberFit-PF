@@ -1,9 +1,9 @@
-import { Router} from "express";
+const {Router}= require('express')
 
-import postSuscription from "../controllers/suscriptionControllers";
+const {postSuscription}= require("../controllers/suscriptionControllers") ;
 
 const routerSuscription= Router();
 
 routerSuscription.post("/suscription",postSuscription);
 
-export default routerSuscription;
+module.exports={routerSuscription} ;

@@ -1,4 +1,4 @@
-import crearSubscription from '../services/suscriptionServices'
+const {crearSubscription} =require('../services/suscriptionServices')
 
 const postSuscription = async (req, res) => {
     try {
@@ -8,7 +8,7 @@ const postSuscription = async (req, res) => {
             description
         } = req.body
 
-        const datoSuscription = await postSuscription(
+        const datoSuscription = await crearSubscription(
             name,
             price,
             description
@@ -19,4 +19,4 @@ const postSuscription = async (req, res) => {
     }
 }
 
-export default postSuscription
+module.exports={postSuscription} 

@@ -1,4 +1,4 @@
-import Rutines from '../db'
+const {Rutines}= require('../db')  
 const crearRutine = async (
     name,
     ) => {
@@ -6,4 +6,4 @@ const crearRutine = async (
     name,
     })
 }
-export default crearRutine
+module.exports={crearRutine} 

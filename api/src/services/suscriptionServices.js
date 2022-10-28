@@ -1,4 +1,4 @@
-import Subscriptions from '../db'
+const {Subscriptions}= require('../db') 
 const crearSubscription = async (
     name,
     price,
@@ -10,4 +10,4 @@ const crearSubscription = async (
     description
 })
 }
-export default crearSubscription
+module.exports={ crearSubscription}

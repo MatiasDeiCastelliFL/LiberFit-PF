@@ -1,4 +1,4 @@
-import crearRol from '../services/RolServices'
+const {crearRol} = require('../services/RolServices')
 
 const postRol = async (req, res) => {
     try {
@@ -15,4 +15,4 @@ const postRol = async (req, res) => {
     }
 }
 
-export default postRol
+module.exports={postRol} 

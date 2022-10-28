@@ -1,9 +1,9 @@
-import { Router} from "express";
+const {Router}= require('express')
 
-import postRutine from "../controllers/rutineControllers";
+const {postRutine} =require("../controllers/rutineControllers");
 
 const routerRutine= Router();
 
 routerRutine.post("/rol",postRutine);
 
-export default routerRutine;
+module.exports={routerRutine};
