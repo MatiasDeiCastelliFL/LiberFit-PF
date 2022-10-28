@@ -1,4 +1,4 @@
-import crearTraining from '../services/trainingServices'
+const {crearTraining }= require('../services/trainingServices')
 
 const postTraining = async (req, res) => {
     try {
@@ -9,7 +9,7 @@ const postTraining = async (req, res) => {
             timeSlot
         } = req.body
 
-        const datoTrainig = await postTraining(
+        const datoTrainig = await crearTraining(
             idClient,
             name,
             image,
@@ -21,4 +21,4 @@ const postTraining = async (req, res) => {
     }
 }
 
-export default postTraining
+module.exports= {postTraining}

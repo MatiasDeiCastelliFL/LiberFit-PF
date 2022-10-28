@@ -1,4 +1,4 @@
-import crearRutine from '../services/rutineServices'
+const {crearRutine} =require('../services/rutineServices') 
 
 const postRutine = async (req, res) => {
     try {
@@ -15,4 +15,4 @@ const postRutine = async (req, res) => {
     }
 }
 
-export default postRutine
+module.exports={postRutine} 

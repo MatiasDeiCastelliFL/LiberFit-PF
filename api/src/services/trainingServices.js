@@ -1,4 +1,4 @@
-import Training from '../db'
+const {Training} =require('../db')
 const crearTraining = async (
     idClient,
     name,
@@ -12,4 +12,4 @@ const crearTraining = async (
     timeSlot
 })
 }
-export default crearTraining
+module.exports={crearTraining} 

@@ -1,4 +1,4 @@
-import crearProduct from '../services/productServices'
+const {crearProduct} = require('../services/productServices') 
 
 const postProduct = async (req, res) => {
     try {
@@ -29,4 +29,4 @@ const postProduct = async (req, res) => {
     }
 }
 
-export default postProduct
+module.exports={postProduct} 
