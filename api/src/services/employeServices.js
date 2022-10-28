@@ -19,5 +19,14 @@ const crearEmpleado = async (
 
 }
 
+const buscarEmpleadoTotal=async()=>{
+  console.log("llegue")
+  const Employee= await Employees.findAll();
+  console.log(Employee);
+  return Employee
 
-module.exports = crearEmpleado
+
+}
+
+
+module.exports = {crearEmpleado,buscarEmpleadoTotal}

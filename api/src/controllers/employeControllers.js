@@ -1,4 +1,4 @@
-const crearEmpleado = require("../services/employeServices")
+const {crearEmpleado,buscarEmpleadoTotal} = require("../services/employeServices")
 const  validate  = require('../validation/employeeValidete')
  
 const bcrypt= require("bcrypt")
@@ -26,36 +26,42 @@ const postEmpleado =async (req, res)=>{
 
 
 const getEmpleado=async(req,res)=>{
-    const {name,email}=req.query
-    if(name && !email ){
-        const DatoEmpleadoNombre= await  buscarNombre(name);
-        if(DatoEmpleadoNombre){
-            res.status(200).json({DatoEmpleadoNombre}); 
-        }else{
-            res.status(400).json({error:"Empleado no encontrado"});
-        }
-    }else{
-        if(!name && email){
-            const DatoEmpleadoEmail= await buscaEmail(email);
-            if(DatoEmpleadoEmail){
-                res.status(200).json({DatoEmpleadoEmail});
-            }else{
-                res.status(400).json({error:"Empleado no encontrado"});
-            }
-        }else{
-            if(name && email){
-                const DatoPorEmailyNombre= await buscarEmpleadoPorNameAndCorreo(name,email);
-                if(DatoPorEmailyNombre){
-                    res.status(200).json({DatoPorEmailyNombre});
-                }else{
-                    res.status(404).json({error:"Empleado no encontrado."})
+    // const {name,email}=req.query
+    // if(name && !email ){
+    //     const DatoEmpleadoNombre= await  buscarNombre(name);
+    //     if(DatoEmpleadoNombre){
+    //         res.status(200).json({DatoEmpleadoNombre}); 
+    //     }else{
+    //         res.status(400).json({error:"Empleado no encontrado"});
+    //     }
+    // }else{
+    //     if(!name && email){
+    //         const DatoEmpleadoEmail= await buscaEmail(email);
+    //         if(DatoEmpleadoEmail){
+    //             res.status(200).json({DatoEmpleadoEmail});
+    //         }else{
+    //             res.status(400).json({error:"Empleado no encontrado"});
+    //         }
+    //     }else{
+    //         if(name && email){
+    //             const DatoPorEmailyNombre= await buscarEmpleadoPorNameAndCorreo(name,email);
+    //             if(DatoPorEmailyNombre){
+    //                 res.status(200).json({DatoPorEmailyNombre});
+    //             }else{
+    //                 res.status(404).json({error:"Empleado no encontrado."})
+    //             }
+    //         }else{
+                
+    //         }
+    //     }
+    // }
+
+                try {
+                    const datoEmpleadoTot=await buscarEmpleadoTotal();
+                    res.status(200).json({datoEmpleadoTot})                    
+                } catch (error) {
+                        console.log(error)
                 }
-            }else{
-                const datoEmpleadoTot=await buscarEmpleadoTotal();
-                res.status(200).json({datoEmpleadoTot})
-            }
-        }
-    }
 }
 
 
