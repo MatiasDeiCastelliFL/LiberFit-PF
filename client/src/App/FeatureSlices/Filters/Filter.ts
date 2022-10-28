@@ -3,11 +3,13 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 export interface filterState {
     data: any
     dataByName : any
+    exercisesByMuscle : any
 }
 
 const initialState: filterState = {
     data : [],
-    dataByName : []
+    dataByName : [],
+    exercisesByMuscle : []
 }
 
 const filterSlice = createSlice( {
@@ -16,10 +18,15 @@ const filterSlice = createSlice( {
     reducers: {
         filterDataName : (state , action:PayloadAction<any>) => {
             state.dataByName = action.payload
+        },
+        filterExercisesByMuscles : (state , action:PayloadAction<any>) => {
+            state.exercisesByMuscle = action.payload
         }
     }
 })
 
 
+
+
 export default filterSlice.reducer
-export const {filterDataName} = filterSlice.actions
+export const {filterDataName, filterExercisesByMuscles} = filterSlice.actions
