@@ -1,6 +1,6 @@
 const { Clients } = require('../db')
 
-const crearClient = async (
+const createClient = async (
     name,
     rol,
     phone,
@@ -21,5 +21,10 @@ const crearClient = async (
     console.log(cliente)
 }
 
-module.exports = crearClient
+const findClients = async () => {
+    const clients = await Clients.findAll()
+    return clients
+}
+
+module.exports = { createClient, findClients }
 
