@@ -1,10 +1,10 @@
+const { Router} = require("express");
 
-import { Router} from "express";
+const postEmpleado = require("../controllers/employeControllers");
 
-import postEmpleado from "../controllers/employeControllers";
+const routerEmpleado = Router();
 
-const routerEmpleado= Router();
+routerEmpleado.post("/empleado", postEmpleado);
 
-routerEmpleado.post("/empleado",postEmpleado);
 
-export default routerEmpleado;
+module.exports = routerEmpleado;

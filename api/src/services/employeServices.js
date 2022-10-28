@@ -1,4 +1,4 @@
-import { Employee } from '../db'
+const { Employees } = require('../db')
 
 const crearEmpleado = async (
    
@@ -9,7 +9,7 @@ const crearEmpleado = async (
     account,
     image
 ) => {
-  const empleado1 = await Employee.create({
+  const empleado = await Employees.create({
     name,
     email,
     phone,
@@ -17,7 +17,7 @@ const crearEmpleado = async (
     account,
     image,
   })
-  console.log(empleado1)
+  console.log(empleado)
 }
 
-export default crearEmpleado
+module.exports = crearEmpleado

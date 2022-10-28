@@ -4,6 +4,6 @@ import postGym from "../controllers/gymController";
 
 const routerGym= Router();
 
-routerGym.post("/gym",routerGym);
+routerGym.post("/gym",postGym);
 
 export default routerGym;
