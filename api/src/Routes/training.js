@@ -2,7 +2,6 @@ const { Router } = require("express");
 
 const {
     postTraining,
-  getTrainings,
   getTraining,
     putTraining,
     deleteTraining,
@@ -10,8 +9,7 @@ const {
 
 const routerTraining = Router();
 
-routerTraining.get("/trainings", getTrainings);
-routerTraining.get("/training/:id", getTraining);
+routerTraining.get("/training", getTraining);
 routerTraining.post("/training", postTraining);
 routerTraining.put("/training/:id", putTraining);
 routerTraining.delete("/training/:id", deleteTraining);

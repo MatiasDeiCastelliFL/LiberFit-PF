@@ -12,6 +12,13 @@ const crearTraining = async (idClient, name, image, timeSlot) => {
         return error;
     }
 };
+const buscarTrainingPorId = async (id) => {
+    const training = await Trainings.findOne({
+        where:{id}
+    })
+    return training
+}
+
 const actualizarTraining = async (idClient, name, image, timeSlot) => {
     try {
         let updatedTraining = await Trainings.update({
@@ -25,11 +32,11 @@ const actualizarTraining = async (idClient, name, image, timeSlot) => {
         return error;
     }
 };
-const borrarTraining = async (id) => {
+const borrarTraining = async (name) => {
     try {
         let removeId = await Trainings.destroy({
             where: {
-                id,
+                name,
             },
         });
         return removeId;
@@ -37,4 +44,12 @@ const borrarTraining = async (id) => {
         return error;
     }
 };
-module.exports = { crearTraining, borrarTraining, actualizarTraining };
+const buscarTrainings = async () => {
+    try {
+        let trainings = await Trainings.findAll()
+        return trainings
+    } catch (error) {
+        return error
+    }
+}
+module.exports = { crearTraining, borrarTraining, actualizarTraining,buscarTrainingPorId ,buscarTrainings};

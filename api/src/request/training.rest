@@ -1,7 +1,8 @@
 ###
-GET http://localhost:3004/trainings
+GET http://localhost:3004/training?id=boxeo
+
 ###
-GET http://localhost:3004/training/1
+GET http://localhost:3004/training
 ###
 POST http://localhost:3004/training
 Content-Type: application/json

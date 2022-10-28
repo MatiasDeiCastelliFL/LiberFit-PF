@@ -2,19 +2,19 @@ const {
     crearTraining,
     borrarTraining,
     actualizarTraining,
+    buscarTrainingPorId,
+    buscarTrainings,
 } = require("../services/trainingServices");
 
-const getTrainings = (req, res) => {
-    try {
-        res.status(200).json('datos de training');
-    } catch (error) {
-        res.status(400).json(error);
-    }
-};
 const getTraining = () => {
-    const { id } = req.params;
+    const { name } = req.query;
     try {
-        res.status(200).json('datos de training');
+        if (name) {
+            const training = buscarTrainingPorId(name);
+            return res.status(200).json(training);
+        }
+        const trainings = buscarTrainings();
+        return res.status(200).json(trainings);
     } catch (error) {
         res.status(400).json(error);
     }
@@ -55,7 +55,6 @@ const deleteTraining = async (req, res) => {
 
 module.exports = {
     postTraining,
-    getTrainings,
     getTraining,
     putTraining,
     deleteTraining,
