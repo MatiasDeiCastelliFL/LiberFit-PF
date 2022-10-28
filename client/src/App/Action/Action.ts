@@ -1,9 +1,9 @@
 import axios from "axios";
-import { filterDataName, filterExercisesByMuscles, filterDataPrice } from "../FeatureSlices/Filters/Filter";
 import Json from '../../assets/gym.json'
-import { getData } from "../FeatureSlices/Data/Data";
-import { modalOpen } from "../FeatureSlices/Modal/Modal";
 import arraySet from "../utils/arraySet";
+import { modalOpen } from "../FeatureSlices/Modal/Modal";
+import { getData } from "../FeatureSlices/Data/Data";
+import { filterDataName, filterExercisesByMuscles, filterDataPrice,openFilter} from "../FeatureSlices/Filters/Filter";
 
 const data = Json[0].sedes.map(d => d.products.map(d => d.name))
 const exercises = Json[0].exercises.map(d => d)
@@ -28,4 +28,8 @@ export const getExercisesByMuscle = (muscle:any) => (dispatch:any) => {
 
 export const openModal = (active:boolean) => (dispatch:any) => {
     dispatch(modalOpen(active))
+}
+
+export const openFilters = (active:boolean) => (dispatch:any) => {
+    dispatch(openFilter(active))
 }

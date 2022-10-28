@@ -20,6 +20,9 @@ const filterSlice = createSlice( {
     name: 'filter',
     initialState,
     reducers: {
+        openFilter : (state, action:PayloadAction<any>) => {
+            state.open = action.payload
+        },
         filterDataName : (state , action:PayloadAction<any>) => {
             state.dataByName = action.payload
         },
@@ -37,4 +40,4 @@ const filterSlice = createSlice( {
 
 
 export default filterSlice.reducer
-export const {filterDataName, filterExercisesByMuscles, filterDataPrice} = filterSlice.actions
+export const {filterDataName, filterExercisesByMuscles, filterDataPrice, openFilter} = filterSlice.actions
