@@ -10,10 +10,10 @@ function LandingTemplate() {
     <div className="bg-landing w-max h-max xl:h-screen object-cover bg-cover select-none overflow-hidden">
       <div className="z-50 2xl:ml-0 lg:ml-10">
         <div className="flex justify-center">
-          <div className="2xl:mt-72 xl:mt-44 lg:mt-64  xl:w-custom_3 absolute z-0 ">
+          <div className="2xl:mt-72 xl:mt-44 lg:mt-64 flex justify-center  xl:w-custom_3 absolute z-0 ">
             <img src={Elipse} alt="Elipse" />
           </div>
-          <div className="z-10 2xl:mt-28 xl:mt-14 xl:w-72 absolute lg:mt-16">
+          <div className="z-10 2xl:mt-28 xl:mt-14 2xl:w-max flex justify-center xl:w-72 absolute lg:mt-16">
             <img src={Person} alt="person" />
           </div>
           <div className="container z-20">

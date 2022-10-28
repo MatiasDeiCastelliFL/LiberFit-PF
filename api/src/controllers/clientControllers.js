@@ -1,6 +1,15 @@
-const crearClient = require('../services/clientServices')
+const {createClient, findClients } = require('../services/clientServices')
 
-const postClient = async (req, res) => {
+const getClients = async (req, res) => {
+    try {
+        const clientsData = await findClients();
+        res.status(200).json({clientsData})                    
+    } catch (error) {
+            console.log(error)
+    }
+}
+
+const postClients = async (req, res) => {
     try {
         const { name,
             rol,
@@ -11,7 +20,7 @@ const postClient = async (req, res) => {
             image
         } = req.body
 
-        const datoClient = await crearClient(
+        const datoClient = await createClient(
             name,
             rol,
             phone,
@@ -26,4 +35,4 @@ const postClient = async (req, res) => {
     }
 }
 
-module.exports= postClient
+module.exports = { getClients, postClients }
