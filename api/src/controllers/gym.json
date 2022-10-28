@@ -1193,7 +1193,7 @@
         "membresia": true
       }
     ],
-    "client": [
+    "clients": [
       {
         "id": 1,
         "idLocation": 1,
