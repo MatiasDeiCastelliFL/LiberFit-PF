@@ -1,5 +1,5 @@
-const {crearEmpleado,buscarEmpleadoTotal,buscarEmpleadoPorNameAndCorreo} = require("../services/employeServices")
-const  validate  = require('../validation/employeeValidete')
+const {crearEmpleado,buscarEmpleadoTotal,buscarEmpleadoPorNameAndCorreo,buscarEmpleadoPorName} = require("../services/employeServices")
+const  validate  = require('../validation/validations')
  
 const bcrypt= require("bcrypt")
 const postEmpleado =async (req, res)=>{
@@ -28,7 +28,7 @@ const postEmpleado =async (req, res)=>{
 const getEmpleado=async(req,res)=>{
     const {name,email}=req.query
     if(name && !email ){
-        const DatoEmpleadoNombre= await  buscarNombre(name);
+        const DatoEmpleadoNombre= await  buscarEmpleadoPorName(name);
         if(DatoEmpleadoNombre){
             res.status(200).json({DatoEmpleadoNombre}); 
         }else{
@@ -44,7 +44,6 @@ const getEmpleado=async(req,res)=>{
             }
         }else{
             if(name && email){
-                console.log("llegue")
                 const DatoPorEmailyNombre= await buscarEmpleadoPorNameAndCorreo(name,email);
                 if(DatoPorEmailyNombre){
                     res.status(200).json({DatoPorEmailyNombre});

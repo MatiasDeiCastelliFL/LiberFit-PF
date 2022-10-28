@@ -37,4 +37,11 @@ const buscarEmpleadoPorNameAndCorreo= async(name,email)=>{
 }
 
 
-module.exports = {crearEmpleado,buscarEmpleadoTotal,buscarEmpleadoPorNameAndCorreo}
+const buscarEmpleadoPorName= async(name)=>{
+  const Employee= await Employees.findOne({
+    where:{name:name}
+  });
+  return Employee
+}
+
+module.exports = {crearEmpleado,buscarEmpleadoTotal,buscarEmpleadoPorNameAndCorreo,buscarEmpleadoPorName}
