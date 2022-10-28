@@ -6,9 +6,9 @@ import Details from "../../Organisms/Details/Details";
 import Anuncio from "./../../Molecules/Anuncio/Anuncio";
 import BreadCrumbs from "../../Atoms/BreadCrumbs/BreadCrumbs";
 import SideBar from "../../Organisms/SideBar/SideBar";
-import Content from "../../Atoms/Filters/Content";
 import NavBar from "../../Organisms/Navbar/NavBar";
 import Modal from "../../Molecules/Modal/Modal";
+import { Transition } from "@headlessui/react";
 
 interface Props {
   handle: any;
@@ -17,6 +17,7 @@ interface Props {
 
 function HomeTemplate({ handle, name }: Props) {
   const params = useParams();
+  console.log(params.category);
   return (
     <div>
       <div className="flex flex-row">
@@ -36,7 +37,18 @@ function HomeTemplate({ handle, name }: Props) {
             <div className="ml-10 mt-3">
               <BreadCrumbs />
               <div className="ml-1 mt-5">
-                {params.name ? <Details /> :params.category ? <CardsCategory /> : <SHom />}
+                {params.category ? null: <SHom/>}
+                <Transition
+                  show={params.category ? true : false}
+                  enter="transform transition duration-[450ms]"
+                  enterFrom="opacity-0 transition ease-in"
+                  enterTo="opacity-100 rotate-0 scale-100"
+                  leave="transform duration-10 transition ease-in-out"
+                  leaveFrom="opacity-100 rotate-0 scale-100 "
+                  leaveTo="opacity-0 "
+                >
+                  {params.name ? <Details /> : <CardsCategory /> }
+                </Transition>
               </div>
             </div>
           </div>

@@ -10,9 +10,9 @@ interface Props {
 }
 const Card = ({name , image, muscle}:Props) => {
     return (
-        <div className={`${style.container} p-0 justify-center shadow-lg shadow-redClare`}>
+        <div className={`${style.container} p-0 justify-center`}>
             <div className={`${style.image} border text-white mb-2 shadow`} style={image}></div>
-            <h1 className="text-center text-black font-bold text-xl">{name}</h1>
+            <h1 className="text-center text-black font-light text-lg">{name}</h1>
             <hr />
             {muscle?
                         <h1 className="text-center text-black font-medium text-xl">{muscle}</h1>
