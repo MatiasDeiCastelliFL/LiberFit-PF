@@ -72,6 +72,7 @@ module.exports = {
         mobile_6: '27rem',
         mobile_7: '24rem',
         mobile_8: '28.1rem',
+        pop: '-0.800rem'
       },
       inset: {
         custom: "41rem",
