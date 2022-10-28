@@ -4,6 +4,6 @@ const {postEmpleado,getEmpleado} = require("../controllers/employeControllers");
 const routerEmpleado = Router();
 
 routerEmpleado.post("/empleado", postEmpleado);
-routerEmpleado.get("/empleado,",getEmpleado);
+routerEmpleado.get("/empleado",getEmpleado);
 
 module.exports = routerEmpleado;
