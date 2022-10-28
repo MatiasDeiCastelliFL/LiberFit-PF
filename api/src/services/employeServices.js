@@ -19,7 +19,7 @@ const crearEmpleado = async (
 
 }
 
-const buscarEmpleadoTotal=async()=>{
+const buscarEmpleadoTotal= async ()=>{
   console.log("llegue")
   const Employee= await Employees.findAll();
   console.log(Employee);
