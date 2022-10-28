@@ -1,7 +1,8 @@
 const { Router } = require("express")
-const postExercise= require('../controllers/exerciseControllers')
+const {getExercises, postExercise}= require('../controllers/exerciseControllers')
 const routerExercise= Router();
 
-routerExercise.post("/exercise",postExercise);
+routerExercise.get("/exercises",getExercises);
+routerExercise.post("/exercises",postExercise);
 
 module.exports = routerExercise 
