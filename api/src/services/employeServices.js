@@ -1,7 +1,6 @@
 const { Employees } = require('../db')
 
 const crearEmpleado = async (
-   
     name,
     email,
     phone,
@@ -9,7 +8,7 @@ const crearEmpleado = async (
     account,
     image
 ) => {
-  const empleado = await Employees.create({
+  await Employees.create({
     name,
     email,
     phone,
@@ -17,7 +16,8 @@ const crearEmpleado = async (
     account,
     image,
   })
-  console.log(empleado)
+
 }
+
 
 module.exports = crearEmpleado
