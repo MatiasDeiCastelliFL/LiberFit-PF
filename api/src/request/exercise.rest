@@ -1,0 +1,12 @@
+### creando un exercise
+POST http://localhost:3004/exercise
+Content-Type: application/json
+
+{
+  "name":"pesas",
+  "repetition":2,
+  "series":4,
+  "video":"https://www.youtube.com/watch?v=XpPf0HJSEo4",
+  "image":"https://ui-avatars.com/api/?name=ric+ob",
+  "muscle":"brazo"
+} 

@@ -9,7 +9,7 @@ const postRutine = async (req, res) => {
         const datoRutine= await crearRutine(
             name,
             )
-        res.status(200).json(datoRol)
+        res.status(200).json(datoRutine)
     } catch (error) {
         console.log(error)
     }

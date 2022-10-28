@@ -1,0 +1,15 @@
+###
+GET http://localhost:3004/payment
+###
+POST http://localhost:3004/payment
+Content-Type: application/json
+
+{ 
+  "membership":true,
+  "amount":"$2000"
+} 
+
+
+
+
+

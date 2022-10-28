@@ -1,0 +1,9 @@
+###
+GET http://localhost:3004/rutine
+###
+POST http://localhost:3004/rutine
+Content-Type: application/json
+
+{ 
+  "name":"bajar de peso"
+} 

@@ -1,4 +1,4 @@
-const Machines = require("../db")
+const {Machines} = require("../db")
 
 const crearMachine = async (
   name,

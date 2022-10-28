@@ -4,6 +4,6 @@ const {postRutine} =require("../controllers/rutineControllers");
 
 const routerRutine= Router();
 
-routerRutine.post("/rol",postRutine);
+routerRutine.post("/rutine",postRutine);
 
 module.exports=routerRutine;

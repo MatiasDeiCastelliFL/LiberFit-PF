@@ -1,7 +1,7 @@
 ###
-GET http://localhost:3001/machine
+GET http://localhost:3004/machine
 ###
-POST http://localhost:3001/machine
+POST http://localhost:3004/machine
 Content-Type: application/json
 
 { 

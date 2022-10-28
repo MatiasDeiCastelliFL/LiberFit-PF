@@ -1,0 +1,9 @@
+###
+GET http://localhost:3004/rol
+###
+POST http://localhost:3004/rol
+Content-Type: application/json
+
+{ 
+  "name":"entrenador"
+} 

@@ -12,6 +12,7 @@ const postClient = async (req, res) => {
         } = req.body
 
         const datoClient = await crearClient(
+            name,
             rol,
             phone,
             email,

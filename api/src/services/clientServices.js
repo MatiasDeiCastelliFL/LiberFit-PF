@@ -1,6 +1,7 @@
 const { Clients } = require('../db')
 
 const crearClient = async (
+    name,
     rol,
     phone,
     email,
@@ -9,6 +10,7 @@ const crearClient = async (
     image
 ) => {
     const cliente = await Clients.create({
+        name,
         rol,
         phone,
         email,

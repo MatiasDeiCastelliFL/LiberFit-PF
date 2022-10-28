@@ -1,8 +1,8 @@
 ### obteniendo empleados
-GET http://localhost:3001/empleado
+GET http://localhost:3004/empleado
 
 ### creando un empleado
-POST http://localhost:3001/empleado
+POST http://localhost:3004/empleado
 Content-Type: application/json
 
 {

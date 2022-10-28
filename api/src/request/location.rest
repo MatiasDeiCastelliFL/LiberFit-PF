@@ -1,5 +1,5 @@
 ###
-GET http://localhost:3001/locacion
+GET http://localhost:3004/locacion
 ###
 POST http://localhost:3004/locacion
 Content-Type: application/json
@@ -11,7 +11,7 @@ Content-Type: application/json
 } 
 
 ###
-PUT http://localhost:3001/locacion
+PUT http://localhost:3004/locacion
 Content-Type: application/json
 
 { 
@@ -20,7 +20,7 @@ Content-Type: application/json
   "phone":"123412"
 } 
 ###
-DELETE http://localhost:3001/locacion
+DELETE http://localhost:3004/locacion
 Content-Type: application/json
 
 { 

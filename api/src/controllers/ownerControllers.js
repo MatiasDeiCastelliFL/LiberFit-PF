@@ -1,10 +1,10 @@
-const crearOwner= require("../services/clientServices")
+const crearOwner = require("../services/ownerServices")
 const postClient = async (req, res) => {
     try {
         const { 
             name,
             email,
-            passwords,
+            password,
             phone,
             avatar
         } = req.body
@@ -12,7 +12,7 @@ const postClient = async (req, res) => {
         const datoOwner= await crearOwner(
             name,
             email,
-            passwords,
+            password,
             phone,
             avatar
         )
