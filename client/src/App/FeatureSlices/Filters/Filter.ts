@@ -4,12 +4,14 @@ export interface filterState {
     data: any
     dataByName : any
     exercisesByMuscle : any
+    dataByPrice : any
 }
 
 const initialState: filterState = {
     data : [],
     dataByName : [],
-    exercisesByMuscle : []
+    exercisesByMuscle : [],
+    dataByPrice : []
 }
 
 const filterSlice = createSlice( {
@@ -19,9 +21,13 @@ const filterSlice = createSlice( {
         filterDataName : (state , action:PayloadAction<any>) => {
             state.dataByName = action.payload
         },
+        filterDataPrice : (state , action:PayloadAction<any>) => {
+            state.dataByPrice = action.payload
+        },
         filterExercisesByMuscles : (state , action:PayloadAction<any>) => {
             state.exercisesByMuscle = action.payload
-        }
+        },
+
     }
 })
 
@@ -29,4 +35,4 @@ const filterSlice = createSlice( {
 
 
 export default filterSlice.reducer
-export const {filterDataName, filterExercisesByMuscles} = filterSlice.actions
+export const {filterDataName, filterExercisesByMuscles, filterDataPrice} = filterSlice.actions
