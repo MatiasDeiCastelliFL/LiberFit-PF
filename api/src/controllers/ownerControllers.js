@@ -1,5 +1,4 @@
-import crearOwner from '../services/ownerServices'
-
+const crearOwner= require("services")
 const postClient = async (req, res) => {
     try {
         const { 
@@ -23,4 +22,4 @@ const postClient = async (req, res) => {
     }
 }
 
-export default postClient
+module.exports = postClient

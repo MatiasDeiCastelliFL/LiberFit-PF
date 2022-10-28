@@ -1,10 +1,11 @@
-import Gyms from '../db'
+const Gyms = require('../db')
+
 const crearGym = async (name, email, phone, image) => {
   const gym = await Gyms.create({
     name,
     email,
     phone,
-    image
+    image,
   })
 }
-export default crearGym
+module.exports = crearGym

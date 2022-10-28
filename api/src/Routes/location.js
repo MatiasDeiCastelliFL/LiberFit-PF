@@ -1,9 +1,8 @@
-import { Router} from "express";
-
-import postLocacion from "../controllers/locationControllers";
+const { Router } = require("express")
+const postLocacion= require("../controllers/locationControllers")
 
 const routerLocacion= Router();
 
 routerLocacion.post("/locacion",postLocacion);
 
-export default routerLocacion;
+module.exports = routerLocacion

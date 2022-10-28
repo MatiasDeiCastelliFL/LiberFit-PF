@@ -1,4 +1,4 @@
-import crearMachine from '../services/machineServices'
+const crearMachine= require("../services/machineServices")
 
 const postMachine = async (req, res) => {
     try {
@@ -17,5 +17,4 @@ const postMachine = async (req, res) => {
         console.log(error)
     }
 }
-
-export default postMachine
+module.exports = postMachine 

@@ -1,4 +1,4 @@
-import { Exercises } from '../db'
+const{ Exercises }= require("../db")
 
 const crearEmpleado = async (
     name,
@@ -18,6 +18,5 @@ const crearEmpleado = async (
       })
   console.log(ejercicio)
 }
-
-export default crearExercise
+module.exports =crearExercise 
 

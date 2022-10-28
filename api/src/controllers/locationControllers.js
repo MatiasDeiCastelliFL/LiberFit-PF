@@ -1,8 +1,5 @@
-import LocationInstance from '../Models/Locacion'
-import crearLocacion from '../services/locationServices'
-
-// import crearLocation from "../services/locationServices"
-
+const LocationInstance = require("../Models/Locacion")
+const crearLocacion= require("../services/locationServices")
 
 const postLocation = async (req, res) => {
   try {
@@ -23,5 +20,4 @@ const postLocation = async (req, res) => {
     console.log(error)
   }
 }
-
-export default postLocation
+module.exports = postLocation

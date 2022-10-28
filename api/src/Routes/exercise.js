@@ -1,9 +1,7 @@
-import { Router} from "express";
-
-import postExercise from "../controllers/exerciseControllers";
-
+const { Router } = require("express")
+const postExercise= require('../controllers/exerciseControllers')
 const routerExercise= Router();
 
 routerExercise.post("/exercise",postExercise);
 
-export default routerExercise;
+module.exports = routerExercise 

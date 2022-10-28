@@ -1,9 +1,10 @@
-import Locacions from '../db'
+const Locacions= require("./db")
 const crearLocacion = async (name, address, phone) => {
+  // TODO cambiar nombre
   const location = await Locacions.create({
     name,
     address,
     phone,
   })
 }
-export default crearLocacion
+module.exports = crearLocacion

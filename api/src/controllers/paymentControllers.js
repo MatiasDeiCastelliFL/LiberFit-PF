@@ -1,5 +1,4 @@
-import crearPayment from '../services/paymentServices'
-
+const crearPayment= require("crearPayment")
 const postPayment = async (req, res) => {
     try {
         const { 
@@ -17,4 +16,4 @@ const postPayment = async (req, res) => {
     }
 }
 
-export default postPayment
+module.exports = postPayment

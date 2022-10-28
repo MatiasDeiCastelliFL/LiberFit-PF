@@ -1,5 +1,4 @@
-import crearExercise from '../services/exerciseServices'
-
+const crearExercise = require("../services/exerciseServices")
 const postExercise = async (req, res) => {
     try {
         const { name,
@@ -17,11 +16,11 @@ const postExercise = async (req, res) => {
             video,
             image,
             muscle
-        )
-        res.status(200).json(datoExercise)
-    } catch (error) {
-        console.log(error)
+            )
+            res.status(200).json(datoExercise)
+        } catch (error) {
+            console.log(error)
     }
 }
 
-export default postExercise
+module.exports = postExercise
