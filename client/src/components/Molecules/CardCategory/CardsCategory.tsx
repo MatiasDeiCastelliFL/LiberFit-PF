@@ -1,14 +1,14 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+
 import Card from "../../Atoms/Card/Card";
 import Json from "../../../assets/gym.json";
-import { useParams } from "react-router-dom";
 import style from "./CardsCategory.module.css";
 
 function CardsCategory() {
   let { category } = useParams();
   const sedes = Json[0].sedes;
-  const Exersices = Json[0].exercises;
+  const Exercises = Json[0].exercises;
   console.log(category);
 
 
@@ -21,17 +21,25 @@ function CardsCategory() {
                 <h1 className="bg-redClare  text-start text-white font-extrabold text-2xl p-2 m-2">{d.name}</h1>
                 <div className={`${style.cardsDiv} flex w-max gap-5`}>
                   {(category?.toLowerCase() === "machines") ? d.machines.map((m) => (
-                    <Card name={m.name} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${m.image}')`}} key={m.name} />
+                    <Link to={`/home/${category}/${m.name}`} key={Math.random()}>
+                      <Card name={m.name} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${m.image}')`}} key={m.name} />
+                    </Link>
                   )) : (category?.toLowerCase() === "trainings") ? d.trainings.map((c) => (
-                    <Card name={c.name} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${c.image}')`}} key={c.name} />
+                    <Link to={`/home/${category}/${c.name}`} key={Math.random()}>
+                      <Card name={c.name} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${c.image}')`}} key={c.name} />
+                    </Link>
                   )) : (category?.toLowerCase() === "products") ? d.products.map((p) => (
-                    <Card name={p.name} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${p.image}')`}} key={p.name} />
+                    <Link to={`/home/${category}/${p.name}`} key={Math.random()}>  
+                      <Card name={p.name} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${p.image}')`}} key={p.name} />
+                    </Link>
                   )) : null}
                 </div>
             </div>)): 
               <div className={`${style.cardsDiv} flex w-max gap-5`}>
-                {Exersices.map((e) => (
-                  <Card name={e.name} muscle={e.muscle} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${e.image}')`}} key={e.name} />
+                {Exercises.map((e) => (
+                  <Link to={`/home/Exercises/${e.name}`} >
+                    <Card name={e.name} muscle={e.muscle} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${e.image}')`}} key={e.name} />
+                  </Link>
                 ))}
               </div>
             }

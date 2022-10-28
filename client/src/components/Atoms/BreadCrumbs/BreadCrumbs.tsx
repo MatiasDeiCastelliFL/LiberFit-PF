@@ -12,7 +12,7 @@ const BreadCrums = () => {
                             <div className="flex gap-0">
                                 {item !== "" ? <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" /> : null}
                                 <Link to={(item==='home')?'/home':item} key={index} className={location.pathname.split("/")[location.pathname.split("/").length - 1]===item?`text-redClare`:`text-black`}>
-                                    {item}
+                                    {item.split("%20").join(" ")}
                                 </Link>
                             </div>
                     )
