@@ -6,13 +6,18 @@ import style from "./Style/sidebar.module.css";
 import { useAppDispatch, useAppSelector } from "./../../../App/Hooks/Hooks";
 import { Transition } from "@headlessui/react";
 import { useParams, Link } from "react-router-dom";
+import Item from "../../Atoms/SideItems/Item";
+import Perfil from "../../Atoms/Perfil/Perfil";
+import Items from "../../Atoms/Perfil/ItemsPefil/Items";
+import Item2 from "../../Atoms/SideItems/Item2";
 
 interface Props {
   handle: any;
   setName: any;
+  dashboard: boolean;
 }
 
-function SideBar({ handle, setName }: Props) {
+function SideBar({ handle, setName, dashboard }: Props) {
   const params = useParams();
   const dispatch = useAppDispatch();
   const { filter } = useAppSelector((state) => state);
@@ -40,11 +45,13 @@ function SideBar({ handle, setName }: Props) {
             filter.open ? "mt-2" : null
           }`}
         >
-          <div className="mb-10">
-            <form onSubmit={handle}>
-              <Search Placeholder="Search" setName={setName} />
-            </form>
-          </div>
+          {!dashboard && (
+            <div className="mb-10">
+              <form onSubmit={handle}>
+                <Search Placeholder="Search" setName={setName} style={{}}/>
+              </form>
+            </div>
+          )}
           <div className="w-full overflow-y-visible h-full">
             <Transition
               show={params.name ? false : params.category ? true : false}
@@ -57,35 +64,31 @@ function SideBar({ handle, setName }: Props) {
             >
               <Filter />
             </Transition>
+            {dashboard && (
+              <div className="mt-10 flex gap-2 flex-col">
+                <Item2/>
+                <Item />
+              </div>
+            )}
           </div>
         </div>
       </div>
-      <Transition
-        show={filter.open === false ? true : false}
-        enter="transform transition duration-[400ms]"
-        enterFrom="opacity-0 transition ease-in"
-        enterTo="opacity-100 rotate-0 scale-100"
-        leave="transform duration-200 transition ease-in-out"
-        leaveFrom="opacity-100 rotate-0 scale-100 "
-        leaveTo="opacity-0 scale-95 "
-      >
-        <div className="border-t border-redGray w-max h-73 flex flex-row">
-          <div className="h-full flex items-center ml-4">
-            <Link to="/login">
-              <img
-                className="inline-block h-14 w-14 rounded-full ring-2 ring-white border border-redGray cursor-pointer"
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-              />
-            </Link>
+      {!dashboard && (
+        <Transition
+          show={filter.open === false ? true : false}
+          enter="transform transition duration-[400ms]"
+          enterFrom="opacity-0 transition ease-in"
+          enterTo="opacity-100 rotate-0 scale-100"
+          leave="transform duration-200 transition ease-in-out"
+          leaveFrom="opacity-100 rotate-0 scale-100 "
+          leaveTo="opacity-0 scale-95 "
+        >
+          <div className="border-t border-redGray w-max h-73 flex flex-row">
+            <Perfil width="14" />
+            <Items />
           </div>
-          <div className="flex h-full items-center ml-4">
-            <div className="flex flex-col">
-              <p className={`${style.text} text-gray`}>Guest</p>
-              <p className={`${style.text2} text-semiRed`}>Register</p>
-            </div>
-          </div>
-        </div>
-      </Transition>
+        </Transition>
+      )}
     </div>
   );
 }

@@ -1,0 +1,19 @@
+ <div className="w-max">
+            <details className="group">
+              <summary className="flex cursor-pointer items-center  ">
+                <div className="w-max h-73 flex flex-row gap-3">
+                  <div className="flex items-center">
+                    <span className="border-l border-redGray h-10"></span>
+                  </div>
+                  <Perfil width="10" />
+                  <div className="flex items-center">
+                    <p className="text-sm font-poppins font-light text-gray-400 ">
+                      User 1
+                    </p>
+                  </div>
+                </div>
+                <ChevronDownIcon className="ml-1.5 h-5 w-4 flex-shrink-0 transition duration-300 group-open:-rotate-180 text-gray-400" />
+              </summary>
+              <Content />
+            </details>
+          </div>
