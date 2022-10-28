@@ -1,5 +1,5 @@
 const {crearEmpleado,buscarEmpleadoTotal,buscarEmpleadoPorNameAndCorreo} = require("../services/employeServices")
-const  validate  = require('../validation/employeeValidete')
+const  validate  = require('../validation/validations')
  
 const bcrypt= require("bcrypt")
 const postEmpleado =async (req, res)=>{
@@ -58,7 +58,5 @@ const getEmpleado=async(req,res)=>{
         }
     }
 }
-
-
 
 module.exports = {postEmpleado,getEmpleado}

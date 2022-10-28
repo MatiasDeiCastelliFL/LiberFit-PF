@@ -1,11 +1,8 @@
 const { prototype } = require("mocha");
 
 function validate(input) {
-   
-   
-        let errors= new Array()
+    let errors= new Array()
   
-
     //valida que sea solo numero
     let valoresAceptados = /^[0-9]+$/;
     
