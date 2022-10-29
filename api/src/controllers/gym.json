@@ -15,23 +15,29 @@
     ],
     "subscriptions": [
         {
-            "name": "Oro",
-            "description": "Anual Bonificado",
-            "price": "$ 32.640",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBmkvnRanD18aMErW8KJ78pECrKfFdgV5H6w&usqp=CAU"
-         },
-         {
-            "name": "Plata",
-            "description": "Trimestral Bonificado",
-            "price": "$ 9.180",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlAafKUM5ZpKIU62pPGgOWv8NAjUgLwV4cgw&usqp=CAU"
-         },
-
+          "id": 1,
+          "name": "No Suscripto"
+        },
         {
-           "name": "Bronce",
-           "description": "Mensual",
-           "price": "$ 3.400",
-           "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR06-WHhHPvdZnfItilUbbGOq17-3ZILp3wGw&usqp=CAU"
+          "id": 2,
+          "name": "Oro",
+          "description": "Anual Bonificado",
+          "price": "$ 32.640",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBmkvnRanD18aMErW8KJ78pECrKfFdgV5H6w&usqp=CAU"
+        },
+        {
+          "id": 3,
+          "name": "Plata",
+          "description": "Trimestral Bonificado",
+          "price": "$ 9.180",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlAafKUM5ZpKIU62pPGgOWv8NAjUgLwV4cgw&usqp=CAU"
+        },
+        {
+          "id": 4,
+          "name": "Bronce",
+          "description": "Mensual",
+          "price": "$ 3.400",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR06-WHhHPvdZnfItilUbbGOq17-3ZILp3wGw&usqp=CAU"
         }        
     ],
     "locations": [

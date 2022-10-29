@@ -13,10 +13,6 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      rol: {
-        type: DataTypes.STRING,
-        defaultValue: "Cliente",
-      },
       phone: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -31,7 +27,7 @@ module.exports = (sequelize) => {
       },
       active: {
         type: DataTypes.BOOLEAN,
-        allowNull: false,
+        defaultValue: false,
       },
       image: {
         type: DataTypes.STRING,

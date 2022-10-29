@@ -6,7 +6,7 @@ const getClientsRequest = async (req, res) => {
         const clientsData = await findClients();
         res.status(200).json(clientsData);                   
     } catch (error) {
-        res.status(500).json({error:error.message})
+        res.status(500).json({error: error.message})
     }
 };
 
@@ -18,8 +18,8 @@ const postClientsRequest = async (req, res) => {
              res.status(404).json(bodyErrors)
 
         } else {
-            const { name, rol, phone, email, password, active, image } = req.body;
-            const newClient = await createClient(name, rol, phone, email, password, active, image)
+            const { name, rol, phone, email, password, image } = req.body;
+            const newClient = await createClient(name, rol, phone, email, password, image)
 
             res.status(200).json(newClient);
          }
@@ -40,7 +40,7 @@ const deleteClientRequest = async (req, res) => {
         }
 
     } catch (error) {
-        res.status(500).json({error:error.message})
+        res.status(500).json({error: error.message})
     }
 }
 

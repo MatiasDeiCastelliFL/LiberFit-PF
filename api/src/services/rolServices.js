@@ -1,4 +1,5 @@
-const {Rols}= require('../db')  
+const {Rols}= require('../db')
+
 const crearRol = async (
     name,
     ) => {

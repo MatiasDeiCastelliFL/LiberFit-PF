@@ -9,6 +9,4 @@ const getApi = async (req, res) => {
     }
 };
 
-
-
 module.exports = { getApi };
