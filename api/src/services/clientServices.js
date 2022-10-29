@@ -26,5 +26,14 @@ const findClients = async () => {
     return clients
 }
 
-module.exports = { createClient, findClients }
+const deleteClient = async (id) => {
+    const deletedClient =  await Clients.destroy({ 
+        where: { 
+            id: id 
+        } 
+    });
+    return deletedClient
+  };
+
+module.exports = { createClient, findClients, deleteClient }
 
