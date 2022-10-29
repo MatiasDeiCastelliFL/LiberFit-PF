@@ -1,4 +1,5 @@
 const { DataTypes } = require("sequelize");
+const Rol = require("./Rol");
 
 module.exports = (sequelize) => {
   sequelize.define(
@@ -10,6 +11,7 @@ module.exports = (sequelize) => {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
       },
+  
       name: {
         type: DataTypes.STRING,
         allowNull: false,

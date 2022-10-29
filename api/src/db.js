@@ -122,10 +122,10 @@ Exercises.belongsToMany(Rutines, { through: "RutinesExercises" });
 Employees.hasMany(Rutines);
 Rutines.belongsTo(Employees);
 
-Employees.belongsToMany(Rols, { through: "EmployeesRols" });
-Rols.belongsToMany(Employees, { through: "EmployeesRols" });
+Employees.belongsTo(Rols);
+Rols.hasMany(Employees);
 
-Rols.hasMany(Clients, {});
+Rols.hasMany(Clients);
 Clients.belongsTo(Rols, {});
 
 module.exports = {

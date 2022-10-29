@@ -7,7 +7,8 @@ const crearEmpleado = async (
     phone,
     password,
     account,
-    image
+    image,
+    RolId
 ) => {
   await Employees.create({
     name,
@@ -16,6 +17,7 @@ const crearEmpleado = async (
     password,
     account,
     image,
+    RolId
   })
 
 }
@@ -63,7 +65,6 @@ const ModificarEmpleado=async(DatoEmple)=>{
       email:DatoEmple.email,
       phone:DatoEmple.phone,
       password:passwordEncript,
-      
       image:DatoEmple.image,
     },{
       where:{
