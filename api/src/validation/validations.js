@@ -42,15 +42,17 @@ async function validate(input) {
 
     //Verificacion para lo que se trata de modelo  roles
 
-    if(!input.RolId){
+    if(input.RolId==""){
         errors.push("Seleccione un rol")
     }
     else{
-        const dato = await Rols.findByPk(input.RolId);
-        console.log(dato)
-        const {id}= await dato
-        
-        if(id=== input.RolId){
+        const dato = await Rols.findOne({where:{
+            id:input.RolId
+        }});
+       
+        const {name}= await dato
+      
+        if(name==="No suscripto"){
             errors.push("Seleccione un rol perteneciente a empleado. puede ser secretario/a o Profesor/a")
         }
     }
