@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Json from "../../../assets/gym.json";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 
+
 const ProductsDetails = () => {
     const sedes = Json[0].sedes;
     const { name } = useParams();
@@ -10,6 +11,7 @@ const ProductsDetails = () => {
     const [details, setDetails] = useState({
         name: name,
         image: "https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dwda4cc82c/products/NI_AR3794-785/NI_AR3794-785-1.JPG",
+        description: "Lorem ipsum dolor sit amet, e,  nisl vitae ultricies lacinia, nisl nisl aliquet n nisl vitae ultricies lacinia, nisl nisl aliquet n nisl vitae ultricies lacinia, nisl nisl aliquet n nisl vitae ultricies lacinia, nisl nisl aliquet n",
         price: 1000,
         sedesIn: [""],
     }); 
