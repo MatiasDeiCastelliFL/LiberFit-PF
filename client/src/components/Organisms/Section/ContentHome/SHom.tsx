@@ -8,7 +8,7 @@ function SHom() {
     <div>
         <CardsContent/>
         <div className='mt-20'>
-         <Plan/>
+          <Plan/>
         </div>
     </div>
   )
