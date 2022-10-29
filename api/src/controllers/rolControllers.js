@@ -39,4 +39,5 @@ const getRol = async (req, res) => {
     }
 }
 
-module.exports = { postRol, getRol, putRol, deleteRol } 
+
+module.exports = { postRol, getRol, putRol, deleteRol} 
