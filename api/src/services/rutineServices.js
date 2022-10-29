@@ -1,6 +1,7 @@
 const { Rutines } = require("../db");
 const { Exercises } = require("../db");
 const api = require("../controllers/gym.json");
+
 const crearDesdeJsonARutinesDb = async () => {
     const dataJsonRutines = api[0].rutines.map((rutine) => {
         return {
