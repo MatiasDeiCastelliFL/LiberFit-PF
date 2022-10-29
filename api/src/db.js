@@ -4,12 +4,32 @@ const fs = require("fs");
 const Rutine = require('./Models/Rutine');
 require('dotenv').config();
 
-const { DB_USER, DB_PASSWORD, DB_HOST } = process.env
-const sequelize =  new Sequelize(
-	`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/gym`,
-	{
-	  logging: false, }
-)
+ const { DB_USER, DB_PASSWORD, DB_HOST, DB } = process.env
+// const sequelize =  new Sequelize(
+// 	`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/gym`,
+// 	{
+// 	  logging: false, }
+// )
+//.env
+// DB_USER=tjjjwligrjtheh
+// DB_PASSWORD=ffefc9612cc8e9ecac235de4f279e25f5fc48bbdfd6084f7d90c441863df0835
+// DB_HOST=ec2-52-4-87-74.compute-1.amazonaws.com
+// DB=dflrc8snd4lu2c
+const sequelize = new Sequelize({
+  database: `${DB}`,
+  username: `${DB_USER}`,
+  password:`${DB_PASSWORD}` ,
+  host: `${DB_HOST}`,
+  port: 5432,
+  dialect: "postgres",
+  logging: false,
+  dialectOptions: {
+    ssl: {
+      require: true, 
+      rejectUnauthorized: false 
+    }
+  },
+});
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
