@@ -13,7 +13,7 @@ Content-Type: application/json
   "image":"https://ui-avatars.com/api/?name=ric+ob",
   "timeSlot":"hoy"
 } 
-
+###
 PUT http://localhost:3004/training/1
 Content-Type: application/json
 

@@ -1,18 +1,21 @@
-const { crearRutine } = require('../services/rutineServices')
+const { crearRutine, buscarRutines,crearDesdeJsonARutinesDb } = require('../services/rutineServices')
 
+const getRutine = async (req, res) => {
+  try {
+    crearDesdeJsonARutinesDb()
+    const rutinas = await buscarRutines()
+    res.status(200).json(rutinas)
+    
+  } catch (error) {
+    console.error(error);
+  }
+}
 const postRutine = async (req, res) => {
   try {
-    const { name, nameExcersise, repetition, series, video, image, muscle } =
-      req.body
+    
 
     const datoRutine = await crearRutine(
-      name,
-      nameExcersise,
-      repetition,
-      series,
-      video,
-      image,
-      muscle
+      req.body
     )
     res.status(200).json(datoRutine)
   } catch (error) {
@@ -20,4 +23,4 @@ const postRutine = async (req, res) => {
   }
 }
 
-module.exports = { postRutine }
+module.exports = { postRutine,getRutine }

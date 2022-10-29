@@ -9,7 +9,6 @@ module.exports = (sequelize) => {
     },
     idClient: {
       type: DataTypes.INTEGER,
-      allowNull: false,
     },
     name: {
       type: DataTypes.STRING,
@@ -21,7 +20,6 @@ module.exports = (sequelize) => {
     },
     timeSlot: {
       type: DataTypes.STRING,
-      allowNull: false,
     }
   },
   {

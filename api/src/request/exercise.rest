@@ -1,5 +1,8 @@
+###
+GET http://localhost:3004/exercises
+
 ### creando un exercise
-POST http://localhost:3004/exercise
+POST http://localhost:3004/exercises
 Content-Type: application/json
 
 {
