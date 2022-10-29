@@ -102,6 +102,9 @@ module.exports = {
         30: "30px",
         80: "80px"
       },
+      borderRadius: {
+        custom_1: "50px",
+      },
     },
   },
   plugins: [],
