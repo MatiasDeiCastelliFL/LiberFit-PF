@@ -5,7 +5,6 @@ const crearTraining = async (body) => {
     const { idClient, name, image, timeSlot } = body;
     try {
         const training = await Trainings.create({
-            idClient,
             name,
             image,
             timeSlot,

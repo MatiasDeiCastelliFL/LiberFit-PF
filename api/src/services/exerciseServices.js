@@ -12,10 +12,6 @@ const crearDesdeJsonAExerciseDb = async () => {
             muscle: e.muscle,
         };
     });
-    console.log(
-        "file: exerciseServices.js ~ line 5 ~ crearDesdeJsonAExerciseDb ~ exercises",
-        exercises
-    );
     await Exercises.bulkCreate(exercises);
 };
 
