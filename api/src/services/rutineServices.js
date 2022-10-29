@@ -37,4 +37,27 @@ const crearRutine = async (body) => {
     });
     await rutine.addExercise(exercise);
 };
-module.exports = { crearRutine, buscarRutines, crearDesdeJsonARutinesDb };
+
+const updateRutine = async (id, body) => {
+    const { nameExcersise, repetition, series, video, image, muscle } = body;
+    try {
+        let rutineToUpdate = await Rutines.findOne({ where: { id } });
+        rutineToUpdate.update({
+            nameExcersise,
+            repetition,
+            series,
+            video,
+            image,
+            muscle,
+        });
+        return rutineToUpdate
+    } catch (error) {
+        return error;
+    }
+};
+module.exports = {
+    crearRutine,
+    buscarRutines,
+    crearDesdeJsonARutinesDb,
+    updateRutine,
+};

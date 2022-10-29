@@ -1,26 +1,38 @@
-const { crearRutine, buscarRutines,crearDesdeJsonARutinesDb } = require('../services/rutineServices')
+const {
+    crearRutine,
+    buscarRutines,
+    crearDesdeJsonARutinesDb,
+    updateRutine,
+} = require("../services/rutineServices");
 
 const getRutine = async (req, res) => {
-  try {
-    crearDesdeJsonARutinesDb()
-    const rutinas = await buscarRutines()
-    res.status(200).json(rutinas)
-    
-  } catch (error) {
-    console.error(error);
-  }
-}
+    try {
+        const rutinas = await buscarRutines();
+        res.status(200).json(rutinas);
+    } catch (error) {
+        console.error(error);
+    }
+};
 const postRutine = async (req, res) => {
-  try {
-    
+    try {
+        const datoRutine = await crearRutine(req.body);
+        res.status(200).json(datoRutine);
+    } catch (error) {
+        console.log(error);
+    }
+};
+const putRutine = async (req, res) => {
+  const {id}=req.params
+    const datoRutine = await updateRutine(id, req.body);
+    res.status(200).json(datoRutine);
+};
+const deleteRutine = async (req, res) => {
+    try {
+        destroyRutine(id);
+        res.status(200).send("Rutina borrada exitosamente");
+    } catch (error) {
+        res.status(400).json(error);
+    }
+};
 
-    const datoRutine = await crearRutine(
-      req.body
-    )
-    res.status(200).json(datoRutine)
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-module.exports = { postRutine,getRutine }
+module.exports = { postRutine, getRutine, deleteRutine, putRutine };

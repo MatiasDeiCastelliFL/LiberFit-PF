@@ -36,4 +36,40 @@ const crearExercise = async (body) => {
     });
     console.log(ejercicio);
 };
-module.exports = { crearExercise, crearDesdeJsonAExerciseDb, buscarExercise };
+
+const updateExercise = async (id, body) => {
+    const { name, repetition, series, video, image, muscle } = body;
+    try {
+        let exerciseToUpdate = await Exercises.findOne({ where: { id } });
+        await exerciseToUpdate.update({
+            name,
+            repetition,
+            series,
+            video,
+            image,
+            muscle,
+        });
+        return exerciseToUpdate;
+    } catch (error) {
+        return error;
+    }
+};
+const destroyExercise = async (id) => {
+    try {
+        let removeId = await Exercises.destroy({
+            where: {
+                id,
+            },
+        });
+        return removeId;
+    } catch (error) {
+        return error;
+    }
+};
+module.exports = {
+    crearExercise,
+    crearDesdeJsonAExerciseDb,
+    buscarExercise,
+    updateExercise,
+    destroyExercise,
+};

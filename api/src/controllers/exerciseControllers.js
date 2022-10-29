@@ -2,13 +2,14 @@ const {
     crearExercise,
     buscarExercise,
     crearDesdeJsonAExerciseDb,
+    updateExercise,
+destroyExercise
 } = require("../services/exerciseServices");
 
 const api = require("./gym.json");
 
 const getExercises = async (req, res) => {
     try {
-        crearDesdeJsonAExerciseDb();
         const exercise = buscarExercise();
         res.status(200).json(exercise);
     } catch (error) {
@@ -23,7 +24,24 @@ const postExercise = async (req, res) => {
         console.log(error);
     }
 };
-const putExercise = () => {};
-const deleteExercise = () => {};
+const putExercise = async (req, res) => {
+    const { id } = req.params;
+    try {
+        let updatedExercise = await updateExercise(id, req.body);
+        res.status(200).json(updatedExercise);
+    } catch (error) {
+        res.status(400).json(error);
+    }
+};
+const deleteExercise = (req, res) => {
+    const { id } = req.params;
+    try {
+        let removeId = destroyExercise(id);
+        res.status(200).send(`${destroyExercise}
+        El entrenamiento fue borrado exitosamente`);
+    } catch (error) {
+        res.status(400).json(error);
+    }
+};
 
 module.exports = { postExercise, getExercises, putExercise, deleteExercise };

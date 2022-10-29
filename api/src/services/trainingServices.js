@@ -15,6 +15,7 @@ const crearTraining = async (body) => {
         return error;
     }
 };
+
 const buscarTrainingPorId = async (id) => {
     const training = await Trainings.findOne({
         where: { id },
@@ -22,7 +23,7 @@ const buscarTrainingPorId = async (id) => {
     return training;
 };
 
-const actualizarTraining = async (id, body) => {
+const updateTraining = async (id, body) => {
     const { idClient, name, image, timeSlot } = body;
     try {
         let trainingToUpdate = await Trainings.findOne({ where: { id } });
@@ -37,11 +38,11 @@ const actualizarTraining = async (id, body) => {
         return error;
     }
 };
-const borrarTraining = async (name) => {
+const borrarTraining = async (id) => {
     try {
         let removeId = await Trainings.destroy({
             where: {
-                name,
+                id,
             },
         });
         return removeId;
@@ -50,14 +51,21 @@ const borrarTraining = async (name) => {
     }
 };
 const crearDesdeJsonATrainingsDb = async () => {
-    const trainings =  api[0].locations
+    const trainings = api[0].locations
         .map((location) => location.trainings)
         .flat(Infinity)
         .filter(
             (val, index, self) =>
                 index === self.findIndex((ele) => ele.name === val.name)
-        );
-        await Trainings.bulkCreate(trainings);
+        )
+        .map((train) => {
+            return {
+                name:train.name,
+                image:train.image,
+                timeSlot : "hoy"
+            }
+        });
+    await Trainings.bulkCreate(trainings);
 };
 
 const buscarTrainings = async () => {
@@ -72,7 +80,7 @@ const buscarTrainings = async () => {
 module.exports = {
     crearTraining,
     borrarTraining,
-    actualizarTraining,
+    updateTraining,
     buscarTrainingPorId,
     buscarTrainings,
     crearDesdeJsonATrainingsDb,

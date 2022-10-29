@@ -1,17 +1,16 @@
 const {
     crearTraining,
     borrarTraining,
-    actualizarTraining,
+    updateTraining,
     buscarTrainingPorId,
     buscarTrainings,
-    crearDesdeJsonATrainingsDb
+    crearDesdeJsonATrainingsDb,
 } = require("../services/trainingServices");
 
 const getTraining = async (req, res) => {
     const { name } = req.query;
 
     try {
-        crearDesdeJsonATrainingsDb()
         if (name) {
             const training = buscarTrainingPorId(name);
             return res.status(200).json(training);
@@ -35,7 +34,7 @@ const postTraining = async (req, res) => {
 const putTraining = async (req, res) => {
     const { id } = req.params;
     try {
-        let updatedTrancingId = actualizarTraining(id,req.body);
+        let updatedTrancingId = await updateTraining(id, req.body);
         res.status(200).json(updatedTrancingId);
     } catch (error) {
         res.status(400).json(error);
