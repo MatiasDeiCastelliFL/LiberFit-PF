@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Json from "../../../assets/gym.json";
-import { FireIcon } from "@heroicons/react/24/outline";
+import { FireIcon, ArrowPathIcon } from "@heroicons/react/24/outline";
+import muscleIcon from "../../../assets/IMG/muscle-icon.png";
 
 
 const ExercisesDetails = () => {
@@ -44,7 +45,7 @@ const ExercisesDetails = () => {
     }, [name]);
 
     return (
-        <div className="flex flex-col w-custom_3 h-max gap-5">
+        <div className="  bg-gray-100 flex flex-col w-custom_3  p-4 h-fit gap-5">
             <div className="flex">
                 <div className=" w-2/4 flex justify-center items-center">
                     <h1 className=" text-5xl font-sans font-black text-stone-500">{details.name}</h1>
@@ -53,20 +54,23 @@ const ExercisesDetails = () => {
             </div>
             <div className="flex justify-between">
                 <div className="bg-redClare p-2 h-fit justify-center items-center flex flex-row w-custom_4">
-                    <FireIcon className="h-10"/>
+                    <FireIcon className="h-10 mr-4"/>
                     <p className=" text-xl  font-black">{details.calories} Cal/h</p>
                 </div>
                 <div className="bg-redClare p-2 h-fit justify-center items-center flex flex-row w-custom_4">
-                    <FireIcon className="h-10"/>
-                    <p className=" text-xl  font-black">{details.calories} Cal/h</p>
+                    <ArrowPathIcon className="h-10 mr-4"/>
+                    <div>
+                    <p className=" text-sm  font-black">{details.series} Series</p>
+                    <p className=" text-sm  font-black">{details.repetition} Repeticiones</p>
+                    </div>
                 </div>
                 <div className="bg-redClare p-2 h-fit justify-center items-center flex flex-row w-custom_4">
-                    <FireIcon className="h-10"/>
+                    <img src={muscleIcon} alt="muscle"  className="mr-4 h-10"/>
                     <p className=" text-xl  font-black">{details.muscle}</p>
                 </div>
             </div>
-            <div className="flex justify-between">
-                <iframe src={details.video} title={details.name} className="h-96 w-5/12"/>
+            <div className=" flex justify-between">
+                <iframe src={details.video} title={details.name} className="mb-5 h-96 w-5/12"/>
                 <div className="w-7/12 flex p-10 justify-center items-center">
                     <p className=" ">{details.description}</p>
                 </div>

@@ -23,12 +23,12 @@ function HomeTemplate({ handle, name }: Props) {
       <div className="flex flex-row">
         <div className="z-40 flex flex-row">
           <Modal />
-          <SideBar handle={handle} setName={name} />
+          <SideBar handle={handle} setName={name} dashboard={false} />
         </div>
 
         <div className="flex flex-col justify-center ml-72">
           <div className="z-30">
-            <NavBar />
+            <NavBar dashboard={false}/>
           </div>
           <div className="z-0 w-full">
             <div className="border border-redGray h-52 mt-32 ml-11 overflow-hidden">
