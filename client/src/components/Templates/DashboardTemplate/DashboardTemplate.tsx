@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../../Organisms/Navbar/NavBar";
 import SideBar from "./../../Organisms/SideBar/SideBar";
+import CreateForm from "../../Organisms/CreateForm/CreateForm";
 
 function DashboardTemplate() {
   return (
@@ -10,6 +11,9 @@ function DashboardTemplate() {
       </div>
       <div className="flex flex-col justify-center ml-72 ">
         <NavBar dashboard={true} />
+      </div>
+      <div className="mt-40 ml-10">
+        <CreateForm />
       </div>
     </div>
   );
