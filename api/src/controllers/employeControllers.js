@@ -6,8 +6,8 @@ const  validate  = require('../validation/validations')
 const bcrypt= require("bcrypt")
 const postEmpleado =async (req, res)=>{
     try {
-        
         const datoValidacion=validate(req.body);
+        console.log(datoValidacion)
          if(datoValidacion.length>0){
             res.status(404).json(datoValidacion)
         }else{

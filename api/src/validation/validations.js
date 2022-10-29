@@ -1,8 +1,8 @@
 const { prototype } = require("mocha");
-
-function validate(input) {
+const { Rols } = require('../db')
+async function validate(input) {
     let errors= new Array()
-  
+    
     //valida que sea solo numero
     let valoresAceptados = /^[0-9]+$/;
     
@@ -37,6 +37,25 @@ function validate(input) {
     if(!input.password){
         errors.push("La password es requerida.");
     }
+
+
+
+    //Verificacion para lo que se trata de modelo  roles
+
+    if(!input.RolId){
+        errors.push("Seleccione un rol")
+    }
+    else{
+        const dato = await Rols.findByPk(input.RolId);
+        console.log(dato)
+        const {id}= await dato
+        
+        if(id=== input.RolId){
+            errors.push("Seleccione un rol perteneciente a empleado. puede ser secretario/a o Profesor/a")
+        }
+    }
     return  errors
 }
+
+
 module.exports=validate;
