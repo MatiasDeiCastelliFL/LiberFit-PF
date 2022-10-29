@@ -9,28 +9,22 @@ import {
   FaRegEnvelope,
 } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
+import { useForm } from "react-hook-form";
 
 interface Inp {
   username: string;
   password: string;
 }
 const LoginForm = () => {
-  const [input, setInput] = useState<Inp>({
-    username: "",
-    password: "",
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inp>();
+
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
   });
-  console.log(input);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput({
-      ...input,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
 
   return (
     <div
@@ -64,30 +58,56 @@ const LoginForm = () => {
                 </div>
               </div>
               <p className="text-green-800 my-3">or use your email account</p>
-              <div className="flex flex-col items-center">
-                <div className=" bg-redGray w-64 p-2 flex items-center mb-3">
+              <form onSubmit={onSubmit} className="flex flex-col items-center">
+                <div className=" bg-redGray w-64 p-2 flex items-center mt-3">
                   <FaRegEnvelope className="m-2" />
                   <input
-                    onChange={handleChange}
-                    value={input.username}
                     type="username"
-                    name="username"
+                    {...register("username", {
+                      required: true,
+                      validate: (value) => value.trim().length === 0,
+                      maxLength: 10,
+                    })}
                     placeholder="username.."
                     className="bg-redGray outline-none text-sm flex-1 "
                   />
                 </div>
-                <div className=" bg-redGray w-64 p-2 flex items-center mb-3">
+                <div className="text-red-500 text-sm mt-2">
+                  {errors.username?.type === "required" && (
+                    <p>tu username es requerido</p>
+                  )}
+                  {errors.username?.type === "maxLength" && (
+                    <p>tu username debe tener menos de 10 caracteres</p>
+                  )}
+                  {errors.username?.type === "validate" && (
+                    <p>tu username no puede tener espacio</p>
+                  )}
+                </div>
+                <div className=" bg-redGray w-64 p-2 flex items-center mt-3">
                   <MdLockOutline className="m-2" />
                   <input
-                    onChange={handleChange}
-                    value={input.password}
                     type="password"
-                    name="password"
+                    {...register("password", {
+                      required: true,
+                      maxLength: 10,
+                      validate: (value) => value.trim() === "0",
+                    })}
                     placeholder="password.."
                     className="bg-redGray outline-none text-sm flex-1"
                   />
                 </div>
-                <div className="flex justify-between w-64 mb-5">
+                <div className="text-red-500 text-sm mt-2">
+                  {errors.password?.type === "required" && (
+                    <p>tu password es requerido</p>
+                  )}
+                  {errors.password?.type === "maxLength" && (
+                    <p>tu password debe tener menos de 10 caracteres</p>
+                  )}
+                  {errors.password?.type === "validate" && (
+                    <p>tu password no puede tener espacio</p>
+                  )}
+                </div>
+                <div className="flex justify-between w-64 mt-3 mb-5">
                   <label className="flex items-center text-xs">
                     <input type="checkbox" name="remember" className="mr-1" />{" "}
                     Remember me
@@ -96,15 +116,24 @@ const LoginForm = () => {
                     Forgot Password?
                   </Link>
                 </div>
-                <Link
-                  to=""
-                  className="border-2 border-green-500 rounded-full px-10 py-2 inline-block font-semibold 
-                        hover:bg-green-600 hover:text-white"
-                >
-                  Sing Up
-                </Link>
-              </div>
+                <div className="flex">
+                  <input
+                    type="submit"
+                    value="Sing in"
+                    className="border-2 border-green-500 rounded-full px-8 py-2 inline-block font-semibold 
+                  hover:bg-green-600 hover:text-white"
+                  />
+                  <Link
+                    to="/signup"
+                    className="border-2 border-white rounded-full px-8 py-2 inline-block font-semibold 
+                hover:bg-white hover:text-green-600"
+                  >
+                    Sing Up
+                  </Link>
+                </div>
+              </form>
             </div>
+
             {/* Sing un */}
             <div className="w-2/5 bg-redClare text-white rounded-tr-2xl rounded-br-2xl py-36 px-12">
               <h2 className="text-3xl font-bold mb-2">Hello, Friend!</h2>
@@ -112,12 +141,13 @@ const LoginForm = () => {
               <p className="mb-2">
                 Empieza Tu nueva Rutina y cambia tu vida...
               </p>
+
               <Link
-                to=""
-                className="border-2 border-white rounded-full px-10 py-2 inline-block font-semibold 
+                to="/home"
+                className="border-2 border-white rounded-full px-10 py-2 m-2 inline-block font-semibold 
                         hover:bg-white hover:text-green-600"
               >
-                Sing Up
+                Home
               </Link>
             </div>
           </div>
