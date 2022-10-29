@@ -5,8 +5,9 @@ POST http://localhost:3004/rutine
 Content-Type: application/json
 
 { 
-  "name":"bajar de peso",
-  "nameExcersise":"alzar pesas",
+  "name":"Subir de peso",
+  "nameExcersise":"Banco Plano",
+  "nameTraining":"Boxeo",
   "repetition":2,
   "series":4,
   "video":"https://www.youtube.com/watch?v=XpPf0HJSEo4",
