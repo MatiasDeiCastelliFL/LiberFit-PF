@@ -1,38 +1,30 @@
-const {createClient, findClients, deleteClient } = require('../services/clientServices')
+const {createClient, findClients, deleteClient } = require('../services/clientServices');
+const  validate  = require('../validation/validations');
 
 const getClientsRequest = async (req, res) => {
     try {
         const clientsData = await findClients();
-        res.status(200).json({clientsData})                    
+        res.status(200).json(clientsData);                   
     } catch (error) {
-            console.log(error)
+        res.status(500).json({error:error.message})
     }
-}
+};
 
 const postClientsRequest = async (req, res) => {
     try {
-        const { 
-            name,
-            rol,
-            phone,
-            email,
-            passwords,
-            active,
-            image
-        } = req.body
+        const bodyErrors = validate(req.body);
+            
+         if(bodyErrors.length > 0) {
+             res.status(404).json(bodyErrors)
 
-        const dataClient = await createClient(
-            name,
-            rol,
-            phone,
-            email,
-            passwords,
-            active,
-            image
-        )
-        res.status(200).json(dataClient)
+        } else {
+            const { name, rol, phone, email, password, active, image } = req.body;
+            const newClient = await createClient(name, rol, phone, email, password, active, image)
+
+            res.status(200).json(newClient);
+         }
     } catch (error) {
-        console.log(error)
+       res.status(500).json({error: error.message})
     }
 }
 
@@ -48,7 +40,7 @@ const deleteClientRequest = async (req, res) => {
         }
 
     } catch (error) {
-        console.log(error)
+        res.status(500).json({error:error.message})
     }
 }
 

@@ -5,7 +5,7 @@ const createClient = async (
     rol,
     phone,
     email,
-    passwords,
+    password,
     active,
     image
 ) => {
@@ -14,7 +14,7 @@ const createClient = async (
         rol,
         phone,
         email,
-        passwords,
+        password,
         active,
         image
     })

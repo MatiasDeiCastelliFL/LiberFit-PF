@@ -1,10 +1,9 @@
 const { Router } = require("express");
 const { getClientsRequest, postClientsRequest, deleteClientRequest } = require("../controllers/clientControllers");
-
 const routerClient= Router();
 
-routerClient.get("/client", getClientsRequest);
+routerClient.get("/clients", getClientsRequest);
 routerClient.post("/client", postClientsRequest);
-routerClient.delete("/client", deleteClientRequest);
+routerClient.delete("/clients", deleteClientRequest);
 
 module.exports = routerClient;
