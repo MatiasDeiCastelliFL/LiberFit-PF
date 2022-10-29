@@ -33,31 +33,31 @@ const LoginForm = () => {
     >
       <div className="flex flex-col items-center justify-center min-h-screen py-2">
         <div className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-          <div className="bg-white opacity-90 rounded-2xl  shadow-2xl flex w-2/3 max-w-4xl">
+          <div className="bg-white opacity-95 rounded-2xl  shadow-2xl flex w-2/3 max-w-4xl">
             {/* Sign in */}
             <div className="w-3/5 p-5">
               <div className="text-left font-bold">
-                <span className="text-green-500 text-2xl px-2">Liberfit</span>
+                <span className="text-red-400 text-2xl px-2">Liberfit</span>
                 Gym
               </div>
               <div className="py-4">
-                <h2 className="text-3xl font-bold text-green-500">
-                  Sing in to Account
+                <h2 className="text-3xl font-bold text-redClare">
+                  Iniciar sesión
                 </h2>
-                <div className="border-2 w-14 border-green-500 inline-block mb-2"></div>
+                <div className="border-2 w-14 border-redClare inline-block mb-2"></div>
               </div>
               <div className="flex justify-center my-2">
-                <div className="border-2 w-min border-green-200 rounded-full p-3 mx-1">
+                <div className="border-2 w-min border-red-300 rounded-full p-3 mx-1">
                   <FaFacebookF className="text-sm" />
                 </div>
-                <div className="border-2 w-min border-green-200 rounded-full p-3 mx-1">
+                <div className="border-2 w-min border-red-300 rounded-full p-3 mx-1">
                   <FaLinkedinIn className="text-sm" />
                 </div>
-                <div className="border-2 w-min border-green-200 rounded-full p-3 mx-1">
+                <div className="border-2 w-min border-red-300 rounded-full p-3 mx-1">
                   <FaGoogle className="text-sm" />
                 </div>
               </div>
-              <p className="text-green-800 my-3">or use your email account</p>
+              <p className=" text-red-800 my-3">o usa tu cuenta de correo</p>
               <form onSubmit={onSubmit} className="flex flex-col items-center">
                 <div className=" bg-redGray w-64 p-2 flex items-center mt-3">
                   <FaRegEnvelope className="m-2" />
@@ -65,8 +65,8 @@ const LoginForm = () => {
                     type="username"
                     {...register("username", {
                       required: true,
-                      validate: (value) => value.trim().length === 0,
                       maxLength: 10,
+                      pattern: /^[a-zA-Z0-9\_\-]/,
                     })}
                     placeholder="username.."
                     className="bg-redGray outline-none text-sm flex-1 "
@@ -79,7 +79,7 @@ const LoginForm = () => {
                   {errors.username?.type === "maxLength" && (
                     <p>tu username debe tener menos de 10 caracteres</p>
                   )}
-                  {errors.username?.type === "validate" && (
+                  {errors.username?.type === "pattern" && (
                     <p>tu username no puede tener espacio</p>
                   )}
                 </div>
@@ -90,45 +90,39 @@ const LoginForm = () => {
                     {...register("password", {
                       required: true,
                       maxLength: 10,
-                      validate: (value) => value.trim() === "0",
+                      pattern: /^[a-zA-Z0-9\_\-]/,
                     })}
                     placeholder="password.."
                     className="bg-redGray outline-none text-sm flex-1"
                   />
                 </div>
-                <div className="text-red-500 text-sm mt-2">
+                <div className="text-red-600 text-sm mt-2">
                   {errors.password?.type === "required" && (
                     <p>tu password es requerido</p>
                   )}
                   {errors.password?.type === "maxLength" && (
                     <p>tu password debe tener menos de 10 caracteres</p>
                   )}
-                  {errors.password?.type === "validate" && (
+                  {errors.password?.type === "pattern" && (
                     <p>tu password no puede tener espacio</p>
                   )}
                 </div>
-                <div className="flex justify-between w-64 mt-3 mb-5">
-                  <label className="flex items-center text-xs">
-                    <input type="checkbox" name="remember" className="mr-1" />{" "}
-                    Remember me
-                  </label>
-                  <Link to="" className="text-xs">
-                    Forgot Password?
+                  <Link to="" className="text-xs p-2">
+                    ¿Se te olvido tu contraseña?
                   </Link>
-                </div>
                 <div className="flex">
                   <input
                     type="submit"
-                    value="Sing in"
-                    className="border-2 border-green-500 rounded-full px-8 py-2 inline-block font-semibold 
-                  hover:bg-green-600 hover:text-white"
+                    value="Iniciar"
+                    className="border-2 border-red-400 rounded-full px-8 py-2 inline-block font-semibold 
+                  hover:bg-red-400 hover:text-white"
                   />
                   <Link
                     to="/signup"
                     className="border-2 border-white rounded-full px-8 py-2 inline-block font-semibold 
-                hover:bg-white hover:text-green-600"
+                hover:bg-white hover:text-red-400"
                   >
-                    Sing Up
+                    Inscribirse
                   </Link>
                 </div>
               </form>
@@ -136,16 +130,16 @@ const LoginForm = () => {
 
             {/* Sing un */}
             <div className="w-2/5 bg-redClare text-white rounded-tr-2xl rounded-br-2xl py-36 px-12">
-              <h2 className="text-3xl font-bold mb-2">Hello, Friend!</h2>
+              <h2 className="text-3xl font-bold mb-2">Hola amigo Gym!</h2>
               <div className="border-2 w-10 border-whithe inline-block mb-2"></div>
               <p className="mb-2">
-                Empieza Tu nueva Rutina y cambia tu vida...
+                Empieza Tu nueva Rutina y cambia tu vida...❤
               </p>
 
               <Link
                 to="/home"
                 className="border-2 border-white rounded-full px-10 py-2 m-2 inline-block font-semibold 
-                        hover:bg-white hover:text-green-600"
+                        hover:bg-white hover:text-red-600"
               >
                 Home
               </Link>
