@@ -1,0 +1,14 @@
+### creando un gym
+POST http://localhost:3004/gym
+Content-Type: application/json
+
+{
+  "name":"LiberFit",
+  "email":"liberfit@liber.com",
+  "phone":"123 213123",
+  "image":"https://ui-avatars.com/api/?name=ric+ob"
+} 
+
+
+
+

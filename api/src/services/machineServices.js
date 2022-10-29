@@ -1,0 +1,20 @@
+const {Machines} = require("../db")
+
+  const crearMachine = async (name,image,muscle,) => {
+      const machines = await Machines.create({ name,image,muscle,})
+    }
+
+  const enviarMachine = async () => {
+      const machines = await Machines.findAll()
+      return machines
+    }
+  const actualizarMachine= async (name,image,muscle,id) => {
+    const machines = await Machines.findByPk(id)
+    machines.muscle=muscle ;machines.image=image;machines.name= name;
+    machines.save();
+  }
+  const borrarMachine= async(id)=>{
+    await Machines.destroy({ where: { id: `${id}` }})
+  }
+  
+  module.exports = {crearMachine, enviarMachine, actualizarMachine,borrarMachine }

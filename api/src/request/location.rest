@@ -1,7 +1,26 @@
 ###
-GET http://localhost:3001/locacion
+GET http://localhost:3004/locacion
 ###
-POST http://localhost:3001/locacion
+POST http://localhost:3004/locacion
+Content-Type: application/json
+
+{ 
+  "name":"Ricardo",
+  "address":"rusia",
+  "phone":"123412"
+} 
+
+###
+PUT http://localhost:3004/locacion
+Content-Type: application/json
+
+{ 
+  "name":"Ricardo",
+  "address":"rusia",
+  "phone":"123412"
+} 
+###
+DELETE http://localhost:3004/locacion
 Content-Type: application/json
 
 { 

@@ -1,0 +1,16 @@
+###
+GET http://localhost:3004/product
+###
+POST http://localhost:3004/product
+Content-Type: application/json
+
+{ 
+  "name":"pesas",
+  "price":"$200",
+  "stock":"2",
+  "code":"121121",
+  "image":"https://ui-avatars.com/api/?name=Elon+Musk",
+  "description":"esto es una pesa",
+  "size":"XL",
+  "brand":"ACME"
+} 

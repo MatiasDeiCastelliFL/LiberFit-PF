@@ -1,0 +1,11 @@
+###
+GET http://localhost:3004/suscription
+###
+POST http://localhost:3004/suscription
+Content-Type: application/json
+
+{ 
+  "name":"oro",
+  "price":"$40404",
+  "description":"estpo es un suscripcion"
+} 

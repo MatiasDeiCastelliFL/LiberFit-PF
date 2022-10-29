@@ -1,0 +1,15 @@
+###
+GET http://localhost:3004/rutine
+###
+POST http://localhost:3004/rutine
+Content-Type: application/json
+
+{ 
+  "name":"bajar de peso",
+  "nameExcersise":"alzar pesas",
+  "repetition":2,
+  "series":4,
+  "video":"https://www.youtube.com/watch?v=XpPf0HJSEo4",
+  "image":"https://ui-avatars.com/api/?name=ric+ob",
+  "muscle":"brazo"
+} 
