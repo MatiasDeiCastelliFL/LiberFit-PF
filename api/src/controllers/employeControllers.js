@@ -8,16 +8,13 @@ const postEmpleado =async (req, res)=>{
     try {
         
         const datoValidacion=validate(req.body);
-        console.log(datoValidacion)
-        
          if(datoValidacion.length>0){
-        
-             res.status(404).json(datoValidacion)
+            res.status(404).json(datoValidacion)
         }else{
-            const {name,email,phone,password,account,image}=req.body
+            const {name,email,phone,password,account,image,RolId}=req.body
             const passwordEncript= await bcrypt.hash(password,15)
 
-            const datoEmpleado= await  crearEmpleado(name,email,phone,passwordEncript,account,image)
+            const datoEmpleado= await  crearEmpleado(name,email,phone,passwordEncript,account,image,RolId)
           
             res.status(200).json(datoEmpleado);
          }
