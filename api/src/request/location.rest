@@ -1,6 +1,8 @@
 ###
 GET http://localhost:3004/locacion
 ###
+GET http://localhost:3004/locacion/:id
+###
 POST http://localhost:3004/locacion
 Content-Type: application/json
 

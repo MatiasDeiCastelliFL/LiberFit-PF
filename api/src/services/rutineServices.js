@@ -1,4 +1,4 @@
-const { Rutines, Exercises, Trainings,Clients } = require("../db");
+const { Rutines, Exercises, Trainings, Clients } = require("../db");
 
 const api = require("../controllers/gym.json");
 const {
@@ -16,24 +16,17 @@ const buscarRutines = async () => {
 };
 
 const crearRutine = async (body) => {
-    const {
-        name,
-        nameExcersise,
-        nameTraining,
-        EmployeeId,
-        ClientId,
-        repetition,
-        series,
-        video,
-        image,
-        muscle,
-    } = body;
+    // TODO quue no se repita
+    const { name, ClientId, EmployeeId, nameTraining, nameExcersise } = body;
+
     try {
         const rutine = await Rutines.create({
-            name,
+            name: name,
+            ClientId: ClientId,
             EmployeeId,
-            // ClientId,
+            EmployeeId,
         });
+
         const exercise = await Exercises.findOne({
             where: {
                 name: nameExcersise,
@@ -44,28 +37,19 @@ const crearRutine = async (body) => {
                 name: nameTraining,
             },
         });
-        const cliente = await Clients.findOne({
-            where: {
-                id: ClientId,
-            },
-        });
-        // console.log('cliente.__proto__',cliente.__proto__)
-        // console.log('cliente.__proto__',rutine.__proto__)
-
-        await rutine.addExercise(exercise);
-        await rutine.addTraining(training);
-        await cliente.addRutine(rutine);
     } catch (error) {
         console.error(error);
     }
 };
 
 const updateRutine = async (id, body) => {
-    const { nameExcersise, repetition, series, video, image, muscle } = body;
+    const { nameExcersise,ClientName,EmployeeName} = body;
     try {
         let rutineToUpdate = await Rutines.findOne({ where: { id } });
         rutineToUpdate.update({
             nameExcersise,
+            ClientName,
+            EmployeeName,
             repetition,
             series,
             video,
@@ -82,6 +66,22 @@ const updateRutine = async (id, body) => {
                 name: nameTraining,
             },
         });
+        // Traer por nombre el cliente
+        const cliente = await Clients.findOne({
+            where: {
+                id: ClientName,
+            },
+        });
+        const empleado = await EMployees.findOne({
+            where: {
+                id: EmployeeName,
+            },
+        });
+
+        await rutine.addEmployee(empleado);
+
+        // await cliente.addRutine(rutine);
+
         await rutine.addExercise(exercise);
         await rutine.addTraining(training);
         return rutineToUpdate;
