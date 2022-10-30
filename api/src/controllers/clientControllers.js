@@ -11,10 +11,9 @@ const getClientsRequest = async (req, res) => {
 
 const postClientsRequest = async (req, res) => {
     try {
-       
             const { name, phone, email, password, image, locacion } = req.body;
-            const newClient = await createClient(name, phone, email, password, image, locacion )
-
+            const newClient = await createClient(name, phone, email, password, image,   locacion )
+ 
             res.status(200).json(newClient);
          
     } catch (error) {

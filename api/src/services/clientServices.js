@@ -16,10 +16,10 @@ const createClient = async (
         password,
         image
     })
-    console.log(cliente)
-   const x= await Locacions.findOne({ where: { name: `${locacion}` } })
-   console.log(x)
-    await cliente.addLocacions(x)
+  
+   const lacation= await Locacions.findOne({ where: { name: `${locacion}` } })
+
+    await cliente.addLocacions(lacation)
 }
 
 const findClients = async () => {

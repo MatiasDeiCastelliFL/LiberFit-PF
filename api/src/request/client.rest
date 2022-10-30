@@ -8,5 +8,5 @@ Content-Type: application/json
   "email":"ricardo1@gamil.com",
   "password":"dasdasd34234",
   "image":"https://ui-avatars.com/api/?name=ric+ob",
-  "locacion":"Rgym"
+  "locacion":"nonbre del gyn" 
 }
