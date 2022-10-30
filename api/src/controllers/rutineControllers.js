@@ -1,7 +1,6 @@
 const {
     crearRutine,
     buscarRutines,
-    crearDesdeJsonARutinesDb,
     updateRutine,
 } = require("../services/rutineServices");
 
