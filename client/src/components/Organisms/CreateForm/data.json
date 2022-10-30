@@ -14,6 +14,7 @@
         ],
         "selectFields": [
             {
+                "name":"options",
                 "options": ["Sede 1", "Sede 2", "Sede 3"]
             }
         ]
@@ -33,12 +34,13 @@
         ],
         "selectFields": [
             {
+                "name":"options",
                 "options": ["Sede 1", "Sede 2", "Sede 3"]
             }
         ]
     },
     {
-        "name": "Clases",
+        "name": "Entrenamientos",
         "background":"linear-gradient(180deg, #1AFF3E 0%, #09FF3F 56.25%, #60EA0C 99.99%)",
         "fields": [
             {
@@ -52,9 +54,11 @@
         ],
         "selectFields": [
             {
+                "name":"options",
                 "options":["Sede 1", "Sede 2", "Sede 3"]
             },
             {
+                "name":"options",
                 "options":["Profesor 1", "Profesor 2", "Profesor 3"]
             }
         ]
@@ -78,6 +82,7 @@
         ],
         "selectFields": [
             {
+                "name":"options",
                 "options":["Maquina 1", "Maquina 2", "Maquina 3"]
             }
         ]

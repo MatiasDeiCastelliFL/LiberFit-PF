@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const Rol = require("./Rol");
+
 
 module.exports = (sequelize) => {
   sequelize.define(

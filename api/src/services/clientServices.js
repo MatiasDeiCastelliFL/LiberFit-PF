@@ -1,11 +1,12 @@
-const { Clients } = require('../db')
+const { Clients,Locacions } = require('../db')
 
 const createClient = async (
     name,
     phone,
     email,
     password,
-    image
+    image,
+    locacion
 ) => {
     const cliente = await Clients.create({
         name,
@@ -15,7 +16,9 @@ const createClient = async (
         image
     })
     console.log(cliente)
-    await cliente.addRol(rol)
+   const x= await Locacions.findOne({ where: { name: `${locacion}` } })
+   console.log(x)
+    await cliente.addLocacions(x)
 }
 
 const findClients = async () => {

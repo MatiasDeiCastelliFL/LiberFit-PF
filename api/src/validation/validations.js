@@ -1,5 +1,5 @@
 const { prototype } = require("mocha");
-const { Rols } = require('../db')
+const { Rols, Employees } = require('../db')
 async function validate(input) {
     let errors= new Array()
     
@@ -19,6 +19,13 @@ async function validate(input) {
     if (input.email) {
         if(!ValidacionEmail.exec(input.email)){
             errors.push("Email incorrecto, por favor ingrese caracteres validos.");
+        }else{
+            const emailExiste= await Employees.findOne({where:{
+                email:input.email
+            }})
+            if(emailExiste){
+                errors.push("El email ya se encuentra registrado. Ingrese uno nuevo");
+            }
         }
       
     } else {
@@ -29,7 +36,14 @@ async function validate(input) {
     if(input.phone){
         if (!input.phone.match(valoresAceptados)){
             errors.push("Ingrese solo numero.");
-        } 
+        }else{
+            const phoneRequire= await Employees.findOne({where:{
+                phone:input.phone
+            }})
+            if(phoneRequire){
+                errors.push("El telefono ya se encuentra registrado. Ingrese uno nuevo");
+            }
+        }
     }else{
         errors.push("El numero de telefono es requerido.");
     }
