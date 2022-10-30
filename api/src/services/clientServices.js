@@ -6,6 +6,7 @@ const createClient = async (
     email,
     password,
     image,
+    active,
     locacion
 ) => {
     const cliente = await Clients.create({
