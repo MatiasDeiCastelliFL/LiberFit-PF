@@ -10,7 +10,7 @@ interface Props {
     background: React.CSSProperties
 }
 
-const FormBanner = ({background, name}:Props) => {
+const FormBanner = ({background, name}:Props) => { 
 
     return (
         <div className=" w-1/3">
