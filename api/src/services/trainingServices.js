@@ -27,7 +27,6 @@ const updateTraining = async (id, body) => {
     try {
         let trainingToUpdate = await Trainings.findOne({ where: { id } });
         await trainingToUpdate.update({
-            idClient,
             name,
             image,
             timeSlot,
@@ -49,23 +48,6 @@ const borrarTraining = async (id) => {
         return error;
     }
 };
-const crearDesdeJsonATrainingsDb = async () => {
-    const trainings = api[0].locations
-        .map((location) => location.trainings)
-        .flat(Infinity)
-        .filter(
-            (val, index, self) =>
-                index === self.findIndex((ele) => ele.name === val.name)
-        )
-        .map((train) => {
-            return {
-                name:train.name,
-                image:train.image,
-                timeSlot : "hoy"
-            }
-        });
-    await Trainings.bulkCreate(trainings);
-};
 
 const buscarTrainings = async () => {
     try {
@@ -82,5 +64,4 @@ module.exports = {
     updateTraining,
     buscarTrainingPorId,
     buscarTrainings,
-    crearDesdeJsonATrainingsDb,
 };
