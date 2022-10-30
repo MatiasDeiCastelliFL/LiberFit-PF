@@ -1201,19 +1201,19 @@
         "id": 1,
         "amount":300,
         "name": "Transferencia Bancaria",
-        "membresia": true
+        "active": true
       },
       {
         "id": 2,
         "amount":300,
         "name": "Mercado Pago",
-        "membresia": true
+        "active": true
       },
       {
         "id": 3,
         "amount":300,
         "name": "Efectivo en Persona",
-        "membresia": true
+        "active": true
       }
     ],
     "clients": [
