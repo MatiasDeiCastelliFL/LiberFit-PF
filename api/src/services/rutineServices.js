@@ -30,7 +30,7 @@ const crearRutine = async (body) => {
             
 	    });
 
-        console.log(rutine)
+        
 	    const exercise = await Exercises.findOne({
 	        where: {
 	            name: nameExcersise,
