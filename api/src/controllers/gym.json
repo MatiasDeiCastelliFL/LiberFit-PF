@@ -10,7 +10,10 @@
         "idGim": "SD-2788333",
         "name": "Carlos Alberto Sanchez",
         "address": "Avenida Mira Florez",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfIIiLwFW0xQ__Yyb7bZBQ4WlkYHagaA39-g&usqp=CAU"
+        "email":"carlos@liberfit.com",
+        "password":"abc1234++",
+        "phone":"+23 17485278",
+        "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfIIiLwFW0xQ__Yyb7bZBQ4WlkYHagaA39-g&usqp=CAU"
       }
     ],
     "subscriptions": [
@@ -152,6 +155,7 @@
         "id": "SD-2788333-2",
         "name": "AbsoluteFit - Sede Caseros",
         "address": "12 de Octubre 3452",
+        "phone":"+23 17485278",
         "trainings": [
           {
             "name": "Funcional",
@@ -238,6 +242,7 @@
         "id": "SD-2788333-3",
         "name": "AbsoluteFit - Sede Quilmes",
         "address": "Laprida 2312",
+        "phone":"+23 17485278",
         "trainings": [
           {
             "name": "Funcional",
@@ -328,6 +333,7 @@
         "id": "SD-2788333-4",
         "name": "AbsoluteFit - Sede Florencio Varela",
         "address": "Guido 2312",
+        "phone":"+23 17485278",
         "trainings": [
           {
             "name": "Funcional",
@@ -414,6 +420,7 @@
         "id": "SD-2788333-5",
         "name": "AbsoluteFit - Sede Ezpeleta",
         "address": "Marmol 7843",
+        "phone":"+23 17485278",
         "trainings": [
           {
             "name": "Funcional",
@@ -500,6 +507,7 @@
         "id": "SD-2788333-6",
         "name": "AbsoluteFit - Sede Moron",
         "address": "Matienzo 2891",
+        "phone":"+23 17485278",
         "trainings": [
           {
             "name": "Funcional",
@@ -566,6 +574,7 @@
         "id": "SD-2788333-7",
         "name": "AbsoluteFit - Sede Castelar",
         "address": "San Martin 9843",
+        "phone":"+23 17485278",
         "trainings": [
           {
             "name": "Spinning",
@@ -660,6 +669,7 @@
         "id": "SD-2788333-8",
         "name": "AbsoluteFit - Sede Avellanera",
         "address": "Sarmiento 6732",
+        "phone":"+23 17485278",
         "trainings": [
           {
             "name": "Funcional",
@@ -758,6 +768,7 @@
         "id": "SD-2788333-9",
         "name": "AbsoluteFit - Sede Ranelagh",
         "address": "Conesa 9821",
+        "phone":"+23 17485278",
         "trainings": [
           {
             "name": "Funcional",
@@ -1184,16 +1195,19 @@
     "payment": [
       {
         "id": 1,
+        "amount":300,
         "name": "Transferencia Bancaria",
         "membresia": true
       },
       {
         "id": 2,
+        "amount":300,
         "name": "Mercado Pago",
         "membresia": true
       },
       {
         "id": 3,
+        "amount":300,
         "name": "Efectivo en Persona",
         "membresia": true
       }
