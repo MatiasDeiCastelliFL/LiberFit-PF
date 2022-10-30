@@ -15,14 +15,22 @@ const buscarRutines = async () => {
 };
 
 const crearRutine = async (body) => {
-    const { name, nameExcersise,nameTraining, EmployeeId ,repetition, series, video, image, muscle } =
+    console.log(body)
+    const { name,ClientId ,EmployeeId,nameTraining,nameExcersise} =
         body;
+
+        
    try {
-	 const rutine = await Rutines.create({
-	        name,
-            EmployeeId,
-            ClientId
+    
+        
+	    const rutine = await Rutines.create({
+	        name:name,
+            ClientId:ClientId,
+            EmployeeId,EmployeeId
+            
 	    });
+
+        console.log(rutine)
 	    const exercise = await Exercises.findOne({
 	        where: {
 	            name: nameExcersise,
@@ -35,8 +43,8 @@ const crearRutine = async (body) => {
 	    });
 	
 	    
-	    await rutine.addExercise(exercise);
-	    await rutine.addTraining(training);
+	    // await rutine.addExercise(exercise);
+	    // await rutine.addTraining(training);
 	
 } catch (error) {
 	console.error(error);
