@@ -15,11 +15,13 @@ const buscarRutines = async () => {
 };
 
 const crearRutine = async (body) => {
-    const { name, nameExcersise,nameTraining, repetition, series, video, image, muscle } =
+    const { name, nameExcersise,nameTraining, EmployeeId ,repetition, series, video, image, muscle } =
         body;
    try {
 	 const rutine = await Rutines.create({
 	        name,
+            EmployeeId,
+            ClientId
 	    });
 	    const exercise = await Exercises.findOne({
 	        where: {
