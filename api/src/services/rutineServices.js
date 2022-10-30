@@ -27,19 +27,25 @@ const crearRutine = async (body) => {
             EmployeeId,
         });
 
-        const exercise = await Exercises.findOne({
-            where: {
-                name: nameExcersise,
-            },
-        });
-        const training = await Trainings.findOne({
-            where: {
-                name: nameTraining,
-            },
-        });
-    } catch (error) {
-        console.error(error);
-    }
+        
+	    const exercise = await Exercises.findOne({
+	        where: {
+	            name: nameExcersise,
+	        },
+	    });
+	    const training = await Trainings.findOne({
+	        where: {
+	            name:nameTraining,
+	        },
+	    });
+	
+	    
+	    // await rutine.addExercise(exercise);
+	    // await rutine.addTraining(training);
+	
+} catch (error) {
+	console.error(error);
+}
 };
 
 const updateRutine = async (id, body) => {
