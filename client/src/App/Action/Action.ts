@@ -4,6 +4,7 @@ import arraySet from "../utils/arraySet";
 import { modalOpen } from "../FeatureSlices/Modal/Modal";
 import { getData } from "../FeatureSlices/Data/Data";
 import { filterDataName, filterExercisesByMuscles, filterDataPrice,openFilter} from "../FeatureSlices/Filters/Filter";
+import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users"
 
 const data = Json[0].sedes.map(d => d.products.map(d => d.name))
 const exercises = Json[0].exercises.map(d => d)
@@ -32,4 +33,20 @@ export const openModal = (active:boolean) => (dispatch:any) => {
 
 export const openFilters = (active:boolean) => (dispatch:any) => {
     dispatch(openFilter(active))
+}
+
+export const getUsers = () => async (dispatch:any) => {
+    axios("") // endpoint de todos los users
+    .then(res=>dispatch(getAllUsers(res)))
+    .catch(e=>console.log(e))
+}
+
+export const postUser = (payload:any) => async (dispatch: any) => {
+    try {
+        let json = await axios.post("",payload) // enpoint de post user
+        console.log(json)
+        return json
+    } catch (error) {
+        console.log(error)   
+    }
 }
