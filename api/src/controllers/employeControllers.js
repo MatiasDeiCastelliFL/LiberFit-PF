@@ -1,15 +1,34 @@
 
 const {crearEmpleado,buscarEmpleadoTotal,buscarEmpleadoPorNameAndCorreo,buscarEmpleadoPorName,buscaEmail,ModificarEmpleado,datoEliminado,inactivarCuenta,activarCuenta} = require("../services/employeServices")
+const {Employees} = require('../db')
 
-const  validate  = require('../validation/validations')
- 
+const  {validate,CuentaActiva,CuentaDesactivar,validacionEmailYTelefono}  = require('../validation/validations')
+
+
+
+
 const bcrypt= require("bcrypt")
 const postEmpleado =async (req, res)=>{
     try {
         const datoValidacion=await validate(req.body);
+        const validacionEmailYTelefonos= await validacionEmailYTelefono(req.body,Employees);
+        console.log(validacionEmailYTelefonos)
         console.log(datoValidacion)
-         if(datoValidacion.length>0){
-            res.status(404).json(datoValidacion)
+         if(datoValidacion.length>0 || validacionEmailYTelefonos.length>0){
+            if(datoValidacion.length>0 && validacionEmailYTelefonos.length>0){
+                const errorDevuelto= datoValidacion.concat(validacionEmailYTelefonos)
+                res.status(404).json(errorDevuelto)
+            }else{
+                if(datoValidacion.length>0 && !validacionEmailYTelefonos.length>0){
+                    res.status(404).json(datoValidacion)
+                }else{
+                    if(!datoValidacion.length>0 && validacionEmailYTelefonos.length>0){
+
+                        res.status(404).json(validacionEmailYTelefonos)
+                    }
+                }
+            }
+           
         }else{
             const {name,email,phone,password,account,image,RolId}=req.body
             const passwordEncript= await bcrypt.hash(password,15)
@@ -92,8 +111,9 @@ const deleteEmployee=async(req,res)=>{
 
 const inactivarEmployee= async (req,res)=>{
     try {
-        const {id,account}= req.body;
-        if(account===true){
+        const {id}= req.body;
+        const desactivarCuenta= await CuentaDesactivar(id);
+        if(desactivarCuenta===true){
             await inactivarCuenta(id);
        
             res.status(200).json("La cuenta se desactivo correctamente");
@@ -107,8 +127,10 @@ const inactivarEmployee= async (req,res)=>{
 
 const activarEmployee= async (req,res)=>{
     try {
-        const {id,account}= req.body;
-        if(account===false){
+        const {id}= req.body;
+
+        const accountActive= await CuentaActiva(id)
+        if(accountActive===false){
             await activarCuenta(id);
             res.status(200).json("La cuenta se activo correctamente");
         }else{

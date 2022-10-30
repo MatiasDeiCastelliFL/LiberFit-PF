@@ -1,5 +1,6 @@
 const { prototype } = require("mocha");
 const { Rols, Employees } = require('../db')
+
 async function validate(input) {
     let errors= new Array()
     
@@ -19,15 +20,7 @@ async function validate(input) {
     if (input.email) {
         if(!ValidacionEmail.exec(input.email)){
             errors.push("Email incorrecto, por favor ingrese caracteres validos.");
-        }else{
-            const emailExiste= await Employees.findOne({where:{
-                email:input.email
-            }})
-            if(emailExiste){
-                errors.push("El email ya se encuentra registrado. Ingrese uno nuevo");
-            }
         }
-      
     } else {
 
         errors.push("Email es requerido.");
@@ -36,13 +29,6 @@ async function validate(input) {
     if(input.phone){
         if (!input.phone.match(valoresAceptados)){
             errors.push("Ingrese solo numero.");
-        }else{
-            const phoneRequire= await Employees.findOne({where:{
-                phone:input.phone
-            }})
-            if(phoneRequire){
-                errors.push("El telefono ya se encuentra registrado. Ingrese uno nuevo");
-            }
         }
     }else{
         errors.push("El numero de telefono es requerido.");
@@ -54,7 +40,7 @@ async function validate(input) {
 
 
 
-    //Verificacion para lo que se trata de modelo  roles
+    //Verificacion para lo que se trata de modelo roles
 
     if(input.RolId==""){
         errors.push("Seleccione un rol")
@@ -73,5 +59,55 @@ async function validate(input) {
     return  errors
 }
 
+const CuentaActiva= async (input)=>{
 
-module.exports=validate;
+    const DatoUser= await Employees.findOne({ where: { id: input } });
+    const {account}= await DatoUser;
+    if(account){
+       return true;
+    }else{
+        return false
+    }
+}
+
+const CuentaDesactivar= async (input)=>{
+    const DatoUser= await Employees.findOne({ where: { id: input } });
+    console.log(DatoUser)
+    const {account}= await DatoUser;
+    console.log(account)
+    if(account){
+       return true;
+    }else{
+        return false
+    }
+}
+
+
+//funciones Solo para usuario y cliente porque tiene los mismo campos
+
+const validacionEmailYTelefono=async(input,modelo)=>{
+    let errors= new Array()
+    if(input.email){
+
+        const emailExiste= await modelo.findOne({where:{
+            email:input.email
+        }})
+        if(emailExiste){
+            errors.push("El email ya se encuentra registrado. Ingrese uno nuevo");
+        }
+    }
+
+    if(input.phone){
+        const phoneRequire= await modelo.findOne({where:{
+            phone:input.phone
+        }})
+        if(phoneRequire){
+            errors.push("El telefono ya se encuentra registrado. Ingrese uno nuevo");
+        }
+    }
+
+    return errors;
+
+}
+
+module.exports={validate,CuentaActiva,CuentaDesactivar,validacionEmailYTelefono};
