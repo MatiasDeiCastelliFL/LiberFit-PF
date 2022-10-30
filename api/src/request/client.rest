@@ -7,7 +7,7 @@ Content-Type: application/json
   "rol":"myRol",
   "phone":"123123",
   "email":"ricardo1@gamil.com",
-  "passwords":"dasdasd34234",
+  "password":"dasdasd34234",
   "active":true,
   "image":"https://ui-avatars.com/api/?name=ric+ob"
 }

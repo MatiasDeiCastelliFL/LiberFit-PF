@@ -5,18 +5,12 @@ module.exports = (sequelize) => {
     'Clients',
     {
       id: {
-        allowNull: false,
-        primaryKey: true, 
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
+        primaryKey: true, 
       },
       name: {
         type: DataTypes.STRING,
-        allowNull: false,
-      },
-      rol: {
-        type: DataTypes.STRING,
-        defaultValue: "Cliente",
         allowNull: false,
       },
       phone: {
@@ -33,11 +27,11 @@ module.exports = (sequelize) => {
       },
       active: {
         type: DataTypes.BOOLEAN,
-        allowNull: false,
+        defaultValue: false,
       },
       image: {
         type: DataTypes.STRING,
-        allowNull: false,
+        defaultValue: "https://ui-avatars.com/api/?background=random",
       },
     },
     {

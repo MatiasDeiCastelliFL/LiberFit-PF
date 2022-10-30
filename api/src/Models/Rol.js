@@ -10,6 +10,7 @@ module.exports = (sequelize) => {
     },
     name: {
       type: DataTypes.STRING,
+      defaultValue: "Cliente",
       allowNull: false,
     }
   },
@@ -17,4 +18,5 @@ module.exports = (sequelize) => {
     freezeTableName: true,
     timestamps: false,
   }
-)};
+  
+  )};

@@ -2,23 +2,20 @@ const { Clients } = require('../db')
 
 const createClient = async (
     name,
-    rol,
     phone,
     email,
-    passwords,
-    active,
+    password,
     image
 ) => {
     const cliente = await Clients.create({
         name,
-        rol,
         phone,
         email,
-        passwords,
-        active,
+        password,
         image
     })
     console.log(cliente)
+    await cliente.addRol(rol)
 }
 
 const findClients = async () => {
