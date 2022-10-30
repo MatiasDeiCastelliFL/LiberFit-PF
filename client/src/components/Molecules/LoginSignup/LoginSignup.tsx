@@ -35,7 +35,7 @@ const SingUp = () => {
               </div>
               <div className="pt-4">
                 <p className="font-bold text-red-400">
-                  please sign up to continue
+                  regístrate para continuar
                 </p>
                 <div className="border-2 w-14 border-red-400 inline-block mb-2"></div>
               </div>
@@ -123,35 +123,35 @@ const SingUp = () => {
                     className="bg-transparent text-sm focus:outline-none border-b border-red-400 tracking-wider"
                   />
                 </div>
-                  <div className="text-red-500 text-sm">
-                    {errors.password?.type === "required" && (
-                      <p>tu password es requerido</p>
-                    )}
-                  </div>
+                <div className="text-red-500 text-sm">
+                  {errors.password?.type === "required" && (
+                    <p>tu password es requerido</p>
+                  )}
+                </div>
                 <input
                   type="submit"
-                  value="Sign up"
-                  className="text-red-400 border-2 border-red-400 rounded-full px-10 py-2 inline-block font-semibold 
+                  value="Inscribirse"
+                  className="text-red-400 border-2 border-red-400 rounded-full px-8 py-2 inline-block font-semibold 
                         hover:bg-red-400 hover:text-white"
                 />
               </form>
             </div>
             {/*  */}
-            <div className="w-2/5 bg-green-500 text-white rounded-tr-2xl rounded-br-2xl py-36 px-12">
-              <h2 className="text-3xl font-bold mb-2">Hello, Friend!</h2>
+            <div className="w-2/5 bg-red-400 text-white rounded-tr-2xl rounded-br-2xl py-36 px-12">
+              <h2 className="text-3xl font-bold mb-2">Hola amigo Gym!</h2>
               <div className="border-2 w-10 border-whithe inline-block mb-2"></div>
-              <p className="mb-2">already have an account?</p>
+              <p className="mb-2">¿Ya tienes una cuenta?</p>
               <Link
                 to="/login"
-                className="border-2 border-white rounded-full px-10 py-2 inline-block font-semibold 
-                        hover:bg-white hover:text-green-600"
+                className="border-2 border-white rounded-full px-6 py-2 inline-block font-semibold 
+                        hover:bg-white hover:text-red-500"
               >
-                Sing in
+                Iniciar sesión
               </Link>
               <Link
                 to="/home"
                 className="border-2 border-white rounded-full px-10 py-2 m-2 inline-block font-semibold 
-                        hover:bg-white hover:text-green-600"
+                        hover:bg-white hover:text-red-500"
               >
                 Home
               </Link>

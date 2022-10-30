@@ -6,19 +6,17 @@ import React from "react";
 //  background: linear-gradient(180deg, #F94B40 0%, #B53B3B 56.25%, #FF0000 99.99%); Ejercicios
 
 interface Props {
-    name: string,
-    background: React.CSSProperties
+    placeholder: string,
+    type : string
 }
 
-const FormBanner = ({background, name}:Props) => {
+const CreateInput = ({placeholder, type}:Props) => {
 
     return (
-        <div className=" w-1/3">
-            <div className="flex justify-center items-center font-black rounded-r-custom_1 text-white font-sans text-2xl h-full " style={background}>
-                <h1>{name}</h1>
-            </div>
+        <div className="flex justify-center items-center font-black rounded-full  px-4 text-white font-sans text-xl w-full">
+            <input type={type} placeholder={placeholder} className="border border-cyan-600 px-2 rounded-full font-light w-full text-gray-500" />
         </div>
     )
 }
 
-export default FormBanner
+export default CreateInput
