@@ -18,8 +18,8 @@ const postClientsRequest = async (req, res) => {
              res.status(404).json(bodyErrors)
 
         } else {
-            const { name, rol, phone, email, password, image } = req.body;
-            const newClient = await createClient(name, rol, phone, email, password, image)
+            const { name, phone, email, password, image, locacion } = req.body;
+            const newClient = await createClient(name, phone, email, password, image, locacion )
 
             res.status(200).json(newClient);
          }
