@@ -16,7 +16,7 @@ const CreateForm = () => {
             {
                 data.map((item) => {
                     return (
-                        <div className="flex h-fit p-4 w-screen">
+                        <div className="flex h-fit p-4 w-custom_1">
                             {
                                 item.name === "Productos" ? <ProductForm background={{background:item.background}}/> : 
                                 item.name === "Maquinas" ? <MachineForm background={{background:item.background}}/> :
