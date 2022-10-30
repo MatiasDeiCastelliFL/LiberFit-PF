@@ -1,19 +1,12 @@
-const { Rutines } = require("../db");
-const { Exercises } = require("../db");
-const api = require("../controllers/gym.json");
+const { Rutines, Exercises, Trainings } = require("../db");
 
-const crearDesdeJsonARutinesDb = async () => {
-    const dataJsonRutines = api[0].rutines.map((rutine) => {
-        return {
-            id: rutine.id,
-            name: rutine.name,
-        };
-    });
-    await Rutines.bulkCreate(dataJsonRutines);
-};
+const api = require("../controllers/gym.json");
+const { crearDesdeJsonAExerciseDb ,crearDesdeJsonATrainingsDb} = require("./initializeData");
+
 
 const buscarRutines = async () => {
     try {
+
         let rutines = await Rutines.findAll();
         return rutines;
     } catch (error) {
@@ -22,20 +15,30 @@ const buscarRutines = async () => {
 };
 
 const crearRutine = async (body) => {
-    const { name, nameExcersise, repetition, series, video, image, muscle } =
+    const { name, nameExcersise,nameTraining, repetition, series, video, image, muscle } =
         body;
-    const rutine = await Rutines.create({
-        name,
-    });
-    const exercise = await Exercises.create({
-        name: nameExcersise,
-        repetition,
-        series,
-        video,
-        image,
-        muscle,
-    });
-    await rutine.addExercise(exercise);
+   try {
+	 const rutine = await Rutines.create({
+	        name,
+	    });
+	    const exercise = await Exercises.findOne({
+	        where: {
+	            name: nameExcersise,
+	        },
+	    });
+	    const training = await Trainings.findOne({
+	        where: {
+	            name:nameTraining,
+	        },
+	    });
+	
+	    
+	    await rutine.addExercise(exercise);
+	    await rutine.addTraining(training);
+	
+} catch (error) {
+	console.error(error);
+}
 };
 
 const updateRutine = async (id, body) => {
@@ -50,14 +53,25 @@ const updateRutine = async (id, body) => {
             image,
             muscle,
         });
-        return rutineToUpdate
+        const exercise = await Exercises.findOrCreate({
+	        where: {
+	            name: nameExcersise,
+	        },
+	    });
+	    const training = await Trainings.findOrCreate({
+	        where: {
+	            name:nameTraining,
+	        },
+        });
+        await rutine.addExercise(exercise);
+	    await rutine.addTraining(training);
+        return rutineToUpdate;
     } catch (error) {
-        return error;
+        return error.errors.map(e=>e.message);
     }
 };
 module.exports = {
     crearRutine,
     buscarRutines,
-    crearDesdeJsonARutinesDb,
     updateRutine,
 };
