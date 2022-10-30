@@ -71,23 +71,25 @@ const NavForm = ({ dashboard }: Props) => {
                 </Link>
               </div>
             ))
-          : linkDash.map((elem, i) => (
-              <div key={i} className="md:ml-8 mb-5">
-                <Link
-                  to={elem.link}
-                  className={`${
-                    name[1] === elem.name
-                      ? "active: border-b border-orange"
-                      : null
-                  } text-black hover:text-gray duration-500`}
-                >
-                  {elem.name}
-                </Link>
-              </div>
-            ))}
+           : null 
+          //linkDash.map((elem, i) => (
+          //     <div key={i} className="md:ml-8 mb-5">
+          //       <Link
+          //         to={elem.link}
+          //         className={`${
+          //           name[1] === elem.name
+          //             ? "active: border-b border-orange"
+          //             : null
+          //         } text-black hover:text-gray duration-500`}
+          //       >
+          //         {elem.name}
+          //       </Link>
+          //     </div>
+          //   ))
+        }
       </div>
       {dashboard && (
-        <div className="mb-3 mr-52">
+        <div className="mb-3">
           <Search
             Placeholder="search..."
             setName={false}
