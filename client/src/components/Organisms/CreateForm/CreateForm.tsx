@@ -1,8 +1,6 @@
 import React from "react";
 import Json from './data.json';
 import FormBanner from "../../Atoms/FormBanner/FormBanner";
-import CreateInputsContainer from "../../Molecules/CreateInputsContainer/CreateInputsContainer";
-import { useForm } from "react-hook-form";
 import ProductForm from "../../Molecules/CreateInputsContainer/ProductsForm/productForm";
 import MachineForm from "../../Molecules/CreateInputsContainer/machinesForm/MachineForm";
 import TrainingsForms from "../../Molecules/CreateInputsContainer/trainingsForm/trainingsForm";
@@ -18,7 +16,7 @@ const CreateForm = () => {
             {
                 data.map((item) => {
                     return (
-                        <div className="flex h-fit py-2 w-96">
+                        <div className="flex h-fit p-4 w-screen">
                             {
                                 item.name === "Productos" ? <ProductForm background={{background:item.background}}/> : 
                                 item.name === "Maquinas" ? <MachineForm background={{background:item.background}}/> :

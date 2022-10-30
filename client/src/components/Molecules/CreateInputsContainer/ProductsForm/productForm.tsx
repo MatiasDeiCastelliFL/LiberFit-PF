@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../../../assets/IMG/LIBERFIT_2.png";
+import { postElement } from "../../../../App/Action/Action"
+import { useAppDispatch } from "../../../../App/Hooks/Hooks";
 
 interface Props {
     background: React.CSSProperties
@@ -10,6 +12,7 @@ interface Props {
 
 const ProductForm = ({background}:Props) => {
 
+    const dispatch = useAppDispatch()
 
     const [data , setData] = useState({
         nombre: "",
@@ -45,9 +48,8 @@ const ProductForm = ({background}:Props) => {
 
     function handleSubmit (e: React.FormEvent<HTMLFormElement>){
         e.preventDefault();
-        console.log(data)
+        dispatch(postElement(data, "productos"))
     }
-
     useEffect(() => {
         
     }, [data])
@@ -68,6 +70,7 @@ const ProductForm = ({background}:Props) => {
             <input type="submit" value='Añadir' className="flex justify-center items-center font-black rounded-full py-1 px-3 text-white font-sans text-xl w-fit ml-15" style={background}/>
         </form>
     );
-};
+}
+
 
 export default ProductForm;
