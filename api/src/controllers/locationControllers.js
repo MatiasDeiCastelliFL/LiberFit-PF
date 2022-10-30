@@ -1,13 +1,9 @@
 const LocationInstance = require("../Models/Locacion")
-const {crearLocacion,enviarLocacion,borrarlocacion,actualizarLacacion}= require("../services/locationServices")
+const {crearLocacion,enviarLocacion,borrarlocacion,actualizarLacacion,locacionById}= require("../services/locationServices")
 
 const postLocacion = async (req, res) => {
   try {
-    console.log('llegue1')
-
-    console.log(req.body)
-    console.log('llega')
-    const {  name, address, phone } = req.body
+      const {  name, address, phone } = req.body
 
     const datoLocacion = await crearLocacion(
       name,
@@ -20,13 +16,27 @@ const postLocacion = async (req, res) => {
     console.log(error)
   }
 }
-
+const getLocacionById = async (req, res) => {
+  try {
+    const {id} = req.params
+    const datoLocacion = await locacionById(id)
+    res.status(200).json(datoLocacion)
+  } catch (error) {
+    console.error(error);
+    res.status(404).json(error)
+  }
+  
+}
 const getLocacion=async (req, res)=>{
-try {
+  try {
+    const { name, email } = req.query;
+    if (name) {
+      return 
+    }
   const datoLocacion = await enviarLocacion()
-  res.status(200).json(datoLocacion)
+  return res.status(200).json(datoLocacion)
 } catch (error) {
-  res.status(404).json(error)
+  return res.status(404).json(error)
 }
 }
 
@@ -50,4 +60,4 @@ const deleteLocacion= async(req, res)=>{
     res.status(404).json({msg:'locacion no se elimino'})
   }
 }
-module.exports = {getLocacion,postLocacion,putLocacion,deleteLocacion }
+module.exports = {getLocacion,getLocacionById,postLocacion,putLocacion,deleteLocacion }

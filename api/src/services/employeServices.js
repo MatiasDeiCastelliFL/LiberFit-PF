@@ -90,7 +90,7 @@ const datoEliminado=async(id)=>{
 const inactivarCuenta=async(id)=>{
 
   await Employees.update({
-    account:false,
+    active:false,
   },{
     where:{
       id:id
@@ -103,7 +103,7 @@ const inactivarCuenta=async(id)=>{
 const activarCuenta=async(id)=>{
 
  Employees.update({
-    account:true,
+    active:true,
   },{
     where:{
       id:id
