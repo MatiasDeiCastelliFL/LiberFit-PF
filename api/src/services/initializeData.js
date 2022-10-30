@@ -130,7 +130,7 @@ const crearDesdeJsonARolsDb = async () => {
                 name: rol,
             };
         });
-    if (!rols.find((e) => e.name === "cliente")) rols.push({ name: "cliente" });
+    if (!rols.find((e) => e.name === "Cliente")) rols.push({ name: "Cliente" });
     await Rols.bulkCreate(rols);
 };
 // agregamos los datos de las tablas que tienen  relaciones con las tablas que ya contienen datos
