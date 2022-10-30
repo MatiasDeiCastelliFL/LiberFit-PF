@@ -1,17 +1,8 @@
 const { Rutines, Exercises, Trainings } = require("../db");
 
 const api = require("../controllers/gym.json");
-const { crearDesdeJsonAExerciseDb } = require("../services/exerciseServices");
-const { crearDesdeJsonATrainingsDb } = require("../services/trainingServices");
+const { crearDesdeJsonAExerciseDb ,crearDesdeJsonATrainingsDb} = require("./initializeData");
 
-const crearDesdeJsonARutinesDb = async () => {
-    const dataJsonRutines = api[0].rutines.map((rutine) => {
-        return {
-            name: rutine.name,
-        };
-    });
-    await Rutines.bulkCreate(dataJsonRutines);
-};
 
 const buscarRutines = async () => {
     try {
@@ -24,8 +15,6 @@ const buscarRutines = async () => {
 };
 
 const crearRutine = async (body) => {
-    // crearDesdeJsonAExerciseDb();
-    // crearDesdeJsonATrainingsDb();
     const { name, nameExcersise,nameTraining, repetition, series, video, image, muscle } =
         body;
    try {
@@ -64,14 +53,25 @@ const updateRutine = async (id, body) => {
             image,
             muscle,
         });
+        const exercise = await Exercises.findOrCreate({
+	        where: {
+	            name: nameExcersise,
+	        },
+	    });
+	    const training = await Trainings.findOrCreate({
+	        where: {
+	            name:nameTraining,
+	        },
+        });
+        await rutine.addExercise(exercise);
+	    await rutine.addTraining(training);
         return rutineToUpdate;
     } catch (error) {
-        return error;
+        return error.errors.map(e=>e.message);
     }
 };
 module.exports = {
     crearRutine,
     buscarRutines,
-    crearDesdeJsonARutinesDb,
     updateRutine,
 };

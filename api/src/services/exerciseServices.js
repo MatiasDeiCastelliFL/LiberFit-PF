@@ -1,36 +1,26 @@
 const { Exercises } = require("../db");
 const api = require("../controllers/gym.json");
 
-const crearDesdeJsonAExerciseDb = async () => {
-    const exercises = api[0].exercises.map((e) => {
-        return {
-            name: e.name,
-            repetition: e.repetition,
-            series: e.series,
-            video: e.video,
-            image: e.image,
-            muscle: e.muscle,
-        };
-    });
-    await Exercises.bulkCreate(exercises);
-};
-
 const buscarExercise = async () => {
     const exercises = await Exercises.findAll();
     return exercises;
 };
 
 const crearExercise = async (body) => {
-    const { name, repetition, series, video, image, muscle } = body;
-    const ejercicio = await Exercises.create({
-        name,
-        repetition,
-        series,
-        video,
-        image,
-        muscle,
-    });
-    console.log(ejercicio);
+   try {
+	 const { name, repetition, series, video, image, muscle } = body;
+	    const ejercicio = await Exercises.create({
+	        name,
+	        repetition,
+	        series,
+	        video,
+	        image,
+	        muscle,
+	    });
+	    return ejercicio
+} catch (error) {
+	return error.errors.map(e=>e.message);
+}
 };
 
 const updateExercise = async (id, body) => {
@@ -64,7 +54,6 @@ const destroyExercise = async (id) => {
 };
 module.exports = {
     crearExercise,
-    crearDesdeJsonAExerciseDb,
     buscarExercise,
     updateExercise,
     destroyExercise,
