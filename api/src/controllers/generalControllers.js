@@ -18,7 +18,7 @@ const getData = async (req, res) => {
     try {
         json.crearDesdeJsonAPaymentsDb();
         json.crearDesdeJsonAMachinesDb();
-        json.crearDesdeJsonAProductsDb();
+        // json.crearDesdeJsonAProductsDb();
         json.crearDesdeJsonATrainingsDb();
         json.crearDesdeJsonARutinesDb();
         json.crearDesdeJsonAExerciseDb();
@@ -39,6 +39,6 @@ const getData = async (req, res) => {
     }
 };
 const getlocacionesJson = async (req, res) => {
-    res.send('data locacions')
+    res.send("data locacions");
 };
 module.exports = { getApi, getData, getlocacionesJson };
