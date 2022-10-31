@@ -145,7 +145,7 @@ const crearDesdeJsonALocacionsDb = async () => {
         const location = await Locacions.create({
             name: loc.name,
             phone: loc.phone,
-            address: loc.address,
+            address: loc.adress,
         });
         // const location = await Locacions.create({
         //     name: "AbsoluteFit - Sede Bernal",
@@ -192,6 +192,7 @@ const crearDesdeJsonAClientsDb = async () => {
             active: client.active,
             image: client.image,
         });
+        // console.log('clientByName',clientByName.__proto__)
         await oneRol.addClient(clientByName);
         await clientByName.addRutine(oneRutines);
         await oneSubscriptions.addClient(clientByName);
