@@ -11,7 +11,7 @@ function Filter() {
   const dispatch = useAppDispatch();
   const location = useLocation()
   const { filter } = useAppSelector((state) => state);
-  console.log(location.pathname)
+
   const open = () => {
     dispatch(openFilters(!filter.open));
   };
