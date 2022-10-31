@@ -57,19 +57,40 @@ const findClientByNameAndOrEmail = async (name, email) => {
     }
 };
 
-const deleteClient = async (id) => {
-    const deletedClient =  await Clients.destroy({ 
-        where: { 
-            id: id 
-        } 
-    });
-    return deletedClient
+const updateClient = async (name, phone, email, password, image) => {
+    
+};
+
+const deleteClient = async (id, name, email) => {
+    if (id) {
+        const deletedClient =  await Clients.destroy({ 
+            where: { 
+                id: id 
+            } 
+        });
+        return deletedClient;
+    } else if (email) {
+        const deletedClient =  await Clients.destroy({ 
+            where: { 
+                email: email 
+            } 
+        });
+        return deletedClient;
+    } else {
+        const deletedClient =  await Clients.destroy({ 
+            where: { 
+                name: name 
+            } 
+        });
+        return deletedClient;
+    }
 };
 
 module.exports = {
     createClient, 
     findClients, 
     findClientByNameAndOrEmail, 
+    updateClient,
     deleteClient 
 };
 
