@@ -22,13 +22,16 @@ const locacionById = async (id)=>{
 	 const location = await Locacions.findOne({
 	    where: {
 	    id
-	  }})
+     }
+   })
+    console.log('Locacions',Locacions.__proto__)
     return location
 } catch (error) {
    console.error(error);
    return error
 }
 }
+
 const borrarlocacion= async(id)=> {
   const location = await Locacions.destroy({ where: { id: `${id}` }})
   return location
