@@ -3,7 +3,7 @@ const { getClientsRequest, postClientsRequest, deleteClientRequest } = require("
 const routerClient= Router();
 
 routerClient.get("/clients", getClientsRequest); //QUERY: name, email
-routerClient.post("/client", postClientsRequest);
+routerClient.post("/client", postClientsRequest); //BODY: { name, phone, email, password, image }
 routerClient.delete("/clients", deleteClientRequest);
 
 module.exports = routerClient;

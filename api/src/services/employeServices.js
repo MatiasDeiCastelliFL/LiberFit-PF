@@ -6,16 +6,17 @@ const crearEmpleado = async (
     email,
     phone,
     password,
-    account,
+    active,
     image,
     RolId
 ) => {
+  console.log("llegue aca")
   await Employees.create({
     name,
     email,
     phone,
     password,
-    account,
+    active,
     image,
     RolId
   })

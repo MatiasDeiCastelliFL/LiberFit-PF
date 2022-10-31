@@ -9,12 +9,12 @@ const crearRol = async (
 }
 const enviarRol= async()=>{
 
-  const arreglo=["Secretario/a","Profesor/a","No suscripto"];
+  // const arreglo=["Secretario/a","Profesor/a","No suscripto"];
 
   
-  for (let index = 0; index < arreglo.length; index++) {
-   await Rols.findOrCreate({where:{name:arreglo[index]}});
-  }
+  // for (let index = 0; index < arreglo.length; index++) {
+  //  await Rols.findOrCreate({where:{name:arreglo[index]}});
+  // }
 
   const Rol = await Rols.findAll()
 return Rol
