@@ -28,4 +28,4 @@ const getApi = async (req, res) => {
     }
 };
 
-module.exports = { getApi,getData };
+module.exports = { getApi };

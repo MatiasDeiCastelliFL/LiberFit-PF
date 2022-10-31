@@ -8,9 +8,9 @@ const actualizarLacacion=async(name, address, phone,id)=>{
   location.save();
 }
 
-const crearLocacion = async (name, address, phone) => {
+const crearLocacion = async (name, address, phone,GymId) => {
   // TODO cambiar nombre
-  const location = await Locacions.create({ name,address,phone, })
+  const location = await Locacions.create({ name,address,phone,GymId })
 }
 const enviarLocacion= async()=> {
   const location = await Locacions.findAll()

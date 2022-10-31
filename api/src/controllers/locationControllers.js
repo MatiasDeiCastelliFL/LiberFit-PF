@@ -3,12 +3,13 @@ const {crearLocacion,enviarLocacion,borrarlocacion,actualizarLacacion,locacionBy
 
 const postLocacion = async (req, res) => {
   try {
-      const {  name, address, phone } = req.body
+      const {  name, address, phone,GymId } = req.body
 
     const datoLocacion = await crearLocacion(
       name,
       address,
       phone,
+      GymId
     )
     console.log(datoLocacion)
     res.status(200).json(datoLocacion)
