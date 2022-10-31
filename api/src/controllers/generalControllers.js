@@ -4,7 +4,7 @@ const api = require("./gym.json");
 
 const getApi = async (req, res) => {
     try {
-        return res.status(200).json(api)
+        return res.status(200).json(api);
     } catch (error) {
         console.log(error);
         return res.status(400).json({
@@ -16,20 +16,20 @@ const getApi = async (req, res) => {
 
 const getData = async (req, res) => {
     try {
-        json.crearDesdeJsonAPaymentsDb()
-        json.crearDesdeJsonAMachinesDb()
-        json.crearDesdeJsonAProductsDb()
-        json.crearDesdeJsonATrainingsDb()
-        json.crearDesdeJsonARutinesDb()
-        json.crearDesdeJsonAExerciseDb()
-        json.crearDesdeJsonARolsDb()
-        json.crearDesdeJsonASubscriptionsDb()
-        json.crearDesdeJsonAClientsDb()
-        json.crearDesdeJsonAEmployeesDb()
-        json.crearDesdeJsonALocacionsDb()
-        json.crearDesdeJsonAOwnersDb()
-        json.crearDesdeJsonAGymsDb()
-        return res.status(200).json('data base initialize');
+        json.crearDesdeJsonAPaymentsDb();
+        json.crearDesdeJsonAMachinesDb();
+        json.crearDesdeJsonAProductsDb();
+        json.crearDesdeJsonATrainingsDb();
+        json.crearDesdeJsonARutinesDb();
+        json.crearDesdeJsonAExerciseDb();
+        json.crearDesdeJsonARolsDb();
+        json.crearDesdeJsonASubscriptionsDb();
+        json.crearDesdeJsonAClientsDb();
+        json.crearDesdeJsonAEmployeesDb();
+        json.crearDesdeJsonALocacionsDb();
+        json.crearDesdeJsonAOwnersDb();
+        json.crearDesdeJsonAGymsDb();
+        return res.status(200).json("data base initialize");
     } catch (error) {
         console.log(error);
         return res.status(400).json({
@@ -38,4 +38,7 @@ const getData = async (req, res) => {
         });
     }
 };
-module.exports = { getApi,getData };
+const getlocacionesJson = async (req, res) => {
+    res.send('data locacions')
+};
+module.exports = { getApi, getData, getlocacionesJson };
