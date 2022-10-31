@@ -19,7 +19,8 @@ import anuncio4 from "./gym/anuncio4.jpg";
 const Anuncio = () => {
   return (
 
-      <Swiper
+      <div className="w-fit bg-red-700">
+        <Swiper
         spaceBetween={30}
         centeredSlides={true}
         loop={true}
@@ -34,7 +35,6 @@ const Anuncio = () => {
         modules={[Autoplay, Pagination, Navigation, EffectFade]}
         effect="fade"
         className="w-swiper"
-        
       >
         <SwiperSlide>
           <Link to="/">
@@ -54,6 +54,7 @@ const Anuncio = () => {
           <img src={anuncio4} className="w-full h-52  object-cover" />
         </SwiperSlide>
       </Swiper>
+      </div>
  
   );
 };

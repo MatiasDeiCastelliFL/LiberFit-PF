@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../../../assets/IMG/LIBERFIT_2.png";
+import { useAppDispatch } from "../../../../App/Hooks/Hooks";
+import { postElement } from "../../../../App/Action/Action"
+
 
 interface Props {
     background: React.CSSProperties
@@ -10,6 +13,7 @@ interface Props {
 
 const TrainingsForms = ({background}:Props) => {
 
+    const dispatch = useAppDispatch()
 
     const [data , setData] = useState({
         nombre: "",
@@ -46,7 +50,7 @@ const TrainingsForms = ({background}:Props) => {
 
     function handleSubmit (e: React.FormEvent<HTMLFormElement>){
         e.preventDefault();
-        console.log(data)
+        dispatch(postElement(data, "machine")) 
     }
 
     useEffect(() => {

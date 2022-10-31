@@ -50,3 +50,12 @@ export const postUser = (payload:any) => async (dispatch: any) => {
         console.log(error)   
     }
 }
+
+export const postElement = (payload:any, element:string) =>  (dispatch: any) => {
+    try {
+        console.log("Action")
+        console.log(payload)
+    } catch (error) {
+        console.log(error)
+    } 
+}

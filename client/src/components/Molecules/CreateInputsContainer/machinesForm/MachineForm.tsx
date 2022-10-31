@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../../../assets/IMG/LIBERFIT_2.png";
+import { postElement } from "../../../../App/Action/Action"
+import { useAppDispatch } from "../../../../App/Hooks/Hooks";
 
 interface Props {
     background: React.CSSProperties
@@ -10,6 +12,7 @@ interface Props {
 
 const ProductForm = ({background}:Props) => {
 
+    const dispatch = useAppDispatch()
 
     const [data , setData] = useState({
         nombre: "",
@@ -37,7 +40,7 @@ const ProductForm = ({background}:Props) => {
             ...data,
             [e.target.name]: e.target.value
         })
-        console.log(error)
+       
     }
 
     function handleSelect(e: React.ChangeEvent<HTMLSelectElement>){
@@ -58,7 +61,7 @@ const ProductForm = ({background}:Props) => {
 
     function handleSubmit (e: React.FormEvent<HTMLFormElement>){
         e.preventDefault();
-        console.log(data)
+        dispatch(postElement(data, "machine"))
     }
 
     useEffect(() => {

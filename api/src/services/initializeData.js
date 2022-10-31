@@ -27,21 +27,26 @@ const crearDesdeJsonAPaymentsDb = async () => {
 };
 
 const crearDesdeJsonAMachinesDb = async () => {
-    const machines = api[0].locations
-        .map((location) => location.machines)
-        .flat(Infinity)
-        .filter(
-            (val, index, self) =>
-                index === self.findIndex((ele) => ele.name === val.name)
-        )
-        .map((machine) => {
-            return {
-                name: machine.name,
-                image: machine.image,
-                muscle: machine.muscle || "brazos",
-            };
-        });
-    await Machines.bulkCreate(machines);
+    try {
+        
+        const machines = api[0].locations
+            .map((location) => location.machines)
+            .flat(Infinity)
+            .filter(
+                (val, index, self) =>
+                    index === self.findIndex((ele) => ele.name === val.name)
+            )
+            .map((machine) => {
+                return {
+                    name: machine.name,
+                    image: machine.image,
+                    muscle: machine.muscle || "brazos",
+                };
+            });
+        await Machines.bulkCreate(machines);
+    } catch (error) {
+        console.log(error)
+    }
 };
 
 const crearDesdeJsonAProductsDb = async () => {
