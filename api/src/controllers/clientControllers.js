@@ -5,7 +5,7 @@ const getClientsRequest = async (req, res) => {
         const { name, email } = req.query;
 
         if(email || name) {
-            const dataClient = await findClientByNameOrEmail(name, email)
+            const dataClient = await findClientByNameAndOrEmail(name, email)
             console.log(dataClient)
             if (dataClient.length !== 0) {
                 res.status(200).json(dataClient)
