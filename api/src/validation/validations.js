@@ -94,7 +94,7 @@ async function validate(input) {
 const CuentaActiva = async (id, modelo) => {
     const DatoUser = await modelo.findOne({ where: { id: id } });
     const { active } = await DatoUser;
-    console.log(active)
+
     if (active) {
         return true;
     } else {
@@ -102,12 +102,10 @@ const CuentaActiva = async (id, modelo) => {
     }
 };
 
-const CuentaDesactivar = async (input,modelo) => {
-    const DatoUser = await modelo.findOne({ where: { id: input } });
-    console.log(DatoUser);
+const CuentaDesactivar = async (id,modelo) => {
+    const DatoUser = await modelo.findOne({ where: { id: id } });
     const { active } = await DatoUser;
-    console.log(active)
-    console.log(active);
+
     if (active) {
         return true;
     } else {
