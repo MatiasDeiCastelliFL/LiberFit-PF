@@ -115,6 +115,9 @@ const deleteEmployee = async (req, res) => {
     }
 };
 
+/* Verifica que la cuenta este activa. si la cuenta esta activa le 
+permitira desactivar si no le indicara que la cuenta ya se enceuntra desactivada*/
+
 const inactivarEmployee = async (req, res) => {
     try {
         const { id } = req.body;
@@ -131,6 +134,8 @@ const inactivarEmployee = async (req, res) => {
     }
 };
 
+/* Verifica que la cuenta se encuentra desactivada, si esta la
+ cuenta desactivada le va a permitr activa su cuenta sino le va a decir que su cuenta ya se encuentra activada*/
 const activarEmployee = async (req, res) => {
     try {
         const { id } = req.body;
