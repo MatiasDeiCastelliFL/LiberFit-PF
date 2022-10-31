@@ -9,7 +9,7 @@ function CardsCategory() {
 
   async function getSedesInfo() {
     const response = await axios.get("http://localhost:3004/info");
-    return response.data[0].sedes
+    return response.data[0].locations
   }
 
   async function getExersicesInfo() {

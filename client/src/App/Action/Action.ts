@@ -52,10 +52,10 @@ export const postUser = (payload:any) => async (dispatch: any) => {
 }
 
 export const postElement = (payload:any, element:string) =>  (dispatch: any) => {
-   try {
+    try {
         console.log("Action")
         console.log(payload)
-   } catch (error) {
+    } catch (error) {
         console.log(error)
-   } 
+    } 
 }
