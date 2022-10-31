@@ -1,9 +1,20 @@
-const {createClient, findClients, deleteClient } = require('../services/clientServices');
+const { createClient, findClients, findClientByNameOrEmail, deleteClient } = require('../services/clientServices');
+const { Clients } = require("../Models/Client")
 
 const getClientsRequest = async (req, res) => {
     try {
-        const clientsData = await findClients();
-        res.status(200).json(clientsData);                   
+        const { name, email } = req.query;
+        // console.log("esto es name: " + name)
+        // console.log("esto es email: " + email)
+
+        if(email || name) {
+            const dataClient = await findClientByNameOrEmail(name, email)
+            res.status(200).json(dataClient)
+        } else {
+            const clientsData = await findClients();
+            res.status(200).json(clientsData);   
+        }
+  
     } catch (error) {
         res.status(500).json({error: error.message})
     }

@@ -17,14 +17,22 @@ const createClient = async (
         image
     })
   
-   const lacation= await Locacions.findOne({ where: { name: `${locacion}` } })
-
-    await cliente.addLocacions(lacation)
-}
+    const location= await Locacions.findOne({ where: { name: `${locacion}` } })
+    await cliente.addLocacions(location)
+    return "Cliente cargado con éxito";
+};
 
 const findClients = async () => {
     const clients = await Clients.findAll()
     return clients
+};
+
+const findClientByNameOrEmail = async (name, email) => {
+    console.log("esto es name: " + name)
+    console.log("esto es email: " + email)
+
+    
+
 }
 
 const deleteClient = async (id) => {
@@ -34,7 +42,12 @@ const deleteClient = async (id) => {
         } 
     });
     return deletedClient
-  };
+};
 
-module.exports = { createClient, findClients, deleteClient }
+module.exports = {
+    createClient, 
+    findClients, 
+    findClientByNameOrEmail, 
+    deleteClient 
+};
 

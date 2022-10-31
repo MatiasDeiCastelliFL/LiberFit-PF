@@ -19,7 +19,7 @@ const crearEmpleado = async (
     image,
     RolId
   })
-
+  return "Empleado creado con éxito";
 }
 
 const buscarEmpleadoTotal= async ()=>{
