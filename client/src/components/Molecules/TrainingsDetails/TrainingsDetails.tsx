@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Json from "../../../assets/gym.json";
 import isInSede from "../../../App/utils/isInSede";
+import { useAppSelector } from "../../../App/Hooks/Hooks";
 
 import SedesList from "../SedesList/SedesList";
 const TrainingsDetails = () => {
     const sedes = Json[0].sedes;
     const { name } = useParams();
-    
+
+    const {data}= useAppSelector((state) => state);
+    const training = data.trainigns.find((training:any) => training.name === name);
     const [details, setDetails] = useState({
         name: name,
-        image: "https://eurogimnas.com/wp-content/uploads/entrenamiento-funcional-eurogimnas-granollers.jpg",
+        image: training.image,
         description: "Lorem ipsum dolor sit amet, e,  nisl vitae ultricies lacinia, nisl nisl aliquet n nisl vitae ultricies lacinia, nisl nisl aliquet n nisl vitae ultricies lacinia, nisl nisl aliquet n nisl vitae ultricies lacinia, nisl nisl aliquet n",
         price: 1000,
         sedesIn: [""],

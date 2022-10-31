@@ -5,15 +5,20 @@ import muscleIcon from "../../../assets/IMG/muscle-icon.png";
 import isInSede from "../../../App/utils/isInSede";
 
 import SedesList from "../SedesList/SedesList";
+import { useAppSelector } from "../../../App/Hooks/Hooks";
 
 const MachineDetails = () => {
     const sedes = Json[0].sedes;
     const { name } = useParams();
+    const {data}= useAppSelector((state) => state);
+    const machine = data.machines.find((machine:any) => machine.name === name);
+    console.log(machine);
+
 
     
     const [details, setDetails] = useState({
         name: name,
-        image: "https://www.rocfit.com/wp-content/uploads/2019/07/maquina-musculacion-hotel-a996.png",
+        image: machine.image,
         muscle: "Tren Superior",
         description: "Lorem ipsum dolor sit amet,  eget aliquam nisl nisl eu nunc. Nulla facilisi  eget aliquam nisl nisl eu nunc. Nulla facilisi. Sed euismod, nisl vitae ultricies lacinia, nisl nisl aliquet n nisl vitae ultricies lacinia, nisl nisl aliquet n nisl vitae ultricies lacinia, nisl nisl aliquet n nisl vitae ultricies lacinia, nisl nisl aliquet n",
         sedesIn: [""],
