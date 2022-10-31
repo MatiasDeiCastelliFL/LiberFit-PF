@@ -22,7 +22,7 @@ const postEmpleado = async (req, res) => {
     try {
         
         const datoValidacion = await validate(req.body,Employees);
-        // const datoValidacion = []
+       
        
 
         if (datoValidacion.length > 0) {
