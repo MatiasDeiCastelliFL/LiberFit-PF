@@ -1,7 +1,7 @@
-const { createAnuncio, enviarAnuncio, eliminarAnuncio } = require('../services/anuncioServices');
+const { createAnuncio, enviarAnuncio, eliminarAnuncio, actualizarAnuncio } = require('../services/anuncioServices');
 
 
-const getClientsAnuncios =async (req, res) => {
+const getAnuncios =async (req, res) => {
 try {
     const anuncio = await enviarAnuncio();
     res.status(200).json(anuncio)
@@ -12,7 +12,7 @@ try {
  }
 
 
-const postClientsAnuncios = async (req, res) => {
+const postAnuncios = async (req, res) => {
     try {
         const { nombre, descripcion } = req.body
         const { path } = req.file
@@ -24,7 +24,7 @@ const postClientsAnuncios = async (req, res) => {
 
 }
 
-const deleteClientAnuncios = async (req, res) => {
+const deleteAnuncios = async (req, res) => {
     try {
         const {id}= req.params
     const data = await eliminarAnuncio(id)
@@ -33,6 +33,17 @@ const deleteClientAnuncios = async (req, res) => {
         res.status(404).send(error.message)
     }
 }
+const putAnuncios=async(req,res)=>{
+try {
+    const {id}= req.params
+    const { path } = req.file
+    const { nombre, descripcion, public_id } = req.body
 
+    const data = await actualizarAnuncio(nombre, descripcion,public_id,path,id)
+    res.status(201).json({ msg: data })
+} catch (error) {
+    res.status(404).send(error.message)
+}
+}
 
-module.exports = { getClientsAnuncios, postClientsAnuncios, deleteClientAnuncios }
+module.exports = { getAnuncios, postAnuncios, deleteAnuncios, putAnuncios }

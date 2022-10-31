@@ -6,7 +6,7 @@ const { cloudinary } = require('../config/cloudinary.config')
 const createAnuncio = async (nombre, descripcion, path) => {
 
     const upload = await cloudinary.v2.uploader.upload(`${path}`)
-    const x = await Anuncios.create({
+        await Anuncios.create({
         name: nombre,
         describe: descripcion,
         imgurl: upload.secure_url,
@@ -23,12 +23,33 @@ const enviarAnuncio = async () => {
 }
 
 const eliminarAnuncio = async (id) => {
-    await Anuncios.destroy({
-        where: {
-            id: id
-        }
+    const buscar = await  Anuncios.findOne({
+        where: {id:`${ id}`} 
+    }) 
 
+    cloudinary.uploader.destroy(buscar.public_id, (result)=> { console.log(result) });
+    await Anuncios.destroy({
+        where: {id: id } 
     });
     return "Anuncio eliminado"
 }
-module.exports = { createAnuncio, enviarAnuncio, eliminarAnuncio }
+const actualizarAnuncio = async (nombre, descripcion,public_id, path,id) => {
+   
+    await  cloudinary.uploader.destroy(public_id, (result)=> { console.log(result) });
+
+    const upload = await cloudinary.v2.uploader.upload(`${path}`)
+    
+    const update =   await Anuncios.findOne({
+            where: {id:`${ id}`} 
+        }) 
+        update.name = nombre;
+        update.describe= descripcion
+        update.imgurl = upload.secure_url;
+        update.public_id= upload.public_id;
+        update.save()
+
+    await fs.unlink(path)
+    return "anuncio actualizado"
+}
+
+module.exports = { createAnuncio, enviarAnuncio, eliminarAnuncio, actualizarAnuncio }

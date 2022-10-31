@@ -1,10 +1,11 @@
 const { Router } = require("express");
 const { upload } = require('../config/multer.config')
-const { getClientsAnuncios, postClientsAnuncios, deleteClientAnuncios } = require("../controllers/AnuncioControllers");
+const { getAnuncios, postAnuncios, deleteAnuncios, putAnuncios } = require("../controllers/AnuncioControllers");
 const routerAnuncio = Router();
 
-routerAnuncio.get("/anuncios", getClientsAnuncios);
-routerAnuncio.post("/anuncios", upload, postClientsAnuncios);
-routerAnuncio.delete("/anuncios/:id", deleteClientAnuncios);
+routerAnuncio.get("/anuncios", getAnuncios);
+routerAnuncio.post("/anuncios", upload, postAnuncios);
+routerAnuncio.delete("/anuncios/:id", deleteAnuncios);
+routerAnuncio.put("/anuncios/:id", putAnuncios);
 
 module.exports = routerAnuncio;
