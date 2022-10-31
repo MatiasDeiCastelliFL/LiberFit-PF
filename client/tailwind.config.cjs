@@ -28,6 +28,9 @@ module.exports = {
         white: "#FFF",
         gray_custom: '#9B9B9B'
       },
+      spacing:{
+        sidebar: "18vw",
+      },
       fontFamily: {
         poppins: "Poppins",
       },
@@ -38,12 +41,13 @@ module.exports = {
         max: "100%",
         custom_1: "30.25rem",
         custom_2: "21.4rem",
-        custom_3:"75vw",
+        custom_3:"80vw",
         custom_4:"30%",
-        sidebar: "18.688rem",
-        input: "17.75rem",
-        swiper: '95.9rem',
-        card: '92rem'
+        sidebar: "18vw",
+        input: "16vw",
+        swiper: '78vw',
+        card: '92rem',
+        cards_1: '14vw',
       },
       height: {
         max: "100vh",
