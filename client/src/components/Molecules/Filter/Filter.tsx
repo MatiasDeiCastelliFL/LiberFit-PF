@@ -16,6 +16,8 @@ function Filter() {
     dispatch(openFilters(!filter.open));
   };
 
+  
+
   return (
     <div className="space-y-4 select-none w-max">
       <details className="group">
