@@ -2,6 +2,7 @@ const {
     createClient, 
     findClients, 
     findClientByNameAndOrEmail, 
+    updateClient,
     deleteClient 
 } = require('../services/clientServices');
 const { validate } = require('../validation/validations');
@@ -13,7 +14,7 @@ const getClientsRequest = async (req, res) => {
 
         if(email || name) {
             const dataClient = await findClientByNameAndOrEmail(name, email)
-            console.log(dataClient)
+
             if (dataClient.length !== 0) {
                 res.status(200).json(dataClient)
             } else {
@@ -30,31 +31,50 @@ const getClientsRequest = async (req, res) => {
 
 const postClientsRequest = async (req, res) => {
     try {
-        const { name, phone, email, password, image } = req.body;
-        const clientValidationErrors = await validate({ name, phone, email, password, image }, Clients);
+
+        const clientValidationErrors = await validate(req.body, Clients);
 
         if (clientValidationErrors.length > 0) {
             res.status(400).json(clientValidationErrors);
         } else {
+            const { name, phone, email, password, image } = req.body;
             const newClient = await createClient(name, phone, email, password, image);
             res.status(200).json(newClient);
         }
+
     } catch (error) {
        res.status(500).json({error: error.message});
     }
 };
 
+const putClientRequest = async (req, res) => {
+    try {
+        const clientValidationErrors = await validate(req.body, Clients);
+
+        if (clientValidationErrors.length > 0) {
+            res.status(400).json(clientValidationErrors);
+        } else {
+            const { name, phone, email, password, image } = req.body;
+            const updatedClient = await updateClient(name, phone, email, password, image);
+            res.status(200).json(updatedClient);
+        }
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+}
+
 const deleteClientRequest = async (req, res) => {
     try {
-        const { id } = req.body;
-        const deletedClient = await deleteClient(id);
+        const { id, name, email } = req.body;
 
-        if(deletedClient) {
-            res.status(200).json("El cliente fue eliminado")
-        } else {
-            res.status(400).json("El cliente a eliminar no existe o el ID es incorrecto")
+        if (id || name || email) {
+            const deletedClient = await deleteClient(id, name, email);
+            if(deletedClient) {
+                res.status(200).json(`El cliente fue eliminado`);
+            } else {
+                res.status(400).json("El cliente a eliminar no existe o ya fue eliminado");
+            }
         }
-
     } catch (error) {
         res.status(500).json({error: error.message})
     }
@@ -63,5 +83,6 @@ const deleteClientRequest = async (req, res) => {
 module.exports = { 
     getClientsRequest, 
     postClientsRequest, 
+    putClientRequest,
     deleteClientRequest 
 };

@@ -101,7 +101,7 @@ const NavForm = ({ dashboard }: Props) => {
           />
         </div>
       )}
-      <div className={dashboard ? "flex mr-80" : "flex mr-96 "}>
+      <div className={dashboard ? "flex mr-80" : "flex xl:mr-96 2xl:mr-2 "}>
         {!dashboard ? (
           link2.map((elem, i) => (
             <div key={i} className="md:ml-8">

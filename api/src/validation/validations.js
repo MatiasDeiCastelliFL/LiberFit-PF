@@ -6,8 +6,8 @@ const { Rols } = require("../db");
 
 async function validate(input, model) {
     let errors = new Array();
-    console.log(input)
-    // todos las propiedas de todos los models
+    console.log("esto es input: " + input)
+
     // const {
     //     name,
     //     email,
@@ -31,21 +31,12 @@ async function validate(input, model) {
     //     brand,
     //     timeSlot,
     // } = input;
-    // const {name, email, phone, password, active, image, RolId} =employeesValues
 
-    //valida que sea solo numero
+    //Validación par números aceptados:
     let valoresAceptados = /^[0-9]+$/;
 
-    //expresion regular que sirve para validar que sea de tipo email
+    //Validación para formato email aceptado:
     let ValidacionEmail = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
-
-    // const attributes = {
-    //     name: "es el nombre",
-    //     email: "es email",
-    //     phone: "es phone",
-    //     password: "es password",
-    //     code: "es code",
-    // };
 
     for (const key in input) {
         if (key !== undefined) {

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Subir imagen</h1>
+    
+       
+        <form action="/anuncios" method="post" enctype="multipart/form-data"> 
+        <label >Nombre de la imagen</label>
+        <br>
+     
+        <input type="text" id="nombre" name="nombre">
+        <br>
+        <label >Descripción</label>
+        <br>
+        <input type="text" id="descripcion" name="descripcion">
+        <br>
+        <label for="t">Selecionar imagen</label>
+        <input type="file" name="img" id="t" required>
+        <button type="submit" >upload</button>
+        </form>
+
+ <div>
+    
+   
+ </div>
+ 
+</body>
+</html>
