@@ -39,7 +39,7 @@ async function validate(input) {
     let ValidacionEmail = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
 
     // const attributes = {
-    //     name: "es el nomrbe",
+    //     name: "es el nombre",
     //     email: "es emain",
     //     phone: "es phone",
     //     password: "es password",
@@ -82,17 +82,17 @@ async function validate(input) {
 
         const { name } = await dato;
 
-        if (name === "Cliente") {
+        if (name === "No Suscripto") {
             errors.push(
-                "Seleccione un rol perteneciente a empleado. puede ser secretario/a o Profesor/a"
+                "El empleado debe tener un rol, puede ser secretario/a o Profesor/a"
             );
         }
     }
     return errors;
 }
 
-const CuentaActiva = async (input,modelo) => {
-    const DatoUser = await modelo.findOne({ where: { id: input } });
+const CuentaActiva = async (id, modelo) => {
+    const DatoUser = await modelo.findOne({ where: { id: id } });
     const { active } = await DatoUser;
     console.log(active)
     if (active) {
@@ -115,8 +115,7 @@ const CuentaDesactivar = async (input,modelo) => {
     }
 };
 
-//funciones Solo para usuario y cliente porque tiene los mismo campos
-
+//Validación para evitar crear nuevos registros, en donde ya exista uno con el mismo EMAIL o PHONE.
 const existeEmailYTelefono = async (input, modelo) => {
     console.log("MODELS: ", modelo);
     let errors = new Array();
