@@ -1,63 +1,157 @@
 const { prototype } = require("mocha");
-const { Rols } = require('../db')
+const { Rols } = require("../db");
+
+// TODO recive un objecto de parametros desesctructurados desde service y
+// retorna un array de strings como errores
+
 async function validate(input) {
-    let errors= new Array()
-    
+    let errors = new Array();
+    // todos las propiedas de todos los modelos
+    const {
+        name,
+        email,
+        phone,
+        password,
+        active,
+        image,
+        RolId,
+        code,
+        repetition,
+        series,
+        video,
+        muscle,
+        address,
+        avatar,
+        amount,
+        price,
+        stock,
+        description,
+        size,
+        brand,
+        timeSlot,
+    } = input;
+    // const {name, email, phone, password, active, image, RolId} =employeesValues
+
     //valida que sea solo numero
     let valoresAceptados = /^[0-9]+$/;
-    
+
     //expresion regular que sirve para validar que sea de tipo email
-    let ValidacionEmail=/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+    let ValidacionEmail = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
 
+    // const attributes = {
+    //     name: "es el nomrbe",
+    //     email: "es emain",
+    //     phone: "es phone",
+    //     password: "es password",
+    //     code: "es code",
+    // };
 
-    if (!input.name) {
-        errors.push("Nombre es requerido.");
-    } else if (!/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/.test(input.name)) {
-        errors.push("Ingrese solo letras en el campo nombre.");
-    }
-
-    if (input.email) {
-        if(!ValidacionEmail.exec(input.email)){
-            errors.push("Email incorrecto, por favor ingrese caracteres validos.");
-        }
-      
-    } else {
-
-        errors.push("Email es requerido.");
-    }
-
-    if(input.phone){
-        if (!input.phone.match(valoresAceptados)){
-            errors.push("Ingrese solo numero.");
-        } 
-    }else{
-        errors.push("El numero de telefono es requerido.");
-    }
-
-    if(!input.password){
-        errors.push("La password es requerida.");
-    }
-
-
-
-    //Verificacion para lo que se trata de modelo  roles
-
-    if(input.RolId==""){
-        errors.push("Seleccione un rol")
-    }
-    else{
-        const dato = await Rols.findOne({where:{
-            id:input.RolId
-        }});
-       
-        const {name}= await dato
-      
-        if(name==="No suscripto"){
-            errors.push("Seleccione un rol perteneciente a empleado. puede ser secretario/a o Profesor/a")
+    for (const key in input) {
+        if (key !== undefined) {
+            const value = input[key];
+            if (typeof key === "string") {
+                if (value === "") {
+                    errors.push(`${key} es requerido.`);
+                } else if (key === "name") {
+                    if (!/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/.test(value)) {
+                        errors.push("Ingrese solo letras en el campo nombre.");
+                    }
+                } else if (key === "email") {
+                    if (!ValidacionEmail.exec(value)) {
+                        errors.push(
+                            "Email incorrecto, por favor ingrese caracteres validos."
+                        );
+                    }
+                } else if (key === "phone") {
+                    if (!value.match(valoresAceptados)) {
+                        errors.push("Ingrese solo numero.");
+                    }
+                }
+            }
         }
     }
-    return  errors
+
+    //Verificacion para lo que se trata de modelo roles
+
+    if (input.RolId !== "") {
+        const dato = await Rols.findOne({
+            where: {
+                id: input.RolId,
+            },
+        });
+
+        const { name } = await dato;
+
+        if (name === "Cliente") {
+            errors.push(
+                "Seleccione un rol perteneciente a empleado. puede ser secretario/a o Profesor/a"
+            );
+        }
+    }
+    return errors;
 }
 
+const CuentaActiva = async (input,modelo) => {
+    const DatoUser = await modelo.findOne({ where: { id: input } });
+    const { active } = await DatoUser;
+    console.log(active)
+    if (active) {
+        return true;
+    } else {
+        return false;
+    }
+};
 
-module.exports=validate;
+const CuentaDesactivar = async (input,modelo) => {
+    const DatoUser = await modelo.findOne({ where: { id: input } });
+    console.log(DatoUser);
+    const { active } = await DatoUser;
+    console.log(active)
+    console.log(active);
+    if (active) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+//funciones Solo para usuario y cliente porque tiene los mismo campos
+
+const existeEmailYTelefono = async (input, modelo) => {
+    console.log("MODELS: ", modelo);
+    let errors = new Array();
+    if (input.email) {
+        const emailExiste = await modelo.findOne({
+            where: {
+                email: input.email,
+            },
+        });
+        if (emailExiste) {
+            errors.push(
+                "El email ya se encuentra registrado. Ingrese uno nuevo"
+            );
+        }
+    }
+
+    if (input.phone) {
+        const phoneRequire = await modelo.findOne({
+            where: {
+                phone: input.phone,
+            },
+        });
+        if (phoneRequire) {
+            errors.push(
+                "El telefono ya se encuentra registrado. Ingrese uno nuevo"
+            );
+        }
+    }
+
+    return errors;
+};
+
+module.exports = {
+    validate,
+    CuentaActiva,
+    CuentaDesactivar,
+    existeEmailYTelefono,
+};

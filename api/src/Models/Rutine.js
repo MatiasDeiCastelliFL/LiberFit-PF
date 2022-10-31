@@ -3,10 +3,14 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   sequelize.define('Rutines', {
     id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4
+      
+      // type: DataTypes.INTEGER,
+      // allowNull: false,
+      // primaryKey: true,
+      // autoIncrement: true,
     },
     name: {
       type: DataTypes.STRING,

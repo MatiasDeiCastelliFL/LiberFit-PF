@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const Rol = require("./Rol");
+
 
 module.exports = (sequelize) => {
   sequelize.define(
@@ -28,7 +28,7 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      account: {
+      active: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },

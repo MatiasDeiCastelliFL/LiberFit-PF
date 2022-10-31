@@ -4,7 +4,6 @@ const {
     updateTraining,
     buscarTrainingPorId,
     buscarTrainings,
-    crearDesdeJsonATrainingsDb,
 } = require("../services/trainingServices");
 
 const getTraining = async (req, res) => {

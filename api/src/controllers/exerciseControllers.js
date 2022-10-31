@@ -1,18 +1,18 @@
 const {
     crearExercise,
     buscarExercise,
-    crearDesdeJsonAExerciseDb,
     updateExercise,
-destroyExercise
+    destroyExercise,
 } = require("../services/exerciseServices");
-
-const api = require("./gym.json");
-
+const validate = require("../validation/validations");
+validate;
 const getExercises = async (req, res) => {
+    const datoEmail = await validate(req.body);
     try {
-        const exercise = buscarExercise();
+        const exercise = await buscarExercise();
         res.status(200).json(exercise);
     } catch (error) {
+        console.error(error);
         res.status(500).json(error);
     }
 };
