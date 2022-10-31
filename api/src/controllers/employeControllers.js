@@ -119,7 +119,6 @@ const modificarEmpleado = async (req, res) => {
             res.status(400).json(datoValidacion);
         } else {
             const employeModif = await ModificarEmpleado(req.body);
-            console.log(employeModif);
             if (employeModif) {
                 res.status(200).json({ message: "Dato modificado" });
             } else {
@@ -150,7 +149,7 @@ const deleteEmployee = async (req, res) => {
 const inactivarEmployee = async (req, res) => {
     try {
         const { id } = req.body;
-        const desactivarCuenta = await CuentaDesactivar(id,Employees);
+        const desactivarCuenta = await CuentaDesactivar(id, Employees);
         if (desactivarCuenta === true) {
             await inactivarCuenta(id);
 
@@ -167,8 +166,7 @@ const activarEmployee = async (req, res) => {
     try {
         const { id } = req.body;
 
-        const accountActive = await CuentaActiva(id,Employees);
-        console.log(accountActive)
+        const accountActive = await CuentaActiva(id, Employees);
         if (accountActive === false) {
             await activarCuenta(id);
             res.status(200).json("La cuenta se activo correctamente");

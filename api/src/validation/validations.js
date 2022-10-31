@@ -40,7 +40,7 @@ async function validate(input) {
 
     // const attributes = {
     //     name: "es el nombre",
-    //     email: "es emain",
+    //     email: "es email",
     //     phone: "es phone",
     //     password: "es password",
     //     code: "es code",
@@ -73,7 +73,7 @@ async function validate(input) {
 
     //Verificacion para lo que se trata de modelo roles
 
-    if (input.RolId !== "") {
+    if (input.RolId && input.RolId !== "") {
         const dato = await Rols.findOne({
             where: {
                 id: input.RolId,
@@ -93,16 +93,12 @@ async function validate(input) {
 
 const CuentaActiva = async (id, modelo) => {
     const DatoUser = await modelo.findOne({ where: { id: id } });
-    const { active } = await DatoUser;
+    if (DatoUser) return DatoUser.active ? true : false;
 
-    if (active) {
-        return true;
-    } else {
-        return false;
-    }
+    return false
 };
 
-const CuentaDesactivar = async (id,modelo) => {
+const CuentaDesactivar = async (id, modelo) => {
     const DatoUser = await modelo.findOne({ where: { id: id } });
     const { active } = await DatoUser;
 
@@ -115,7 +111,6 @@ const CuentaDesactivar = async (id,modelo) => {
 
 //Validación para evitar crear nuevos registros, en donde ya exista uno con el mismo EMAIL o PHONE.
 const existeEmailYTelefono = async (input, modelo) => {
-    console.log("MODELS: ", modelo);
     let errors = new Array();
     if (input.email) {
         const emailExiste = await modelo.findOne({

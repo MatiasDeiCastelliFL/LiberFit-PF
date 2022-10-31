@@ -1,4 +1,10 @@
-const {Products} = require('../db')
+const { Products } = require('../db')
+
+const buscarProduct = async() => {
+  const products = await Products.findAll();
+  return products;
+}
+
 const crearProduct = async (
     name,
     price,
@@ -20,5 +26,6 @@ const crearProduct = async (
     brand
     })
 }
-module.exports={crearProduct} 
+
+module.exports={crearProduct,buscarProduct} 
 
