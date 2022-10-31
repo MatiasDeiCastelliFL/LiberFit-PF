@@ -10,7 +10,10 @@
         "idGim": "SD-2788333",
         "name": "Carlos Alberto Sanchez",
         "address": "Avenida Mira Florez",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfIIiLwFW0xQ__Yyb7bZBQ4WlkYHagaA39-g&usqp=CAU"
+        "email":"carlos@liberfit.com",
+        "password":"abc1234++",
+        "phone":"+23 17485278",
+        "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfIIiLwFW0xQ__Yyb7bZBQ4WlkYHagaA39-g&usqp=CAU"
       }
     ],
     "subscriptions": [
@@ -152,6 +155,7 @@
         "id": "SD-2788333-2",
         "name": "AbsoluteFit - Sede Caseros",
         "address": "12 de Octubre 3452",
+        "phone":"+23 17485278",
         "trainings": [
           {
             "name": "Funcional",
@@ -238,6 +242,7 @@
         "id": "SD-2788333-3",
         "name": "AbsoluteFit - Sede Quilmes",
         "address": "Laprida 2312",
+        "phone":"+23 17485278",
         "trainings": [
           {
             "name": "Funcional",
@@ -328,6 +333,7 @@
         "id": "SD-2788333-4",
         "name": "AbsoluteFit - Sede Florencio Varela",
         "address": "Guido 2312",
+        "phone":"+23 17485278",
         "trainings": [
           {
             "name": "Funcional",
@@ -414,6 +420,7 @@
         "id": "SD-2788333-5",
         "name": "AbsoluteFit - Sede Ezpeleta",
         "address": "Marmol 7843",
+        "phone":"+23 17485278",
         "trainings": [
           {
             "name": "Funcional",
@@ -500,6 +507,7 @@
         "id": "SD-2788333-6",
         "name": "AbsoluteFit - Sede Moron",
         "address": "Matienzo 2891",
+        "phone":"+23 17485278",
         "trainings": [
           {
             "name": "Funcional",
@@ -566,6 +574,7 @@
         "id": "SD-2788333-7",
         "name": "AbsoluteFit - Sede Castelar",
         "address": "San Martin 9843",
+        "phone":"+23 17485278",
         "trainings": [
           {
             "name": "Spinning",
@@ -660,6 +669,7 @@
         "id": "SD-2788333-8",
         "name": "AbsoluteFit - Sede Avellanera",
         "address": "Sarmiento 6732",
+        "phone":"+23 17485278",
         "trainings": [
           {
             "name": "Funcional",
@@ -758,6 +768,7 @@
         "id": "SD-2788333-9",
         "name": "AbsoluteFit - Sede Ranelagh",
         "address": "Conesa 9821",
+        "phone":"+23 17485278",
         "trainings": [
           {
             "name": "Funcional",
@@ -842,7 +853,7 @@
         "id": 1,
         "idLocation": "SD-2788333-1",
         "name": "Julieta Venegas",
-        "rol": "recepcionista",
+        "rol": "Recepcionista",
         "phone": "+23 44689278",
         "email": "jvenegas@gmail.com",
         "password": "jvenegas++",
@@ -853,7 +864,7 @@
         "id": 2,
         "idLocation": "SD-2788333-1",
         "name": "Pablo Vargas",
-        "rol": "recepcionista",
+        "rol": "Recepcionista",
         "phone": "+23 44689278",
         "email": "pvargas@gmail.com",
         "password": "pvargas++",
@@ -864,7 +875,7 @@
         "id": 3,
         "idLocation": "SD-2788333-1",
         "name": "Sirjhan Palacios",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 44459278",
         "email": "spalacios@gmail.com",
         "password": "spalacios++",
@@ -875,7 +886,7 @@
         "id": 4,
         "idLocation": "SD-2788333-1",
         "name": "Matias Castillos",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 44569278",
         "email": "mcastillos@gmail.com",
         "password": "mcastillos++",
@@ -886,7 +897,7 @@
         "id": 5,
         "idLocation": "SD-2788333-2",
         "name": "Alejandro Santilli",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 12389278",
         "email": "asantilli@gmail.com",
         "password": "asantilli++",
@@ -897,7 +908,7 @@
         "id": 6,
         "idLocation": "SD-2788333-2",
         "name": "Marcelo Roque",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 44687658",
         "email": "mroque@gmail.com",
         "password": "mroque++",
@@ -908,7 +919,7 @@
         "id": 7,
         "idLocation": "SD-2788333-3",
         "name": "Alejandro Santilli",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 12389278",
         "email": "asantilli@gmail.com",
         "password": "asantilli++",
@@ -919,7 +930,7 @@
         "id": 8,
         "idLocation": "SD-2788333-3",
         "name": "Marcelo Roque",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 44687658",
         "email": "mroque@gmail.com",
         "password": "mroque++",
@@ -930,7 +941,7 @@
         "id": 9,
         "idLocation": "SD-2788333-3",
         "name": "Alejandro Santilli",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 12389278",
         "email": "asantilli@gmail.com",
         "password": "asantilli++",
@@ -941,7 +952,7 @@
         "id": 10,
         "idLocation": "SD-2788333-4",
         "name": "Marcelo Roque",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 44687658",
         "email": "mroque@gmail.com",
         "password": "mroque++",
@@ -952,7 +963,7 @@
         "id": 11,
         "idLocation": "SD-2788333-4",
         "name": "Alejandro Santilli",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 12389278",
         "email": "asantilli@gmail.com",
         "password": "asantilli++",
@@ -963,7 +974,7 @@
         "id": 12,
         "idLocation": "SD-2788333-4",
         "name": "Marcelo Roque",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 44687658",
         "email": "mroque@gmail.com",
         "password": "mroque++",
@@ -974,7 +985,7 @@
         "id": 13,
         "idLocation": "SD-2788333-4",
         "name": "Alejandro Santilli",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 12389278",
         "email": "asantilli@gmail.com",
         "password": "asantilli++",
@@ -985,7 +996,7 @@
         "id": 14,
         "idLocation": "SD-2788333-5",
         "name": "Marcelo Roque",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 44687658",
         "email": "mroque@gmail.com",
         "password": "mroque++",
@@ -996,7 +1007,7 @@
         "id": 15,
         "idLocation": "SD-2788333-5",
         "name": "Alejandro Santilli",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 12389278",
         "email": "asantilli@gmail.com",
         "password": "asantilli++",
@@ -1007,7 +1018,7 @@
         "id": 16,
         "idLocation": "SD-2788333-6",
         "name": "Marcelo Roque",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 44687658",
         "email": "mroque@gmail.com",
         "password": "mroque++",
@@ -1018,7 +1029,7 @@
         "id": 17,
         "idLocation": "SD-2788333-6",
         "name": "Alejandro Santilli",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 12389278",
         "email": "asantilli@gmail.com",
         "password": "asantilli++",
@@ -1029,7 +1040,7 @@
         "id": 18,
         "idLocation": "SD-2788333-6",
         "name": "Marcelo Roque",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 44687658",
         "email": "mroque@gmail.com",
         "password": "mroque++",
@@ -1040,7 +1051,7 @@
         "id": 19,
         "idLocation": "SD-2788333-6",
         "name": "Alejandro Santilli",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 12389278",
         "email": "asantilli@gmail.com",
         "password": "asantilli++",
@@ -1051,7 +1062,7 @@
         "id": 20,
         "idLocation": "SD-2788333-7",
         "name": "Marcelo Roque",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 44687658",
         "email": "mroque@gmail.com",
         "password": "mroque++",
@@ -1062,7 +1073,7 @@
         "id": 21,
         "idLocation": "SD-2788333-7",
         "name": "Alejandro Santilli",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 12389278",
         "email": "asantilli@gmail.com",
         "password": "asantilli++",
@@ -1073,7 +1084,7 @@
         "id": 22,
         "idLocation": "SD-2788333-8",
         "name": "Marcelo Roque",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 44687658",
         "email": "mroque@gmail.com",
         "password": "mroque++",
@@ -1084,7 +1095,7 @@
         "id": 23,
         "idLocation": "SD-2788333-8",
         "name": "Alejandro Santilli",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 12389278",
         "email": "asantilli@gmail.com",
         "password": "asantilli++",
@@ -1095,7 +1106,7 @@
         "id": 24,
         "idLocation": "SD-2788333-9",
         "name": "Marcelo Roque",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 44687658",
         "email": "mroque@gmail.com",
         "password": "mroque++",
@@ -1106,7 +1117,7 @@
         "id": 25,
         "idLocation": "SD-2788333-9",
         "name": "Alejandro Santilli",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 12389278",
         "email": "asantilli@gmail.com",
         "password": "asantilli++",
@@ -1117,7 +1128,7 @@
         "id": 26,
         "idLocation": "SD-2788333-9",
         "name": "Marcelo Roque",
-        "rol": "entrenador",
+        "rol": "Entrenador",
         "phone": "+23 44687658",
         "email": "mroque@gmail.com",
         "password": "mroque++",
@@ -1128,11 +1139,15 @@
     "roles": [
       {
         "id": 1,
-        "name": "secretario/a"
+        "name": "Recepcionista"
       },
       {
         "id": 2,
-        "name": "entrenador/a"
+        "name": "Entrenador"
+      },        
+      {
+        "id": 3,
+        "name": "Cliente"
       }        
     ],
     "rutines": [
@@ -1184,18 +1199,21 @@
     "payment": [
       {
         "id": 1,
+        "amount":300,
         "name": "Transferencia Bancaria",
-        "membresia": true
+        "active": true
       },
       {
         "id": 2,
+        "amount":300,
         "name": "Mercado Pago",
-        "membresia": true
+        "active": true
       },
       {
         "id": 3,
+        "amount":300,
         "name": "Efectivo en Persona",
-        "membresia": true
+        "active": true
       }
     ],
     "clients": [
