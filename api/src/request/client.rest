@@ -1,3 +1,6 @@
+###
+GET http://localhost:3004/clients
+
 ### creando un cliente
 POST http://localhost:3004/clients
 Content-Type: application/json

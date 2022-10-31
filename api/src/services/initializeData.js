@@ -19,7 +19,7 @@ const crearDesdeJsonAPaymentsDb = async () => {
     const subscriptions = api[0].payment.map((pay) => {
         return {
             amount: pay.amount, // tiene que ser double
-            membership: pay.membresia, // tiene que se boolean
+            active: pay.active, // tiene que se boolean
         };
     });
 
@@ -135,7 +135,7 @@ const crearDesdeJsonARolsDb = async () => {
 };
 // agregamos los datos de las tablas que tienen  relaciones con las tablas que ya contienen datos
 const crearDesdeJsonAClientsDb = async () => {
-    const oneRol = await Rols.findOne({ where: { name: "cliente" } });
+    const oneRol = await Rols.findOne({ where: { name: "Cliente" } });
     const oneSubscriptions = await Subscriptions.findOne();
     const oneRutines = await Rutines.findOne();
     const onePayments = await Payments.findOne();
@@ -190,7 +190,6 @@ const crearDesdeJsonALocacionsDb = async () => {
             });
             machines.push(aux);
         });
-        console.log("trainings", trainings);
         await location.addTrainings(trainings);
         await location.addProducts(products);
         await location.addMachines(machines);
@@ -204,7 +203,7 @@ const crearDesdeJsonAEmployeesDb = async () => {
             phone: employee.phone,
             email: employee.email,
             password: employee.password,
-            account: typeof employee.account === "boolean" || true,
+            active: typeof employee.active === "boolean" || true,
             image: employee.image,
         });
 
