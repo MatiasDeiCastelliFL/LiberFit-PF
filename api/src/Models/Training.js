@@ -20,6 +20,7 @@ module.exports = (sequelize) => {
             },
             timeSlot: {
                 type: DataTypes.STRING,
+                allowNull: false,
             },
         },
         {

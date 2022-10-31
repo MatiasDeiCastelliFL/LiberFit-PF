@@ -8,9 +8,9 @@ const actualizarLacacion=async(name, address, phone,id)=>{
   location.save();
 }
 
-const crearLocacion = async (name, address, phone) => {
+const crearLocacion = async (name, address, phone,GymId) => {
   // TODO cambiar nombre
-  const location = await Locacions.create({ name,address,phone, })
+  const location = await Locacions.create({ name,address,phone,GymId })
 }
 const enviarLocacion= async()=> {
   const location = await Locacions.findAll()
@@ -22,13 +22,16 @@ const locacionById = async (id)=>{
 	 const location = await Locacions.findOne({
 	    where: {
 	    id
-	  }})
+     }
+   })
+    console.log('Locacions',Locacions.__proto__)
     return location
 } catch (error) {
    console.error(error);
    return error
 }
 }
+
 const borrarlocacion= async(id)=> {
   const location = await Locacions.destroy({ where: { id: `${id}` }})
   return location

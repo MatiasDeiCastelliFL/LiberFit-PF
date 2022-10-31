@@ -6,26 +6,26 @@ const crearEmpleado = async (
     email,
     phone,
     password,
-    account,
+    active,
     image,
     RolId
 ) => {
+  console.log("llegue aca")
   await Employees.create({
     name,
     email,
     phone,
     password,
-    account,
+    active,
     image,
     RolId
   })
-
+  return "Empleado creado con éxito";
 }
 
 const buscarEmpleadoTotal= async ()=>{
   
   const Employee= await Employees.findAll();
-  console.log(Employee);
   return Employee
 }
 

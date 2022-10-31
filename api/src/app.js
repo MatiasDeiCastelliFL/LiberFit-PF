@@ -1,3 +1,4 @@
+
 const express = require('express')
 const cors = require('cors')
 const morgan = require('morgan')
@@ -21,12 +22,11 @@ const routerTraining = require('./Routes/training')
 const routerAnuncio = require('./Routes/Anuncio');
 
 
-const server = express()
 
-server.use(cors())
+const server = express();
 
-server.set('port', process.env.PORT || 3004)
-
+server.use(cors());
+server.set("port", process.env.PORT || 3004);
 server.use(morgan('dev'))
 server.use(express.json())
 server.use(express.urlencoded({ extended: false}))
@@ -49,8 +49,8 @@ server.use('/', routerAnuncio)
 
 //provisional para probar envio de imagenes
 server.get('/2',(req,res)=>{
-    
     res.sendFile( path.join(__dirname, 'public/index2.html'))
 })
 
-module.exports = server
+
+module.exports = server;

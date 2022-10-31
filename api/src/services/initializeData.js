@@ -27,21 +27,26 @@ const crearDesdeJsonAPaymentsDb = async () => {
 };
 
 const crearDesdeJsonAMachinesDb = async () => {
-    const machines = api[0].locations
-        .map((location) => location.machines)
-        .flat(Infinity)
-        .filter(
-            (val, index, self) =>
-                index === self.findIndex((ele) => ele.name === val.name)
-        )
-        .map((machine) => {
-            return {
-                name: machine.name,
-                image: machine.image,
-                muscle: machine.muscle || "brazos",
-            };
-        });
-    await Machines.bulkCreate(machines);
+    try {
+        
+        const machines = api[0].locations
+            .map((location) => location.machines)
+            .flat(Infinity)
+            .filter(
+                (val, index, self) =>
+                    index === self.findIndex((ele) => ele.name === val.name)
+            )
+            .map((machine) => {
+                return {
+                    name: machine.name,
+                    image: machine.image,
+                    muscle: machine.muscle || "brazos",
+                };
+            });
+        await Machines.bulkCreate(machines);
+    } catch (error) {
+        console.log(error)
+    }
 };
 
 const crearDesdeJsonAProductsDb = async () => {
@@ -134,6 +139,43 @@ const crearDesdeJsonARolsDb = async () => {
     await Rols.bulkCreate(rols);
 };
 // agregamos los datos de las tablas que tienen  relaciones con las tablas que ya contienen datos
+
+const crearDesdeJsonALocacionsDb = async () => {
+    api[0].locations.forEach(async (loc) => {
+        const location = await Locacions.create({
+            name: loc.name,
+            phone: loc.phone,
+            address: loc.address,
+        });
+        // const location = await Locacions.create({
+        //     name: "AbsoluteFit - Sede Bernal",
+        //     phone: "+23 17485278",
+        //     address: "Primera Junta 512",
+        // });
+
+        loc.products.forEach(async (prod) => {
+            const aux = await Products.findOne({ where: { name: prod.name } });
+            await location.addProducts(aux);
+        });
+
+        loc.machines.forEach(async (machine) => {
+            const aux = await Machines.findOne({
+                where: { name: machine.name },
+            });
+            await location.addMachines(aux);
+        });
+        loc.trainings.forEach(async (train) => {
+            const aux = await Trainings.findOne({
+                where: { name: train.name },
+            });
+            await location.addTrainings(aux);
+        });
+        
+        const subscriptions = await Subscriptions.findAll();
+        await location.addSubscriptions(subscriptions);
+    });
+};
+
 const crearDesdeJsonAClientsDb = async () => {
     const oneRol = await Rols.findOne({ where: { name: "Cliente" } });
     const oneSubscriptions = await Subscriptions.findOne();
@@ -155,45 +197,6 @@ const crearDesdeJsonAClientsDb = async () => {
         await oneSubscriptions.addClient(clientByName);
         await clientByName.addPayment(onePayments);
         await clientByName.addLocacions(oneLocacion);
-    });
-};
-
-const crearDesdeJsonALocacionsDb = async () => {
-    api[0].locations.forEach(async (loc) => {
-        // const location = await Locacions.create({
-        //     name: loc.name,
-        //     phone: loc.phone,
-        //     address: loc.address,
-        // });
-        const location = await Locacions.create({
-            name: "AbsoluteFit - Sede Bernal",
-            phone: "+23 17485278",
-            address: "Primera Junta 512",
-        });
-
-        let trainings = [];
-        loc.trainings.forEach(async (train) => {
-            const aux = await Trainings.findOne({
-                where: { name: train.name },
-            });
-            trainings.push(aux);
-        });
-        let products = [];
-        loc.products.forEach(async (prod) => {
-            const aux = await Products.findOne({ where: { name: prod.name } });
-            products.push(aux);
-        });
-        let machines = [];
-        loc.machines.forEach(async (machine) => {
-            const aux = await Machines.findOne({
-                where: { name: machine.name },
-            });
-            machines.push(aux);
-        });
-        await location.addTrainings(trainings);
-        await location.addProducts(products);
-        await location.addMachines(machines);
-        await location.addSubscriptions();
     });
 };
 const crearDesdeJsonAEmployeesDb = async () => {
@@ -218,7 +221,6 @@ const crearDesdeJsonAEmployeesDb = async () => {
         await oneRol.addEmployee(EmployeeByName);
     });
 };
-
 const crearDesdeJsonAOwnersDb = async () => {
     const owners = api[0].owners.map((owner) => {
         return {
