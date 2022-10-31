@@ -31,6 +31,7 @@ const getClientsRequest = async (req, res) => {
 
 const postClientsRequest = async (req, res) => {
     try {
+
         const clientValidationErrors = await validate(req.body, Clients);
 
         if (clientValidationErrors.length > 0) {
@@ -40,6 +41,7 @@ const postClientsRequest = async (req, res) => {
             const newClient = await createClient(name, phone, email, password, image);
             res.status(200).json(newClient);
         }
+
     } catch (error) {
        res.status(500).json({error: error.message});
     }
