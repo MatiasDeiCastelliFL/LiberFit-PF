@@ -1,20 +1,21 @@
-const { createClient, findClients, findClientByNameOrEmail, deleteClient } = require('../services/clientServices');
-const { Clients } = require("../Models/Client")
+const { createClient, findClients, findClientByNameAndOrEmail, deleteClient } = require('../services/clientServices');
 
 const getClientsRequest = async (req, res) => {
     try {
         const { name, email } = req.query;
-        // console.log("esto es name: " + name)
-        // console.log("esto es email: " + email)
 
         if(email || name) {
             const dataClient = await findClientByNameOrEmail(name, email)
-            res.status(200).json(dataClient)
+            console.log(dataClient)
+            if (dataClient.length !== 0) {
+                res.status(200).json(dataClient)
+            } else {
+                res.status(400).json({ error: "No se encuentra un Cliente por ese NOMBRE o EMAIL." });
+            }
         } else {
             const clientsData = await findClients();
             res.status(200).json(clientsData);   
         }
-  
     } catch (error) {
         res.status(500).json({error: error.message})
     }
@@ -22,10 +23,10 @@ const getClientsRequest = async (req, res) => {
 
 const postClientsRequest = async (req, res) => {
     try {
-            const { name, phone, email, password, image, locacion } = req.body;
-            const newClient = await createClient(name, phone, email, password, image, locacion )
- 
-            res.status(200).json(newClient);
+        const { name, phone, email, password, image, locacion } = req.body;
+        const newClient = await createClient(name, phone, email, password, image, locacion )
+
+        res.status(200).json(newClient);
          
     } catch (error) {
        res.status(500).json({error: error.message})

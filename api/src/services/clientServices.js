@@ -27,13 +27,35 @@ const findClients = async () => {
     return clients
 };
 
-const findClientByNameOrEmail = async (name, email) => {
-    console.log("esto es name: " + name)
-    console.log("esto es email: " + email)
+const findClientByNameAndOrEmail = async (name, email) => {
+    if (name && email) {
+        const dataClient = await Clients.findAll({
+            where: {
+                name: name,
+                email: email
+            }
+        });
+        return dataClient;
 
-    
+    } else if (name || email) {
+        if(name) {
+            const dataClient = await Clients.findAll({
+                where: {
+                    name: name
+                }
+            });
+            return dataClient;
 
-}
+        } else if (email) {
+            const dataClient = await Clients.findAll({
+                where: {
+                    email: email
+                }
+            });
+            return dataClient;
+        }
+    }
+};
 
 const deleteClient = async (id) => {
     const deletedClient =  await Clients.destroy({ 
@@ -47,7 +69,7 @@ const deleteClient = async (id) => {
 module.exports = {
     createClient, 
     findClients, 
-    findClientByNameOrEmail, 
+    findClientByNameAndOrEmail, 
     deleteClient 
 };
 
