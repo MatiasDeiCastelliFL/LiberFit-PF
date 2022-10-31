@@ -3,21 +3,23 @@ import { useParams } from "react-router-dom";
 import Json from "../../../assets/gym.json";
 import { FireIcon, ArrowPathIcon } from "@heroicons/react/24/outline";
 import muscleIcon from "../../../assets/IMG/muscle-icon.png";
+import { useAppSelector } from "../../../App/Hooks/Hooks";
 
 
 const ExercisesDetails = () => {
     const { name } = useParams();
-
+    const { data } = useAppSelector((state) => state);
+    const exercise = data.exercises.find((exercise:any) => exercise.name === name);
 
     const [details, setDetails] = useState({
         name: name,
-        repetition: 12,
-        series: 4,
+        repetition: exercise.repetition,
+        series: exercise.series,
         video: "https://www.youtube.com/embed/-K0vejAHmWg",
         image: "https://images.unsplash.com/photo-1652363722833-509b3aac287b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1NzIwNTI2NQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-        muscle: "Tren Superior",
+        muscle: exercise.muscle,
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur repudiandae voluptas consequatur sapiente quo voluptates odit temporibus maiores nostrum eveniet assumenda, cumque commodi officia aut quae non, porro asperiores ut!",
-        calories: 100,
+        calories: exercise.calories,
     }); 
 
     function getDetails(name: any, Json: any){
