@@ -62,58 +62,57 @@ function Content() {
                                 <FunnelIcon className="h-5 w-5" aria-hidden="true" />
                             </button>
                         </div>
-                    </div> */}
-                    <section aria-labelledby="products-heading" className="pt-6 pb-24" >
-                      <h2 id="products-heading" className="sr-only"> Products </h2>
-                      <div className="grid grid-cols-1 gap-x-8 gap-y-10  w-full">
-                          {/* Filters */}
-                          <form className="hidden lg:block">
-                              <h3 className="sr-only">Categories</h3>
-
-                              {filters.map((section) => (
-                                  <Disclosure as="div" key={section.id} className="border-b border-redGray py-6" >
-                                    {({ open }) => (
-                                      <>
-                                        <h3 className="-my-3 flow-root">
-                                            <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                                              <span className="font-medium text-gray-900">
-                                                  {section.name}
-                                              </span>
-                                              <span className="ml-6 flex items-center">
-                                                  {open ? (
-                                                      <MinusIcon
-                                                          className="h-5 w-5"
-                                                          aria-hidden="true"
-                                                      />
-                                                  ) : (
-                                                      <PlusIcon
-                                                          className="h-5 w-5"
-                                                          aria-hidden="true"
-                                                      />
-                                                  )}
-                                              </span>
-                                            </Disclosure.Button>
-                                        </h3>
-                                        <Disclosure.Panel className="pt-6">
-                                          <div className="space-y-4">
-                                              {params.category === "Exercises" ? (
-                                                  <MusclesFilters section={section} />
-                                              ) : params.category === "Products" ? (
-                                                  <PriceFilter/>
-                                              ) : params.category === "Machines" ? (
-                                                <MusclesFilters section={section} />
-                                              ) : params.category === "Trainings" ? (
-                                                <PriceFilter/>
-                                              ) :  null}
-                                          </div>
-                                        </Disclosure.Panel>
-                                      </>
-                                    )}
-                                  </Disclosure>
-                              ))}
-                          </form>
-                      </div>
-                    </section>
+                    </div>  */}
+                    <div aria-labelledby="products-heading" className="pt-6 pb-24" >
+                        <h2 id="products-heading" className="sr-only"> Products </h2>
+                        <div className="grid grid-cols-1 gap-x-8 gap-y-10  w-full">
+                            {/* Filters */}
+                            <form className="hidden lg:block">
+                                <h3 className="sr-only">Categories</h3>
+                                {filters.map((section) => (
+                                    <Disclosure as="div" key={section.id} className="border-b border-redGray py-6" >
+                                        {({ open }) => (
+                                            <>
+                                                <h3 className="-my-3 flow-root">
+                                                    <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
+                                                        <span className="font-medium text-gray-900">
+                                                            {section.name}
+                                                        </span>
+                                                        <span className="ml-6 flex items-center">
+                                                            {open ? (
+                                                                <MinusIcon
+                                                                    className="h-5 w-5"
+                                                                    aria-hidden="true"
+                                                                />
+                                                            ) : (
+                                                                <PlusIcon
+                                                                    className="h-5 w-5"
+                                                                    aria-hidden="true"
+                                                                />
+                                                            )}
+                                                        </span>
+                                                    </Disclosure.Button>
+                                                </h3>
+                                                <Disclosure.Panel className="pt-6">
+                                                    <div className="space-y-4">
+                                                        {params.category === "Exercises" ? (
+                                                            <MusclesFilters section={section} />
+                                                        ) : params.category === "Products" ? (
+                                                            <PriceFilter/>
+                                                        ) : params.category === "Machines" ? (
+                                                            <MusclesFilters section={section} />
+                                                        ) : params.category === "Trainings" ? (
+                                                            <PriceFilter/>
+                                                        ) :  null}
+                                                    </div>
+                                                </Disclosure.Panel>
+                                            </>
+                                        )}
+                                    </Disclosure>
+                                ))}
+                            </form>
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>
