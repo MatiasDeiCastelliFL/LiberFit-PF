@@ -1,4 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { data } from 'autoprefixer';
 
 export interface filterState {
     data: any
@@ -23,11 +24,8 @@ const filterSlice = createSlice( {
         openFilter : (state, action:PayloadAction<any>) => {
             state.open = action.payload
         },
-        filterDataName : (state , action:PayloadAction<any>) => {
-            state.dataByName = action.payload
-        },
-        filterDataPrice : (state , action:PayloadAction<any>) => {
-            state.dataByPrice = action.payload
+        filterDataPrice : (state , action:PayloadAction<any>) => {    
+            state.dataByPrice = [...state.data]
         },
         filterExercisesByMuscles : (state , action:PayloadAction<any>) => {
             state.exercisesByMuscle = action.payload
@@ -40,4 +38,4 @@ const filterSlice = createSlice( {
 
 
 export default filterSlice.reducer
-export const {filterDataName, filterExercisesByMuscles, filterDataPrice, openFilter} = filterSlice.actions
+export const {filterExercisesByMuscles, filterDataPrice, openFilter} = filterSlice.actions
