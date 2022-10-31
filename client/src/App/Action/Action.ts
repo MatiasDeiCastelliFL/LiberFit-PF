@@ -2,8 +2,8 @@ import axios from "axios";
 import Json from '../../assets/gym.json'
 import arraySet from "../utils/arraySet";
 import { modalOpen } from "../FeatureSlices/Modal/Modal";
-import { getData, filterByPrice } from "../FeatureSlices/Data/Data";
-import { filterDataName, filterExercisesByMuscles,filterDataPrice,openFilter} from "../FeatureSlices/Filters/Filter";
+import { getData, filterByPrice ,filterDataName} from "../FeatureSlices/Data/Data";
+import { filterExercisesByMuscles,filterDataPrice,openFilter} from "../FeatureSlices/Filters/Filter";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users"
 
 const data = Json[0].sedes.map(d => d.products.map(d => d.name))
@@ -14,7 +14,6 @@ const products = Json[0].sedes.map(d => d.products.map(d => d))
 export const getDataThunk = () => async (dispatch: any) => {
     try {
         const response = await axios.get("http://localhost:3004/info");
-        console.log('Action Payload',response.data)
         dispatch(getData(response.data));
     } catch (error) {
         console.log(error);
@@ -23,7 +22,8 @@ export const getDataThunk = () => async (dispatch: any) => {
 
 export const getDataByName = (name:any) => (dispatch:any) => {
     const dataSet = arraySet(data.flat())
-    dispatch(filterDataName(dataSet.map(d => d).filter(d => d.toLowerCase().includes(name))))
+    // dispatch(filterDataName(dataSet.map(d => d).filter(d => d.toLowerCase().includes(name))))
+    dispatch(filterDataName(name))
 }
 
 export const getDataByPrice = (maxPrice:any, minPrice:any) => (dispatch:any) => {
