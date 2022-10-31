@@ -1,50 +1,46 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
+import {filterProductsByPrice} from "../../../App/Action/Action";
 import axios from "axios";
 import Card from "../../Atoms/Card/Card";
 import Json from "../../../assets/gym.json";
 import style from "./CardsCategory.module.css";
+import { Root, root } from "postcss";
+import { RootState } from "../../../App/Store";
 
 function CardsCategory() {
 
-  async function getSedesInfo() {
-    const response = await axios.get("http://localhost:3004/info");
-    return response.data[0].locations
-  }
+  const dispatch = useAppDispatch();
 
-  async function getExersicesInfo() {
-    const response = await axios.get("http://localhost:3004/info");
-    return response.data[0].exercises
-  }
+  const { data } = useAppSelector((state) => state);
+
 
   let { category } = useParams();
   
-  const [sedes, setSedes] = useState([]);
+  // const [sedes, setSedes] = useState(data.locations);
 
-  const [Exercises, setExercises] = useState([]);
+  // const [Exercises, setExercises] = useState(data.exercises);
+
+  // const [products, setProducts] = useState(data.products);
 
   console.log(category);
   
 
   useEffect(() => {
-    getSedesInfo().then((data) => {
-      setSedes(data);
-    });
-    getExersicesInfo().then((data) => {
-      setExercises(data);
-    });
+
   }, []);
 
   useEffect(() => {
-    console.log(sedes);
-  }, [sedes]);
+  }, [data.locations, data.products, data]);
 
   return (
       <div className={`${style.container} container h-custom_4 w-swiper overflow-hidden flex overflow-y-auto `}>
         <div className="flex-column justify-center text-center ">
           <h1 className="text-redClare text-3xl font-black font-sans">{category?.toUpperCase()}</h1>
-          {sedes.length?
-            (category !== 'Exercises')?sedes.map((d) => (
+          {data.locations.length?
+            (category !== 'Exercises')?data.locations.map((d) => (
               <div key={Math.random()} className="flex-column mx-auto gap-5">
                   <h1 className="bg-redClare  text-start text-white font-extrabold w-full text-2xl p-2 my-2 ">{d.name}</h1>
                   <div className={`${style.cardsDiv} flex w-swiper gap-5 justify-start`}>
@@ -57,14 +53,16 @@ function CardsCategory() {
                         <Card name={c.name} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${c.image}')`}} key={c.name} />
                       </Link>
                     )) : (category?.toLowerCase() === "products") ? d.products.map((p) => (
-                      <Link to={`/home/${category}/${p.name}`} key={Math.random()}>  
-                        <Card name={p.name} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${p.image}')`}} key={p.name} />
-                      </Link>
+                      data.filteredProducts.includes(p) ? (
+                          <Link to={`/home/${category}/${p.name}`} key={Math.random()}>  
+                            <Card name={p.name} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${p.image}')`}} key={p.name} />
+                          </Link>
+                      ) : null
                     )) : null}
                   </div>
               </div>)): 
               <div className={`${style.cardsDiv} flex gap-5 justify-start my-5`}>
-                {Exercises.map((e) => (
+                {data.exercises.map((e) => (
                   <Link to={`/home/Exercises/${e.name}`} >
                     <Card name={e.name} muscle={e.muscle} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${e.image}')`}} key={e.name} />
                   </Link>
