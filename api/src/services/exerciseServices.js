@@ -7,20 +7,20 @@ const buscarExercise = async () => {
 };
 
 const crearExercise = async (body) => {
-   try {
-	 const { name, repetition, series, video, image, muscle } = body;
-	    const ejercicio = await Exercises.create({
-	        name,
-	        repetition,
-	        series,
-	        video,
-	        image,
-	        muscle,
-	    });
-	    return ejercicio
-} catch (error) {
-	return error.errors.map(e=>e.message);
-}
+    try {
+        const { name, repetition, series, video, image, muscle } = body;
+        const ejercicio = await Exercises.create({
+            name,
+            repetition,
+            series,
+            video,
+            image,
+            muscle,
+        });
+        return ejercicio;
+    } catch (error) {
+        return error.errors.map((e) => e.message);
+    }
 };
 
 const updateExercise = async (id, body) => {
@@ -40,6 +40,7 @@ const updateExercise = async (id, body) => {
         return error;
     }
 };
+
 const destroyExercise = async (id) => {
     try {
         let removeId = await Exercises.destroy({
@@ -52,6 +53,7 @@ const destroyExercise = async (id) => {
         return error;
     }
 };
+
 module.exports = {
     crearExercise,
     buscarExercise,

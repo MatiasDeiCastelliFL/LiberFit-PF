@@ -25,7 +25,6 @@ const crearEmpleado = async (
 const buscarEmpleadoTotal= async ()=>{
   
   const Employee= await Employees.findAll();
-  console.log(Employee);
   return Employee
 }
 
