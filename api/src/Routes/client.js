@@ -3,7 +3,7 @@ const { getClientsRequest, postClientsRequest, deleteClientRequest } = require("
 const routerClient= Router();
 
 routerClient.get("/clients", getClientsRequest);
-routerClient.post("/client", postClientsRequest);
+routerClient.post("/clients", postClientsRequest);
 routerClient.delete("/clients", deleteClientRequest);
 
 module.exports = routerClient;
