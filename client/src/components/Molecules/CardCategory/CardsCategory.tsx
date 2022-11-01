@@ -16,9 +16,9 @@ function CardsCategory() {
 
     return (
         <div
-            className={`${style.container} container h-custom_4 w-swiper overflow-hidden flex overflow-y-auto `}
+            className={`${style.container}  h-custom_4 w-swiper overflow-hidden flex overflow-y-auto `}
         >
-            <div className="flex-column justify-center text-center ">
+            <div className="flex-column justify-center text-center">
                 <h1 className="text-redClare text-3xl font-black font-sans">
                     {category?.toUpperCase()}
                 </h1>
@@ -33,7 +33,7 @@ function CardsCategory() {
                                     {d.name}
                                 </h1>
                                 <div
-                                    className={`${style.cardsDiv} flex w-swiper gap-5 justify-start`}
+                                    className={`${style.cardsDiv} flex  gap-9 ml-2 justify-start`}
                                 >
                                     {category?.toLowerCase() === "machines"
                                         ? filter.machines.map((m) => (
@@ -87,7 +87,7 @@ function CardsCategory() {
                         ))
                     ) : (
                         <div
-                            className={`${style.cardsDiv} flex w-swiper gap-5 justify-start mt-5`}
+                            className={`${style.cardsDiv} flex w-swiper gap-10 justify-start mt-5`}
                         >
                             {filter.exercises.map((e) => (
                                 <Link to={`/home/Exercises/${e.name}`}>
