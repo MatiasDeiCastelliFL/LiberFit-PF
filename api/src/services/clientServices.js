@@ -1,4 +1,4 @@
-const { Clients,Locacions } = require('../db')
+const { Clients, Locacions } = require('../db')
 const bcrypt= require("bcrypt")
 
 const createClient = async (
