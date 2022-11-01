@@ -1,7 +1,9 @@
+
 const express = require('express')
 const cors = require('cors')
 const morgan = require('morgan')
- 
+const path = require('path')
+require("dotenv").config();
 
 const routerGeneral = require('./Routes/general')
 const routerClient = require('./Routes/client')
@@ -17,16 +19,17 @@ const routerRol = require('./Routes/rol')
 const routerRutine = require('./Routes/rutine')
 const routerSuscription = require('./Routes/suscription')
 const routerTraining = require('./Routes/training')
+const routerAnuncio = require('./Routes/Anuncio');
 
-const server = express()
 
-server.use(cors())
 
-server.set('port', process.env.PORT || 3004)
+const server = express();
 
+server.use(cors());
+server.set("port", process.env.PORT || 3004);
 server.use(morgan('dev'))
 server.use(express.json())
-server.use(express.urlencoded({ extended: true }))
+server.use(express.urlencoded({ extended: false}))
 
 server.use('/', routerGeneral)
 server.use('/', routerClient)
@@ -42,5 +45,8 @@ server.use('/', routerRol)
 server.use('/', routerRutine)
 server.use('/', routerSuscription)
 server.use('/', routerTraining)
+server.use('/', routerAnuncio)
 
-module.exports = server
+
+
+module.exports = server;

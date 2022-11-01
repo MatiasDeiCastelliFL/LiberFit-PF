@@ -14,53 +14,24 @@ const { Employees } = require("../db");
 const {
     validate,
     CuentaActiva,
-    CuentaDesactivar,
-    existeEmailYTelefono,
+    CuentaDesactivar
 } = require("../validation/validations");
 
 const bcrypt = require("bcrypt");
 const postEmpleado = async (req, res) => {
     try {
-        const { name, email, phone, password, active, image, RolId } = req.body;
-        const datoValidacion = await validate({
-            name,
-            email,
-            phone,
-            password,
-            active,
-            image,
-            RolId,
-        });
-        const validacionEmailYTelefonos = await existeEmailYTelefono(
-            req.body,
-            Employees
-        );
+        
+        const datoValidacion = await validate(req.body,Employees);
+       
+       
 
-        if (datoValidacion.length > 0 || validacionEmailYTelefonos.length > 0) {
-            if (
-                datoValidacion.length > 0 &&
-                validacionEmailYTelefonos.length > 0
-            ) {
-                const errorDevuelto = datoValidacion.concat(
-                    validacionEmailYTelefonos
-                );
-                res.status(404).json(errorDevuelto);
-            } else {
-                if (
-                    datoValidacion.length > 0 &&
-                    !validacionEmailYTelefonos.length > 0
-                ) {
-                    res.status(404).json(datoValidacion);
-                } else {
-                    if (
-                        !datoValidacion.length > 0 &&
-                        validacionEmailYTelefonos.length > 0
-                    ) {
-                        res.status(404).json(validacionEmailYTelefonos);
-                    }
-                }
-            }
+        if (datoValidacion.length > 0) {
+            res.status(404).json(datoValidacion);
+            
         } else {
+            const { name, email, phone, password, active, RolId } = req.body;
+            const {path} = req.file;
+            console.log(req.file);
             const passwordEncript = await bcrypt.hash(password, 15);
 
             const datoEmpleado = await crearEmpleado(
@@ -69,7 +40,7 @@ const postEmpleado = async (req, res) => {
                 phone,
                 passwordEncript,
                 active,
-                image,
+                path,
                 RolId
             );
             res.status(200).json(datoEmpleado);
@@ -119,7 +90,6 @@ const modificarEmpleado = async (req, res) => {
             res.status(400).json(datoValidacion);
         } else {
             const employeModif = await ModificarEmpleado(req.body);
-            console.log(employeModif);
             if (employeModif) {
                 res.status(200).json({ message: "Dato modificado" });
             } else {
@@ -147,10 +117,13 @@ const deleteEmployee = async (req, res) => {
     }
 };
 
+/* Verifica que la cuenta este activa. si la cuenta esta activa le 
+permitira desactivar si no le indicara que la cuenta ya se enceuntra desactivada*/
+
 const inactivarEmployee = async (req, res) => {
     try {
         const { id } = req.body;
-        const desactivarCuenta = await CuentaDesactivar(id,Employees);
+        const desactivarCuenta = await CuentaDesactivar(id, Employees);
         if (desactivarCuenta === true) {
             await inactivarCuenta(id);
 
@@ -163,12 +136,13 @@ const inactivarEmployee = async (req, res) => {
     }
 };
 
+/* Verifica que la cuenta se encuentra desactivada, si esta la
+ cuenta desactivada le va a permitr activa su cuenta sino le va a decir que su cuenta ya se encuentra activada*/
 const activarEmployee = async (req, res) => {
     try {
         const { id } = req.body;
 
-        const accountActive = await CuentaActiva(id,Employees);
-        console.log(accountActive)
+        const accountActive = await CuentaActiva(id, Employees);
         if (accountActive === false) {
             await activarCuenta(id);
             res.status(200).json("La cuenta se activo correctamente");
