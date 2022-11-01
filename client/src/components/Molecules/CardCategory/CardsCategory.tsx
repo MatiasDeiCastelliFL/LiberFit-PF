@@ -1,16 +1,18 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
+import {useAppSelector } from "../../../App/Hooks/Hooks";
 import Card from "../../Atoms/Card/Card";
 import style from "./CardsCategory.module.css";
-import { getDataThunk } from "./../../../App/Action/Action";
 
 function CardsCategory() {
-    const dispatch = useAppDispatch();
 
     const { filter } = useAppSelector((state) => state);
 
     let { category } = useParams();
+
+    useEffect(() => {
+
+    }, [filter.dataLocation , filter.exercises , filter.products, filter.trainigns])
 
     return (
         <div
@@ -36,7 +38,7 @@ function CardsCategory() {
                                     {category?.toLowerCase() === "machines"
                                         ? filter.machines.map((m) => (
                                               <Link
-                                                  to={`/home/${category}/${m.name}`}
+                                                  to={`/home/${category}/${m.name.split('%').join('')}`}
                                                   key={Math.random()}
                                               >
                                                   <Card

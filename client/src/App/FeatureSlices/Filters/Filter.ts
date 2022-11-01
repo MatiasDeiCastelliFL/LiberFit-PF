@@ -38,7 +38,7 @@ const filterSlice = createSlice({
             state.dataLocation = action.payload[0].locations;
             state.exercises = action.payload[0].exercises;
             state.products = state.products = arraySet(
-                action.payload[0].locations.map((d: any) => d.products).flat()
+                [...state.dataLocation].map((d: any) => d.products).flat()
             );
             state.machines = state.machines = arraySet(
                 [...state.dataLocation].map((d: any) => d.machines).flat()
@@ -54,7 +54,7 @@ const filterSlice = createSlice({
                 ...state.trainigns,
             ];
 
-            console.log(state.dataLocation)
+            console.log(state.trainigns);
         },
         openFilter: (state, action: PayloadAction<any>) => {
             state.open = action.payload;
@@ -111,13 +111,11 @@ const filterSlice = createSlice({
                         )
                         .flat()
                 );
-
-
-                
             }
         },
     },
 });
 
 export default filterSlice.reducer;
-export const { getData,filterDataName, filterDataPrice, openFilter } = filterSlice.actions;
+export const { getData, filterDataName, filterDataPrice, openFilter } =
+    filterSlice.actions;
