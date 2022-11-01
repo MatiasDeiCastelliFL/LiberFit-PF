@@ -26,7 +26,7 @@ module.exports = (sequelize) => {
     },
     avatar: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: "https://i.pravatar.cc/300",
     }
   },
   {

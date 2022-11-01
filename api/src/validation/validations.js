@@ -7,7 +7,6 @@ const { Rols } = require("../db");
 async function validate(input, model) {
     let errors = new Array();
     
-
     // const {
         // repetition
     //     series,
@@ -17,9 +16,6 @@ async function validate(input, model) {
 
     //valida que el campo no este repetido
     async function repetition(model,dato,mensaje,key){
-
-
-
         const existingDato = await model.findOne({
             where: {
                 [key]: dato,
@@ -27,9 +23,8 @@ async function validate(input, model) {
         });
         if (existingDato) {
            return  errors.push(mensaje);
-        }
-       
-    } 
+        }    
+    };
 
     //Validación par números aceptados:
     let valoresAceptados = /^[0-9]+$/;

@@ -1,10 +1,10 @@
 const {Router}= require('express')
-
-const {getProduct,postProduct} = require("../controllers/productControllers");
+const {upload }= require('../config/multer.config')
+const {getProduct,postProduct,deleteProduct} = require("../controllers/productControllers");
 
 const routerProduct= Router();
 
-routerProduct.post("/product",postProduct);
+routerProduct.post("/product",upload,postProduct);
 routerProduct.get("/product",getProduct);
-
+routerProduct.delete('/product/:id',deleteProduct)
 module.exports=routerProduct ;

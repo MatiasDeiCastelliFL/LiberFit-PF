@@ -47,10 +47,6 @@ server.use('/', routerSuscription)
 server.use('/', routerTraining)
 server.use('/', routerAnuncio)
 
-//provisional para probar envio de imagenes
-server.get('/2',(req,res)=>{
-    res.sendFile( path.join(__dirname, 'public/index2.html'))
-})
 
 
 module.exports = server;
