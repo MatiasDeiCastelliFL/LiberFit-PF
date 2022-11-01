@@ -139,4 +139,4 @@ const dataSlice = createSlice({
 });
 
 export default dataSlice.reducer;
-export const { filterDataName, getData, filterByPrice, filterByMuscles } = dataSlice.actions;
+export const { getData, filterByPrice } = dataSlice.actions;
