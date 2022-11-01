@@ -26,8 +26,8 @@ const getData = async (req, res) => {
         json.crearDesdeJsonAExerciseDb();
         json.crearDesdeJsonARolsDb();
         json.crearDesdeJsonASubscriptionsDb();
-        json.crearDesdeJsonAClientsDb();
         json.crearDesdeJsonAEmployeesDb();
+        json.crearDesdeJsonAClientsDb();
         json.crearDesdeJsonALocacionsDb();
         json.crearDesdeJsonAOwnersDb();
         json.crearDesdeJsonAGymsDb();

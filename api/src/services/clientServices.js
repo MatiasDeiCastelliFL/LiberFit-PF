@@ -1,15 +1,20 @@
-const { Clients,Locacions } = require('../db')
+const { Clients, Locacions,Rols } = require('../db')
+const bcrypt= require("bcrypt")
 
 const createClient = async (
-    name,phone,email,password,image,locacion
+    name, phone, email, password,active,image,SubscriptionId,RolId,locacion
 ) => {
+    console.log("llegue",RolId)
     const cliente = await Clients.create({
-        name,phone,email,password,image
+        name, phone, email, password,active,image,SubscriptionId,RolId
     })
 
   
-    const location= await Locacions.findOne({ where: { name: `${locacion}` } })
-    await cliente.addLocacions(location)
+    await cliente.addLocacions(locacion)
+
+  
+
+
     return "Cliente cargado con éxito";
 };
 
@@ -49,8 +54,23 @@ const findClientByNameAndOrEmail = async (name, email) => {
     }
 };
 
-const updateClient = async (name, phone, email, password, image) => {
-    
+const updateClient = async (id, name, phone, email, password, image) => {
+    const foundClient = await Clients.findOne({
+        where: {
+            id: id
+        }
+    })
+
+    const encryptedPassword = await bcrypt.hash(password,15)
+
+    if (foundClient) {
+        if(name) await foundClient.update({name: name})
+        if(phone) await foundClient.update({phone: phone})
+        if(email) await foundClient.update({email: email})
+        if(password) await foundClient.update({password: encryptedPassword})
+        if(image) await foundClient.update({name: name})
+    }
+    return foundClient;
 };
 
 const deleteClient = async (id, name, email) => {
