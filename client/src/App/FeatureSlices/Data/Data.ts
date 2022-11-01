@@ -117,4 +117,4 @@ const dataSlice = createSlice({
 });
 
 export default dataSlice.reducer;
-export const { filterDataName, getData, filterByPrice } = dataSlice.actions;
+export const { getData, filterByPrice } = dataSlice.actions;

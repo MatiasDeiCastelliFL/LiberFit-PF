@@ -10,8 +10,8 @@ const ProductsDetails = () => {
     const sedes = Json[0].sedes;
     const { name } = useParams();
 
-    const {data}= useAppSelector((state) => state);
-    const product = data.products.find((product) => product.name === name);
+    const {filter}= useAppSelector((state) => state);
+    const product = filter.products.find((product) => product.name === name);
     
     const [details, setDetails] = useState({
         name: name,
@@ -23,7 +23,7 @@ const ProductsDetails = () => {
     
 
     useEffect(() => {
-        data.products.forEach((product) => {
+        filter.products.forEach((product) => {
             if (product.name === name) {
                 setDetails(
                     {

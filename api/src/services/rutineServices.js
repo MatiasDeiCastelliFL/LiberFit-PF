@@ -16,7 +16,6 @@ const buscarRutines = async () => {
 };
 
 const crearRutine = async (body) => {
-    // TODO quue no se repita
     const { name, ClientId, EmployeeId, nameTraining, nameExcersise } = body;
 
     try {

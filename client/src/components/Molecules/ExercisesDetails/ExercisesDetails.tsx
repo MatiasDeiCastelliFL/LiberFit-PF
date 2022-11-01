@@ -8,8 +8,8 @@ import { useAppSelector } from "../../../App/Hooks/Hooks";
 
 const ExercisesDetails = () => {
     const { name } = useParams();
-    const { data } = useAppSelector((state) => state);
-    const exercise = data.exercises.find((exercise:any) => exercise.name === name);
+    const { filter } = useAppSelector((state) => state);
+    const exercise = filter.exercises.find((exercise:any) => exercise.name === name);
 
     const [details, setDetails] = useState({
         name: name,

@@ -1,0 +1,99 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "gym",
+    "dateExported": "2022-10-30T18:48:06.704Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "7dce1963-84de-4e4d-9d0c-0a50b07c92fa",
+            "colId": "69d1e1ac-1fdc-4b99-bf77-4d488559c23e",
+            "containerId": "",
+            "name": "localhost:3001/empleado",
+            "url": "localhost:3004/empleado",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-10-30T18:30:13.745Z",
+            "modified": "2022-10-30T18:30:13.745Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"\",\n  \"email\":\"matias_domingos2aaa@hotmail.com\",\n  \"phone\":\"37495012112321\",\n  \"account\":true,\n  \"image\":\"https://cn.i.cdn.ti-platform.com/content/1149/pokemon-sol-y-luna-ultraleyendas/showpage/ve/showsquare.a6a9b623.png?imwidth=420\",\n  \"password\":\"12345Acs\",\n  \"RolId\":1\n \n  \n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "2cfda06e-dfd6-492c-9adc-30517f58c4f9",
+            "colId": "69d1e1ac-1fdc-4b99-bf77-4d488559c23e",
+            "containerId": "",
+            "name": "localhost:3004/Rol",
+            "url": "localhost:3004/Rol",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2022-10-30T18:30:30.703Z",
+            "modified": "2022-10-30T18:30:30.703Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a7c077ff-9086-44eb-808b-15585d8a267d",
+            "colId": "69d1e1ac-1fdc-4b99-bf77-4d488559c23e",
+            "containerId": "",
+            "name": "localhost:3001/empleado",
+            "url": "localhost:3004/empleado",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2022-10-30T18:45:02.273Z",
+            "modified": "2022-10-30T18:45:02.273Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\":\"203ae4c2-973c-40d2-8153-10fcfe246a79\",\n  \"name\":\"ricardo\",\n  \"email\":\"ricardo_arjona@hotmail.com\",\n  \"phone\":\"123456345\",\n  \"account\":true,\n  \"image\":\"https://cn.i.cdn.ti-platform.com/content/1149/pokemon-sol-y-luna-ultraleyendas/showpage/ve/showsquare.a6a9b623.png?imwidth=420\",\n  \"password\":\"12345Acs\",\n  \"RolId\":1\n \n  \n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "4e1cdd52-d9d1-4d51-953e-b0aec4bfdacb",
+            "colId": "69d1e1ac-1fdc-4b99-bf77-4d488559c23e",
+            "containerId": "",
+            "name": "localhost/3004/empleado",
+            "url": "localhost:3004/empleado",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2022-10-30T18:45:37.081Z",
+            "modified": "2022-10-30T18:45:37.081Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\":\"203ae4c2-973c-40d2-8153-10fcfe246a79\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "be1c4155-1dd3-4e8d-9682-36b5a48ba879",
+            "colId": "69d1e1ac-1fdc-4b99-bf77-4d488559c23e",
+            "containerId": "",
+            "name": "https://www.thunderclient.com/welcome",
+            "url": "localhost:3004/empleadoActivar",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2022-10-30T18:46:04.498Z",
+            "modified": "2022-10-30T18:46:04.498Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n \"id\": \"69e8fbfc-3a93-4152-8123-d041171591cc\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
