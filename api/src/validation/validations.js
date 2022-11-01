@@ -1,36 +1,35 @@
 const { prototype } = require("mocha");
 const { Rols } = require("../db");
 
-// TODO recive un objecto de parametros desesctructurados desde service y
+// recive un objecto de parametros desesctructurados desde service y
 // retorna un array de strings como errores
 
 async function validate(input, model) {
     let errors = new Array();
-    console.log("esto es input: " + input)
+    
 
     // const {
-    //     name,
-    //     email,
-    //     phone,
-    //     password,
-    //     active,
-    //     image,
-    //     RolId,
-    //     code,
-    //     repetition,
+        // repetition
     //     series,
-    //     video,
-    //     muscle,
-    //     address,
-    //     avatar,
     //     amount,
-    //     price,
-    //     stock,
-    //     description,
-    //     size,
-    //     brand,
-    //     timeSlot,
+    //     price,g
     // } = input;
+
+    //valida que el campo no este repetido
+    async function repetition(model,dato,mensaje,key){
+
+
+
+        const existingDato = await model.findOne({
+            where: {
+                [key]: dato,
+            }
+        });
+        if (existingDato) {
+           return  errors.push(mensaje);
+        }
+       
+    } 
 
     //Validación par números aceptados:
     let valoresAceptados = /^[0-9]+$/;
@@ -38,11 +37,12 @@ async function validate(input, model) {
     //Validación para formato email aceptado:
     let ValidacionEmail = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
 
+
     for (const key in input) {
         if (key !== undefined) {
             const value = input[key];
 
-            console.log(value)
+        
             if (typeof key === "string") {
                 if (value === "") {
                     errors.push(`${key} es requerido.`);
@@ -56,32 +56,78 @@ async function validate(input, model) {
                             "Email incorrecto, por favor ingrese caracteres validos."
                         );
                     }else{
-                        const existingEmail = await model.findOne({
-                            where: {
-                                email: input.email,
-                            }
-                        });
-                        if (existingEmail) {
-                            errors.push(
-                                "El email ya se encuentra registrado. Ingrese uno nuevo"
-                            );
-                        }
+                        const mensaje="El email ya se encuentra registrado. Ingrese uno nuevo"
+                        repetition(model,value,mensaje,key);
+                       
                     }
                 } else if (key === "phone") {
                     if (!value.match(valoresAceptados)) {
                         errors.push("Ingrese solo numero.");
                     } else {
-                        const existingPhone = await model.findOne({
-                            where: {
-                                phone: input.phone,
-                            }
-                        });
-                        if (existingPhone) {
-                            errors.push(
-                                "El telefono ya se encuentra registrado. Ingrese uno nuevo"
-                            );
-                        }
+                        const mensaje="El telefono ya se encuentra registrado. Ingrese uno nuevo"
+                        repetition(model,value,mensaje,key);
+                     
                     }
+                }else if(key === "image"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "code"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "video"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "muscle"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "address"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "avatar"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "price"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "stock"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "description"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "size"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "brand"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "timeSlot"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
                 }
             }
         }
@@ -109,20 +155,12 @@ async function validate(input, model) {
 
 const CuentaActiva = async (id, model) => {
     const DatoUser = await model.findOne({ where: { id: id } });
-    if (DatoUser) return DatoUser.active ? true : false;
-
-    return false
+    return DatoUser.active 
 };
 
 const CuentaDesactivar = async (id, model) => {
     const DatoUser = await model.findOne({ where: { id: id } });
-    const { active } = await DatoUser;
-
-    if (active) {
-        return true;
-    } else {
-        return false;
-    }
+    return DatoUser.active 
 };
 
 module.exports = {

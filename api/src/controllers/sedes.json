@@ -4,6 +4,44 @@
     "name": "AbsoluteFit - Sede Bernal",
     "phone": "+23 17485278",
     "address": "Primera Junta 512",
+    "machines": [],
+    "products": [
+      {
+          "name": "Quemador de Grasa",
+          "image": "https://res.cloudinary.com/dim2wnoej/image/upload/v1667262034/iwkmqhwcbnhqiylxjaig.jpg",
+          "price": 1000
+      },
+      {
+          "name": "Guantes",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+          "price": 500
+      },
+      {
+          "name": "Remeras",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+          "price": 3400
+      },
+      {
+          "name": "Musculosa",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+          "price": 2800
+      },
+      {
+          "name": "Proteinas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+          "price": 2500
+      },
+      {
+          "name": "Barra de Cereales",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+          "price": 200
+      },
+      {
+          "name": "Mancuernas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+          "price": 5000
+      }
+  ],
     "trainings": [
       {
         "id": 1,
@@ -744,7 +782,43 @@
     "phone": "+23 17485299",
     "address": "Laprida 2312",
     "machines": [],
-    "products": [],
+    "products": [
+      {
+          "name": "Quemador de Grasa",
+          "image": "https://res.cloudinary.com/dim2wnoej/image/upload/v1667262034/iwkmqhwcbnhqiylxjaig.jpg",
+          "price": 1000
+      },
+      {
+          "name": "Guantes",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+          "price": 500
+      },
+      {
+          "name": "Remeras",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+          "price": 3400
+      },
+      {
+          "name": "Musculosa",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+          "price": 2800
+      },
+      {
+          "name": "Proteinas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+          "price": 2500
+      },
+      {
+          "name": "Barra de Cereales",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+          "price": 200
+      },
+      {
+          "name": "Mancuernas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+          "price": 5000
+      }
+  ],
     "trainings": [
       {
         "id": 1,
@@ -866,7 +940,43 @@
     "phone": "+23 27485278",
     "address": "Guido 2312",
     "machines": [],
-  "products": [],
+    "products": [
+      {
+          "name": "Quemador de Grasa",
+          "image": "https://res.cloudinary.com/dim2wnoej/image/upload/v1667262034/iwkmqhwcbnhqiylxjaig.jpg",
+          "price": 1000
+      },
+      {
+          "name": "Guantes",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+          "price": 500
+      },
+      {
+          "name": "Remeras",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+          "price": 3400
+      },
+      {
+          "name": "Musculosa",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+          "price": 2800
+      },
+      {
+          "name": "Proteinas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+          "price": 2500
+      },
+      {
+          "name": "Barra de Cereales",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+          "price": 200
+      },
+      {
+          "name": "Mancuernas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+          "price": 5000
+      }
+  ],
   "trainings": [
     {
       "id": 1,
@@ -988,7 +1098,43 @@
     "phone": "+23 47485278",
     "address": "Matienzo 2891",
     "machines": [],
-  "products": [],
+    "products": [
+      {
+          "name": "Quemador de Grasa",
+          "image": "https://res.cloudinary.com/dim2wnoej/image/upload/v1667262034/iwkmqhwcbnhqiylxjaig.jpg",
+          "price": 1000
+      },
+      {
+          "name": "Guantes",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+          "price": 500
+      },
+      {
+          "name": "Remeras",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+          "price": 3400
+      },
+      {
+          "name": "Musculosa",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+          "price": 2800
+      },
+      {
+          "name": "Proteinas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+          "price": 2500
+      },
+      {
+          "name": "Barra de Cereales",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+          "price": 200
+      },
+      {
+          "name": "Mancuernas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+          "price": 5000
+      }
+  ],
   "trainings": [
     {
       "id": 1,
@@ -1115,7 +1261,43 @@
         "LocacionId": "5032098c-23a5-45a7-b7dc-d857a9dbf2ba"
       }
     ],
-    "products": [],
+    "products": [
+      {
+          "name": "Quemador de Grasa",
+          "image": "https://res.cloudinary.com/dim2wnoej/image/upload/v1667262034/iwkmqhwcbnhqiylxjaig.jpg",
+          "price": 1000
+      },
+      {
+          "name": "Guantes",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+          "price": 500
+      },
+      {
+          "name": "Remeras",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+          "price": 3400
+      },
+      {
+          "name": "Musculosa",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+          "price": 2800
+      },
+      {
+          "name": "Proteinas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+          "price": 2500
+      },
+      {
+          "name": "Barra de Cereales",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+          "price": 200
+      },
+      {
+          "name": "Mancuernas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+          "price": 5000
+      }
+  ],
     "trainings": [
       {
         "id": 1,
@@ -1249,7 +1431,43 @@
     "phone": "+23 57485278",
     "address": "San Martin 9843",
     "machines": [],
-  "products": [],
+    "products": [
+      {
+          "name": "Quemador de Grasa",
+          "image": "https://res.cloudinary.com/dim2wnoej/image/upload/v1667262034/iwkmqhwcbnhqiylxjaig.jpg",
+          "price": 1000
+      },
+      {
+          "name": "Guantes",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+          "price": 500
+      },
+      {
+          "name": "Remeras",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+          "price": 3400
+      },
+      {
+          "name": "Musculosa",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+          "price": 2800
+      },
+      {
+          "name": "Proteinas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+          "price": 2500
+      },
+      {
+          "name": "Barra de Cereales",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+          "price": 200
+      },
+      {
+          "name": "Mancuernas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+          "price": 5000
+      }
+  ],
   "trainings": [
     {
       "id": 3,
@@ -1371,7 +1589,43 @@
     "phone": "+23 17495278",
     "address": "Sarmiento 6732",
     "machines": [],
-  "products": [],
+    "products": [
+      {
+          "name": "Quemador de Grasa",
+          "image": "https://res.cloudinary.com/dim2wnoej/image/upload/v1667262034/iwkmqhwcbnhqiylxjaig.jpg",
+          "price": 1000
+      },
+      {
+          "name": "Guantes",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+          "price": 500
+      },
+      {
+          "name": "Remeras",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+          "price": 3400
+      },
+      {
+          "name": "Musculosa",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+          "price": 2800
+      },
+      {
+          "name": "Proteinas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+          "price": 2500
+      },
+      {
+          "name": "Barra de Cereales",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+          "price": 200
+      },
+      {
+          "name": "Mancuernas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+          "price": 5000
+      }
+  ],
   "trainings": [
     {
       "id": 1,
@@ -1522,7 +1776,43 @@
         "LocacionId": "54d1c385-a140-4c2e-9a3e-6703622048da"
       }
     ],
-    "products": [],
+    "products": [
+      {
+          "name": "Quemador de Grasa",
+          "image": "https://res.cloudinary.com/dim2wnoej/image/upload/v1667262034/iwkmqhwcbnhqiylxjaig.jpg",
+          "price": 1000
+      },
+      {
+          "name": "Guantes",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+          "price": 500
+      },
+      {
+          "name": "Remeras",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+          "price": 3400
+      },
+      {
+          "name": "Musculosa",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+          "price": 2800
+      },
+      {
+          "name": "Proteinas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+          "price": 2500
+      },
+      {
+          "name": "Barra de Cereales",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+          "price": 200
+      },
+      {
+          "name": "Mancuernas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+          "price": 5000
+      }
+  ],
     "trainings": [
       {
         "id": 1,
