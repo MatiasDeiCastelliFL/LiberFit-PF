@@ -18,6 +18,7 @@ const api = require("../controllers/gym.json");
 const crearDesdeJsonAPaymentsDb = async () => {
     const subscriptions = api[0].payment.map((pay) => {
         return {
+            id:pay.id,
             amount: pay.amount, // tiene que ser double
             active: pay.active, // tiene que se boolean
         };
@@ -28,7 +29,6 @@ const crearDesdeJsonAPaymentsDb = async () => {
 
 const crearDesdeJsonAMachinesDb = async () => {
     try {
-        
         const machines = api[0].locations
             .map((location) => location.machines)
             .flat(Infinity)
@@ -38,6 +38,7 @@ const crearDesdeJsonAMachinesDb = async () => {
             )
             .map((machine) => {
                 return {
+                    id:machine.id,
                     name: machine.name,
                     image: machine.image,
                     muscle: machine.muscle || "brazos",
@@ -45,7 +46,7 @@ const crearDesdeJsonAMachinesDb = async () => {
             });
         await Machines.bulkCreate(machines);
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 };
 
@@ -61,12 +62,13 @@ const crearDesdeJsonAProductsDb = async () => {
             return {
                 name: product.name,
                 price: product.price,
-                stock: product.stock || "",
-                code: product.code || "",
+                stock: product.stock || Math.ceil(Math.random()) * 100,
+                code: product.code || "12312",
                 image: product.image,
-                description: product.description || "",
-                size: product.size || "",
-                brand: product.brand || "",
+                description:
+                    product.description || "Esto es ".concat(product.name),
+                size: product.size || "10",
+                brand: product.brand || "LiberFit",
             };
         });
     await Products.bulkCreate(products);
@@ -92,6 +94,7 @@ const crearDesdeJsonATrainingsDb = async () => {
 const crearDesdeJsonAExerciseDb = async () => {
     const exercises = api[0].exercises.map((e) => {
         return {
+            id:e.id,
             name: e.name,
             repetition: e.repetition,
             series: e.series,
@@ -106,6 +109,7 @@ const crearDesdeJsonAExerciseDb = async () => {
 const crearDesdeJsonARutinesDb = async () => {
     const dataJsonRutines = api[0].rutines.map((rutine) => {
         return {
+            id: rutine.id,
             name: rutine.name,
         };
     });
@@ -115,6 +119,7 @@ const crearDesdeJsonARutinesDb = async () => {
 const crearDesdeJsonASubscriptionsDb = async () => {
     const subscriptions = api[0].subscriptions.map((sub) => {
         return {
+            id:sub.id,
             name: sub.name,
             price: sub.price || "$0.00",
             description: sub.description || "No Suscripto",
@@ -125,17 +130,7 @@ const crearDesdeJsonASubscriptionsDb = async () => {
 };
 
 const crearDesdeJsonARolsDb = async () => {
-    const rols = api[0].employees
-        .map((employee) => employee.rol)
-        .filter(
-            (val, index, self) => index === self.findIndex((ele) => ele === val)
-        )
-        .map((rol) => {
-            return {
-                name: rol,
-            };
-        });
-    if (!rols.find((e) => e.name === "Cliente")) rols.push({ name: "Cliente" });
+    const rols = api[0].roles.map((e) => { return { id:e.id,name: e.name } });
     await Rols.bulkCreate(rols);
 };
 // agregamos los datos de las tablas que tienen  relaciones con las tablas que ya contienen datos
@@ -143,15 +138,11 @@ const crearDesdeJsonARolsDb = async () => {
 const crearDesdeJsonALocacionsDb = async () => {
     api[0].locations.forEach(async (loc) => {
         const location = await Locacions.create({
+            id:loc.id,
             name: loc.name,
             phone: loc.phone,
             address: loc.adress,
         });
-        // const location = await Locacions.create({
-        //     name: "AbsoluteFit - Sede Bernal",
-        //     phone: "+23 17485278",
-        //     address: "Primera Junta 512",
-        // });
 
         loc.products.forEach(async (prod) => {
             const aux = await Products.findOne({ where: { name: prod.name } });
@@ -170,7 +161,7 @@ const crearDesdeJsonALocacionsDb = async () => {
             });
             await location.addTrainings(aux);
         });
-        
+
         const subscriptions = await Subscriptions.findAll();
         await location.addSubscriptions(subscriptions);
     });
@@ -185,6 +176,7 @@ const crearDesdeJsonAClientsDb = async () => {
 
     api[0].clients.forEach(async (client, i) => {
         const clientByName = await Clients.create({
+            id:client.id,
             name: client.name,
             phone: client.phone,
             email: client.email,
@@ -203,17 +195,18 @@ const crearDesdeJsonAClientsDb = async () => {
 const crearDesdeJsonAEmployeesDb = async () => {
     api[0].employees.forEach(async (employee, i) => {
         const EmployeeByName = await Employees.create({
+            id:employee.id,
             name: employee.name,
             phone: employee.phone,
             email: employee.email,
             password: employee.password,
-            active: typeof employee.active === "boolean" || true,
+            active: typeof employee.active === "boolean" || false,
             image: employee.image,
         });
-
-        const rol = api[0].employees[i].rol;
+        // TODO cambiar location id por un metodo mas escalable usando la tabla de relaciones
+        const rol = api[0].employees[i].RolId;
         const oneRutines = await Rutines.findOne();
-        const oneRol = await Rols.findOne({ where: { name: rol } });
+        const oneRol = await Rols.findOne({ where: { id: rol } });
         const oneLocation = await Locacions.findOne({
             // where: { id: employee.idLocation },
         });
@@ -237,15 +230,94 @@ const crearDesdeJsonAOwnersDb = async () => {
 };
 
 const crearDesdeJsonAGymsDb = async () => {
-    const gym = {
+    await Gyms.create({
+        id:api[0].id,
         name: api[0].name,
         email: api[0].email,
         phone: api[0].phone,
         image: api[0].image,
+    });
+};
+
+const createDBonfromatOfJSON = async () => {
+    // get from adta base
+    const clients = await Clients.findAll();
+    const employees = await Employees.findAll();
+    const exercises = await Exercises.findAll();
+    const gyms = await Gyms.findAll();
+    const owners = await Owners.findAll();
+    const roles = await Rols.findAll();
+    const rutines = await Rutines.findAll();
+    const subscriptions = await Subscriptions.findAll();
+    const payment = await Payments.findAll();
+    const products = await Products.findAll();
+
+    const loc = await Locacions.findAll();
+    const locations = loc.map(async (e) => {
+        const loc = await Locacions.findOne({
+            where: { name: e.name },
+        });
+        console.log("loc.__proto__", loc.__proto__);
+        const prod = await loc.getProducts();
+        const train = await loc.getTrainings();
+        const machines = await loc.getMachines();
+        console.log("e.train", train);
+        return {
+            id: e.id,
+            name: e.name,
+            phone: e.phone,
+            adress: e.adress,
+
+            trainings: train,
+            products: prod,
+            machines,
+        };
+    });
+    console.log("un array de objetos locations", locations);
+    return {
+        name: "hola desde initail",
     };
 
-    await Gyms.bulkCreate(gym);
+    return [
+        {
+            id: gyms.id,
+            name: gyms.name,
+            phone: gyms.phone,
+            email: gyms.email,
+            image: gyms.image,
+            owners,
+            subscriptions,
+            locations,
+            employees,
+            roles,
+            rutines,
+            exercises,
+            payment,
+            clients,
+            reviews: [
+                {
+                    id: 1,
+                    idEmployee: 1,
+                    idClient: 2,
+                    value: 4.8,
+                },
+                {
+                    id: 2,
+                    idEmployee: 2,
+                    idClient: 2,
+                    value: 5,
+                },
+                {
+                    id: 3,
+                    idEmployee: 1,
+                    idClient: 2,
+                    value: 4.5,
+                },
+            ],
+        },
+    ];
 };
+
 
 module.exports = {
     crearDesdeJsonAPaymentsDb,
@@ -261,4 +333,5 @@ module.exports = {
     crearDesdeJsonAEmployeesDb,
     crearDesdeJsonAOwnersDb,
     crearDesdeJsonAGymsDb,
+    createDBonfromatOfJSON,
 };
