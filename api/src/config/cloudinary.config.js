@@ -9,8 +9,8 @@ cloudinary.config({
   });
   
 //.env
-//cloud_name_ENV='dim2wnoej', 
-// api_key_ENV='518826178331346', 
-//  api_secret_ENV='u5H5guSh7w7mf-JuivbWYeUvqso' 
+//cloud_name_ENV='dyliwhc3e', 
+// api_key_ENV='345744761585491', 
+//  api_secret_ENV='qIiUg4yIWYCVKlqJs_viYnQkmS4' 
 
 module.exports = {cloudinary}
