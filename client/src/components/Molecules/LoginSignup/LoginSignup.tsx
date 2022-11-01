@@ -6,9 +6,9 @@ import { postUser } from "../../../App/Action/Action"
 interface Inputs {
   name: string;
   phone: string;
-  location: string;
   email: string;
   password: string;
+  // location: string;
 }
 
 const SingUp = () => {
@@ -45,7 +45,7 @@ const SingUp = () => {
                 <div className="border-2 w-14 border-red-400 inline-block mb-2"></div>
               </div>
               <form onSubmit={onSubmit} className="flex flex-col items-center">
-                <div className="w-64 p-2 flex flex-col mb-2">
+                <div className="w-64 p-2 flex flex-col mb-1">
                   <label className=" text-left">Full Name</label>
                   <input
                     type="text"
@@ -65,7 +65,7 @@ const SingUp = () => {
                     <p>tu nickName no puede tener simbolos</p>
                   )}
                 </div>
-                <div className="w-64 p-2 flex flex-col mb-2">
+                <div className="w-64 p-2 flex flex-col mb-1">
                   <label className=" text-left">Phone</label>
                   <input
                     type="text"
@@ -85,7 +85,7 @@ const SingUp = () => {
                     <p>tu phone es solo numeros</p>
                   )}
                 </div>
-                <div className="w-64 p-2 flex flex-col mb-2">
+                <div className="w-64 p-2 flex flex-col mb-1">
                   <label className=" text-left">Email address</label>
                   <input
                     type="text"
@@ -105,13 +105,15 @@ const SingUp = () => {
                     <p>tu email es incompleto</p>
                   )}
                 </div>
-                <div className="w-64 p-2 flex flex-col mb-2">
+                {/* <div className="w-64 p-2 flex flex-col mb-2">
                   <label className=" text-left">Location</label>
-                  <select>
-                    <option value="sede" >Sede</option>
+                  <select {
+                    ...register("location")
+                  } >
+                    <option value="AbsoluteFit - Sede Bernal" >AbsoluteFit - Sede Bernal</option>
                     <option value="sede" >Sede2</option>
                     <option value="sede" >Sede3</option>
-                  </select>
+                  </select> */}
                   {/* <input
                     type="select"
                     {...register("location", {
@@ -120,7 +122,7 @@ const SingUp = () => {
                     placeholder="password"
                     className="bg-transparent text-sm focus:outline-none border-b border-red-400 tracking-wider"
                   /> */}
-                </div>
+                {/* </div>
                 <div className="text-red-500 text-sm">
                   {errors.location?.type === "required" && (
                     <p>tu username es requerido</p>
@@ -128,8 +130,8 @@ const SingUp = () => {
                   {errors.location?.type === "pattern" && (
                     <p>tu username no puede tener espacio</p>
                   )}
-                </div>
-                <div className="w-64 p-2 flex flex-col mb-2">
+                </div> */}
+                <div className="w-64 p-2 flex flex-col mb-1">
                   <label className=" text-left">Password</label>
                   <input
                     type="password"
