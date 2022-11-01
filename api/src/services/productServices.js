@@ -31,6 +31,7 @@ const crearProduct = async (
     brand
     })
 
+
      console.log(LocacionId)
    
 
@@ -39,6 +40,9 @@ const crearProduct = async (
     await producto.addLocacions(LocacionId);
   
     return "prducto creado"
+
+    // await fs.unlink(path)
+
 }
 
 const eliminarProduct = async (id)=>{
