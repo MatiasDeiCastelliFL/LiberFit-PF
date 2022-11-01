@@ -33,9 +33,9 @@ const eliminarAnuncio = async (id) => {
     });
     return "Anuncio eliminado"
 }
-const actualizarAnuncio = async (nombre, descripcion,public_id, path,id) => {
+const actualizarAnuncio = async (nombre, descripcion, path,id) => {
    
-    await  cloudinary.uploader.destroy(public_id, (result)=> { console.log(result) });
+ 
 
     const upload = await cloudinary.v2.uploader.upload(`${path}`)
     
