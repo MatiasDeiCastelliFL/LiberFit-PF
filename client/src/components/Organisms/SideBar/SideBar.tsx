@@ -22,6 +22,8 @@ function SideBar({ handle, setName, dashboard }: Props) {
   const dispatch = useAppDispatch();
   const { filter } = useAppSelector((state) => state);
 
+
+
   return (
     <div className="fixed flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
       <div className="">

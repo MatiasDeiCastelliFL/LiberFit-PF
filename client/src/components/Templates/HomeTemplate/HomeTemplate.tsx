@@ -17,7 +17,6 @@ interface Props {
 
 function HomeTemplate({ handle, name }: Props) {
   const params = useParams();
-  console.log(params.category);
   return (
     <div className="p-0">
       <div className="flex flex-row p-0">

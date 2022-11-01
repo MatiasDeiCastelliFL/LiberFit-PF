@@ -9,8 +9,8 @@ const TrainingsDetails = () => {
     const sedes = Json[0].sedes;
     const { name } = useParams();
 
-    const {data}= useAppSelector((state) => state);
-    const training = data.trainigns.find((training:any) => training.name === name);
+    const {filter}= useAppSelector((state) => state);
+    const training = filter.trainigns.find((training:any) => training.name === name);
     const [details, setDetails] = useState({
         name: name,
         image: training.image,

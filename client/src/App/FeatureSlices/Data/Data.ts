@@ -1,15 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import arraySet from "../../utils/arraySet";
+import { useLocation, useParams } from "react-router-dom";
 
 export interface filterState {
     data: any;
     locations: [];
-    exercises: [];
-    trainigns: [];
+    exercises: any;
+    trainigns: any;
     products: any[];
-    machines: [];
+    machines: any;
     filteredProducts: any[];
     dataByName: any;
+    allData: any;
 }
 
 const initialState: filterState = {
@@ -20,6 +22,7 @@ const initialState: filterState = {
     exercises: [],
     trainigns: [],
     machines: [],
+    allData: [],
     dataByName: [],
 };
 
@@ -37,13 +40,13 @@ const dataSlice = createSlice({
             );
             state.exercises = action.payload[0].exercises;
             state.filteredProducts = state.products;
-            state.trainigns = action.payload[0].locations
-                .map((d: any) => d.trainings)
-                .flat();
-            state.machines = action.payload[0].locations
-                .map((d: any) => d.machines)
-                .flat();
-            state.dataByName = [].concat(
+            state.trainigns = arraySet(action.payload[0].locations
+              .map((d: any) => d.trainings)
+              .flat());
+            state.machines = arraySet(action.payload[0].locations
+              .map((d: any) => d.machines)
+              .flat());
+            state.allData = [].concat(
                 ...state.products,
                 ...state.machines,
                 ...state.exercises,
@@ -58,16 +61,54 @@ const dataSlice = createSlice({
             let maxPrice = [...state.products].filter(
                 (d) => d.price <= action.payload[1]
             );
-            state.filteredProducts = state.products.filter(
+            state.products = state.products.filter(
                 (d) => minPrice.includes(d) && maxPrice.includes(d)
             );
         },
         filterDataName: (state, action: PayloadAction<any>) => {
-            state.dataByName = [...state.dataByName]
-                .map((d) => d.name)
-                .filter((d) => d.toLowerCase().includes(action.payload))
-                .flat();
-            console.log(state.dataByName);
+           
+            if (location.pathname === "/home") {
+                state.dataByName = arraySet(
+                    [...state.allData]
+                        .filter((d) => d.name.toLowerCase().includes(action.payload))
+                        .flat()
+                );
+            }
+            else if (location.pathname === "/home/Exercises"){
+              state.exercises = arraySet(
+                [...state.exercises]
+                    .filter((d) => d.name.toLowerCase().includes(action.payload))
+                    .flat()
+            );
+            }
+            else if (location.pathname === "/home/Trainings"){
+              state.trainigns = arraySet(
+                [...state.trainigns]
+                    .filter((d) => d.name.toLowerCase().includes(action.payload))
+                    .flat()
+            );
+                
+
+            }
+            else if (location.pathname === "/home/Products"){
+              state.products = arraySet(
+                [...state.products]
+                    .filter((d) => d.name.toLowerCase().includes(action.payload))
+                    .flat()
+            );
+            }
+            else if (location.pathname === "/home/Machines"){
+              state.machines = arraySet(
+                [...state.machines]           
+                    .filter((d) => d.name.toLowerCase().includes(action.payload))
+                    .flat()
+            );
+            }
+
+            console.log(state.dataByName)
+
+           
+           
         },
         postData: (state, action: PayloadAction<any>) => {
             state;
@@ -76,4 +117,4 @@ const dataSlice = createSlice({
 });
 
 export default dataSlice.reducer;
-export const { filterDataName, getData, filterByPrice } = dataSlice.actions;
+export const { getData, filterByPrice } = dataSlice.actions;

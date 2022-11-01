@@ -11,6 +11,7 @@ function Search({ Placeholder,setName, style }: Props) {
     e.preventDefault();
     setName(e.target.value);
   }
+
   return (
     <input
       className="bg-redClare p-2 rounded-lg outline-none w-input px-6"
