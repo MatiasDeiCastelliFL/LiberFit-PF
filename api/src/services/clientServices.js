@@ -1,16 +1,20 @@
-const { Clients, Locacions } = require('../db')
+const { Clients, Locacions,Rols } = require('../db')
 const bcrypt= require("bcrypt")
 
 const createClient = async (
-    name,phone,email,password,image,locacion
+    name, phone, email, password,active,image,SubscriptionId,RolId,locacion
 ) => {
+    console.log("llegue",RolId)
     const cliente = await Clients.create({
-        name,phone,email,password,image
+        name, phone, email, password,active,image,SubscriptionId,RolId
     })
 
   
-    const location= await Locacions.findOne({ where: { name: `${locacion}` } })
-    await cliente.addLocacions(location)
+    await cliente.addLocacions(locacion)
+
+  
+
+
     return "Cliente cargado con éxito";
 };
 

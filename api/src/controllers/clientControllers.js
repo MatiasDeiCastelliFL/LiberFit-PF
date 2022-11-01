@@ -37,8 +37,8 @@ const postClientsRequest = async (req, res) => {
         if (clientValidationErrors.length > 0) {
             res.status(400).json(clientValidationErrors);
         } else {
-            const { name, phone, email, password, image } = req.body;
-            const newClient = await createClient(name, phone, email, password, image);
+            const { name, phone, email, password,active,image,SubscriptionId,RolId,locacion} = req.body;
+            const newClient = await createClient(name, phone, email, password,active,image,SubscriptionId,RolId,locacion);
             res.status(200).json(newClient);
         }
 
