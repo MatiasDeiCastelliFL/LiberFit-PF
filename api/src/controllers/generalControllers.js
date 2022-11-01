@@ -19,7 +19,7 @@ const getData = async (req, res) => {
     try {
         json.crearDesdeJsonAPaymentsDb();
         json.crearDesdeJsonAMachinesDb();
-        // json.crearDesdeJsonAProductsDb();
+        json.crearDesdeJsonAProductsDb();
         json.crearDesdeJsonATrainingsDb();
         json.crearDesdeJsonARutinesDb();
         json.crearDesdeJsonAExerciseDb();
