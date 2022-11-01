@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks"
+import { postUser } from "../../../App/Action/Action"
 
 interface Inputs {
-  fullName: string;
-  username: string;
+  name: string;
   phone: string;
+  location: string;
   email: string;
   password: string;
 }
@@ -16,8 +18,11 @@ const SingUp = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
+  const dispatch = useAppDispatch()
   const onSubmit = handleSubmit((data) => {
     console.log(data);
+    dispatch(postUser(data))
+    alert("usuario creado correctamente!")
   });
 
   return (
@@ -44,20 +49,20 @@ const SingUp = () => {
                   <label className=" text-left">Full Name</label>
                   <input
                     type="text"
-                    {...register("fullName", {
-                      // validate: validator,
+                    {...register("name", {
                       required: true,
+                      pattern: /^[a-zA-Z\s]+$/
                     })}
                     placeholder="Ibra Cardozo"
                     className="bg-transparent text-sm focus:outline-none border-b border-red-400 tracking-wider"
                   />
                 </div>
                 <div className="text-red-500 text-sm">
-                  {errors.fullName?.type === "required" && (
+                  {errors.name?.type === "required" && (
                     <p>tu nickName es requerido</p>
                   )}
-                  {errors.fullName?.type === "validate" && (
-                    <p>tu nickName no puede tener espacio</p>
+                  {errors.name?.type === "pattern" && (
+                    <p>tu nickName no puede tener simbolos</p>
                   )}
                 </div>
                 <div className="w-64 p-2 flex flex-col mb-2">
@@ -66,8 +71,9 @@ const SingUp = () => {
                     type="text"
                     {...register("phone", {
                       required: true,
+                      pattern: /^\d/
                     })}
-                    placeholder="+54388123"
+                    placeholder="54388123"
                     className="bg-transparent text-sm focus:outline-none border-b border-red-400 tracking-wider"
                   />
                 </div>
@@ -75,13 +81,16 @@ const SingUp = () => {
                   {errors.phone?.type === "required" && (
                     <p>tu phone es requerido</p>
                   )}
+                  {errors.phone?.type === "pattern" && (
+                    <p>tu phone es solo numeros</p>
+                  )}
                 </div>
                 <div className="w-64 p-2 flex flex-col mb-2">
                   <label className=" text-left">Email address</label>
                   <input
                     type="text"
                     {...register("email", {
-                      pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
+                      pattern: /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
                       required: true,
                     })}
                     placeholder="ibracardozo15@gmail.com"
@@ -97,19 +106,27 @@ const SingUp = () => {
                   )}
                 </div>
                 <div className="w-64 p-2 flex flex-col mb-2">
-                  <label className=" text-left">Username</label>
-                  <input
-                    type="password"
-                    {...register("username", {
+                  <label className=" text-left">Location</label>
+                  <select>
+                    <option value="sede" >Sede</option>
+                    <option value="sede" >Sede2</option>
+                    <option value="sede" >Sede3</option>
+                  </select>
+                  {/* <input
+                    type="select"
+                    {...register("location", {
                       required: true,
                     })}
                     placeholder="password"
                     className="bg-transparent text-sm focus:outline-none border-b border-red-400 tracking-wider"
-                  />
+                  /> */}
                 </div>
                 <div className="text-red-500 text-sm">
-                  {errors.username?.type === "required" && (
+                  {errors.location?.type === "required" && (
                     <p>tu username es requerido</p>
+                  )}
+                  {errors.location?.type === "pattern" && (
+                    <p>tu username no puede tener espacio</p>
                   )}
                 </div>
                 <div className="w-64 p-2 flex flex-col mb-2">
@@ -118,6 +135,7 @@ const SingUp = () => {
                     type="password"
                     {...register("password", {
                       required: true,
+                      pattern: /^[a-zA-Z0-9\_\-]+$/i,
                     })}
                     placeholder="password"
                     className="bg-transparent text-sm focus:outline-none border-b border-red-400 tracking-wider"
@@ -126,6 +144,9 @@ const SingUp = () => {
                 <div className="text-red-500 text-sm">
                   {errors.password?.type === "required" && (
                     <p>tu password es requerido</p>
+                  )}
+                  {errors.password?.type === "pattern" && (
+                    <p>tu password no puede tener espacio</p>
                   )}
                 </div>
                 <input

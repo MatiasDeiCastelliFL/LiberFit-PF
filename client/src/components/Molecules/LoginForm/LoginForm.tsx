@@ -12,7 +12,7 @@ import { MdLockOutline } from "react-icons/md";
 import { useForm } from "react-hook-form";
 
 interface Inp {
-  username: string;
+  email: string;
   password: string;
 }
 const LoginForm = () => {
@@ -62,25 +62,21 @@ const LoginForm = () => {
                 <div className=" bg-redGray w-64 p-2 flex items-center mt-3">
                   <FaRegEnvelope className="m-2" />
                   <input
-                    type="username"
-                    {...register("username", {
+                    type="text"
+                    {...register("email", {
                       required: true,
-                      maxLength: 10,
-                      pattern: /^[a-zA-Z0-9\_\-]/,
+                      pattern: /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
                     })}
-                    placeholder="username.."
+                    placeholder="email.."
                     className="bg-redGray outline-none text-sm flex-1 "
                   />
                 </div>
                 <div className="text-red-500 text-sm mt-2">
-                  {errors.username?.type === "required" && (
-                    <p>tu username es requerido</p>
+                  {errors.email?.type === "required" && (
+                    <p>tu email es requerido</p>
                   )}
-                  {errors.username?.type === "maxLength" && (
-                    <p>tu username debe tener menos de 10 caracteres</p>
-                  )}
-                  {errors.username?.type === "pattern" && (
-                    <p>tu username no puede tener espacio</p>
+                  {errors.email?.type === "pattern" && (
+                    <p>tu emeil esta incompleto</p>
                   )}
                 </div>
                 <div className=" bg-redGray w-64 p-2 flex items-center mt-3">
@@ -90,7 +86,7 @@ const LoginForm = () => {
                     {...register("password", {
                       required: true,
                       maxLength: 10,
-                      pattern: /^[a-zA-Z0-9\_\-]/,
+                      pattern: /^[a-zA-Z0-9\_\-]+$/i,
                     })}
                     placeholder="password.."
                     className="bg-redGray outline-none text-sm flex-1"

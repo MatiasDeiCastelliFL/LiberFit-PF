@@ -56,7 +56,7 @@ export const getUsers = () => async (dispatch:any) => {
 
 export const postUser = (payload:any) => async (dispatch: any) => {
     try {
-        let json = await axios.post("",payload) // enpoint de post user
+        let json = await axios.post("http://localhost:3004/client",payload) // enpoint de post user
         console.log(json)
         return json
     } catch (error) {
