@@ -1,4 +1,4 @@
-const { crearProduct, buscarProduct } = require("../services/productServices");
+const { crearProduct, buscarProduct,eliminarProduct } = require("../services/productServices");
 const getProduct = async (req, res) => {
     try {
         const products = await buscarProduct();
@@ -10,18 +10,18 @@ const getProduct = async (req, res) => {
 };
 const postProduct = async (req, res) => {
     try {
-        const { name, price, stock, code, image, description, size, brand } =
+        const { name, price, stock, code, description, size, brand } =
             req.body;
-
+            const { path } = req.file
         const datoProduct = await crearProduct(
             name,
             price,
             stock,
             code,
-            image,
             description,
             size,
-            brand
+            brand,
+            path
         );
         res.status(200).json(datoProduct);
     } catch (error) {
@@ -29,4 +29,14 @@ const postProduct = async (req, res) => {
     }
 };
 
-module.exports = { getProduct, postProduct };
+const deleteProduct= async(req,res)=> {
+    try {
+        const {id}=req.params
+        const data =await eliminarProduct(id)
+        res.status(200).json(data);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+module.exports = { getProduct, postProduct,deleteProduct };
