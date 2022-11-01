@@ -1,11 +1,16 @@
 import React from "react";
 
-function Item2() {
+interface Props {
+  title : string
+  active: boolean
+}
+
+function Item2({title, active}:Props) {
   return (
     <div className="w-max">
       <div className="">
-        <div className="flex cursor-pointer items-center justify-between  bg-red-300 p-4 text-white">
-          <h2>Dashboard</h2>
+        <div className={`${active? 'bg-red-300 text-white' : 'hover:bg-gray-50 text-black'} flex cursor-pointer items-center justify-between   p-4 `} >
+          <h2>{title}</h2>
         </div>
       </div>
     </div>
