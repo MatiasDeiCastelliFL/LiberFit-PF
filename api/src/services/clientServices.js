@@ -2,19 +2,14 @@ const { Clients, Locacions,Rols } = require('../db')
 const bcrypt= require("bcrypt")
 
 const createClient = async (
-    name, phone, email, password,active,image,SubscriptionId,RolId,locacion
+    name, phone, email, password, active, image, SubscriptionId, RolId, locacion
 ) => {
-    console.log("llegue",RolId)
     const cliente = await Clients.create({
         name, phone, email, password,active,image,SubscriptionId,RolId
-    })
+    });
 
-  
     await cliente.addLocacions(locacion)
-
-  
-
-
+    
     return "Cliente cargado con éxito";
 };
 
