@@ -6,6 +6,6 @@ const routerAnuncio = Router();
 routerAnuncio.get("/anuncios", getAnuncios);
 routerAnuncio.post("/anuncios", upload, postAnuncios);
 routerAnuncio.delete("/anuncios/:id", deleteAnuncios);
-routerAnuncio.put("/anuncios/:id", putAnuncios);
+routerAnuncio.put("/anuncios/:id",upload, putAnuncios);
 
 module.exports = routerAnuncio;
