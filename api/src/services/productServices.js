@@ -4,7 +4,8 @@ const buscarProduct = async() => {
   const products = await Products.findAll();
   return products;
 }
-
+// Training 
+// TODO add option of recive a file and strings as a image using cloudinary
 const crearProduct = async (
     name,
     price,

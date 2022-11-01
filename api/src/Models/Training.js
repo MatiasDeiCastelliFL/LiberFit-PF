@@ -22,6 +22,7 @@ module.exports = (sequelize) => {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
+            // TODO // franja horaria agregar date en string
         },
         {
             freezeTableName: true,
