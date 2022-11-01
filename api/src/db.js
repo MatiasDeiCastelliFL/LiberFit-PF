@@ -1,8 +1,8 @@
 const { Sequelize } = require("sequelize");
 const path = require("path");
 const fs = require("fs");
-const Rutine = require("./Models/Rutine");
-require("dotenv").config();
+ 
+
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB } = process.env;
 const sequelize = new Sequelize(
@@ -126,7 +126,7 @@ Employees.belongsTo(Rols);
 Rols.hasMany(Employees);
 
 Rols.hasMany(Clients);
-Clients.belongsTo(Rols, {});
+Clients.belongsTo(Rols);
 
 module.exports = {
     ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

@@ -1,12 +1,12 @@
-const {Locacions}= require("../db")
+const { Locacions } = require("../db");
 
-const actualizarLacacion=async(name, address, phone,id)=>{
-  const location = await Locacions.findByPk(id);
-  location.address=address;
-  location.phone=phone;
-  location.name= name;
-  location.save();
-}
+const actualizarLacacion = async (name, address, phone, id) => {
+    const location = await Locacions.findByPk(id);
+    location.address = address;
+    location.phone = phone;
+    location.name = name;
+    location.save();
+};
 
 const crearLocacion = async (name, address, phone,GymId) => {
   // TODO cambiar nombre
@@ -32,9 +32,15 @@ const locacionById = async (id)=>{
 }
 }
 
-const borrarlocacion= async(id)=> {
-  const location = await Locacions.destroy({ where: { id: `${id}` }})
-  return location
-}
+const borrarlocacion = async (id) => {
+    const location = await Locacions.destroy({ where: { id: `${id}` } });
+    return location;
+};
 
-module.exports = {crearLocacion,enviarLocacion,borrarlocacion,actualizarLacacion,locacionById}
+module.exports = {
+    crearLocacion,
+    enviarLocacion,
+    borrarlocacion,
+    actualizarLacacion,
+    locacionById,
+};
