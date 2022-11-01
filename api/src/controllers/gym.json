@@ -41,30 +41,6 @@
                 "name": "Bronce",
                 "price": "$ 3.400",
                 "description": "Mensual"
-            },
-            {
-                "id": 5,
-                "name": "No Suscripto",
-                "price": "$0.00",
-                "description": "No Suscripto"
-            },
-            {
-                "id": 6,
-                "name": "Oro",
-                "price": "$ 32.640",
-                "description": "Anual Bonificado"
-            },
-            {
-                "id": 7,
-                "name": "Plata",
-                "price": "$ 9.180",
-                "description": "Trimestral Bonificado"
-            },
-            {
-                "id": 8,
-                "name": "Bronce",
-                "price": "$ 3.400",
-                "description": "Mensual"
             }
         ],
         "locations": [
@@ -2065,7 +2041,7 @@
                 "password": "jerrojas++",
                 "active": true,
                 "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
-                "SubscriptionId": 1,
+                "SubscriptionId": 2,
                 "RolId": 3
             },
             {
@@ -2076,7 +2052,7 @@
                 "password": "crojas++",
                 "active": true,
                 "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
-                "SubscriptionId": 1,
+                "SubscriptionId": 2,
                 "RolId": 3
             },
             {
@@ -2087,7 +2063,7 @@
                 "password": "sirjrojas++",
                 "active": true,
                 "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
-                "SubscriptionId": 1,
+                "SubscriptionId": 2,
                 "RolId": 3
             },
             {
@@ -2098,7 +2074,7 @@
                 "password": "kenzrojas++",
                 "active": true,
                 "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
-                "SubscriptionId": 1,
+                "SubscriptionId": 3,
                 "RolId": 3
             },
             {
@@ -2109,7 +2085,7 @@
                 "password": "jeevrojas++",
                 "active": true,
                 "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
-                "SubscriptionId": 1,
+                "SubscriptionId": 3,
                 "RolId": 3
             },
             {
@@ -2120,7 +2096,7 @@
                 "password": "memrojas++",
                 "active": true,
                 "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
-                "SubscriptionId": 1,
+                "SubscriptionId": 3,
                 "RolId": 3
             },
             {
@@ -2131,7 +2107,7 @@
                 "password": "kalarojas++",
                 "active": true,
                 "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
-                "SubscriptionId": 1,
+                "SubscriptionId": 4,
                 "RolId": 3
             },
             {
@@ -2142,7 +2118,7 @@
                 "password": "nahumrojas++",
                 "active": true,
                 "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
-                "SubscriptionId": 1,
+                "SubscriptionId": 8,
                 "RolId": 3
             },
             {
@@ -2153,7 +2129,7 @@
                 "password": "edenrojas++",
                 "active": true,
                 "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
-                "SubscriptionId": 1,
+                "SubscriptionId": 9,
                 "RolId": 3
             },
             {

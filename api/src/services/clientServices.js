@@ -13,7 +13,7 @@ const createClient = async (
     locacion = "Sin Sede Registrada"
 ) => {
     await Clients.create({
-        name, phone, email, password,active,image,SubscriptionId,RolId
+        name, phone, email, password, active, image, SubscriptionId, RolId
     });
     // const data = await Locacions.findOne({
     //     where:{
