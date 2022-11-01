@@ -30,7 +30,7 @@ const crearProduct = async (
     brand
     })
     await fs.unlink(path)
-    return "prducto creado"
+    return "Producto Creado"
 }
 
 const eliminarProduct = async (id)=>{
