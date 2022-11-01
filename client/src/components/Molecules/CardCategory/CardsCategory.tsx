@@ -58,7 +58,7 @@ function CardsCategory() {
                       ): null
                      
                     )) : (category?.toLowerCase() === "products") ? d.products.map((p) => (
-                      data.products.includes(p) ? (
+                      data.filteredProducts.includes(p) ? (
                           <Link to={`/home/${category}/${p.name}`} key={Math.random()}>  
                             <Card name={p.name} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${p.image}')`}} key={p.name} />
                           </Link>
@@ -68,9 +68,11 @@ function CardsCategory() {
               </div>)): 
               <div className={`${style.cardsDiv} flex gap-5 justify-start my-5`}>
                 {data.exercises.map((e) => (
-                  <Link to={`/home/Exercises/${e.name}`} >
-                    <Card name={e.name} muscle={e.muscle} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${e.image}')`}} key={e.name} />
-                  </Link>
+                  data.filteredExercises.includes(e) ? (
+                    <Link to={`/home/Exercises/${e.name}`} >
+                      <Card name={e.name} muscle={e.muscle} image={{backgroundImage: `linear-gradient(rgba(5, 7 , 12 , 0.06), rgba(5, 7 , 12 , 0.04)),url('${e.image}')`}} key={e.name} />
+                    </Link>
+                  ) : null
                 ))}
               </div>:
               null

@@ -10,6 +10,9 @@ export interface filterState {
     products: any[];
     machines: any;
     filteredProducts: any[];
+    filteredMachines: any[];
+    filteredExercises: any[];
+    filteredTrainings: any[];
     dataByName: any;
     allData: any;
 }
@@ -17,13 +20,19 @@ export interface filterState {
 const initialState: filterState = {
     data: ["data"],
     locations: [],
+    
     products: [],
-    filteredProducts: [],
     exercises: [],
     trainigns: [],
     machines: [],
+    
     allData: [],
     dataByName: [],
+
+    filteredProducts: [],
+    filteredMachines: [],
+    filteredExercises: [],
+    filteredTrainings: [],
 };
 
 const dataSlice = createSlice({
@@ -39,20 +48,22 @@ const dataSlice = createSlice({
                     .flat()
             );
             state.exercises = action.payload[0].exercises;
-            state.filteredProducts = state.products;
             state.trainigns = arraySet(action.payload[0].locations
-              .map((d: any) => d.trainings)
-              .flat());
-            state.machines = arraySet(action.payload[0].locations
-              .map((d: any) => d.machines)
-              .flat());
-            state.allData = [].concat(
-                ...state.products,
-                ...state.machines,
+                .map((d: any) => d.trainings)
+                .flat());
+                state.machines = arraySet(action.payload[0].locations
+                    .map((d: any) => d.machines)
+                    .flat());
+                    state.allData = [].concat(
+                        ...state.products,
+                        ...state.machines,
                 ...state.exercises,
                 ...state.trainigns
-            );
-            console.log();
+                );
+            state.filteredProducts = state.products;
+            state.filteredMachines = state.machines;
+            state.filteredExercises = state.exercises;
+            state.filteredTrainings = state.trainigns;
         },
         filterByPrice: (state, action: PayloadAction<any>) => {
             let minPrice = [...state.products].filter(
@@ -61,9 +72,23 @@ const dataSlice = createSlice({
             let maxPrice = [...state.products].filter(
                 (d) => d.price <= action.payload[1]
             );
-            state.products = state.products.filter(
-                (d) => minPrice.includes(d) && maxPrice.includes(d)
+            state.filteredProducts = state.products.filter(
+                (p) => minPrice.includes(p) && maxPrice.includes(p)
             );
+        },
+        filterByMuscles : (state, action: PayloadAction<any>) => {
+            let muscles = action.payload[0];
+            let category = action.payload[1];
+            if (category === "machines") {
+                state.filteredMachines = state.machines.filter((d: { muscles: any; }) =>
+                    muscles.includes(d.muscles)
+                );
+            } else if (category === "exercises") {
+                console.log("filtrando exercises");
+                state.filteredExercises = state.exercises.filter((d: { muscles: any; }) =>
+                    muscles.includes(d.muscles)
+                );
+            } 
         },
         filterDataName: (state, action: PayloadAction<any>) => {
            
@@ -106,9 +131,6 @@ const dataSlice = createSlice({
             }
 
             console.log(state.dataByName)
-
-           
-           
         },
         postData: (state, action: PayloadAction<any>) => {
             state;
@@ -117,4 +139,4 @@ const dataSlice = createSlice({
 });
 
 export default dataSlice.reducer;
-export const { filterDataName, getData, filterByPrice } = dataSlice.actions;
+export const { filterDataName, getData, filterByPrice, filterByMuscles } = dataSlice.actions;
