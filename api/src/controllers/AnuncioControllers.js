@@ -37,9 +37,8 @@ const putAnuncios=async(req,res)=>{
 try {
     const {id}= req.params
     const { path } = req.file
-    const { nombre, descripcion, public_id } = req.body
-
-    const data = await actualizarAnuncio(nombre, descripcion,public_id,path,id)
+    const { nombre, descripcion } = req.body
+    const data = await actualizarAnuncio(nombre, descripcion,path,id)
     res.status(201).json({ msg: data })
 } catch (error) {
     res.status(404).send(error.message)
