@@ -1,54 +1,43 @@
 const { prototype } = require("mocha");
 const { Rols } = require("../db");
 
-// TODO recive un objecto de parametros desesctructurados desde service y
+// recive un objecto de parametros desesctructurados desde service y
 // retorna un array de strings como errores
 
-async function validate(input) {
+async function validate(input, model) {
     let errors = new Array();
-    // todos las propiedas de todos los modelos
-    const {
-        name,
-        email,
-        phone,
-        password,
-        active,
-        image,
-        RolId,
-        code,
-        repetition,
-        series,
-        video,
-        muscle,
-        address,
-        avatar,
-        amount,
-        price,
-        stock,
-        description,
-        size,
-        brand,
-        timeSlot,
-    } = input;
-    // const {name, email, phone, password, active, image, RolId} =employeesValues
+    
+    // const {
+        // repetition
+    //     series,
+    //     amount,
+    //     price,g
+    // } = input;
 
-    //valida que sea solo numero
+    //valida que el campo no este repetido
+    async function repetition(model,dato,mensaje,key){
+        const existingDato = await model.findOne({
+            where: {
+                [key]: dato,
+            }
+        });
+        if (existingDato) {
+           return  errors.push(mensaje);
+        }    
+    };
+
+    //Validación par números aceptados:
     let valoresAceptados = /^[0-9]+$/;
 
-    //expresion regular que sirve para validar que sea de tipo email
+    //Validación para formato email aceptado:
     let ValidacionEmail = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
 
-    // const attributes = {
-    //     name: "es el nomrbe",
-    //     email: "es emain",
-    //     phone: "es phone",
-    //     password: "es password",
-    //     code: "es code",
-    // };
 
     for (const key in input) {
         if (key !== undefined) {
             const value = input[key];
+
+        
             if (typeof key === "string") {
                 if (value === "") {
                     errors.push(`${key} es requerido.`);
@@ -61,19 +50,87 @@ async function validate(input) {
                         errors.push(
                             "Email incorrecto, por favor ingrese caracteres validos."
                         );
+                    }else{
+                        const mensaje="El email ya se encuentra registrado. Ingrese uno nuevo"
+                        repetition(model,value,mensaje,key);
+                       
                     }
                 } else if (key === "phone") {
                     if (!value.match(valoresAceptados)) {
                         errors.push("Ingrese solo numero.");
+                    } else {
+                        const mensaje="El telefono ya se encuentra registrado. Ingrese uno nuevo"
+                        repetition(model,value,mensaje,key);
+                     
                     }
+                }else if(key === "image"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "code"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "video"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "muscle"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "address"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "avatar"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "price"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "stock"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "description"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "size"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "brand"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
+                }else if(key === "timeSlot"){
+                    if(value === ""){
+                        errors.push(`${key} es requerido.`);
+                    }
+
                 }
             }
         }
     }
 
-    //Verificacion para lo que se trata de modelo roles
+    //Verificacion para lo que se trata de model roles
 
-    if (input.RolId !== "") {
+    if (input.RolId && input.RolId !== "") {
         const dato = await Rols.findOne({
             where: {
                 id: input.RolId,
@@ -84,74 +141,25 @@ async function validate(input) {
 
         if (name === "Cliente") {
             errors.push(
-                "Seleccione un rol perteneciente a empleado. puede ser secretario/a o Profesor/a"
+                "El empleado debe tener un rol, puede ser secretario/a o Profesor/a"
             );
         }
     }
     return errors;
 }
 
-const CuentaActiva = async (input,modelo) => {
-    const DatoUser = await modelo.findOne({ where: { id: input } });
-    const { active } = await DatoUser;
-    console.log(active)
-    if (active) {
-        return true;
-    } else {
-        return false;
-    }
+const CuentaActiva = async (id, model) => {
+    const DatoUser = await model.findOne({ where: { id: id } });
+    return DatoUser.active 
 };
 
-const CuentaDesactivar = async (input,modelo) => {
-    const DatoUser = await modelo.findOne({ where: { id: input } });
-    console.log(DatoUser);
-    const { active } = await DatoUser;
-    console.log(active)
-    console.log(active);
-    if (active) {
-        return true;
-    } else {
-        return false;
-    }
-};
-
-//funciones Solo para usuario y cliente porque tiene los mismo campos
-
-const existeEmailYTelefono = async (input, modelo) => {
-    console.log("MODELS: ", modelo);
-    let errors = new Array();
-    if (input.email) {
-        const emailExiste = await modelo.findOne({
-            where: {
-                email: input.email,
-            },
-        });
-        if (emailExiste) {
-            errors.push(
-                "El email ya se encuentra registrado. Ingrese uno nuevo"
-            );
-        }
-    }
-
-    if (input.phone) {
-        const phoneRequire = await modelo.findOne({
-            where: {
-                phone: input.phone,
-            },
-        });
-        if (phoneRequire) {
-            errors.push(
-                "El telefono ya se encuentra registrado. Ingrese uno nuevo"
-            );
-        }
-    }
-
-    return errors;
+const CuentaDesactivar = async (id, model) => {
+    const DatoUser = await model.findOne({ where: { id: id } });
+    return DatoUser.active 
 };
 
 module.exports = {
     validate,
     CuentaActiva,
-    CuentaDesactivar,
-    existeEmailYTelefono,
+    CuentaDesactivar
 };

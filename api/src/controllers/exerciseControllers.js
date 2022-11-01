@@ -4,8 +4,8 @@ const {
     updateExercise,
     destroyExercise,
 } = require("../services/exerciseServices");
-const validate = require("../validation/validations");
-validate;
+// const validate = require("../validation/validations");
+const { validate } = require("../validation/validations");
 const getExercises = async (req, res) => {
     const datoEmail = await validate(req.body);
     try {
@@ -16,6 +16,7 @@ const getExercises = async (req, res) => {
         res.status(500).json(error);
     }
 };
+
 const postExercise = async (req, res) => {
     try {
         const datoExercise = await crearExercise(req.body);

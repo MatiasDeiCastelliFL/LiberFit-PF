@@ -1,8 +1,10 @@
-const {Router} = require('express');
-const {getApi} = require("../controllers/generalControllers.js")
+const { Router } = require("express");
+const { getApi, getData,getlocacionesJson } = require("../controllers/generalControllers.js");
 
+const routerGeneral = Router();
+routerGeneral.get("/info", getApi);
 
+routerGeneral.get("/filldb", getData);
+routerGeneral.get("/infolocaciones", getlocacionesJson);
 
-const routerGeneral = Router() 
-routerGeneral.get('/info', getApi )
-module.exports= routerGeneral 
+module.exports = routerGeneral;

@@ -1,8 +1,8 @@
 const { Sequelize } = require("sequelize");
 const path = require("path");
 const fs = require("fs");
-const Rutine = require("./Models/Rutine");
-require("dotenv").config();
+ 
+
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB } = process.env;
 const sequelize = new Sequelize(
@@ -104,8 +104,8 @@ Subscriptions.belongsToMany(Locacions, { through: "LocacionsSubscription" });
 Trainings.belongsToMany(Rutines, { through: "TrainingsRutines" });
 Rutines.belongsToMany(Trainings, { through: "TrainingsRutines" });
 
-Clients.belongsToMany(Employees, { through: "ClientsEmployees" });
-Employees.belongsToMany(Clients, { through: "ClientsEmployees" });
+Clients.belongsToMany(Employees, { through: "Reviews" });
+Employees.belongsToMany(Clients, { through: "Reviews" });
 
 Clients.hasMany(Payments);
 Payments.belongsTo(Clients);
@@ -126,7 +126,7 @@ Employees.belongsTo(Rols);
 Rols.hasMany(Employees);
 
 Rols.hasMany(Clients);
-Clients.belongsTo(Rols, {});
+Clients.belongsTo(Rols);
 
 module.exports = {
     ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
