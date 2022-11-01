@@ -12,7 +12,7 @@ async function validate(input, model) {
         // repetition
     //     series,
     //     amount,
-    //     price,
+    //     price,g
     // } = input;
 
     //valida que el campo no este repetido
