@@ -7,12 +7,12 @@ const createClient = async (
     const cliente = await Clients.create({
         name, phone, email, password,active,image,SubscriptionId,RolId
     });
-    const data = await Locacions.findOne({
-        where:{
-            name:`${locacion}`
-        }
-    })
-    await cliente.addLocacions(data)
+    // const data = await Locacions.findOne({
+    //     where:{
+    //         name:`${locacion}`
+    //     }
+    // })
+    // await cliente.addLocacions(data)
     
     return `El cliente ${name} fue cargado con éxito`;
 };
