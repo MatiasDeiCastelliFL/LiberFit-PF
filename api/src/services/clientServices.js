@@ -2,9 +2,17 @@ const { Clients, Locacions, Rols } = require('../db')
 const bcrypt= require("bcrypt")
 
 const createClient = async (
-    name, phone, email, password, active, image, SubscriptionId = 1, RolId = 3, locacion = "Sin Sede Registrada"
+    name, 
+    phone, 
+    email, 
+    password, 
+    active, 
+    image, 
+    SubscriptionId = 1, 
+    RolId = 3, 
+    locacion = "Sin Sede Registrada"
 ) => {
-    const cliente = await Clients.create({
+    await Clients.create({
         name, phone, email, password,active,image,SubscriptionId,RolId
     });
     // const data = await Locacions.findOne({
