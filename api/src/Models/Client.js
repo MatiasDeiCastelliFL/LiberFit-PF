@@ -29,6 +29,7 @@ module.exports = (sequelize) => {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },
+      // TODO agregar en clietne el DNI
       image: {
         type: DataTypes.STRING,
         defaultValue: "https://ui-avatars.com/api/?background=random",
