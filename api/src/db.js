@@ -83,8 +83,12 @@ Owners.belongsTo(Gyms);
 Locacions.belongsTo(Gyms);
 Gyms.hasMany(Locacions);
 
-Locacions.hasMany(Machines);
-Machines.belongsTo(Locacions);
+
+
+Locacions.belongsToMany(Machines, { through: "LocacionsMachine" });
+Machines.belongsToMany(Locacions, { through: "LocacionsMachine" });
+
+
 
 Locacions.belongsToMany(Products, { through: "LocacionsProducts" });
 Products.belongsToMany(Locacions, { through: "LocacionsProducts" });
@@ -100,6 +104,8 @@ Employees.belongsToMany(Locacions, { through: "LocacionsEmployees" });
 
 Locacions.belongsToMany(Subscriptions, { through: "LocacionsSubscription" });
 Subscriptions.belongsToMany(Locacions, { through: "LocacionsSubscription" });
+
+
 
 Trainings.belongsToMany(Rutines, { through: "TrainingsRutines" });
 Rutines.belongsToMany(Trainings, { through: "TrainingsRutines" });
@@ -127,6 +133,8 @@ Rols.hasMany(Employees);
 
 Rols.hasMany(Clients);
 Clients.belongsTo(Rols);
+
+
 
 module.exports = {
     ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

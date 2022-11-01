@@ -1,15 +1,20 @@
-const { Trainings } = require("../db");
+const { Trainings,Locacions } = require("../db");
 const api = require("../controllers/gym.json");
 
 const crearTraining = async (body) => {
-    const { idClient, name, image, timeSlot } = body;
+    const { name, image, timeSlot,LocacionId } = body;
+
     try {
         const training = await Trainings.create({
             name,
             image,
             timeSlot,
         });
-        return training;
+
+
+            await training.addLocacions(LocacionId);
+        
+      
     } catch (error) {
         return error;
     }
