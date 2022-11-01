@@ -1,7 +1,7 @@
 const { prototype } = require("mocha");
 const { Rols } = require("../db");
 
-// TODO recive un objecto de parametros desesctructurados desde service y
+// recive un objecto de parametros desesctructurados desde service y
 // retorna un array de strings como errores
 
 async function validate(input, model) {
