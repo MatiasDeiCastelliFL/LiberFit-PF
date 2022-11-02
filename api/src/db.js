@@ -11,7 +11,7 @@ const sequelize = new Sequelize(
         logging: false,
     }
 );
-//.env
+//.env 
 //.env
 // DB_USER=postgres
 // DB_PASSWORD=2jpPc5PGSrhXpDyY6B2m
@@ -119,7 +119,7 @@ Payments.belongsTo(Clients);
 Clients.belongsTo(Subscriptions);
 Subscriptions.hasMany(Clients);
 
-Clients.hasMany(Rutines);
+Clients.hasMany(Rutines); 
 Rutines.belongsTo(Clients);
 
 Rutines.belongsToMany(Exercises, { through: "RutinesExercises" });
