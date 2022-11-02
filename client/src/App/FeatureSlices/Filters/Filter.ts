@@ -46,9 +46,9 @@ const filterSlice = createSlice({
             state.dataLocation = action.payload.data
 
             state.exercises = action.payload.exercises;
-            state.machines = action.payload.machines;
-            state.products = action.payload.products;
-            state.trainigns = action.payload.trainings;
+            state.machines = arraySet(action.payload.machines);
+            state.products = arraySet(action.payload.products);
+            state.trainigns = arraySet(action.payload.trainings);
 
             state.filteredProducts = state.products;
             state.filteredMachines = state.machines;
