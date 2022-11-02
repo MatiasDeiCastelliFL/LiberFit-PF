@@ -31,11 +31,11 @@ function SideBar({ handle, setName, dashboard }: Props) {
         { title: "Membresia", active: false, desplegable: true },
     ];
 
-    const admin  = [
+    const admin = [
         { title: "Dashboard", active: true, desplegable: false },
         { title: "Rutinas", active: false, desplegable: true },
         { title: "Productos", active: false, desplegable: true },
-        { title: "Ejercicios", active: false, desplegable: true},
+        { title: "Ejercicios", active: false, desplegable: true },
         { title: "usuarios", active: false, desplegable: false },
     ];
 
@@ -97,7 +97,10 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                     ? client.map((d) => (
                                           <div className="">
                                               {d.desplegable ? (
-                                                  <Item title={d.title} type='cliente' />
+                                                  <Item
+                                                      title={d.title}
+                                                      type="cliente"
+                                                  />
                                               ) : (
                                                   <Item2
                                                       active={d.active}
@@ -110,7 +113,10 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                     ? admin.map((d) => (
                                           <div className="">
                                               {d.desplegable ? (
-                                                  <Item title={d.title} type='admin' />
+                                                  <Item
+                                                      title={d.title}
+                                                      type="admin"
+                                                  />
                                               ) : (
                                                   <Item2
                                                       active={d.active}
