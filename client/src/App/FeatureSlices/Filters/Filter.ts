@@ -7,10 +7,13 @@ export interface filterState {
     dataByPrice: any[];
     dataLocation: any[];
     products: any[];
-    filteredProducts: [];
     exercises: any[];
     trainigns: any[];
     machines: any[];
+    filteredProducts: any[];
+    filteredMachines: any[];
+    filteredExercises: any[];
+    filteredTrainings: any[];
     allData: any[];
     open: boolean;
 }
@@ -21,10 +24,13 @@ const initialState: filterState = {
     dataLocation: [],
     dataByPrice: [],
     products: [],
-    filteredProducts: [],
     exercises: [],
     trainigns: [],
     machines: [],
+    filteredProducts: [],
+    filteredMachines: [],
+    filteredExercises: [],
+    filteredTrainings: [],
     allData: [],
     open: false,
 };
@@ -34,18 +40,18 @@ const filterSlice = createSlice({
     initialState,
     reducers: {
         getData: (state, action: PayloadAction<any>) => {
-            state.allData = action.payload;
-            state.dataLocation = action.payload[0].locations;
-            state.exercises = action.payload[0].exercises;
-            state.products = state.products = arraySet(
-                [...state.dataLocation].map((d: any) => d.products).flat()
-            );
-            state.machines = state.machines = arraySet(
-                [...state.dataLocation].map((d: any) => d.machines).flat()
-            );
-            state.trainigns = state.trainigns = arraySet(
-                [...state.dataLocation].map((d: any) => d.trainings).flat()
-            );
+            
+            state.dataLocation = action.payload.data
+
+            state.exercises = action.payload.exercises;
+            state.machines = action.payload.machines;
+            state.products = action.payload.products;
+            state.trainigns = action.payload.trainings;
+
+            state.filteredProducts = state.products;
+            state.filteredMachines = state.machines;
+            state.filteredExercises = state.exercises;
+            state.filteredTrainings = state.trainigns;
 
             state.data = [
                 ...state.exercises,
@@ -53,8 +59,6 @@ const filterSlice = createSlice({
                 ...state.machines,
                 ...state.trainigns,
             ];
-
-            console.log(state.trainigns);
         },
         openFilter: (state, action: PayloadAction<any>) => {
             state.open = action.payload;
@@ -66,9 +70,24 @@ const filterSlice = createSlice({
             let maxPrice = [...state.products].filter(
                 (d) => d.price <= action.payload[1]
             );
-            state.products = state.products.filter(
+            state.filteredProducts = state.products.filter(
                 (d) => minPrice.includes(d) && maxPrice.includes(d)
             );
+            console.log('fILTERED pRODUCTS',maxPrice);
+        },
+        filterByMuscles : (state, action: PayloadAction<any>) => {
+            let muscles = action.payload[0];
+            let category = action.payload[1];
+            if (category === "machines") {
+                state.filteredMachines = state.machines.filter((d: { muscles: any; }) =>
+                    muscles.includes(d.muscles)
+                );
+            } else if (category === "exercises") {
+                console.log("filtrando exercises");
+                state.filteredExercises = state.exercises.filter((d: { muscles: any; }) =>
+                    muscles.includes(d.muscles)
+                );
+            } 
         },
         filterDataName: (state, action: PayloadAction<any>) => {
             if (location.pathname === "/home") {

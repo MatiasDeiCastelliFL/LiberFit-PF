@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import HomeTemplate from "../../components/Templates/HomeTemplate/HomeTemplate";
 import { useAppSelector, useAppDispatch } from "../../App/Hooks/Hooks";
-import { getDataByName, getDataThunk } from "./../../App/Action/Action";
+import { getDataByName, getMainData } from "./../../App/Action/Action";
+import { getFilterData } from "./../../App/Action/FilterActions";
 import { openFilters } from "./../../App/Action/Action";
 import { useLocation, useParams } from "react-router-dom";
 
@@ -12,7 +13,8 @@ function Home() {
     const [name, setName] = useState("");
 
     useEffect(() => {
-        dispatch(getDataThunk());
+        dispatch(getFilterData());
+        dispatch(getMainData());
     }, [dispatch]);
 
     const handleSubmit = (e: any) => {
