@@ -16,6 +16,7 @@ export interface filterState {
     filteredTrainings: any[];
     allData: any[];
     open: boolean;
+    selectedLocation: any;
 }
 
 const initialState: filterState = {
@@ -33,6 +34,7 @@ const initialState: filterState = {
     filteredTrainings: [],
     allData: [],
     open: false,
+    selectedLocation: "",
 };
 
 const filterSlice = createSlice({
