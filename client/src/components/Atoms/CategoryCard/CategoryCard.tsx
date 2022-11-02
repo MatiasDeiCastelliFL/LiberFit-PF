@@ -1,14 +1,12 @@
 import React, { CSSProperties } from "react";
 import style from "./CategoryCard.module.css";
 
-
 interface Props {
-    category: string
-    image: React.CSSProperties  
+    category: string;
+    image: React.CSSProperties;
 }
 
-const CategoryCard = ({category: data,image}:Props) => {
-
+const CategoryCard = ({ category: data, image }: Props) => {
     return (
         <div className={`${style.card}`} style={image}>
             <div className={style.bgCard}>

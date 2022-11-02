@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import {useAppSelector } from "../../../App/Hooks/Hooks";
+import { useAppSelector } from "../../../App/Hooks/Hooks";
 import Card from "../../Atoms/Card/Card";
 import style from "./CardsCategory.module.css";
 
 function CardsCategory() {
-
     const { filter } = useAppSelector((state) => state);
 
     let { category } = useParams();
 
-    const [location , setLocation] = React.useState('0');
-
-    useEffect(() => {
-
-    }, [filter.dataLocation , filter.exercises , filter.filteredProducts, filter.trainigns, filter.filteredMachines])
+    useEffect(() => {}, [
+        filter.dataLocation,
+        filter.exercises,
+        filter.products,
+        filter.trainigns,
+    ]);
 
     return (
         <div>
