@@ -6,13 +6,16 @@ const {
 const postPayment = async (req, res) => {
   try {
     const {
+      name,
       active,
       amount
     } = req.body
 
     const datoPayment = await crearPayment(
+      name,
       active,
       amount
+      
     )
     res.status(200).json(datoPayment)
   } catch (error) {
@@ -27,11 +30,11 @@ const getPayment = async (req, res) => {
 
 const modificarPayment = async (req, res) => {
   try {
-    const { active, amount, id } = req.body
+    const {name, active, amount, id } = req.body
     if (!id) {
       res.status(400).json({ message: "El pago a modificar no existe" });
     } else {
-      const paymentModificar = await ModificarPayment(active, amount, id);
+      const paymentModificar = await ModificarPayment(name,active, amount, id);
       if (paymentModificar) {
         res.status(200).json({ message: "Dato modificado" });
       }

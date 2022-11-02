@@ -1,8 +1,10 @@
 const { Payments } = require('../db')
-const crearPayment = async (active, amount) => {
+const crearPayment = async (name,active, amount) => {
   await Payments.create({
+    name,
     active,
-    amount,
+    amount
+    
   })
 }
 
@@ -12,12 +14,13 @@ const buscarPaymentTotal= async ()=>{
   return payments
 }
 
-const ModificarPayment=async(active, amount, id)=>{
+const ModificarPayment=async(active, amount, id,name)=>{
   const encontrarPago= await Payments.findByPk(id)
   if(encontrarPago){  
     await Payments.update({
       active:active,
       amount:amount,    
+      name:name
     },{
       where:{
         id:encontrarPago.id
