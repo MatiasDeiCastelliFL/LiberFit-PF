@@ -7,7 +7,7 @@ import Details from "./components/Organisms/Details/Details";
 import LoginForm from "./components/Molecules/LoginForm/LoginForm";
 import SingUp from "./components/Molecules/LoginSignup/LoginSignup";
 import Dashboard from "./page/Dashboard/Dashboard";
-import Dcliente from "./page/Dashboard/Dcliente";
+// import Dcliente from "./page/Dashboard/Dcliente";
 import DAdmin from "./page/Dashboard/DAdmin";
 
 function App() {
@@ -41,10 +41,7 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/signup" element={<SingUp />} />
         <Route path="/dashboard" element={<Dashboard/>}>
-          <Route path='/dashboard/:cliente' element={<Dcliente/>}/>
-        </Route>
-        <Route path="/dashboard" element={<Dashboard/>}>
-          <Route path='/dashboard/admin' element={<DAdmin/>}/>
+          {/* <Route path='/dashboard/:cliente' element={<Dcliente/>}/> */}
         </Route>
       </Routes>
     </div>
