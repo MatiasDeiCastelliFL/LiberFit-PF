@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Json from "../../../assets/gym.json";
 import { MapPinIcon } from "@heroicons/react/24/outline";
+import isInSede from "../../../App/utils/isInSede";
+
 
 const ProductsDetails = () => {
     const sedes = Json[0].sedes;
@@ -10,29 +12,15 @@ const ProductsDetails = () => {
     const [details, setDetails] = useState({
         name: name,
         image: "https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dwda4cc82c/products/NI_AR3794-785/NI_AR3794-785-1.JPG",
+        description: "Lorem ipsum dolor sit amet, e,  nisl vitae ultricies lacinia, nisl nisl aliquet n nisl vitae ultricies lacinia, nisl nisl aliquet n nisl vitae ultricies lacinia, nisl nisl aliquet n nisl vitae ultricies lacinia, nisl nisl aliquet n",
         price: 1000,
         sedesIn: [""],
     }); 
 
-    function isInSede(name: any, sedes: any[]){
-        let isIn = false;
-        let sedesList: string[] = [];
-        sedes.forEach((sede) => {
-            sede.products.forEach((product: { name: string, image:string, price:number }) => {
-                if(product.name === name){
-                    isIn = true;
-                }
-            })
-            if (isIn){
-                sedesList.push("Sede "+sede.name.split(" ")[sede.name.split(" ").length-1])
-            }
-        })
-        return sedesList
-    }
     useEffect(() => {
         setDetails({
             ...details,
-            sedesIn: isInSede(details.name, sedes)
+            sedesIn: isInSede(details.name, sedes, "products")
         })
     }, []);
     

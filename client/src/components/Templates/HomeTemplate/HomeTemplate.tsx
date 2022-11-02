@@ -19,22 +19,21 @@ function HomeTemplate({ handle, name }: Props) {
   const params = useParams();
   console.log(params.category);
   return (
-    <div>
-      <div className="flex flex-row">
+    <div className="p-0">
+      <div className="flex flex-row p-0">
         <div className="z-40 flex flex-row">
           <Modal />
-          <SideBar handle={handle} setName={name} />
+          <SideBar handle={handle} setName={name} dashboard={false} />
         </div>
-
-        <div className="flex flex-col justify-center ml-72">
+        <div className="flex w-custom_3 flex-col justify-center ml-sidebar">
           <div className="z-30">
-            <NavBar />
+            <NavBar dashboard={false}/>
           </div>
-          <div className="z-0 w-full">
-            <div className="border border-redGray h-52 mt-32 ml-11 overflow-hidden">
+          <div className="z-0 p-4">
+            <div className="border border-redGray h-52 w-fit mb-2 overflow-hidden">
               <Anuncio />
             </div>
-            <div className="ml-10 mt-3">
+            <div className="">
               <BreadCrumbs />
               <div className="ml-1 mt-5">
                 {params.category ? null: <SHom/>}

@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 
+
 module.exports = (sequelize) => {
   sequelize.define(
     'Employees',
@@ -10,6 +11,7 @@ module.exports = (sequelize) => {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
       },
+  
       name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -26,7 +28,7 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      account: {
+      active: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },

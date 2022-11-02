@@ -15,6 +15,9 @@ const dataSlice = createSlice({
     getData: (state, action: PayloadAction<any>) => {
       state.data = action.payload;
     },
+    postData: (state, action: PayloadAction<any>) => {
+      state
+    }
   },
 });
 

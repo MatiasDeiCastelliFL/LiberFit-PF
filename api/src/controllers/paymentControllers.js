@@ -1,13 +1,17 @@
-const { crearPayment, buscarPaymentMembership, buscarPaymentTotal, ModificarPayment } = require("../services/paymentServices")
+const { crearPayment, buscarPaymentTotal, ModificarPayment } = require("../services/paymentServices")
+const {
+  validate,
+} = require("../validation/validations");
+
 const postPayment = async (req, res) => {
   try {
     const {
-      membership,
+      active,
       amount
     } = req.body
 
     const datoPayment = await crearPayment(
-      membership,
+      active,
       amount
     )
     res.status(200).json(datoPayment)
@@ -17,36 +21,23 @@ const postPayment = async (req, res) => {
 }
 
 const getPayment = async (req, res) => {
-  const { name } = req.query
-  if (membership) {
-    const DatoPayment = await buscarPaymentMembership(name);
-    if (DatoPayment) {
-      res.status(200).json({ DatoPayment });
-    } else {
-      res.status(400).json({ error: "Pago no encontrado" });
-    }
-  } else {
-    const datoPaymentTotal = await buscarPaymentTotal();
-    res.status(200).json({ datoPaymentTotal });
-  }
+  const datoPaymentTotal = await buscarPaymentTotal();
+  res.status(200).json({ datoPaymentTotal });
 }
 
-const modificarPayment= async(req,res)=>{
+const modificarPayment = async (req, res) => {
   try {
-      const datoValidacion=validate(req.body);
-      if(datoValidacion.length>0){
-     
-          res.status(400).json(datoValidacion);
-      }else{
-          const paymentModificar = await ModificarPayment(req.body);
-          if(paymentModificar){
-              res.status(200).json({message:"Dato modificado"});
-          }else{
-              res.status(400).json({message:"El pago a modificar no existe"});
-          }
+    const { active, amount, id } = req.body
+    if (!id) {
+      res.status(400).json({ message: "El pago a modificar no existe" });
+    } else {
+      const paymentModificar = await ModificarPayment(active, amount, id);
+      if (paymentModificar) {
+        res.status(200).json({ message: "Dato modificado" });
       }
+    }
   } catch (error) {
-      res.status(500).json({message:error.message});
+    res.status(500).json({ message: error.message });
   }
 }
 

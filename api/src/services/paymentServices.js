@@ -1,7 +1,7 @@
 const { Payments } = require('../db')
-const crearPayment = async (membership, amount) => {
+const crearPayment = async (active, amount) => {
   await Payments.create({
-    membership,
+    active,
     amount,
   })
 }
@@ -12,24 +12,15 @@ const buscarPaymentTotal= async ()=>{
   return payments
 }
 
-const buscarPaymentMembership = async(name)=>{
-  const payments= await Payments.findAll({
-    where:{membership:name}
-  });
-  return payments
-}
-
-const ModificarPayment=async(DatoPayment)=>{
-
-  const encontrarPago= await Payments.findByPk(DatoPayment.id)
-  if(encontrarPago){
-    
+const ModificarPayment=async(active, amount, id)=>{
+  const encontrarPago= await Payments.findByPk(id)
+  if(encontrarPago){  
     await Payments.update({
-      membership:DatoPayment.name,
-      amount:DatoPayment.amount,    
+      active:active,
+      amount:amount,    
     },{
       where:{
-        id:DatoPayment.id
+        id:encontrarPago.id
       }
     })
     return true;
@@ -39,4 +30,4 @@ const ModificarPayment=async(DatoPayment)=>{
 }
 
 
-module.exports = {crearPayment,buscarPaymentTotal, buscarPaymentMembership, ModificarPayment}
+module.exports = {crearPayment,buscarPaymentTotal, ModificarPayment}

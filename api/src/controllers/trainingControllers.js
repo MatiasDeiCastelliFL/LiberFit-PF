@@ -1,19 +1,20 @@
 const {
     crearTraining,
     borrarTraining,
-    actualizarTraining,
+    updateTraining,
     buscarTrainingPorId,
     buscarTrainings,
 } = require("../services/trainingServices");
 
-const getTraining = () => {
+const getTraining = async (req, res) => {
     const { name } = req.query;
+
     try {
         if (name) {
             const training = buscarTrainingPorId(name);
             return res.status(200).json(training);
         }
-        const trainings = buscarTrainings();
+        const trainings = await buscarTrainings();
         return res.status(200).json(trainings);
     } catch (error) {
         res.status(400).json(error);
@@ -22,27 +23,23 @@ const getTraining = () => {
 
 const postTraining = async (req, res) => {
     try {
-        const { idClient, name, image, timeSlot } = req.body;
-        const datoTraining = await crearTraining(
-            idClient,
-            name,
-            image,
-            timeSlot
-        );
+        const datoTraining = await crearTraining(req.body);
         res.status(200).json(datoTraining);
     } catch (error) {
         res.status(400).json(error);
     }
 };
+
 const putTraining = async (req, res) => {
     const { id } = req.params;
     try {
-        let updatedTrancingId = actualizarTraining(id);
+        let updatedTrancingId = await updateTraining(id, req.body);
         res.status(200).json(updatedTrancingId);
     } catch (error) {
         res.status(400).json(error);
     }
 };
+
 const deleteTraining = async (req, res) => {
     const { id } = req.params;
     try {

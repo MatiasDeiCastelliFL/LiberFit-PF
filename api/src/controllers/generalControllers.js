@@ -1,29 +1,46 @@
 const axios = require("axios");
-const { Clients } = require("../db");
+const json = require("../services/initializeData");
 const api = require("./gym.json");
 
 const getApi = async (req, res) => {
     try {
-        const dataJsonClients = api[0].clients.map((e) => {
-            return {
-                name: e.name,
-                phone: e.phone,
-                email: e.email,
-                password: e.password,
-                active: e.active,
-                image: e.image,
-            };
-        });
-        console.log('file: generalControllers.js ~ line 18 ~ getApi ~ api keys', Object.keys(api[0]))
-        console.log(
-            "file: generalControllers.js ~ line 16 ~ dataJsonClients",
-            dataJsonClients
-        );
-        await Clients.bulkCreate(dataJsonClients);
-        return res.status(200).json(dataJsonClients);
+        return res.status(200).json(api);
     } catch (error) {
         console.log(error);
+        return res.status(400).json({
+            error: error,
+            message: "error al inicializar la base de datos",
+        });
     }
 };
 
-module.exports = { getApi };
+
+const getData = async (req, res) => {
+    try {
+        json.crearDesdeJsonAPaymentsDb();
+        json.crearDesdeJsonAMachinesDb();
+        json.crearDesdeJsonAProductsDb();
+        json.crearDesdeJsonATrainingsDb();
+        json.crearDesdeJsonARutinesDb();
+        json.crearDesdeJsonAExerciseDb();
+        json.crearDesdeJsonARolsDb();
+        json.crearDesdeJsonASubscriptionsDb();
+        json.crearDesdeJsonAClientsDb();
+        json.crearDesdeJsonAEmployeesDb();
+        json.crearDesdeJsonALocacionsDb();
+        json.crearDesdeJsonAOwnersDb();
+        json.crearDesdeJsonAGymsDb();
+        return res.status(200).json("data base initialize");
+    } catch (error) {
+        console.log(error);
+        return res.status(400).json({
+            error: error,
+            message: "error al inicializar la base de datos",
+        });
+    }
+};
+const getlocacionesJson = async (req, res) => {
+    res.send('data locacions')
+};
+module.exports = { getApi, getData, getlocacionesJson };
+

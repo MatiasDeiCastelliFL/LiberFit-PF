@@ -6,24 +6,26 @@ const crearEmpleado = async (
     email,
     phone,
     password,
-    account,
-    image
+    active,
+    image,
+    RolId
 ) => {
+  console.log("llegue aca")
   await Employees.create({
     name,
     email,
     phone,
     password,
-    account,
+    active,
     image,
+    RolId
   })
-
+  return "Empleado creado con éxito";
 }
 
 const buscarEmpleadoTotal= async ()=>{
   
   const Employee= await Employees.findAll();
-  console.log(Employee);
   return Employee
 }
 
@@ -63,7 +65,6 @@ const ModificarEmpleado=async(DatoEmple)=>{
       email:DatoEmple.email,
       phone:DatoEmple.phone,
       password:passwordEncript,
-      
       image:DatoEmple.image,
     },{
       where:{
@@ -89,7 +90,7 @@ const datoEliminado=async(id)=>{
 const inactivarCuenta=async(id)=>{
 
   await Employees.update({
-    account:false,
+    active:false,
   },{
     where:{
       id:id
@@ -102,7 +103,7 @@ const inactivarCuenta=async(id)=>{
 const activarCuenta=async(id)=>{
 
  Employees.update({
-    account:true,
+    active:true,
   },{
     where:{
       id:id

@@ -1,9 +1,10 @@
 const { Router } = require("express");
-const { getClients, postClients } = require("../controllers/clientControllers");
-
+const { getClientsRequest, postClientsRequest, deleteClientRequest, putClientRequest } = require("../controllers/clientControllers");
 const routerClient= Router();
 
-routerClient.get("/client", getClients);
-routerClient.post("/client", postClients);
+routerClient.get("/clients", getClientsRequest); //QUERY: name, email
+routerClient.post("/client", postClientsRequest); //BODY: { name, phone, email, password, image }
+routerClient.put("/client", putClientRequest)
+routerClient.delete("/client", deleteClientRequest); //BODY: { id, name, email }
 
 module.exports = routerClient;

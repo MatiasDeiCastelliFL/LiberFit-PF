@@ -3,9 +3,10 @@ import React from "react";
 interface Props {
   Placeholder: any;
   setName : any
+  style : React.CSSProperties
 }
 
-function Search({ Placeholder,setName }: Props) {
+function Search({ Placeholder,setName, style }: Props) {
   const handleInputChange = (e:any) => {
     e.preventDefault();
     setName(e.target.value);
@@ -16,6 +17,7 @@ function Search({ Placeholder,setName }: Props) {
       type="text"
       placeholder={Placeholder}
       onChange={handleInputChange}
+      style={style}
     />
   );
 }
