@@ -8,10 +8,11 @@ const {
     datoEliminado,
     inactivarCuenta,
     activarCuenta,
+    
 } = require("../services/employeServices");
-const {busquedaDat} = require("../Helpers/busqueda")
+const {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo} = require("../Helpers/busqueda")
 
-const { Employees } = require("../db");
+const { Employees,Locacions } = require("../db");
 
 const {
     validate,
@@ -121,10 +122,30 @@ const deleteEmployee = async (req, res) => {
 };
 
 const FiltrarUsuarioActivo= async(req,res)=>{
-    const usuarioActive= await busquedaDat(Employees);
+    const usuarioActive= await busquedaDatActive(Employees);
 
     res.status(200).json({usuarioActive});
 }
+
+const FiltrarUsuarioInactivo= async(req,res)=>{
+    const usuarioInactive= await busquedaDatDesactive(Employees);
+
+    res.status(200).json({usuarioInactive});
+}
+
+const CantInacativo= async(req,res)=>{
+    const cantidadActivo= await contarDatoInactivo(Employees)
+
+    res.status(200).json({cantidadActivo});
+}
+
+
+const CantActivo= async(req,res)=>{
+    const cantidadActivo= await contarDatoActivo(Employees)
+
+    res.status(200).json({cantidadActivo});
+}
+
 
 /* Verifica que la cuenta este activa. si la cuenta esta activa le 
 permitira desactivar si no le indicara que la cuenta ya se enceuntra desactivada*/
@@ -165,6 +186,18 @@ const activarEmployee = async (req, res) => {
     }
 };
 
+const FiltrarUsuarioActivoConSede= async(req,res)=>{
+    const usuarioInactive= await MostrarDatoMultipleActivo(Employees,Locacions);
+
+    res.status(200).json({usuarioInactive});
+}
+
+const FiltrarUsuarioInactivoConSede= async(req,res)=>{
+    const usuarioInactive= await MostrarDatoMultipleInactivo(Employees,Locacions);
+
+    res.status(200).json({usuarioInactive});
+}
+
 module.exports = {
     postEmpleado,
     getEmpleado,
@@ -172,5 +205,10 @@ module.exports = {
     deleteEmployee,
     inactivarEmployee,
     activarEmployee,
-    FiltrarUsuarioActivo
+    FiltrarUsuarioActivo,
+    FiltrarUsuarioInactivo,
+    CantActivo,
+    CantInacativo,
+    FiltrarUsuarioInactivoConSede,
+    FiltrarUsuarioActivoConSede
 };
