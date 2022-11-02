@@ -19,6 +19,7 @@ const crearDesdeJsonAPaymentsDb = async () => {
     const subscriptions = api[0].payment.map((pay) => {
         return {
             id:pay.id,
+            name:pay.name||"",
             amount: pay.amount, // tiene que ser double
             active: pay.active, // tiene que se boolean
         };

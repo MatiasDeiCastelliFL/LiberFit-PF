@@ -135,15 +135,27 @@ async function validate(input, model) {
             where: {
                 id: input.RolId,
             },
-        });
+        });     
 
         const { name } = await dato;
-
-        if (name === "Cliente") {
-            errors.push(
-                "El empleado debe tener un rol, puede ser secretario/a o Profesor/a"
-            );
+        if(model==="Employees"){
+            if (name === "Cliente") {
+                errors.push(
+                    "El empleado debe tener un rol, puede ser secretario/a o Profesor/a"
+                );
+            }
+        }else{
+            if (name !== "Cliente") {
+                errors.push(
+                    "El rol a seleccionar tiene que ser cliente debido a que se esta creando un cliente"
+                );
+            }
         }
+   
+
+        
+
+      
     }
     return errors;
 }
