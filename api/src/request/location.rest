@@ -1,0 +1,33 @@
+###
+GET http://localhost:3004/locacion
+###
+GET http://localhost:3004/locacion/90882277-b66b-4132-b3f7-bdcfe9bf3141
+
+###
+POST http://localhost:3004/locacion
+Content-Type: application/json
+
+{ 
+  "name":"Ricardo",
+  "address":"rusia",
+  "phone":"123412"
+} 
+
+###
+PUT http://localhost:3004/locacion
+Content-Type: application/json
+
+{ 
+  "name":"Ricardo",
+  "address":"rusia",
+  "phone":"123412"
+} 
+###
+DELETE http://localhost:3004/locacion
+Content-Type: application/json
+
+{ 
+  "name":"Ricardo",
+  "address":"rusia",
+  "phone":"123412"
+} 

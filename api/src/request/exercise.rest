@@ -1,0 +1,30 @@
+###
+GET http://localhost:3004/exercises
+
+### creando un exercise
+POST http://localhost:3004/exercises
+Content-Type: application/json
+
+{
+  "name":"pesas",
+  "repetition":2,
+  "series":4,
+  "video":"https://www.youtube.com/watch?v=XpPf0HJSEo4",
+  "image":"https://ui-avatars.com/api/?name=ric+ob",
+  "muscle":"brazo"
+} 
+
+###
+PUT http://localhost:3004/exercises/1
+Content-Type: application/json
+
+{ 
+  "name":"pesas",
+  "repetition":8,
+  "series":16,
+  "video":"https://www.youtube.com/watch?v=XpPf0HJSEo4",
+  "image":"https://ui-avatars.com/api/?name=ric+ob",
+  "muscle":"brazo"
+} 
+###
+DELETE http://localhost:3004/training/1

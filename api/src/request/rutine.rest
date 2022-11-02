@@ -1,0 +1,36 @@
+###
+GET http://localhost:3004/rutine
+###
+POST http://localhost:3004/rutine
+Content-Type: application/json
+
+{ 
+  "name":"aumento de masa muscular avanzado",
+  "nameExcersise":"Banco Plano",
+  "nameTraining":"Boxeo",
+  "repetition":2,
+  ""
+  "series":4,
+  "ClientId":"e5ba0ea9-4612-416b-9076-3f84dcfd4e4c",
+  "video":"https://www.youtube.com/watch?v=XpPf0HJSEo4",
+  "image":"https://ui-avatars.com/api/?name=ric+ob",
+  "muscle":"brazo"
+} 
+
+###
+PUT http://localhost:3004/rutine/56c0dc83-ee4c-431c-925a-054ca83eace6
+Content-Type: application/json
+
+{ 
+  "name":"aumento de masa muscular avanzado",
+  "nameExcersise":"Caminar en Cinta",
+  "nameTraining":"Boxeo",
+  "repetition":2,
+  "series":4,
+  "video":"https://www.youtube.com/watch?v=XpPf0HJSEo4",
+  "image":"https://ui-avatars.com/api/?name=ric+ob",
+  "muscle":"brazo"
+} 
+###
+DELETE http://localhost:3004/rutine/56c0dc83-ee4c-431c-925a-054ca83eace6
+Content-Type: application/json

@@ -1,0 +1,19 @@
+###
+GET http://localhost:3004/rol
+###
+POST http://localhost:3004/rol
+Content-Type: application/json
+
+{ 
+  "name":"entrenador"
+} 
+###
+DELETE http://localhost:3004/rol/1
+Content-Type: application/json
+###
+PUT http://localhost:3004/rol/2
+Content-Type: application/json
+
+{ 
+  "name":"cliente"
+}

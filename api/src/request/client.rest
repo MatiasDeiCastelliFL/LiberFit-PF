@@ -1,0 +1,17 @@
+###
+GET http://localhost:3004/clients
+
+### creando un cliente
+POST http://localhost:3004/clients
+Content-Type: application/json
+
+{
+  "name":"Carlos ",
+  "phone":"4234455",
+  "email":"carlod1@gamil.com",
+  "password":"ertertre",
+  "image":"https://ui-avatars.com/api/?name=ric+obs",
+  "locacion":"AbsoluteFit - Sede Bernal" 
+}
+###
+GET http://localhost:3004/clients

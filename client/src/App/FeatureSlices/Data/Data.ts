@@ -1,0 +1,30 @@
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import arraySet from "../../utils/arraySet";
+import { useLocation, useParams } from "react-router-dom";
+
+export interface filterState {
+    data: any;
+    locations: [];
+    
+}
+
+const initialState: filterState = {
+    data: ["data"],
+    locations: [],
+}
+
+const dataSlice = createSlice({
+    name: "country",
+    initialState,
+    reducers: {
+        getData: (state, action: PayloadAction<any>) => {
+            state.locations = action.payload
+        },
+        getLocationsReducer: (state, action: PayloadAction<any>) => {
+            state.locations = action.payload
+        }
+    },
+});
+
+export default dataSlice.reducer;
+export const { getData, getLocationsReducer } = dataSlice.actions;
