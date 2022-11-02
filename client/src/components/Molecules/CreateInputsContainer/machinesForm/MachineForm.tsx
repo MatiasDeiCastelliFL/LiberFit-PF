@@ -1,96 +1,135 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../../../assets/IMG/LIBERFIT_2.png";
 import { postElement } from "../../../../App/Action/Action"
-import { useAppDispatch } from "../../../../App/Hooks/Hooks";
+import { useAppDispatch, useAppSelector } from "../../../../App/Hooks/Hooks";
+import { useForm, Controller } from "react-hook-form";
+import Select  from  "react-select";
 
 interface Props {
     background: React.CSSProperties
 }
 
-
-
-
-const ProductForm = ({background}:Props) => {
+const MachineForm = ({background}:Props) => {
 
     const dispatch = useAppDispatch()
+    const { data } =  useAppSelector((state) => state)
+    const { register, handleSubmit, formState: { errors }, control } = useForm();
+    const [image, setImage] = useState("")
 
-    const [data , setData] = useState({
-        nombre: "",
-        musculo:"",
-        ejercicios: [],
-        sedes: [],
-        imagen: "",
-        descripcion: "",
-    })
-
-    const [error, setError] = useState({
-        nombre: "",
-        musculo:"",
-        ejercicios: [],
-        sedes: [],
-        imagen: "",
-        descripcion: "",
-    })
-    
-
-    function handleChange(e: React.ChangeEvent<HTMLInputElement>){
-        e.preventDefault();
-        e.target.value === "" ? setError({...error, [e.target.name]: "Este campo es obligatorio"}) : setError({...error, [e.target.name]: ""})
-        setData({
-            ...data,
-            [e.target.name]: e.target.value
-        })
-       
+    const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+        try {
+            setImage(e.target.value)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
-    function handleSelect(e: React.ChangeEvent<HTMLSelectElement>){
-        e.preventDefault();
-        setData({
-            ...data,
-            [e.target.name]: e.target.value
-        })
-    }
+    function onSubmit (data: any){
+        const body = {
+            name: data.name,
+            image: image,
+            muscle: data.muscle,
+            LocationId: data.LocacionId.value,
+        }
 
-    function handleTextArea(e: React.ChangeEvent<HTMLTextAreaElement>){
-        e.preventDefault();
-        setData({
-            ...data,
-            [e.target.name]: e.target.value
-        })
-    }
-
-    function handleSubmit (e: React.FormEvent<HTMLFormElement>){
-        e.preventDefault();
-        dispatch(postElement(data, "machine"))
+        dispatch(postElement(body, "machine"))
     }
 
     useEffect(() => {
         
-    }, [data])
+    }, [image])
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col items-center w-2/3 border rounded-l-custom_1 p-4  gap-3">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center w-2/3 border rounded-l-custom_1 p-4  gap-3">
             <img src={logo} alt="logo" className="h-10" />
-            <input type="text" name="nombre" value={data.nombre} onChange={handleChange} placeholder='nombre' className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"/>
-            {error.nombre && <p className="text-red-500">{error.nombre}</p>}
-            <input type="text" name="musculo" value={data.musculo} onChange={handleChange} placeholder='músculo' className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"/>
-            {error.musculo && <p className="text-red-500">{error.musculo}</p>}
-            <select name="ejercicios" value={data.ejercicios} onChange={handleSelect} className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500">
-                <option value="1">Ejercicio 1</option>
-                <option value="2">Ejercicio 2</option>
-                <option value="3">Ejercicio 3</option>
-            </select>
-            <select name="sedes" value={data.sedes} onChange={handleSelect} className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500">
-                <option value="sede 1">sede 1</option>
-                <option value="sede 2">sede 2</option>
-                <option value="sede 3">sede 3</option>
-            </select>
-            <input type="text" name="imagen" value={data.imagen} onChange={handleChange} placeholder='imagen' className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"/>
-            <img src={data.imagen} alt="" className="border h-20 w-40"/>
-            <textarea name="descripcion" value={data.descripcion} onChange={handleTextArea} placeholder='descripcion' className="border border-cyan-600 px-2 rounded-xl font-light w-full text-gray-500"/>
+
+            <input  type="text" 
+                    {...register('name', {required:true})} 
+                    placeholder='nombre' 
+                    className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"
+            />
+            {errors.name?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
+
+
+            <Controller
+                control = {control}
+                rules={{required:true}}
+                {...register('LocacionId', {required:true})}
+                render={({ field }) => (
+                    <Select
+                        styles={{
+                            control: (provided) => ({
+                                ...provided,
+                                backgroundColor: "transparent",
+                                border: "none",
+                                outline: "none",
+                                fontmuscle: "1rem",
+                                "&:hover": {
+                                    borderColor: "none",
+                                },
+                            }),
+                            option: (provided) => ({
+                                ...provided,
+                                fontmuscle: "1rem",
+                                border: "1px solid transparent",
+                                margin: "0",
+                                padding: "0",
+                                color: "#4B5563",
+                                width: "100%",
+                                height: "80%",
+                            }),
+                            multiValue: (provided) => ({
+                                ...provided,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                padding: "0",
+                                height: "20px",
+                            }),
+                            menu: (provided) => ({
+                                ...provided,
+                                backgroundColor: "white",
+                            }),
+                        }}
+                        className=" font-sans text-xl border border-cyan-600 rounded-full font-light h-fit w-full text-gray-500"
+                        {...field}
+                        placeholder="sedes"
+                        options=
+                            {
+                                data.locations.map((location: any) => {
+                                    return { value: location.id, label: location.name }
+                                })
+                            }
+                    />
+                )}
+            />
+            {errors.LocacionId?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
+            
+            <input  type="text"
+                    {...register('muscle', {required:true})}
+                    placeholder='Músculo'
+                    className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"
+            />
+            {errors.muscle?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
+
+
+            <input  type="text" 
+                    {...register('image', {required:true})}
+                    onChange={handleImage} 
+                    placeholder='imagen' 
+                    className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"
+            />
+            {errors.image?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
+
+            <img src={image} alt="" className="border h-20 w-40"/>
+
+
             <input type="submit" value='Añadir' className="flex justify-center items-center font-black rounded-full py-1 px-3 text-white font-sans text-xl w-fit ml-15" style={background}/>
         </form>
-    );
-};
 
-export default ProductForm;
+        
+    );
+}
+
+
+export default MachineForm;

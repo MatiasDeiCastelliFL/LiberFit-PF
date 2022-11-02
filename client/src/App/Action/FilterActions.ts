@@ -2,8 +2,7 @@ import axios from "axios";
 import Json from '../../assets/gym.json'
 import arraySet from "../utils/arraySet";
 import { modalOpen } from "../FeatureSlices/Modal/Modal";
-import { filterDataPrice,openFilter, filterDataName} from "../FeatureSlices/Filters/Filter";
-import { getData, getLocationsReducer } from "../FeatureSlices/Data/Data";
+import { getData,filterDataPrice,openFilter, filterDataName} from "../FeatureSlices/Filters/Filter";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users"
 
 const data = Json[0].sedes.map(d => d.products.map(d => d.name))
@@ -12,23 +11,25 @@ const products = Json[0].sedes.map(d => d.products.map(d => d))
 
 const Route = "http://localhost:3004"
 
-export const getMainData= () => async (dispatch: any) => {
+export const getFilterData = () => async (dispatch: any) => {
     try {
 
-        const locations = await axios.get(`${Route}/locacion`);
+        const data = await axios.get(`${Route}/infolocaciones`);
+        const products = await axios.get(`${Route}/product`);
+        const machines = await axios.get(`${Route}/machine`);
+        const exercises = await axios.get(`${Route}/exercises`);
+        const trainings = await axios.get(`${Route}/training`);
 
-        dispatch(getData(locations.data));
-    } catch (error) {
-        console.log(error);
-    }
-};
+        const response = {
+            data: data.data,
+            products: products.data,
+            machines: machines.data,
+            exercises: exercises.data,
+            trainings: trainings.data,
 
-export const getLocations = () => async (dispatch: any) => {
-    try {
+        }
 
-        const locations = await axios.get(`${Route}/locacion`);
-
-        dispatch(getLocationsReducer(locations.data));
+        dispatch(getData(response));
     } catch (error) {
         console.log(error);
     }
@@ -67,7 +68,6 @@ export const getUsers = () => async (dispatch:any) => {
 export const postUser = (payload:any) => async (dispatch: any) => {
     try {
         let json = await axios.post("http://localhost:3004/clients",payload) // enpoint de post user
-        console.log(json)
         return json
     } catch (error) {
         console.log("--->",error)   
