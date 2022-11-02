@@ -1,18 +1,20 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import {useAppSelector } from "../../../App/Hooks/Hooks";
+import { useAppSelector } from "../../../App/Hooks/Hooks";
 import Card from "../../Atoms/Card/Card";
 import style from "./CardsCategory.module.css";
 
 function CardsCategory() {
-
     const { filter } = useAppSelector((state) => state);
 
     let { category } = useParams();
 
-    useEffect(() => {
-
-    }, [filter.dataLocation , filter.exercises , filter.products, filter.trainigns])
+    useEffect(() => {}, [
+        filter.dataLocation,
+        filter.exercises,
+        filter.products,
+        filter.trainigns,
+    ]);
 
     return (
         <div
@@ -33,12 +35,14 @@ function CardsCategory() {
                                     {d.name}
                                 </h1>
                                 <div
-                                    className={`${style.cardsDiv} flex  gap-9 ml-2 justify-start`}
+                                    className={`${style.cardsDiv} flex  gap-10 w-custom_3  justify-start`}
                                 >
                                     {category?.toLowerCase() === "machines"
                                         ? filter.machines.map((m) => (
                                               <Link
-                                                  to={`/home/${category}/${m.name.split('%').join('')}`}
+                                                  to={`/home/${category}/${m.name
+                                                      .split("%")
+                                                      .join("")}`}
                                                   key={Math.random()}
                                               >
                                                   <Card
@@ -87,7 +91,7 @@ function CardsCategory() {
                         ))
                     ) : (
                         <div
-                            className={`${style.cardsDiv} flex w-swiper gap-10 justify-start mt-5`}
+                            className={`${style.cardsDiv} flex w-custom_3 gap-10 justify-start mt-5`}
                         >
                             {filter.exercises.map((e) => (
                                 <Link to={`/home/Exercises/${e.name}`}>

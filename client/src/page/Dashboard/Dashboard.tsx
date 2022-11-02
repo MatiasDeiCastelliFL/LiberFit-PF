@@ -1,10 +1,8 @@
-import React from 'react'
-import DashboardTemplate from '../../components/Templates/DashboardTemplate/DashboardTemplate'
+import React from "react";
+import DashboardTemplate from "../../components/Templates/DashboardTemplate/DashboardTemplate";
 
 function Dashboard() {
-  return (
-    <DashboardTemplate/>
-  )
+    return <DashboardTemplate />;
 }
 
-export default Dashboard
+export default Dashboard;
