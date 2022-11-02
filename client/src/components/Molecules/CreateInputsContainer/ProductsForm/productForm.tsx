@@ -21,7 +21,7 @@ interface form {
     price: number,
     stock: string,
     code: string,
-    image: ImageListType,
+    image: string,
     description: string,
     size: string,
     brand: string,
@@ -52,6 +52,7 @@ const ProductForm = ({background}:Props) => {
     const onUpload = () => {}
 
     function onSubmit (data: any){
+        console.log(data)
         dispatch(postElement(data, "productos"))
     }
     useEffect(() => {
@@ -59,8 +60,7 @@ const ProductForm = ({background}:Props) => {
     }, [])
 
     useEffect(() => {
-        console.log(images)
-        console.log(image)
+        
     }, [images, image])
 
     return (
@@ -95,24 +95,24 @@ const ProductForm = ({background}:Props) => {
             />
             {errors.codigo?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
 
-            <ImageUploading multiple={false} value={images} onChange={handleChange} maxNumber={1}>
-        {({
-          imageList,
-          onImageUpload,
-          dragProps,
-          isDragging,
-          onImageRemove,
-          onImageUpdate,
-        }) => (
-          <>
-            {
-              imageList[0]
-                ?  <ImageSelected img={imageList[0].dataURL!}  {...{ onImageRemove, onUpload, onImageUpdate, loading }} />
-                : <BoxDragAndDrop {...{ onImageUpload, dragProps, isDragging }} />
-            }
-          </>
-        )}
-      </ImageUploading>
+            {/* <ImageUploading multiple={false} value={images} onChange={handleChange} maxNumber={1}  >
+                {({
+                imageList,
+                onImageUpload,
+                dragProps,
+                isDragging,
+                onImageRemove,
+                onImageUpdate,
+                }) => (
+                <>
+                    {
+                    imageList[0]
+                        ?  <ImageSelected img={imageList[0].dataURL!}  {...{ onImageRemove, onUpload, onImageUpdate, loading }} />
+                        : <BoxDragAndDrop {...{ onImageUpload, dragProps, isDragging }} />
+                    }
+                </>
+                )}
+            </ImageUploading> */}
 
             <Controller
                 name="sedes"
@@ -166,11 +166,33 @@ const ProductForm = ({background}:Props) => {
                 )}
             />
             {errors.sedes?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
-                            
             
-            <input type="text" {...register('image')} onChange={handleImage} placeholder='imagen' className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"/>
+            <input  type="text"
+                    {...register('size', {required:true})}
+                    placeholder='tallas'
+                    className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"
+            />
+            {errors.tallas?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
+
+            <input  type="text"
+                    {...register('brand', {required:true})}
+                    placeholder='marca'
+                    className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"
+            />
+            {errors.marca?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
+
+            <input  type="text" 
+                    {...register('image', {required:true})}
+                    onChange={handleImage} 
+                    placeholder='imagen' 
+                    className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"
+            />
+            {errors.imagen?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
+
             <img src={image} alt="" className="border h-20 w-40"/>
+
             <textarea {...register('descripcion')}  placeholder='descripcion' className="border border-cyan-600 px-2 rounded-xl font-light w-full text-gray-500"/>
+            
             <input type="submit" value='Añadir' className="flex justify-center items-center font-black rounded-full py-1 px-3 text-white font-sans text-xl w-fit ml-15" style={background}/>
         </form>
 

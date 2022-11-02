@@ -61,6 +61,7 @@ export const postUser = (payload:any) => async (dispatch: any) => {
 
 export const postElement = (payload:any, element:string) =>  (dispatch: any) => {
     try {
+        let json = axios.post(`http://localhost:3004/${element}`,payload) 
         console.log("Action")
         console.log(payload)
     } catch (error) {
