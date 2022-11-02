@@ -1,7 +1,10 @@
-const {Machines} = require("../db")
+const {Machines, Locacions} = require("../db")
 
-  const crearMachine = async (name,image,muscle,) => {
-      const machines = await Machines.create({ name,image,muscle,})
+  const crearMachine = async (name,image,muscle,LocacionId) => {
+      const machines = await Machines.create({name,image,muscle});
+
+      await machines.addLocacions(LocacionId);
+      
     }
 
   const enviarMachine = async () => {

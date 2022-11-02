@@ -10,4 +10,10 @@ const crearSubscription = async (
     description
 })
 }
-module.exports={ crearSubscription}
+const obetnerTodasSuscriptions= async()=>{
+  
+  const suscription= await Subscriptions.findAll();
+  return suscription
+}
+
+module.exports={ crearSubscription, obetnerTodasSuscriptions}

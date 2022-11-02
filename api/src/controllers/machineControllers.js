@@ -2,15 +2,18 @@ const {crearMachine,enviarMachine,actualizarMachine,borrarMachine}= require("../
 
 const postMachine = async (req, res) => {
     try {
-        const { name,
-            image,
-            muscle,
-        } = req.body
-
-         await crearMachine(
+        const { 
             name,
             image,
             muscle,
+            LocacionId
+        } = req.body
+
+        await crearMachine(
+            name,
+            image,
+            muscle,
+            LocacionId
         )
         res.status(200).json({msg:"Machine guardada"})
     } catch (error) {

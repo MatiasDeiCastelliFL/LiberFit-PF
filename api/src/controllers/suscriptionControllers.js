@@ -1,4 +1,4 @@
-const {crearSubscription} =require('../services/suscriptionServices')
+const {crearSubscription, obetnerTodasSuscriptions} =require('../services/suscriptionServices')
 
 const postSuscription = async (req, res) => {
     try {
@@ -19,4 +19,10 @@ const postSuscription = async (req, res) => {
     }
 }
 
-module.exports={postSuscription} 
+const getAllSuscription = async(req, res)=> {
+    console.log("Entras")
+    const allSuscription = await obetnerTodasSuscriptions();
+    res.status(200).json({allSuscription});
+}
+
+module.exports={postSuscription, getAllSuscription} 
