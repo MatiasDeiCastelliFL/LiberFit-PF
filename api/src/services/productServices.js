@@ -30,15 +30,8 @@ const crearProduct = async (
     size,
     brand
     })
-
-
      console.log(LocacionId)
-   
-
-
-
     await producto.addLocacions(LocacionId);
-  
     return "prducto creado"
 
     // await fs.unlink(path)
