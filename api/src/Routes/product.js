@@ -10,10 +10,10 @@ const routerProduct= Router();
 routerProduct.post("/product",postProduct);
 routerProduct.get("/product",getProduct);
 routerProduct.delete('/product/:id',deleteProduct)
-routerEmpleado.put("/ProductoDesactivar",inactivarProduct);
-routerEmpleado.put("/ProductoActivar",activarProduc);
-routerEmpleado.get("/CantProductoInacativo",CantInacativo)
-routerEmpleado.get("/CantProductoActivo",CantActivo)
-routerEmpleado.get("/CantProductoActivo",FiltrarProductoDesactivado)
-routerEmpleado.get("/CantProductoActivo",FiltrarProductoActivo)
+routerProduct.put("/ProductoDesactivar",inactivarProduct);
+routerProduct.put("/ProductoActivar",activarProduc);
+routerProduct.get("/CantProductoInacativo",CantInacativo)
+routerProduct.get("/CantProductoActivo",CantActivo)
+routerProduct.get("/CantProductoActivo",FiltrarProductoDesactivado)
+routerProduct.get("/CantProductoActivo",FiltrarProductoActivo)
 module.exports=routerProduct ;
