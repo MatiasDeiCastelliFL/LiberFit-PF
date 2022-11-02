@@ -1,7 +1,7 @@
 import React ,{useState} from "react";
 import { useAppDispatch } from "../../../App/Hooks/Hooks";
 import Json from "../../../assets/gym.json";
-import {getExercisesByMuscle} from "../../../App/Action/Action";
+// import {getExercisesByMuscle} from "../../../App/Action/Action";
 
 interface Props {
     section: {
@@ -22,7 +22,7 @@ const MuclesFilters = ({section}:Props) => {
         e.preventDefault();
         console.log(e.target.value);
         setMuscle(e.target.value);
-        dispatch(getExercisesByMuscle(muscle))
+        // dispatch(getExercisesByMuscle(muscle))
     }
 
     return (

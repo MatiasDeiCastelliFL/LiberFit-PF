@@ -4,6 +4,12 @@ import { postElement } from "../../../../App/Action/Action"
 import { useAppDispatch } from "../../../../App/Hooks/Hooks";
 import { useForm, Controller } from "react-hook-form";
 import Select  from  "react-select";
+import axios from "axios";
+import { Form } from "react-router-dom";
+import ImageUploading, { ImageListType } from "react-images-uploading";
+
+import BoxDragAndDrop from "../../../Atoms/BoxDragAndDrop/BoxDragAndDrop";
+import ImageSelected from "../../../Atoms/imageSelected/imageSelected";
 
 interface Props {
     background: React.CSSProperties
@@ -11,16 +17,23 @@ interface Props {
 
 
 interface form {
-    nombre: string,
-    precio: number,
-    sedes: string[],
-    imagen: string,
-    descripcion: string
+    name: string,
+    price: number,
+    stock: string,
+    code: string,
+    image: ImageListType,
+    description: string,
+    size: string,
+    brand: string,
 }
 
 const ProductForm = ({background}:Props) => {
 
     const dispatch = useAppDispatch()
+    const [images, setImages] = useState<ImageListType>([]);
+    const [urlImage, setUrlImage] = useState('')
+    const [loading, setLoading] = useState(false);
+
 
     const { register, handleSubmit, formState: { errors }, control } = useForm();
     const [image, setImage] = useState("")
@@ -33,6 +46,11 @@ const ProductForm = ({background}:Props) => {
         }
     }
 
+    
+    const handleChange = (imageList: ImageListType) => setImages(imageList);
+
+    const onUpload = () => {}
+
     function onSubmit (data: any){
         dispatch(postElement(data, "productos"))
     }
@@ -40,23 +58,61 @@ const ProductForm = ({background}:Props) => {
         
     }, [])
 
+    useEffect(() => {
+        console.log(images)
+        console.log(image)
+    }, [images, image])
+
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center w-2/3 border rounded-l-custom_1 p-4  gap-3">
             <img src={logo} alt="logo" className="h-10" />
 
             <input  type="text" 
-                    {...register('nombre', {required:true})} 
+                    {...register('name', {required:true})} 
                     placeholder='nombre' 
                     className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"
             />
             {errors.nombre?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
             
             <input  type="number" 
-                    {...register('precio', {required:true})} 
+                    {...register('price', {required:true})} 
                     placeholder='precio' 
                     className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"
             />
             {errors.precio?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
+            
+            <input  type="text"
+                    {...register('stock', {required:true})}
+                    placeholder='stock'
+                    className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"
+            />
+            {errors.stock?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
+
+            <input  type="text"
+                    {...register('code', {required:true})}
+                    placeholder='codigo'
+                    className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"
+            />
+            {errors.codigo?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
+
+            <ImageUploading multiple={false} value={images} onChange={handleChange} maxNumber={1}>
+        {({
+          imageList,
+          onImageUpload,
+          dragProps,
+          isDragging,
+          onImageRemove,
+          onImageUpdate,
+        }) => (
+          <>
+            {
+              imageList[0]
+                ?  <ImageSelected img={imageList[0].dataURL!}  {...{ onImageRemove, onUpload, onImageUpdate, loading }} />
+                : <BoxDragAndDrop {...{ onImageUpload, dragProps, isDragging }} />
+            }
+          </>
+        )}
+      </ImageUploading>
 
             <Controller
                 name="sedes"
@@ -110,13 +166,15 @@ const ProductForm = ({background}:Props) => {
                 )}
             />
             {errors.sedes?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
-
+                            
             
-            <input type="text" {...register('imagen')} onChange={handleImage} placeholder='imagen' className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"/>
+            <input type="text" {...register('image')} onChange={handleImage} placeholder='imagen' className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"/>
             <img src={image} alt="" className="border h-20 w-40"/>
             <textarea {...register('descripcion')}  placeholder='descripcion' className="border border-cyan-600 px-2 rounded-xl font-light w-full text-gray-500"/>
             <input type="submit" value='Añadir' className="flex justify-center items-center font-black rounded-full py-1 px-3 text-white font-sans text-xl w-fit ml-15" style={background}/>
         </form>
+
+        
     );
 }
 
