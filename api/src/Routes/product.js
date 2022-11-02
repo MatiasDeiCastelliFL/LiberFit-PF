@@ -1,6 +1,6 @@
 const {Router}= require('express')
 const {upload }= require('../config/multer.config')
-
+const {isAuthenticated}= require('../Helpers/auth')
 const {getProduct,postProduct,deleteProduct,activarProduc,inactivarProduct,CantActivo,
     CantInacativo,
     FiltrarProductoDesactivado,
@@ -8,8 +8,6 @@ const {getProduct,postProduct,deleteProduct,activarProduc,inactivarProduct,CantA
 
 const routerProduct= Router();
 
-const {getProduct,postProduct,deleteProduct} = require("../controllers/productControllers");
-const {isAuthenticated}= require('../Helpers/auth')
 routerProduct.post("/product",isAuthenticated,postProduct);
 routerProduct.get("/product",isAuthenticated,getProduct);
 routerProduct.delete('/product/:id',isAuthenticated,deleteProduct)
