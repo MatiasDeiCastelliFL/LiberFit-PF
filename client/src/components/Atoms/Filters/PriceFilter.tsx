@@ -24,11 +24,11 @@ const PriceFilter = () => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-          dispatch(filterProductsByPrice(input.min, input.max))
-          setInput({
+        dispatch(filterProductsByPrice(input.min, input.max))
+        setInput({
                 min: input.min,
                 max: input.max
-            })
+        })
     }
 
     return (

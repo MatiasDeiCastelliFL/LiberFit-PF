@@ -1,4 +1,5 @@
 const { crearProduct, buscarProduct,eliminarProduct } = require("../services/productServices");
+
 const getProduct = async (req, res) => {
     try {
         const products = await buscarProduct();

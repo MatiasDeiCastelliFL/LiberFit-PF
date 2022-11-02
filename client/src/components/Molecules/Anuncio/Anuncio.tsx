@@ -19,7 +19,7 @@ import anuncio4 from "./gym/anuncio4.jpg";
 const Anuncio = () => {
   return (
 
-      <div className="w-fit bg-red-700">
+      <div className="w-fit">
         <Swiper
         spaceBetween={30}
         centeredSlides={true}

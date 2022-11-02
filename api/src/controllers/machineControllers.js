@@ -2,13 +2,14 @@ const {crearMachine,enviarMachine,actualizarMachine,borrarMachine}= require("../
 
 const postMachine = async (req, res) => {
     try {
-        const { name,
+        const { 
+            name,
             image,
             muscle,
             LocacionId
         } = req.body
 
-         await crearMachine(
+        await crearMachine(
             name,
             image,
             muscle,
