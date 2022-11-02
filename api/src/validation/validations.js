@@ -147,7 +147,7 @@ async function validate(input, model) {
         }else{
             if (name !== "Cliente") {
                 errors.push(
-                    "El rol a seleccionar tiene que ser cliente debido a que se esta creando un cliente"
+                    "El rol a seleccionar tiene que ser cliente debido a que se esta creando"
                 );
             }
         }
