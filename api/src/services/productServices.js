@@ -1,4 +1,4 @@
-const { Products } = require('../db')
+const { Products,Locacions } = require('../db')
 const {cloudinary}=require('../config/cloudinary.config')
 const fs = require ('fs-extra')
 
@@ -16,21 +16,33 @@ const crearProduct = async (
     description,
     size,
     brand,
-    path,
+    image,
+    LocacionId
     ) => {
-  const data = await cloudinary.v2.uploader.upload(path)
-  await Products.create({
+  // const data = await cloudinary.v2.uploader.upload(path)
+ const producto= await Products.create({
     name,
     price,
     stock,
     code,
-    image:data.secure_url,
+    image,
     description,
     size,
     brand
     })
-    await fs.unlink(path)
+
+
+     console.log(LocacionId)
+   
+
+
+
+    await producto.addLocacions(LocacionId);
+  
     return "prducto creado"
+
+    // await fs.unlink(path)
+
 }
 
 const eliminarProduct = async (id)=>{

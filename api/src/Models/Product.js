@@ -26,7 +26,7 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING,
-      defaultValue: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.yeaah.co%2Fwp-content%2Fuploads%2F2021%2F08%2Fproducto-sin-imagen.jpg&imgrefurl=https%3A%2F%2Fwww.yeaah.co%2Ftienda%2Faccesorios%2Frepuestos%2Frosca-manubrio-2%2F&tbnid=U3OXT9H2MwknwM&vet=12ahUKEwjVv5bYso37AhUkr5UCHT4kAr0QMygDegUIARC9AQ..i&docid=xfZFkSlfNAOcOM&w=800&h=800&itg=1&q=imagen%20de%20producto%20sin%20imagen&ved=2ahUKEwjVv5bYso37AhUkr5UCHT4kAr0QMygDegUIARC9AQ",
+      allowNull: false,
     },
     description: {
       type: DataTypes.STRING,

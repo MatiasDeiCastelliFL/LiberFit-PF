@@ -5,12 +5,14 @@ const postMachine = async (req, res) => {
         const { name,
             image,
             muscle,
+            LocacionId
         } = req.body
 
          await crearMachine(
             name,
             image,
             muscle,
+            LocacionId
         )
         res.status(200).json({msg:"Machine guardada"})
     } catch (error) {
