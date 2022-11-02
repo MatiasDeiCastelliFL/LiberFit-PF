@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const { getClientsRequest, postClientsRequest, deleteClientRequest, putClientRequest } = require("../controllers/clientControllers");
+const auth = require("../Helpers/auth");
 const routerClient= Router();
 
 

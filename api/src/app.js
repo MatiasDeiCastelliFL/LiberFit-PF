@@ -2,8 +2,11 @@
 const express = require('express')
 const cors = require('cors')
 const morgan = require('morgan')
+const passport = require('passport')
 const path = require('path')
+const session = require('express-session')
 require("dotenv").config();
+require('./config/passport')
 
 const routerGeneral = require('./Routes/general')
 const routerClient = require('./Routes/client')
@@ -20,6 +23,10 @@ const routerRutine = require('./Routes/rutine')
 const routerSuscription = require('./Routes/suscription')
 const routerTraining = require('./Routes/training')
 const routerAnuncio = require('./Routes/Anuncio');
+const routerLog = require('./Routes/users')
+const log = require('./Routes/inicio')
+const {isAuthenticated}  = require('./Helpers/auth')
+
 
 
 
@@ -28,6 +35,10 @@ const server = express();
 server.use(cors());
 server.set("port", process.env.PORT || 3004);
 server.use(morgan('dev'))
+server.use(session({secret: "secret",resave: true,saveUninitialized: true,}));
+server.use(passport.initialize());
+server.use(passport.session());
+server.use(express.static(path.join(__dirname,'./public/login.html')))
 server.use(express.json())
 server.use(express.urlencoded({ extended: false}))
 
@@ -46,7 +57,7 @@ server.use('/', routerRutine)
 server.use('/', routerSuscription)
 server.use('/', routerTraining)
 server.use('/', routerAnuncio)
-
-
+server.use('/', routerLog)
+server.use('/',log)
 
 module.exports = server;

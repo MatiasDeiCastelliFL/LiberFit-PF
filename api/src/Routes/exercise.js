@@ -1,6 +1,6 @@
 const { Router } = require("express")
-const {getExercises, postExercise,putExercise
-  ,deleteExercise}= require('../controllers/exerciseControllers')
+const {getExercises, postExercise,putExercise,deleteExercise}= require('../controllers/exerciseControllers');
+
 const routerExercise= Router();
 
 routerExercise.get("/exercises",getExercises);
