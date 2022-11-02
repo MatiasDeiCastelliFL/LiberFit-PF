@@ -106,7 +106,6 @@ function CardsCategory() {
                             </div>
                             ) : null
                         )))
-                        
                     }
                 </div>
             ) : (
