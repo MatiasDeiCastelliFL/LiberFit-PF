@@ -17,7 +17,7 @@ const getApi = async (req, res) => {
 
 const getData = async (req, res) => {
     try {
-        json.crearDesdeJsonAPaymentsDb();
+        // json.crearDesdeJsonAPaymentsDb();
         json.crearDesdeJsonAMachinesDb();
         json.crearDesdeJsonAProductsDb();
         json.crearDesdeJsonATrainingsDb();
