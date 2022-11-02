@@ -8,7 +8,7 @@ import LoginForm from "./components/Molecules/LoginForm/LoginForm";
 import SingUp from "./components/Molecules/LoginSignup/LoginSignup";
 import Dashboard from "./page/Dashboard/Dashboard";
 import Dcliente from "./page/Dashboard/Dcliente";
-import DAdmin from "./page/Dashboard/Dadmin";
+import DAdmin from "./page/Dashboard/DAdmin";
 
 function App() {
   return (
