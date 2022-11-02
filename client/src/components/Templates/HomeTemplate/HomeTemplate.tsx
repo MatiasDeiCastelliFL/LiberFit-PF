@@ -17,16 +17,15 @@ interface Props {
 
 function HomeTemplate({ handle, name }: Props) {
   const params = useParams();
-  console.log(params.category);
   return (
-    <div className="p-0">
-      <div className="flex flex-row p-0">
-        <div className="z-40 flex flex-row">
+    <div className="flex flex-row select-none">
+  
+        <div className="z-10">
           <Modal />
           <SideBar handle={handle} setName={name} dashboard={false} />
         </div>
         <div className="flex w-custom_3 flex-col justify-center ml-sidebar">
-          <div className="z-30">
+          <div className="flex flex-col justify-start ">
             <NavBar dashboard={false}/>
           </div>
           <div className="z-0 p-4">
@@ -52,7 +51,7 @@ function HomeTemplate({ handle, name }: Props) {
             </div>
           </div>
         </div>
-      </div>
+     
     </div>
   );
 }

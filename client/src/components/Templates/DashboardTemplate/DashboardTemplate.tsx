@@ -13,7 +13,7 @@ function DashboardTemplate() {
         <NavBar dashboard={true} />
       </div>
       <div className="mt-40 ml-10">
-        <CreateForm />
+        
       </div>
     </div>
   );

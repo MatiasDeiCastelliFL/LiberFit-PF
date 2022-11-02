@@ -3,27 +3,47 @@ import { useParams } from "react-router-dom";
 import Json from "../../../assets/gym.json";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import isInSede from "../../../App/utils/isInSede";
+import { useAppSelector } from "../../../App/Hooks/Hooks";
 
 
 const ProductsDetails = () => {
     const sedes = Json[0].sedes;
     const { name } = useParams();
+
+    const {filter}= useAppSelector((state) => state);
+    const product = filter.products.find((product) => product.name === name);
     
     const [details, setDetails] = useState({
         name: name,
-        image: "https://www.dexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dwda4cc82c/products/NI_AR3794-785/NI_AR3794-785-1.JPG",
+        image: product.image,
         description: "Lorem ipsum dolor sit amet, e,  nisl vitae ultricies lacinia, nisl nisl aliquet n nisl vitae ultricies lacinia, nisl nisl aliquet n nisl vitae ultricies lacinia, nisl nisl aliquet n nisl vitae ultricies lacinia, nisl nisl aliquet n",
-        price: 1000,
+        price: product.price,
         sedesIn: [""],
     }); 
+    
 
     useEffect(() => {
+        filter.products.forEach((product) => {
+            if (product.name === name) {
+                setDetails(
+                    {
+                        ...details,
+                        name: product.name,
+                        image: product.image,
+                        price: product.price,
+                    }
+                );
+                
+            }
+        });
         setDetails({
             ...details,
             sedesIn: isInSede(details.name, sedes, "products")
         })
     }, []);
-    
+    useEffect(() => {
+        console.log(details);
+    }, [details]);
     return (
         <div>
             <div className="flex flex-row  w-custom_3 mb-3">

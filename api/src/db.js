@@ -1,8 +1,8 @@
 const { Sequelize } = require("sequelize");
 const path = require("path");
 const fs = require("fs");
-const Rutine = require("./Models/Rutine");
-require("dotenv").config();
+ 
+
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB } = process.env;
 const sequelize = new Sequelize(
@@ -83,8 +83,12 @@ Owners.belongsTo(Gyms);
 Locacions.belongsTo(Gyms);
 Gyms.hasMany(Locacions);
 
-Locacions.hasMany(Machines);
-Machines.belongsTo(Locacions);
+
+
+Locacions.belongsToMany(Machines, { through: "LocacionsMachine" });
+Machines.belongsToMany(Locacions, { through: "LocacionsMachine" });
+
+
 
 Locacions.belongsToMany(Products, { through: "LocacionsProducts" });
 Products.belongsToMany(Locacions, { through: "LocacionsProducts" });
@@ -100,6 +104,8 @@ Employees.belongsToMany(Locacions, { through: "LocacionsEmployees" });
 
 Locacions.belongsToMany(Subscriptions, { through: "LocacionsSubscription" });
 Subscriptions.belongsToMany(Locacions, { through: "LocacionsSubscription" });
+
+
 
 Trainings.belongsToMany(Rutines, { through: "TrainingsRutines" });
 Rutines.belongsToMany(Trainings, { through: "TrainingsRutines" });
@@ -126,7 +132,9 @@ Employees.belongsTo(Rols);
 Rols.hasMany(Employees);
 
 Rols.hasMany(Clients);
-Clients.belongsTo(Rols, {});
+Clients.belongsTo(Rols);
+
+
 
 module.exports = {
     ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

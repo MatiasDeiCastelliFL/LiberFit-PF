@@ -54,7 +54,7 @@ const NavForm = ({ dashboard }: Props) => {
   const name = params.pathname.split("/").map((e, i) => e);
 
   return (
-    <div className="flex w-full  h-16 items-end item-center font-medium  justify-between ">
+    <div className={`${dashboard? 'w-custom_3': 'w-max'} flex h-16 items-end item-center font-medium  justify-between`}>
       <div className="flex px-8">
         {!dashboard
           ? links.map((elem, i) => (
@@ -101,7 +101,7 @@ const NavForm = ({ dashboard }: Props) => {
           />
         </div>
       )}
-      <div className={dashboard ? "flex mr-80" : "flex mr-96 "}>
+      <div className={dashboard ? "flex xl:mr-96 2xl:mr-0" : "flex mr-4 "}>
         {!dashboard ? (
           link2.map((elem, i) => (
             <div key={i} className="md:ml-8">

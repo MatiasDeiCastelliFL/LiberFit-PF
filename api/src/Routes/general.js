@@ -4,8 +4,6 @@ const { getApi, getData,getlocacionesJson } = require("../controllers/generalCon
 const routerGeneral = Router();
 routerGeneral.get("/info", getApi);
 
-// routerGeneral.get("/filldb", getData);
-
 routerGeneral.get("/filldb", getData);
 routerGeneral.get("/infolocaciones", getlocacionesJson);
 

@@ -1,6 +1,7 @@
 const axios = require("axios");
 const json = require("../services/initializeData");
 const api = require("./gym.json");
+const sedes = require("./sedes.json");
 
 const getApi = async (req, res) => {
     try {
@@ -14,7 +15,6 @@ const getApi = async (req, res) => {
     }
 };
 
-
 const getData = async (req, res) => {
     try {
         json.crearDesdeJsonAPaymentsDb();
@@ -25,8 +25,8 @@ const getData = async (req, res) => {
         json.crearDesdeJsonAExerciseDb();
         json.crearDesdeJsonARolsDb();
         json.crearDesdeJsonASubscriptionsDb();
-        json.crearDesdeJsonAClientsDb();
         json.crearDesdeJsonAEmployeesDb();
+        json.crearDesdeJsonAClientsDb();
         json.crearDesdeJsonALocacionsDb();
         json.crearDesdeJsonAOwnersDb();
         json.crearDesdeJsonAGymsDb();
@@ -40,7 +40,12 @@ const getData = async (req, res) => {
     }
 };
 const getlocacionesJson = async (req, res) => {
-    res.send('data locacions')
+    res.send(sedes);
 };
-module.exports = { getApi, getData, getlocacionesJson };
 
+const createDBonfromatOfJSON = async (req, res) => {
+    const Json = await json.createDBonfromatOfJSON();
+    res.json(Json);
+};
+
+module.exports = { getApi, getData, getlocacionesJson, createDBonfromatOfJSON };

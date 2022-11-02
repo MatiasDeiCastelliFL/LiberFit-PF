@@ -31,15 +31,17 @@ const getClientsRequest = async (req, res) => {
 
 const postClientsRequest = async (req, res) => {
     try {
+
         const clientValidationErrors = await validate(req.body, Clients);
 
         if (clientValidationErrors.length > 0) {
             res.status(400).json(clientValidationErrors);
         } else {
-            const { name, phone, email, password, image } = req.body;
-            const newClient = await createClient(name, phone, email, password, image);
+            const { name, phone, email, password, active, image, SubscriptionId, RolId, locacion } = req.body;
+            const newClient = await createClient(name, phone, email, password,active,image,SubscriptionId,RolId,locacion);
             res.status(200).json(newClient);
         }
+
     } catch (error) {
        res.status(500).json({error: error.message});
     }

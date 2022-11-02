@@ -1,0 +1,14 @@
+###
+GET http://localhost:3004/anuncios
+
+###
+DELETE http://localhost:3004/anuncios/
+
+###
+PUT http://localhost:3004/anuncios/13b4751d-7a93-41b9-bcd5-8516c9700bc9
+
+{
+"nombre":"image",
+"descripcion":"nueva imagen",
+"public_id ":"nzgfkllyp4ookjcbyjdu"
+}

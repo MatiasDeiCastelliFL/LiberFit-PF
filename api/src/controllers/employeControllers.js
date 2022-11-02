@@ -9,6 +9,8 @@ const {
     inactivarCuenta,
     activarCuenta,
 } = require("../services/employeServices");
+const {busquedaDat} = require("../Helpers/busqueda")
+
 const { Employees } = require("../db");
 
 const {
@@ -16,6 +18,7 @@ const {
     CuentaActiva,
     CuentaDesactivar
 } = require("../validation/validations");
+
 
 const bcrypt = require("bcrypt");
 const postEmpleado = async (req, res) => {
@@ -29,7 +32,9 @@ const postEmpleado = async (req, res) => {
             res.status(404).json(datoValidacion);
             
         } else {
-            const { name, email, phone, password, active, image, RolId } = req.body;
+            const { name, email, phone, password, active, RolId } = req.body;
+            const {path} = req.file;
+            console.log(req.file);
             const passwordEncript = await bcrypt.hash(password, 15);
 
             const datoEmpleado = await crearEmpleado(
@@ -38,7 +43,7 @@ const postEmpleado = async (req, res) => {
                 phone,
                 passwordEncript,
                 active,
-                image,
+                path,
                 RolId
             );
             res.status(200).json(datoEmpleado);
@@ -115,7 +120,18 @@ const deleteEmployee = async (req, res) => {
     }
 };
 
+const FiltrarUsuarioActivo= async(req,res)=>{
+    const usuarioActive= await busquedaDat(Employees);
+
+    res.status(200).json({usuarioActive});
+}
+
+/* Verifica que la cuenta este activa. si la cuenta esta activa le 
+permitira desactivar si no le indicara que la cuenta ya se enceuntra desactivada*/
+
 const inactivarEmployee = async (req, res) => {
+
+
     try {
         const { id } = req.body;
         const desactivarCuenta = await CuentaDesactivar(id, Employees);
@@ -131,6 +147,8 @@ const inactivarEmployee = async (req, res) => {
     }
 };
 
+/* Verifica que la cuenta se encuentra desactivada, si esta la
+ cuenta desactivada le va a permitr activa su cuenta sino le va a decir que su cuenta ya se encuentra activada*/
 const activarEmployee = async (req, res) => {
     try {
         const { id } = req.body;
@@ -154,4 +172,5 @@ module.exports = {
     deleteEmployee,
     inactivarEmployee,
     activarEmployee,
+    FiltrarUsuarioActivo
 };
