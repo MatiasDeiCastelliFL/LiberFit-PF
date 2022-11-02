@@ -25,6 +25,13 @@ const BreadCrums = () => {
                                     ? `text-redClare`
                                     : `text-black`
                             }
+                            style={
+                                location.pathname.split("/")[
+                                    location.pathname.split("/").length - 1
+                                ] === item
+                                    ? { pointerEvents: "none" }
+                                    : { pointerEvents: "auto" }
+                            }
                         >
                             {item.split("%20").join(" ")}
                         </Link>
