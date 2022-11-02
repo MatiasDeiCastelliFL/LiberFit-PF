@@ -9,7 +9,7 @@ const {
     inactivarCuenta,
     activarCuenta,
 } = require("../services/employeServices");
-const {busquedaDat} = require("../Helpers/busqueda")
+const {busquedaDatActive,busquedaDatDesactive} = require("../Helpers/busqueda")
 
 const { Employees } = require("../db");
 
@@ -121,9 +121,15 @@ const deleteEmployee = async (req, res) => {
 };
 
 const FiltrarUsuarioActivo= async(req,res)=>{
-    const usuarioActive= await busquedaDat(Employees);
+    const usuarioActive= await busquedaDatActive(Employees);
 
     res.status(200).json({usuarioActive});
+}
+
+const FiltrarUsuarioInactivo= async(req,res)=>{
+    const usuarioInactive= await busquedaDatDesactive(Employees);
+
+    res.status(200).json({usuarioInactive});
 }
 
 /* Verifica que la cuenta este activa. si la cuenta esta activa le 
@@ -172,5 +178,6 @@ module.exports = {
     deleteEmployee,
     inactivarEmployee,
     activarEmployee,
-    FiltrarUsuarioActivo
+    FiltrarUsuarioActivo,
+    FiltrarUsuarioInactivo
 };

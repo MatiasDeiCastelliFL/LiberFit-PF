@@ -26,7 +26,10 @@ function Item({ title, type }: Props) {
                         ) : type === "admin" ? (
                             <div className="">
                                 <Item2 title="Crear" active={false} />
-                                <Item2 title="Borrar o Actualizar" active={false} />
+                                <Item2
+                                    title="Borrar o Actualizar"
+                                    active={false}
+                                />
                             </div>
                         ) : null}
                     </div>
