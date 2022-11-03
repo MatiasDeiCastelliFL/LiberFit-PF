@@ -29,9 +29,9 @@ const LoginForm = () => {
 
   const dispatch = useAppDispatch()
 
-  console.log(cookies.get("id"))
+ /* console.log(cookies.get("id"))
   console.log(cookies.get("name"))
-  console.log(cookies.get("email"))
+  console.log(cookies.get("email")) */
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);

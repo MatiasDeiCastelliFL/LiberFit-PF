@@ -50,10 +50,10 @@ function SideBar({ handle, setName, dashboard }: Props) {
         { title: "usuarios", active: false, desplegable: false },
     ];
 
-    console.log(cookies.get("id"));
-    console.log(cookies.get("name"));
-    console.log(cookies.get("email"));
-    console.log(cookies.get("image"));
+    // console.log(cookies.get("id"));
+    // console.log(cookies.get("name"));
+    // console.log(cookies.get("email"));
+    // console.log(cookies.get("image"));
 
     return (
         <div className="fixed flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
