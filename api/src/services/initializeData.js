@@ -65,9 +65,9 @@ const crearDesdeJsonAProductsDb = async () => {
                 price: product.price,
                 stock: product.stock || Math.ceil(Math.random()) * 100,
                 code: product.code || "12312",
+                active: product.active || true,
                 image: product.image,
-                description:
-                    product.description || "Esto es ".concat(product.name),
+                description: product.description || "Esto es ".concat(product.name),
                 size: product.size || "10",
                 brand: product.brand || "LiberFit",
             };
