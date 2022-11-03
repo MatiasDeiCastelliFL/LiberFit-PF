@@ -43,6 +43,7 @@ const getlocacionesJson = async (req, res) => {
     res.send(sedes);
 };
 
+
 const createDBonfromatOfJSON = async (req, res) => {
     const Json = await json.createDBonfromatOfJSON();
     res.json(Json);
