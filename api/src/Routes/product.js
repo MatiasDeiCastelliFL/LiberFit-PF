@@ -9,7 +9,7 @@ const {getProduct,postProduct,deleteProduct,activarProduc,inactivarProduct,CantA
 const routerProduct= Router();
 
 routerProduct.post("/product",isAuthenticated,postProduct);
-routerProduct.get("/product",isAuthenticated,getProduct);
+routerProduct.get("/product",getProduct);
 routerProduct.delete('/product/:id',isAuthenticated,deleteProduct)
 routerProduct.put("/ProductoDesactivar",inactivarProduct);
 routerProduct.put("/ProductoActivar",activarProduc);
