@@ -5,7 +5,7 @@ const routerClient= Router();
 const {isAuthenticated}= require('../Helpers/auth')
 
 routerClient.get("/clients", isAuthenticated,getClientsRequest); //QUERY: name, email
-routerClient.post("/clients",isAuthenticated, postClientsRequest); //BODY: { name, phone, email, password, image }
+routerClient.post("/clients", postClientsRequest); //BODY: { name, phone, email, password, image }
 routerClient.put("/clients", isAuthenticated,putClientRequest) //BODY: { id, name, phone, email, password, image }
 routerClient.delete("/clients", isAuthenticated,deleteClientRequest); //BODY: { id, name, email }
 
