@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Json from "../../../assets/gym.json";
-import muscleIcon from "../../../assets/IMG/muscle-icon.png";
-import isInSede from "../../../App/utils/isInSede";
+import Json from "../../../../assets/gym.json";
+import muscleIcon from "../../../../assets/IMG/muscle-icon.png";
+import isInSede from "../../../../App/utils/isInSede";
 
-import SedesList from "../SedesList/SedesList";
-import { useAppSelector } from "../../../App/Hooks/Hooks";
+import SedesList from "../../SedesList/SedesList";
+import { useAppSelector } from "../../../../App/Hooks/Hooks";
 
 const MachineDetails = () => {
     const sedes = Json[0].sedes;
     const { name } = useParams();
-    const {data}= useAppSelector((state) => state);
-    const machine = data.machines.find((machine:any) => machine.name === name);
+    const {filter}= useAppSelector((state) => state);
+    const machine = filter.machines.find((machine:any) => machine.name === name);
     console.log(machine);
 
 
@@ -45,7 +45,9 @@ const MachineDetails = () => {
                         <p className=" text-l font-sans font-medium">{details.muscle}</p>
                     </div>
                     <h1 className="w-full mb-10 flex justify-center text-5xl font-sans font-black">{details.name}</h1>
-                    <SedesList sedes={details.sedesIn}/>
+                    {
+                        details.sedesIn.length > 0 ?  <SedesList sedes={details.sedesIn}/> : null
+                    }
                 </div>
             </div>
             <div className="flex w-max gap-5">

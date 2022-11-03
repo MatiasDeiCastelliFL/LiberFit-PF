@@ -110,7 +110,7 @@ function CardsCategory() {
                 </div>
             ) : (
                 <div className={`${style.cardsDiv} flex w-swiper gap-10 justify-start mt-5`}>
-                    {filter.exercises.map((e) => (
+                    {filter.filteredExercises.map((e) => (
                         <Link to={`/home/Exercises/${e.name}`}>
                             <Card
                                 name={e.name}

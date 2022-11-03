@@ -5,6 +5,7 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useParams } from "react-router-dom";
 import PriceFilter from "./PriceFilter";
 import MusclesFilters from "./MuclesFilters";
+import BrandFilter from "./BrandFilter";
 
 import {
     ChevronDownIcon,
@@ -24,9 +25,7 @@ function classNames(...classes: any) {
 function Content() {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
     const params = useParams();
-    const data = Json[0].exercises;
-    const dataSedes = Json[0].sedes;
-    console.log(dataSedes);
+
     const filters = [
         {
             id:
@@ -45,10 +44,12 @@ function Content() {
                     : params.category === "Trainings"
                     ? "Precios"
                     : params.category === "Products"
-                    ? "Precios"
-                    :null,
+                    ? "Precios / Marca"
+                    : "null",
+
+
         },
-      ];
+    ];
     return (
         <div className="bg-white">
             <div>
@@ -98,7 +99,10 @@ function Content() {
                                                         {params.category === "Exercises" ? (
                                                             <MusclesFilters section={section} />
                                                         ) : params.category === "Products" ? (
-                                                            <PriceFilter/>
+                                                            <div className="flex flex-col gap-16">
+                                                                <PriceFilter/>
+                                                                <BrandFilter section={section}/>
+                                                            </div>
                                                         ) : params.category === "Machines" ? (
                                                             <MusclesFilters section={section} />
                                                         ) : params.category === "Trainings" ? (

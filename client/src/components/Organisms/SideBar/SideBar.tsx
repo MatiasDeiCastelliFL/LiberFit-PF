@@ -15,9 +15,10 @@ interface Props {
     handle: any;
     setName: any;
     dashboard: boolean;
+    handleClickItem: any;
 }
 // TODO cambiar color al estar activo
-function SideBar({ handle, setName, dashboard,handleClickItem }: Props) {
+function SideBar({ handle, setName, dashboard, handleClickItem }: Props) {
     const params = useParams();
     const location = useLocation();
     const dispatch = useAppDispatch();
@@ -32,7 +33,7 @@ function SideBar({ handle, setName, dashboard,handleClickItem }: Props) {
     ];
 
     const admin = [
-        { title: "Dashboard", active: true, desplegable: false, },
+        { title: "Dashboard", active: true, desplegable: false },
         { title: "Rutinas", active: false, desplegable: true },
         { title: "Productos", active: false, desplegable: true },
         { title: "Ejercicios", active: false, desplegable: true },
@@ -95,38 +96,37 @@ function SideBar({ handle, setName, dashboard,handleClickItem }: Props) {
                             <div className="mt-10 flex gap-2 flex-col">
                                 {location.pathname === "/dashboard/cliente"
                                     ? client.map((d) => (
-                                          <div className="">
-                                              {d.desplegable ? (
-                                                  <Item
-                                                      title={d.title}
-                                                      type="cliente"
-                                                  />
-                                              ) : (
-                                                  <Item2
-                                                      active={d.active}
-                                                      title={d.title}
-                                                  />
-                                              )}
-                                          </div>
-                                      ))
+                                        <div className="">
+                                            {d.desplegable ? (
+                                                <Item
+                                                    title={d.title}
+                                                    type="cliente"
+                                                />
+                                            ) : (
+                                                <Item2
+                                                    active={d.active}
+                                                    title={d.title}
+                                                />
+                                            )}
+                                        </div>
+                                    ))
                                     : location.pathname === "/dashboard"
                                     ? admin.map((d) => (
-                                          <div className="">
-                                              {d.desplegable ? (
-                                                  <Item
-                                                      title={d.title}
+                                        <div className="">
+                                            {d.desplegable ? (
+                                                <Item
+                                                    title={d.title}
                                                     type="admin"
-                                                    click={handleClickItem}
-                                                  />
-                                              ) : (
-                                                  <Item2
-                                                      active={d.active}
-                                                      title={d.title}
-                                                  />
-                                              )}
-                                          </div>
-                                      ))
-                                    : null}
+                                                />
+                                            ) : (
+                                                <Item2
+                                                    active={d.active}
+                                                    title={d.title}
+                                                />
+                                            )}
+                                        </div>
+                                    ))
+                                : null}
                             </div>
                         )}
                     </div>

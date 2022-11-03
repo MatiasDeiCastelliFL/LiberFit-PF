@@ -5,6 +5,7 @@ import { modalOpen } from "../FeatureSlices/Modal/Modal";
 import { filterDataPrice,openFilter, filterDataName} from "../FeatureSlices/Filters/Filter";
 import { getData, getLocationsReducer, getClientsReducer } from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users"
+import { login } from "../FeatureSlices/login/login"
 
 const data = Json[0].sedes.map(d => d.products.map(d => d.name))
 const exercises = Json[0].exercises.map(d => d)
@@ -93,4 +94,14 @@ export const postElement = (payload:any, element:string) =>  (dispatch: any) => 
     } catch (error) {
         console.log(error)
     } 
+}
+
+export const loginAction = (payload:any) => async (dispatch: any) => {
+    try {       
+        let json = await axios.post("http://localhost:3004/login", payload) // {email, password}
+        console.log(json)
+        return json // {}
+    } catch (error) {
+        console.log("login -->",error)
+    }
 }

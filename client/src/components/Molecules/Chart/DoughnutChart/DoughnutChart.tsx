@@ -5,7 +5,7 @@ import { Pie } from "react-chartjs-2";
 
 const DoughnutChart = ({data}:any) => {
   return (
-    <div>
+    <div >
       <Pie data={data} />
     </div>
   );
