@@ -1,6 +1,6 @@
 import React from "react";
 import Style from "./Styles.module.css";
-import {filterProductsByPrice} from "../../../App/Action/Action";
+import {filterProductsByPrice} from "../../../App/Action/FilterActions";
 import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
 
 const PriceFilter = () => {

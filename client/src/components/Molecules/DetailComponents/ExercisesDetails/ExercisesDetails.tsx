@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Json from "../../../assets/gym.json";
+import Json from "../../../../assets/gym.json";
 import { FireIcon, ArrowPathIcon } from "@heroicons/react/24/outline";
-import muscleIcon from "../../../assets/IMG/muscle-icon.png";
-import { useAppSelector } from "../../../App/Hooks/Hooks";
+import muscleIcon from "../../../../assets/IMG/muscle-icon.png";
+import { useAppSelector } from "../../../../App/Hooks/Hooks";
 
 
 const ExercisesDetails = () => {

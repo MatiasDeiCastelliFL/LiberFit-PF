@@ -10,11 +10,16 @@ import {
 } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
 import { useForm } from "react-hook-form";
+import { loginAction } from "../../../App/Action/Action"
+import { useAppDispatch } from "../../../App/Hooks/Hooks"
+import Cookies from "universal-cookie"
 
 interface Inp {
   email: string;
   password: string;
 }
+const cookies = new Cookies()
+
 const LoginForm = () => {
   const {
     register,
@@ -22,8 +27,32 @@ const LoginForm = () => {
     formState: { errors },
   } = useForm<Inp>();
 
+  const dispatch = useAppDispatch()
+
+  console.log(cookies.get("id"))
+  console.log(cookies.get("name"))
+  console.log(cookies.get("email"))
+
   const onSubmit = handleSubmit((data) => {
     console.log(data);
+    dispatch(loginAction(data))
+    .then(response => {
+      return response?.data.data
+      // console.log("-->",response?.data.data)
+    })
+    .then(response => {
+      var respuesta = response
+      cookies.set("id", respuesta.id,{path: "/"})
+      cookies.set("email", respuesta.email,{path: "/"})
+      cookies.set("name", respuesta.name,{path: "/"})
+      cookies.set("phone", respuesta.phone,{path: "/"})
+      alert(`Bienvenido ${respuesta.name}`)
+      console.log("asdasd-->",respuesta.name)
+      window.location.href="./home"
+    })
+    .catch(error => {
+      console.log(error)
+    })
   });
 
   return (
