@@ -10,6 +10,7 @@ import Perfil from "../../Atoms/Perfil/Perfil";
 import Items from "../../Atoms/Perfil/ItemsPefil/Items";
 import Item2 from "../../Atoms/SideItems/Item2";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/outline";
+import Cookies from "universal-cookie"
 
 interface Props {
     handle: any;
@@ -18,11 +19,20 @@ interface Props {
     handleClickItem: any;
 }
 // TODO cambiar color al estar activo
+const cookies = new Cookies()
+
 function SideBar({ handle, setName, dashboard, handleClickItem }: Props) {
     const params = useParams();
     const location = useLocation();
     const dispatch = useAppDispatch();
     const { filter } = useAppSelector((state) => state);
+    const cerrarSesion = () => {
+        cookies.remove("id",{path: "/"})
+        cookies.remove("email",{path: "/"})
+        cookies.remove("name",{path: "/"})
+        cookies.remove("phone",{path: "/"})
+        window.location.href="./login"
+    }
 
     const client = [
         { title: "Dashboard", active: true, desplegable: false },
@@ -39,6 +49,10 @@ function SideBar({ handle, setName, dashboard, handleClickItem }: Props) {
         { title: "Ejercicios", active: false, desplegable: true },
         { title: "usuarios", active: false, desplegable: false },
     ];
+
+    console.log(cookies.get("id"))
+    console.log(cookies.get("name"))
+    console.log(cookies.get("email"))
 
     return (
         <div className=" flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
@@ -147,7 +161,7 @@ function SideBar({ handle, setName, dashboard, handleClickItem }: Props) {
                             <Perfil width="14" />
                         </Link>
                         <Items />
-                        <div className="w-max flex justify-end">
+                        <div onClick={cerrarSesion} className="w-max flex justify-end" >
                             <ArrowLeftOnRectangleIcon className="w-6 mr-5 cursor-pointer text-redClare" />
                         </div>
                     </div>

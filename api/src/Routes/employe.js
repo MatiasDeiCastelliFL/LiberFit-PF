@@ -2,7 +2,7 @@ const { Router} = require("express");
 const { upload } = require("../config/multer.config");
 
 const {isAuthenticated}= require('../Helpers/auth')
-const {postEmpleado,getEmpleado,modificarEmpleado,deleteEmployee,inactivarEmployee,activarEmployee,FiltrarUsuarioActivo,FiltrarUsuarioInactivo} = require("../controllers/employeControllers");
+const {postEmpleado,getEmpleado,modificarEmpleado,deleteEmployee,inactivarEmployee,activarEmployee,FiltrarUsuarioActivo,FiltrarUsuarioInactivo,CantInacativo,CantActivo} = require("../controllers/employeControllers");
 const routerEmpleado = Router();
 
 routerEmpleado.post("/empleado",isAuthenticated, upload ,postEmpleado);
@@ -13,7 +13,8 @@ routerEmpleado.put("/empleadoDesactivar",isAuthenticated,inactivarEmployee);
 routerEmpleado.put("/empleadoActivar",isAuthenticated,activarEmployee);
 routerEmpleado.get("/FiltrarEmpleadoActivo",isAuthenticated,FiltrarUsuarioActivo)
 routerEmpleado.get("/FiltrarEmpleadoInactivo",isAuthenticated,FiltrarUsuarioInactivo)
-
+routerEmpleado.get("/CantProductoInacativo",isAuthenticated,CantInacativo)
+routerEmpleado.get("/CantProductoActivo",isAuthenticated,CantActivo)
 =========
 const {postEmpleado,getEmpleado,modificarEmpleado,deleteEmployee,inactivarEmployee,activarEmployee,FiltrarUsuarioActivo,FiltrarUsuarioInactivo,CantActivo,CantInacativo,FiltrarUsuarioInactivoConSede,
     FiltrarUsuarioActivoConSede} = require("../controllers/employeControllers");
