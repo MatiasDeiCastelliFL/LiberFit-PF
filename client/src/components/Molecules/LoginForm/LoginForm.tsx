@@ -10,6 +10,8 @@ import {
 } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
 import { useForm } from "react-hook-form";
+import { loginAction } from "../../../App/Action/Action"
+import { useAppDispatch } from "../../../App/Hooks/Hooks"
 
 interface Inp {
   email: string;
@@ -22,8 +24,11 @@ const LoginForm = () => {
     formState: { errors },
   } = useForm<Inp>();
 
+  const dispatch = useAppDispatch()
+
   const onSubmit = handleSubmit((data) => {
     console.log(data);
+    dispatch(loginAction(data))
   });
 
   return (

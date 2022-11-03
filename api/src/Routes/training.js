@@ -1,5 +1,5 @@
 const { Router } = require("express");
-
+const {isAuthenticated}= require('../Helpers/auth')
 const {
     postTraining,
   getTraining,
@@ -9,9 +9,9 @@ const {
 
 const routerTraining = Router();
 
-routerTraining.get("/training", getTraining);
-routerTraining.post("/training", postTraining);
-routerTraining.put("/training/:id", putTraining);
-routerTraining.delete("/training/:id", deleteTraining);
+routerTraining.get("/training",isAuthenticated, getTraining);
+routerTraining.post("/training", isAuthenticated,postTraining);
+routerTraining.put("/training/:id",isAuthenticated, putTraining);
+routerTraining.delete("/training/:id",isAuthenticated, deleteTraining);
 
 module.exports = routerTraining;
