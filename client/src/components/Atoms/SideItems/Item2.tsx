@@ -3,13 +3,11 @@ import React from "react";
 interface Props {
     title: string;
     active: boolean;
-    handleClickItem: any;
 }
 
-function Item2({ title, active ,handleClickItem}: Props) {
+function Item2({ title, active }: Props) {
     return (
-        <div className="w-max"
-        onClick={()=>handleClickItem(title)}>
+        <div className="w-max">
             <div className="">
                 <div
                     className={`${

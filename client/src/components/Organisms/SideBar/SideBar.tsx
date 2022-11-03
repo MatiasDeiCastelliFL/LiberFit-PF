@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "../../Atoms/Logo/Logo";
 import Filter from "../../Molecules/Filter/Filter";
 import Search from "./../../Atoms/Inputs/Search/Search";
+import style from "./Style/sidebar.module.css";
 import { useAppDispatch, useAppSelector } from "./../../../App/Hooks/Hooks";
 import { Transition } from "@headlessui/react";
 import { useParams, Link, useLocation } from "react-router-dom";
@@ -15,10 +16,9 @@ interface Props {
     handle: any;
     setName: any;
     dashboard: boolean;
-    handleClickItem: any;
 }
-// TODO cambiar color al estar activo
-function SideBar({ handle, setName, dashboard, handleClickItem }: Props) {
+
+function SideBar({ handle, setName, dashboard }: Props) {
     const params = useParams();
     const location = useLocation();
     const dispatch = useAppDispatch();
@@ -41,7 +41,7 @@ function SideBar({ handle, setName, dashboard, handleClickItem }: Props) {
     ];
 
     return (
-        <div className=" flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
+        <div className="fixed flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
             <div className="">
                 <Transition
                     show={filter.open === false ? true : false}
@@ -96,26 +96,20 @@ function SideBar({ handle, setName, dashboard, handleClickItem }: Props) {
                             <div className="mt-10 flex gap-2 flex-col">
                                 {location.pathname === "/dashboard/cliente"
                                     ? client.map((d) => (
-                                        <div className="">
-                                            {d.desplegable ? (
-                                                <Item
-                                                    title={d.title}
-                                                    type="cliente"
-                                                    handleClickItem={
-                                                        handleClickItem
-                                                    }
-                                                />
-                                            ) : (
-                                                <Item2
-                                                    active={d.active}
-                                                    title={d.title}
-                                                    handleClickItem={
-                                                        handleClickItem
-                                                    }
-                                                />
-                                            )}
-                                        </div>
-                                    ))
+                                          <div className="">
+                                              {d.desplegable ? (
+                                                  <Item
+                                                      title={d.title}
+                                                      type="cliente"
+                                                  />
+                                              ) : (
+                                                  <Item2
+                                                      active={d.active}
+                                                      title={d.title}
+                                                  />
+                                              )}
+                                          </div>
+                                      ))
                                     : location.pathname === "/dashboard"
                                     ? admin.map((d) => (
                                           <div className="">
@@ -123,17 +117,11 @@ function SideBar({ handle, setName, dashboard, handleClickItem }: Props) {
                                                   <Item
                                                       title={d.title}
                                                       type="admin"
-                                                      handleClickItem={
-                                                          handleClickItem
-                                                      }
                                                   />
                                               ) : (
                                                   <Item2
                                                       active={d.active}
                                                       title={d.title}
-                                                      handleClickItem={
-                                                          handleClickItem
-                                                      }
                                                   />
                                               )}
                                           </div>
