@@ -1,7 +1,7 @@
-import React ,{useState} from "react";
-import { useAppDispatch } from "../../../App/Hooks/Hooks";
+import React ,{useEffect, useState} from "react";
+import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
 import Json from "../../../assets/gym.json";
-// import {getExercisesByMuscle} from "../../../App/Action/Action";
+import { filterByMuscle } from "../../../App/Action/FilterActions"; 
 
 interface Props {
     section: {
@@ -12,23 +12,58 @@ interface Props {
 
 const MuclesFilters = ({section}:Props) => {
 
-    const data = Json[0].exercises;
+    
+    const {filter} = useAppSelector((state) => state);
+    const [muscles, setMuscles] = useState(filter.exercises.map((item) => item.muscle));
 
     const dispatch = useAppDispatch()
 
-    const  [muscle, setMuscle] = useState<string>("");
+    const  [muscle, setMuscle] = useState<Array<string>>([]);
 
-    const handleSelect = (e:any) => {
-        e.preventDefault();
-        console.log(e.target.value);
-        setMuscle(e.target.value);
-        // dispatch(getExercisesByMuscle(muscle))
+    const handleMuscle = (newMuscle: string) => {
+        if (newMuscle === "All") {
+            setMuscle([]);
+            dispatch(filterByMuscle([], 'exercises'));
+        } else {
+            if(muscle.includes(newMuscle)){
+                const index = muscle.indexOf(newMuscle);
+                muscle.splice(index, 1);
+            }else{
+                muscle.push(newMuscle);
+            }
+            dispatch(filterByMuscle(muscle, 'exercises'));
+        }
+    
     }
+
+    useEffect(() => {
+        const musclesSet = new Set(muscles);
+        const musclesArray = Array.from(musclesSet);
+        setMuscles(musclesArray);
+    }, []);
+
+    useEffect(() => {
+    }, [muscle]);
 
     return (
         <div>
+            <input
+                id={`filter-${section.id}-all`}
+                name={`${section.id}[]`}
+                defaultValue='All'
+                checked={ muscle.length === 0 || muscle.length === muscles.length}
+                onChange={() => handleMuscle('All')}
+                type="checkbox"
+                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+            />
+            <label
+                htmlFor={`filter-${section.id}-Todos`}
+                className="ml-3 text-sm text-gray-600"
+            >
+                Todos
+            </label>            
             {
-                data.map(
+                muscles.map(
                     (
                         option,
                         optionIdx
@@ -42,10 +77,11 @@ const MuclesFilters = ({section}:Props) => {
                             <input
                                 id={`filter-${section.id}-${optionIdx}`}
                                 name={`${section.id}[]`}
-                                onClick={handleSelect}
                                 defaultValue={
-                                    option.muscle
+                                    option
                                 }
+                                checked={ muscle.includes(option) }
+                                onChange={() => handleMuscle(option)}
                                 type="checkbox"
                                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                             />
@@ -54,7 +90,7 @@ const MuclesFilters = ({section}:Props) => {
                                 className="ml-3 text-sm text-gray-600"
                             >
                                 {
-                                    option.muscle
+                                    option
                                 }
                             </label>
                         </div>

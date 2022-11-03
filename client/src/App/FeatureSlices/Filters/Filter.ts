@@ -11,6 +11,8 @@ export interface filterState {
     trainigns: any[];
     machines: any[];
     filteredProducts: any[];
+    filteredProductsByPrice: any[];
+    filteredProductsByBrand: any[];
     filteredMachines: any[];
     filteredExercises: any[];
     filteredTrainings: any[];
@@ -29,6 +31,8 @@ const initialState: filterState = {
     trainigns: [],
     machines: [],
     filteredProducts: [],
+    filteredProductsByPrice: [],
+    filteredProductsByBrand: [],
     filteredMachines: [],
     filteredExercises: [],
     filteredTrainings: [],
@@ -50,7 +54,10 @@ const filterSlice = createSlice({
             state.products = arraySet(action.payload.products);
             state.trainigns = arraySet(action.payload.trainings);
 
+            state.filteredProductsByPrice = state.products;
+            state.filteredProductsByBrand = state.products;
             state.filteredProducts = state.products;
+            
             state.filteredMachines = state.machines;
             state.filteredExercises = state.exercises;
             state.filteredTrainings = state.trainigns;
@@ -67,15 +74,38 @@ const filterSlice = createSlice({
         },
         filterDataPrice: (state, action: PayloadAction<any>) => {
             let minPrice = [...state.products].filter(
-                (d) => d.price >= action.payload[0]
+                (d) => parseInt(d.price) >= action.payload[0]
             );
             let maxPrice = [...state.products].filter(
-                (d) => d.price <= action.payload[1]
+                (d) => {
+                    return parseInt(d.price) <= action.payload[1]
+                }
             );
-            state.filteredProducts = state.products.filter(
+            state.filteredProductsByPrice = state.products.filter(
                 (d) => minPrice.includes(d) && maxPrice.includes(d)
             );
-            console.log('fILTERED pRODUCTS',maxPrice);
+            console.log('mayores a', minPrice)
+            console.log('menores a', maxPrice)
+            state.filteredProducts = state.filteredProductsByPrice.filter(
+                (d) => {
+                    return state.filteredProductsByBrand.some((e) => e.id === d.id);
+                }
+            );
+        },
+        filterByBrands: (state, action: PayloadAction<any>) => {
+            if (action.payload.length === 0) {
+                console.log("empty");
+                state.filteredProductsByBrand = state.products;
+            } else {
+                state.filteredProductsByBrand = state.products.filter((d) =>
+                    action.payload.includes(d.brand)
+                );
+            }
+            state.filteredProducts = state.filteredProductsByPrice.filter(
+                (d) => {
+                    return state.filteredProductsByBrand.some((e) => e.id === d.id);
+                }
+            );
         },
         filterByMuscles : (state, action: PayloadAction<any>) => {
             let muscles = action.payload[0];
@@ -85,11 +115,14 @@ const filterSlice = createSlice({
                     muscles.includes(d.muscles)
                 );
             } else if (category === "exercises") {
-                console.log("filtrando exercises");
-                state.filteredExercises = state.exercises.filter((d: { muscles: any; }) =>
-                    muscles.includes(d.muscles)
-                );
-            } 
+                    if (muscles.length === 0) {
+                        state.filteredExercises = state.exercises;
+                    } else {
+                        state.filteredExercises = state.exercises.filter((d: { muscle: any; }) =>
+                        muscles.includes(d.muscle)
+                    );                                 
+                }
+            }
         },
         filterDataName: (state, action: PayloadAction<any>) => {
             if (location.pathname === "/home") {
@@ -138,5 +171,5 @@ const filterSlice = createSlice({
 });
 
 export default filterSlice.reducer;
-export const { getData, filterDataName, filterDataPrice, openFilter } =
+export const { getData, filterDataName, filterDataPrice, openFilter, filterByMuscles, filterByBrands } =
     filterSlice.actions;

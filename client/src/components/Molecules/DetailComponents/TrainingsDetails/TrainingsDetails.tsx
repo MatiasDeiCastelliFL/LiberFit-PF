@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Json from "../../../assets/gym.json";
-import isInSede from "../../../App/utils/isInSede";
-import { useAppSelector } from "../../../App/Hooks/Hooks";
+import Json from "../../../../assets/gym.json";
+import isInSede from "../../../../App/utils/isInSede";
+import { useAppSelector } from "../../../../App/Hooks/Hooks";
 
-import SedesList from "../SedesList/SedesList";
+import SedesList from "../../SedesList/SedesList";
 const TrainingsDetails = () => {
     const sedes = Json[0].sedes;
     const { name } = useParams();
