@@ -11,41 +11,43 @@ import Dashboard from "./page/Dashboard/Dashboard";
 import DAdmin from "./page/Dashboard/DAdmin";
 
 function App() {
-  return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route
-          path="/home"
-          element={<Home />}
-          handle={{
-            crumb: (data: {
-              threadName:
-                | string
-                | number
-                | boolean
-                | React.ReactElement<
-                    any,
-                    string | React.JSXElementConstructor<any>
-                  >
-                | React.ReactFragment
-                | React.ReactPortal
-                | null
-                | undefined;
-            }) => <span>{data.threadName}</span>,
-          }}
-        >
-          <Route path="/home/:category" element={<CardsCategory />} />
-          <Route path="/home/:category/:name" element={<Details />} />
-        </Route>
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/signup" element={<SingUp />} />
-        <Route path="/dashboard" element={<Dashboard/>}>
-          {/* <Route path='/dashboard/:cliente' element={<Dcliente/>}/> */}
-        </Route>
-      </Routes>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Routes>
+                <Route path="/" element={<Landing />} />
+                <Route
+                    path="/home"
+                    element={<Home />}
+                    handle={{
+                        crumb: (data: {
+                            threadName:
+                                | string
+                                | number
+                                | boolean
+                                | React.ReactElement<
+                                      any,
+                                      string | React.JSXElementConstructor<any>
+                                  >
+                                | React.ReactFragment
+                                | React.ReactPortal
+                                | null
+                                | undefined;
+                        }) => <span>{data.threadName}</span>,
+                    }}
+                >
+                    <Route path="/home/:category" element={<CardsCategory />} />
+                    <Route path="/home/:category/:name" element={<Details />} />
+                </Route>
+                <Route path="/login" element={<LoginForm />} />
+                <Route path="/signup" element={<SingUp />} />
+                <Route path="/dashboard" element={<Dashboard />}>
+                    <Route path="/dashboard/rutinas" />
+                    <Route path="/dashboard/usuarios" />
+                    {/* <Route path='/dashboard/:cliente' element={<Dashboard/>}/> */}
+                </Route>
+            </Routes>
+        </div>
+    );
 }
 
 export default App;
