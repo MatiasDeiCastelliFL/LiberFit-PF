@@ -11,6 +11,8 @@ import Perfil from "../../Atoms/Perfil/Perfil";
 import Items from "../../Atoms/Perfil/ItemsPefil/Items";
 import Item2 from "../../Atoms/SideItems/Item2";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/outline";
+import Cookies from "universal-cookie";
+import style from './Style/sidebar.module.css'
 
 interface Props {
     handle: any;
@@ -19,17 +21,46 @@ interface Props {
 }
 
 function SideBar({ handle, setName, dashboard }: Props) {
+    const cookies = new Cookies();
     const params = useParams();
     const location = useLocation();
     const dispatch = useAppDispatch();
     const { filter } = useAppSelector((state) => state);
+    const cerrarSesion = () => {
+        cookies.remove("id", { path: "/" });
+        cookies.remove("email", { path: "/" });
+        cookies.remove("name", { path: "/" });
+        cookies.remove("phone", { path: "/" });
+        cookies.remove("image", { path: "/" });
+        window.location.href = "./home";
+    };
 
     const client = [
-        { title: "Dashboard", active: true, desplegable: false },
-        { title: "Rutinas", active: false, desplegable: false },
-        { title: "Productos", active: false, desplegable: false },
-        { title: "Ejercicios", active: false, desplegable: false },
-        { title: "Membresia", active: false, desplegable: true },
+        { title: "Dashboard", active: true, desplegable: false, link: "/" },
+        {
+            title: "Rutinas",
+            active: false,
+            desplegable: false,
+            link: "/dashboard/cliente/ejercicios",
+        },
+        {
+            title: "Productos",
+            active: false,
+            desplegable: false,
+            link: "/dashboard/cliente/ejercicios",
+        },
+        {
+            title: "Ejercicios",
+            active: false,
+            desplegable: false,
+            link: "/dashboard/cliente/ejercicios",
+        },
+        {
+            title: "Membresia",
+            active: false,
+            desplegable: true,
+            link: "/dashboard/cliente/ejercicios",
+        },
     ];
 
     const admin = [
@@ -39,6 +70,11 @@ function SideBar({ handle, setName, dashboard }: Props) {
         { title: "Ejercicios", active: false, desplegable: true },
         { title: "usuarios", active: false, desplegable: false },
     ];
+
+    console.log(cookies.get("id"));
+    console.log(cookies.get("name"));
+    console.log(cookies.get("email"));
+    console.log(cookies.get("image"));
 
     return (
         <div className="fixed flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
@@ -94,19 +130,25 @@ function SideBar({ handle, setName, dashboard }: Props) {
                         </Transition>
                         {dashboard && (
                             <div className="mt-10 flex gap-2 flex-col">
-                                {location.pathname === "/dashboard/cliente"
+                                {location.pathname.includes(
+                                    "/dashboard/cliente"
+                                )
                                     ? client.map((d) => (
                                           <div className="">
                                               {d.desplegable ? (
-                                                  <Item
-                                                      title={d.title}
-                                                      type="cliente"
-                                                  />
+                                                  <Link to={d.link}>
+                                                      <Item
+                                                          title={d.title}
+                                                          type="cliente"
+                                                      />
+                                                  </Link>
                                               ) : (
-                                                  <Item2
-                                                      active={d.active}
-                                                      title={d.title}
-                                                  />
+                                                  <Link to={d.link}>
+                                                      <Item2
+                                                          active={d.active}
+                                                          title={d.title}
+                                                      />
+                                                  </Link>
                                               )}
                                           </div>
                                       ))
@@ -143,13 +185,34 @@ function SideBar({ handle, setName, dashboard }: Props) {
                     leaveTo="opacity-0 scale-95 "
                 >
                     <div className="border-t border-redGray w-max h-73 flex flex-row">
+                        <Perfil width="14" />
                         <Link to="/login">
-                            <Perfil width="14" />
+                            <Items />
                         </Link>
-                        <Items />
-                        <div className="w-max flex justify-end">
-                            <ArrowLeftOnRectangleIcon className="w-6 mr-5 cursor-pointer text-redClare" />
-                        </div>
+                        {cookies.get("name") ? (
+                            <div>
+                                <div className="flex h-full items-center ml-4">
+                                    <div className="flex flex-col">
+                                        <p
+                                            className={`${style.text} text-gray`}
+                                        >
+                                            {cookies.get('name')}
+                                        </p>
+                                        <p
+                                            className={`${style.text2} text-semiRed`}
+                                        >
+                                            {cookies.get('rol')}
+                                        </p>
+                                    </div>
+                                    <div
+                                        onClick={cerrarSesion}
+                                        // className="w-max flex justify-end"
+                                    >
+                                        <ArrowLeftOnRectangleIcon className="w-8 mr-5 cursor-pointer text-redClare" />
+                                    </div>
+                                </div>
+                            </div>
+                        ) : null}
                     </div>
                 </Transition>
             )}
