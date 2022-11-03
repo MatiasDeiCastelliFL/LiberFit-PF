@@ -15,3 +15,4 @@ routerLog.post('/login', passport.authenticate("local"), (req,res)=>{res.json({m
     });
   });
 
+module.exports=routerLog;
