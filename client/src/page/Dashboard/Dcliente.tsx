@@ -1,10 +1,11 @@
 import React from 'react'
-import DClienteTemplate from '../../components/Templates/DashboardTemplate/DClienteTemplate'
+// import DClienteTemplate from '../../components/Templates/DashboardTemplate/DClienteTemplate'
 
 function Dcliente() {
   return (
-    <DClienteTemplate/>
+    // <DClienteTemplate/>
+    <div></div>
   )
 }
 
-export default Dcliente
+// export default Dcliente
