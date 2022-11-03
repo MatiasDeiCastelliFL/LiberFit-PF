@@ -8,7 +8,7 @@ interface Props {
     type: string;
 }
 
-function Item({ title, type }: Props) {
+function Item({ title, type,click }: Props) {
     return (
         <div className="w-max">
             <div className="">

@@ -17,8 +17,8 @@ interface Props {
     setName: any;
     dashboard: boolean;
 }
-
-function SideBar({ handle, setName, dashboard }: Props) {
+// TODO cambiar color al estar activo
+function SideBar({ handle, setName, dashboard,handleClickItem }: Props) {
     const params = useParams();
     const location = useLocation();
     const dispatch = useAppDispatch();
@@ -33,7 +33,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
     ];
 
     const admin = [
-        { title: "Dashboard", active: true, desplegable: false },
+        { title: "Dashboard", active: true, desplegable: false, },
         { title: "Rutinas", active: false, desplegable: true },
         { title: "Productos", active: false, desplegable: true },
         { title: "Ejercicios", active: false, desplegable: true },
@@ -41,7 +41,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
     ];
 
     return (
-        <div className="fixed flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
+        <div className=" flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
             <div className="">
                 <Transition
                     show={filter.open === false ? true : false}
@@ -116,7 +116,8 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                               {d.desplegable ? (
                                                   <Item
                                                       title={d.title}
-                                                      type="admin"
+                                                    type="admin"
+                                                    click={handleClickItem}
                                                   />
                                               ) : (
                                                   <Item2
