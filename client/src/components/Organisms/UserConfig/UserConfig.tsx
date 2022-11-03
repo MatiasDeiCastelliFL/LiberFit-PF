@@ -1,10 +1,10 @@
 import React from "react";
-
+import Rutine from "../../Molecules/Rutina/Rutine.jsx"
 const UserConfig = () => {
 
     return(
         <div>
-            User Config
+            <Rutine/>
         </div>
     )
 
