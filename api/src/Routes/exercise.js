@@ -3,7 +3,7 @@ const {getExercises, postExercise,putExercise,deleteExercise}= require('../contr
 const {isAuthenticated}= require('../Helpers/auth')
 const routerExercise= Router();
 
-routerExercise.get("/exercises",isAuthenticated,getExercises);
+routerExercise.get("/exercises",getExercises);
 routerExercise.post("/exercises",isAuthenticated,postExercise);
 routerExercise.put("/exercises",isAuthenticated,putExercise);
 routerExercise.delete("/exercises",isAuthenticated,deleteExercise);
