@@ -24,9 +24,7 @@ function classNames(...classes: any) {
 function Content() {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
     const params = useParams();
-    const data = Json[0].exercises;
-    const dataSedes = Json[0].sedes;
-    console.log(dataSedes);
+
     const filters = [
         {
             id:
@@ -46,9 +44,9 @@ function Content() {
                     ? "Precios"
                     : params.category === "Products"
                     ? "Precios"
-                    :null,
+                    :"null",
         },
-      ];
+    ];
     return (
         <div className="bg-white">
             <div>

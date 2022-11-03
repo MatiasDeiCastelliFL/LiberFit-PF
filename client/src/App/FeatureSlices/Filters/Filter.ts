@@ -85,11 +85,14 @@ const filterSlice = createSlice({
                     muscles.includes(d.muscles)
                 );
             } else if (category === "exercises") {
-                console.log("filtrando exercises");
-                state.filteredExercises = state.exercises.filter((d: { muscles: any; }) =>
-                    muscles.includes(d.muscles)
-                );
-            } 
+                    if (muscles.length === 0) {
+                        state.filteredExercises = state.exercises;
+                    } else {
+                        state.filteredExercises = state.exercises.filter((d: { muscle: any; }) =>
+                        muscles.includes(d.muscle)
+                    );                                 
+                }
+            }
         },
         filterDataName: (state, action: PayloadAction<any>) => {
             if (location.pathname === "/home") {
@@ -138,5 +141,5 @@ const filterSlice = createSlice({
 });
 
 export default filterSlice.reducer;
-export const { getData, filterDataName, filterDataPrice, openFilter } =
+export const { getData, filterDataName, filterDataPrice, openFilter, filterByMuscles } =
     filterSlice.actions;

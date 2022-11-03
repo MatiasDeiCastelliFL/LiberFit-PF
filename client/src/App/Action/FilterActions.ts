@@ -2,7 +2,7 @@ import axios from "axios";
 import Json from '../../assets/gym.json'
 import arraySet from "../utils/arraySet";
 import { modalOpen } from "../FeatureSlices/Modal/Modal";
-import { getData,filterDataPrice,openFilter, filterDataName} from "../FeatureSlices/Filters/Filter";
+import { getData, filterDataPrice, openFilter, filterDataName, filterByMuscles } from "../FeatureSlices/Filters/Filter";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users"
 
 const data = Json[0].sedes.map(d => d.products.map(d => d.name))
@@ -48,6 +48,10 @@ export const getDataByPrice = (maxPrice:any, minPrice:any) => (dispatch:any) => 
 
 export const filterProductsByPrice = (minPrice:any, maxPrice:any) => (dispatch:any) => {
     dispatch(filterDataPrice([minPrice, maxPrice]))
+}
+
+export const filterByMuscle = (muscles:any, category:any) => (dispatch:any) => {
+    dispatch(filterByMuscles([muscles, category]))
 }
 
 
