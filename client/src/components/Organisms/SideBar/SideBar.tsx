@@ -10,7 +10,7 @@ import Perfil from "../../Atoms/Perfil/Perfil";
 import Items from "../../Atoms/Perfil/ItemsPefil/Items";
 import Item2 from "../../Atoms/SideItems/Item2";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/outline";
-import Cookies from "universal-cookie"
+import Cookies from "universal-cookie";
 
 interface Props {
     handle: any;
@@ -18,7 +18,7 @@ interface Props {
     dashboard: boolean;
 }
 
-const cookies = new Cookies()
+const cookies = new Cookies();
 
 function SideBar({ handle, setName, dashboard }: Props) {
     const params = useParams();
@@ -26,12 +26,13 @@ function SideBar({ handle, setName, dashboard }: Props) {
     const dispatch = useAppDispatch();
     const { filter } = useAppSelector((state) => state);
     const cerrarSesion = () => {
-        cookies.remove("id",{path: "/"})
-        cookies.remove("email",{path: "/"})
-        cookies.remove("name",{path: "/"})
-        cookies.remove("phone",{path: "/"})
-        window.location.href="./login"
-    }
+        cookies.remove("id", { path: "/" });
+        cookies.remove("email", { path: "/" });
+        cookies.remove("name", { path: "/" });
+        cookies.remove("phone", { path: "/" });
+        cookies.remove("image", { path: "/" });
+        window.location.href = "./home";
+    };
 
     const client = [
         { title: "Dashboard", active: true, desplegable: false },
@@ -49,9 +50,10 @@ function SideBar({ handle, setName, dashboard }: Props) {
         { title: "usuarios", active: false, desplegable: false },
     ];
 
-    console.log(cookies.get("id"))
-    console.log(cookies.get("name"))
-    console.log(cookies.get("email"))
+    console.log(cookies.get("id"));
+    console.log(cookies.get("name"));
+    console.log(cookies.get("email"));
+    console.log(cookies.get("image"));
 
     return (
         <div className="fixed flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
@@ -109,37 +111,37 @@ function SideBar({ handle, setName, dashboard }: Props) {
                             <div className="mt-10 flex gap-2 flex-col">
                                 {location.pathname === "/dashboard/cliente"
                                     ? client.map((d) => (
-                                        <div className="">
-                                            {d.desplegable ? (
-                                                <Item
-                                                    title={d.title}
-                                                    type="cliente"
-                                                />
-                                            ) : (
-                                                <Item2
-                                                    active={d.active}
-                                                    title={d.title}
-                                                />
-                                            )}
-                                        </div>
-                                    ))
+                                          <div className="">
+                                              {d.desplegable ? (
+                                                  <Item
+                                                      title={d.title}
+                                                      type="cliente"
+                                                  />
+                                              ) : (
+                                                  <Item2
+                                                      active={d.active}
+                                                      title={d.title}
+                                                  />
+                                              )}
+                                          </div>
+                                      ))
                                     : location.pathname === "/dashboard"
                                     ? admin.map((d) => (
-                                        <div className="">
-                                            {d.desplegable ? (
-                                                <Item
-                                                    title={d.title}
-                                                    type="admin"
-                                                />
-                                            ) : (
-                                                <Item2
-                                                    active={d.active}
-                                                    title={d.title}
-                                                />
-                                            )}
-                                        </div>
-                                    ))
-                                : null}
+                                          <div className="">
+                                              {d.desplegable ? (
+                                                  <Item
+                                                      title={d.title}
+                                                      type="admin"
+                                                  />
+                                              ) : (
+                                                  <Item2
+                                                      active={d.active}
+                                                      title={d.title}
+                                                  />
+                                              )}
+                                          </div>
+                                      ))
+                                    : null}
                             </div>
                         )}
                     </div>
@@ -155,15 +157,26 @@ function SideBar({ handle, setName, dashboard }: Props) {
                     leaveFrom="opacity-100 rotate-0 scale-100 "
                     leaveTo="opacity-0 scale-95 "
                 >
-                    <div className="border-t border-redGray w-max h-73 flex flex-row">
-                        <Link to="/login">
-                            <Perfil width="14" />
-                        </Link>
-                        <Items />
-                        <div onClick={cerrarSesion} className="w-max flex justify-end" >
-                            <ArrowLeftOnRectangleIcon className="w-6 mr-5 cursor-pointer text-redClare" />
+                    {cookies.get("name") ? (
+                        <div className="flex justify-around items-center m-2 border-t border-redGray" >
+                            <img className=" rounded-3xl w-10 mt-2 "  src={cookies.get("image")} />
+                            <p className="text-lg" >{cookies.get("name")}</p>
+                            <div
+                                onClick={cerrarSesion}
+                                // className="w-max flex justify-end"
+                            >
+                                <ArrowLeftOnRectangleIcon className="w-8 mr-5 cursor-pointer text-redClare" />
+                            </div>
                         </div>
-                    </div>
+                    ) : (
+                        <div className="border-t border-redGray w-max h-73 flex flex-row">
+                                <Perfil width="14" />
+                            <Link to="/login">
+                            <Items />
+                            </Link>
+                            
+                        </div>
+                    )}
                 </Transition>
             )}
         </div>

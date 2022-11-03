@@ -46,8 +46,9 @@ const LoginForm = () => {
       cookies.set("email", respuesta.email,{path: "/"})
       cookies.set("name", respuesta.name,{path: "/"})
       cookies.set("phone", respuesta.phone,{path: "/"})
+      cookies.set("image", respuesta.image,{path: "/"})
       alert(`Bienvenido ${respuesta.name}`)
-      console.log("asdasd-->",respuesta.name)
+      // console.log("asdasd-->",respuesta.name)
       window.location.href="./home"
     })
     .catch(error => {
