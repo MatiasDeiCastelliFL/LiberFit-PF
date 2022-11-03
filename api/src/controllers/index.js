@@ -1,4 +1,4 @@
 
-const init=(req,res)=>{res.sendFile('C:/Users/emuga/Desktop/PF/LiberFit-PF/api/src/public/login.html')}
+const init=(req,res)=>{res.send("Api liberfit")}
 
 module.exports=init;

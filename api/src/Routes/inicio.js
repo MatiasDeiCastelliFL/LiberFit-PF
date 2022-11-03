@@ -1,8 +1,8 @@
 const {Router} = require('express');
 const  init  = require('../controllers');
 
-const log = Router();
+const inicio = Router();
 
-log.get('/inicio', init)
+inicio.get('/', init)
 
-module.exports = log;
+module.exports = inicio;
