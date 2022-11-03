@@ -2,11 +2,7 @@ const express = require('express')
 const passport = require('passport')
 const routerLog = express.Router()
 
-routerLog.post('/login', passport.authenticate("local", {
- 
-    successRedirect: "/machine",
-    failureRedirect: "/logout",
-  }));
+routerLog.post('/login', passport.authenticate("local"), (req,res)=>{res.json({msg:"secion iniciada"})});
 
 
   
@@ -15,9 +11,7 @@ routerLog.post('/login', passport.authenticate("local", {
       if (err) { 
         return next(err); 
         }
-      res.redirect('/inicio');
+      res.redirect('/');
     });
   });
 
-
-module.exports= routerLog    

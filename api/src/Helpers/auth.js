@@ -4,7 +4,7 @@ helpers.isAuthenticated = (req, res, next) => {
       
       return next();
     }
-    res.redirect("/inicio");
+    res.redirect("/");
   };
   
 

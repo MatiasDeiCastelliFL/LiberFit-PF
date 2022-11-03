@@ -24,8 +24,8 @@ const routerSuscription = require('./Routes/suscription')
 const routerTraining = require('./Routes/training')
 const routerAnuncio = require('./Routes/Anuncio');
 const routerLog = require('./Routes/users')
-const log = require('./Routes/inicio')
-const {isAuthenticated}  = require('./Helpers/auth')
+const inicio = require('./Routes/inicio')
+
 
 
 
@@ -58,6 +58,6 @@ server.use('/', routerSuscription)
 server.use('/', routerTraining)
 server.use('/', routerAnuncio)
 server.use('/', routerLog)
-server.use('/',log)
+server.use('/', inicio)
 
 module.exports = server;
