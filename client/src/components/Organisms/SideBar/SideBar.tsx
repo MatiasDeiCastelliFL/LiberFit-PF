@@ -96,37 +96,37 @@ function SideBar({ handle, setName, dashboard }: Props) {
                             <div className="mt-10 flex gap-2 flex-col">
                                 {location.pathname === "/dashboard/cliente"
                                     ? client.map((d) => (
-                                          <div className="">
-                                              {d.desplegable ? (
-                                                  <Item
-                                                      title={d.title}
-                                                      type="cliente"
-                                                  />
-                                              ) : (
-                                                  <Item2
-                                                      active={d.active}
-                                                      title={d.title}
-                                                  />
-                                              )}
-                                          </div>
-                                      ))
+                                        <div className="">
+                                            {d.desplegable ? (
+                                                <Item
+                                                    title={d.title}
+                                                    type="cliente"
+                                                />
+                                            ) : (
+                                                <Item2
+                                                    active={d.active}
+                                                    title={d.title}
+                                                />
+                                            )}
+                                        </div>
+                                    ))
                                     : location.pathname === "/dashboard"
                                     ? admin.map((d) => (
-                                          <div className="">
-                                              {d.desplegable ? (
-                                                  <Item
-                                                      title={d.title}
-                                                      type="admin"
-                                                  />
-                                              ) : (
-                                                  <Item2
-                                                      active={d.active}
-                                                      title={d.title}
-                                                  />
-                                              )}
-                                          </div>
-                                      ))
-                                    : null}
+                                        <div className="">
+                                            {d.desplegable ? (
+                                                <Item
+                                                    title={d.title}
+                                                    type="admin"
+                                                />
+                                            ) : (
+                                                <Item2
+                                                    active={d.active}
+                                                    title={d.title}
+                                                />
+                                            )}
+                                        </div>
+                                    ))
+                                : null}
                             </div>
                         )}
                     </div>

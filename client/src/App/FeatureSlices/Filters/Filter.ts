@@ -77,6 +77,15 @@ const filterSlice = createSlice({
             );
             console.log('fILTERED pRODUCTS',maxPrice);
         },
+        filterByBrands: (state, action: PayloadAction<any>) => {
+            if (action.payload.length === 0) {
+                state.filteredProducts = state.products;
+            } else {
+                state.filteredProducts = state.products.filter((d) =>
+                    action.payload.includes(d.brand)
+                );
+            }
+        },
         filterByMuscles : (state, action: PayloadAction<any>) => {
             let muscles = action.payload[0];
             let category = action.payload[1];
@@ -141,5 +150,5 @@ const filterSlice = createSlice({
 });
 
 export default filterSlice.reducer;
-export const { getData, filterDataName, filterDataPrice, openFilter, filterByMuscles } =
+export const { getData, filterDataName, filterDataPrice, openFilter, filterByMuscles, filterByBrands } =
     filterSlice.actions;
