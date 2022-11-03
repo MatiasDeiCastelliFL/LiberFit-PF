@@ -6,15 +6,10 @@ interface Props {
   dashboard: boolean;
 }
 
-
-
-
 function GlobalTable({ dashboard }: Props) {
 
   const { data } = useAppSelector((state) => state);
-
   const [sortOrder, setSortOrder] = useState("");
-
   const dispatch = useAppDispatch();
 
   useEffect(() => {
