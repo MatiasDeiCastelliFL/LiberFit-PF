@@ -7,9 +7,7 @@ import Details from "./components/Organisms/Details/Details";
 import LoginForm from "./components/Molecules/LoginForm/LoginForm";
 import SingUp from "./components/Molecules/LoginSignup/LoginSignup";
 import Dashboard from "./page/Dashboard/Dashboard";
-// import Dcliente from "./page/Dashboard/Dcliente";
-import DAdmin from "./page/Dashboard/DAdmin";
-import UserConfig from "./components/Organisms/UserConfig/UserConfig";
+import Ejercicios from "./components/Organisms/DashboardSections/Cliente/Ejercicios";
 
 function App() {
   return (

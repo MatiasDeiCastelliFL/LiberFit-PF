@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 
 function Content() {
     function renderPaypalButton() {
-        window.paypal
+        paypal
             .Buttons({
                 createOrder: function (data: any, actions: any) {
                     // Set up the transaction
@@ -20,9 +20,10 @@ function Content() {
             })
             .render("#paypal-button-container");
     }
+
     useEffect(() => {
-        renderPaypalButton();
-    }, []);
+        renderPaypalButton()
+    },[])
     return (
         <div className="w-max max-h-max">
             <div id="paypal-button-container"></div>
