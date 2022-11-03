@@ -1,11 +1,11 @@
 const { Router } = require("express")
-const {getExercises, postExercise,putExercise
-  ,deleteExercise}= require('../controllers/exerciseControllers')
+const {getExercises, postExercise,putExercise,deleteExercise}= require('../controllers/exerciseControllers');
+const {isAuthenticated}= require('../Helpers/auth')
 const routerExercise= Router();
 
-routerExercise.get("/exercises",getExercises);
-routerExercise.post("/exercises",postExercise);
-routerExercise.put("/exercises",putExercise);
-routerExercise.delete("/exercises",deleteExercise);
+routerExercise.get("/exercises",isAuthenticated,getExercises);
+routerExercise.post("/exercises",isAuthenticated,postExercise);
+routerExercise.put("/exercises",isAuthenticated,putExercise);
+routerExercise.delete("/exercises",isAuthenticated,deleteExercise);
 
 module.exports = routerExercise 
