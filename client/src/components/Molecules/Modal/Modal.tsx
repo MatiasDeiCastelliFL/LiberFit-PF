@@ -6,28 +6,10 @@ import Select from "../../Atoms/Inputs/Modal/Select";
 import { useAppDispatch, useAppSelector } from "./../../../App/Hooks/Hooks";
 import { openModal } from "../../../App/Action/Action";
 import { useForm } from "react-hook-form";
+import Content from "../../Atoms/ModalItems/Content";
 
 interface Props {
     active: boolean;
-}
-
-const FORM_ID = "payment-form";
-
-function addCheckout() {
-  const mp = new window.MercadoPago('TEST-78450a67-7646-440a-a94d-bea8c7845dc3', {
-    locale: 'es-AR'
-  });
-
-  // Inicializa el checkout
-  mp.checkout({
-    preference: {
-      id:" preferenceId",
-    },
-    render: {
-      container: `#${FORM_ID}`, // Indica el nombre de la clase donde se mostrará el botón de pago
-      label: 'Pagar', // Cambia el texto del botón de pago (opcional)
-    },
-  });
 }
 
 function Modal() {
@@ -137,6 +119,7 @@ function Modal() {
         console.log(data);
     };
 
+
     return (
         <>
             {modal.open ? (
@@ -160,9 +143,9 @@ function Modal() {
                                     </button>
                                 </div>
                                 {/*body*/}
-                                <div className="relative p-6 flex-auto">
+                                <div className="relative p-6 flex-auto w-max">
                                     <form onSubmit={handleSubmit(onSubmit)}>
-                                        {!next ? (
+                                        {/* {!next ? (
                                             inputs.map((d) => (
                                                 <div className="mt-3 mb-3">
                                                     {d.type === "Number" &&
@@ -186,10 +169,9 @@ function Modal() {
                                                 </div>
                                             ))
                                         ) : (
-                                            <div className="cho-container" id={FORM_ID}>
-                                                
-                                            </div>
-                                        )}
+                                           <Content/>
+                                        )} */}
+                                        <Content/>
                                     </form>
                                 </div>
                                 {/*footer*/}
@@ -207,7 +189,7 @@ function Modal() {
                                             type="button"
                                             onClick={continueForm}
                                         >
-                                            Continuar
+                                            Finalizar
                                         </button>
                                     ) : (
                                         <button

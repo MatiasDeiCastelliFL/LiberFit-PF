@@ -16,6 +16,7 @@ const crearProduct = async (
     description,
     size,
     brand,
+    active,
     image,
     LocacionId
     ) => {
@@ -25,6 +26,7 @@ const crearProduct = async (
     price,
     stock,
     code,
+    active,
     image,
     description,
     size,
@@ -45,5 +47,29 @@ const eliminarProduct = async (id)=>{
 return "Producto eliminado"
 }
 
-module.exports={crearProduct,buscarProduct,eliminarProduct} 
+const inactivarProducto=async(id)=>{
+  await Products.update({
+    active:false,
+  },{
+    where:{
+      id:id
+    }
+  })
+  return "La cuenta se desactivo correctamente"
+}
+
+const activarProducto=async(id)=>{
+
+  Products.update({
+    active:true,
+  },{
+    where:{
+      id:id
+    }
+  })
+
+  return "La cuenta se activo correctamente"
+}
+
+module.exports={crearProduct,buscarProduct,eliminarProduct,inactivarProducto,activarProducto} 
 

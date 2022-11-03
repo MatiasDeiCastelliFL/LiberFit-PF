@@ -1,8 +1,8 @@
 const { Router} = require("express");
 const { upload } = require("../config/multer.config");
 
-const {postEmpleado,getEmpleado,modificarEmpleado,deleteEmployee,inactivarEmployee,activarEmployee,FiltrarUsuarioActivo,FiltrarUsuarioInactivo,CantActivo,CantInacativo,FiltrarUsuarioInactivoConSede,
-    FiltrarUsuarioActivoConSede} = require("../controllers/employeControllers");
+const {isAuthenticated}= require('../Helpers/auth')
+const {postEmpleado,getEmpleado,modificarEmpleado,deleteEmployee,inactivarEmployee,activarEmployee,FiltrarUsuarioActivo,FiltrarUsuarioInactivo} = require("../controllers/employeControllers");
 const routerEmpleado = Router();
 
 routerEmpleado.post("/empleado", upload ,postEmpleado);
@@ -13,8 +13,4 @@ routerEmpleado.put("/empleadoDesactivar",inactivarEmployee);
 routerEmpleado.put("/empleadoActivar",activarEmployee);
 routerEmpleado.get("/FiltrarEmpleadoActivo",FiltrarUsuarioActivo)
 routerEmpleado.get("/FiltrarEmpleadoInactivo",FiltrarUsuarioInactivo)
-routerEmpleado.get("/CantidadEmpleadoActivo",CantActivo)
-routerEmpleado.get("/CantidadEmpleadoInactivo",CantInacativo)
-routerEmpleado.get("/FiltrarUsuarioInactivoConSede",FiltrarUsuarioInactivoConSede)
-routerEmpleado.get("/FiltrarUsuarioActivoConSede",FiltrarUsuarioActivoConSede)
 module.exports = routerEmpleado;
