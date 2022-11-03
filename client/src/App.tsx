@@ -8,6 +8,7 @@ import LoginForm from "./components/Molecules/LoginForm/LoginForm";
 import SingUp from "./components/Molecules/LoginSignup/LoginSignup";
 import Dashboard from "./page/Dashboard/Dashboard";
 import Ejercicios from "./components/Organisms/DashboardSections/Cliente/Ejercicios";
+import UserConfig from "./components/Organisms/UserConfig/UserConfig";
 
 function App() {
   return (
