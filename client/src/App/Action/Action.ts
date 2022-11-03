@@ -3,7 +3,7 @@ import Json from '../../assets/gym.json'
 import arraySet from "../utils/arraySet";
 import { modalOpen } from "../FeatureSlices/Modal/Modal";
 import { filterDataPrice,openFilter, filterDataName} from "../FeatureSlices/Filters/Filter";
-import { getData, getLocationsReducer } from "../FeatureSlices/Data/Data";
+import { getData, getLocationsReducer, getClientsReducer } from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users"
 import { login } from "../FeatureSlices/login/login"
 
@@ -34,6 +34,17 @@ export const getLocations = () => async (dispatch: any) => {
         console.log(error);
     }
 };
+
+export const getClients = () => async (dispatch: any) => {
+    try {
+
+        const clients = await axios.get(`${Route}/clients`);
+
+        dispatch(getClientsReducer(clients.data));
+    } catch (error) {
+        console.log(error);
+    }
+}; 
 
 export const getDataByName = (name:any) => (dispatch:any) => {
     const dataSet = arraySet(data.flat())
