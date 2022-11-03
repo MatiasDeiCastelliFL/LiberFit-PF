@@ -2,10 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export interface usersState {
     users : Array<{}>
+    detail: Array<{}>
 }
 
 const initialState: usersState = {
-    users: []
+    users: [],
+    detail: []
 }
 
 const usersSlice = createSlice({
@@ -18,8 +20,11 @@ const usersSlice = createSlice({
         postUsers: (state, action) => {
             state
         },
+        detail: (state, action) => {
+            state.detail = action.payload
+        }
     },
 });
 
 export default usersSlice.reducer;
-export const { getAllUsers, postUsers } = usersSlice.actions;
+export const { getAllUsers, postUsers, detail } = usersSlice.actions;
