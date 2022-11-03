@@ -18,8 +18,8 @@ const api = require("../controllers/gym.json");
 const crearDesdeJsonAPaymentsDb = async () => {
     const subscriptions = api[0].payment.map((pay) => {
         return {
-            id:pay.id,
-            name:pay.name||"",
+            id: pay.id,
+            name: pay.name || "",
             amount: pay.amount, // tiene que ser double
             active: pay.active, // tiene que se boolean
         };
@@ -39,7 +39,7 @@ const crearDesdeJsonAMachinesDb = async () => {
             )
             .map((machine) => {
                 return {
-                    id:machine.id,
+                    id: machine.id,
                     name: machine.name,
                     image: machine.image,
                     muscle: machine.muscle || "brazos",
@@ -65,6 +65,7 @@ const crearDesdeJsonAProductsDb = async () => {
                 price: product.price,
                 stock: product.stock || Math.ceil(Math.random()) * 100,
                 code: product.code || "12312",
+                active: product.active || true,
                 image: product.image,
                 description:
                     product.description || "Esto es ".concat(product.name),
@@ -95,7 +96,7 @@ const crearDesdeJsonATrainingsDb = async () => {
 const crearDesdeJsonAExerciseDb = async () => {
     const exercises = api[0].exercises.map((e) => {
         return {
-            id:e.id,
+            id: e.id,
             name: e.name,
             repetition: e.repetition,
             series: e.series,
@@ -120,7 +121,7 @@ const crearDesdeJsonARutinesDb = async () => {
 const crearDesdeJsonASubscriptionsDb = async () => {
     const subscriptions = api[0].subscriptions.map((sub) => {
         return {
-            id:sub.id,
+            id: sub.id,
             name: sub.name,
             price: sub.price || "$0.00",
             description: sub.description || "No Suscripto",
@@ -131,7 +132,9 @@ const crearDesdeJsonASubscriptionsDb = async () => {
 };
 
 const crearDesdeJsonARolsDb = async () => {
-    const rols = api[0].roles.map((e) => { return { id:e.id,name: e.name } });
+    const rols = api[0].roles.map((e) => {
+        return { id: e.id, name: e.name };
+    });
     await Rols.bulkCreate(rols);
 };
 // agregamos los datos de las tablas que tienen  relaciones con las tablas que ya contienen datos
@@ -139,7 +142,7 @@ const crearDesdeJsonARolsDb = async () => {
 const crearDesdeJsonALocacionsDb = async () => {
     api[0].locations.forEach(async (loc) => {
         const location = await Locacions.create({
-            id:loc.id,
+            id: loc.id,
             name: loc.name,
             phone: loc.phone,
             address: loc.adress,
@@ -177,7 +180,7 @@ const crearDesdeJsonAClientsDb = async () => {
 
     api[0].clients.forEach(async (client, i) => {
         const clientByName = await Clients.create({
-            id:client.id,
+            id: client.id,
             name: client.name,
             phone: client.phone,
             email: client.email,
@@ -196,7 +199,7 @@ const crearDesdeJsonAClientsDb = async () => {
 const crearDesdeJsonAEmployeesDb = async () => {
     api[0].employees.forEach(async (employee, i) => {
         const EmployeeByName = await Employees.create({
-            id:employee.id,
+            id: employee.id,
             name: employee.name,
             phone: employee.phone,
             email: employee.email,
@@ -232,7 +235,7 @@ const crearDesdeJsonAOwnersDb = async () => {
 
 const crearDesdeJsonAGymsDb = async () => {
     await Gyms.create({
-        id:api[0].id,
+        id: api[0].id,
         name: api[0].name,
         email: api[0].email,
         phone: api[0].phone,
@@ -318,7 +321,6 @@ const createDBonfromatOfJSON = async () => {
         },
     ];
 };
-
 
 module.exports = {
     crearDesdeJsonAPaymentsDb,
