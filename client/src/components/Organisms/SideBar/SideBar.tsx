@@ -17,7 +17,6 @@ interface Props {
     handle: any;
     setName: any;
     dashboard: boolean;
-    handleClickItem: any;
 }
 
 function SideBar({ handle, setName, dashboard }: Props) {
