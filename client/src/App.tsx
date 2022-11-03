@@ -40,9 +40,9 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/signup" element={<SingUp />} />
         <Route path="/dashboard" element={<Dashboard/>}>
-          <Route path='/dashboard/:cliente'/>
-          <Route path='/dashboard/:cliente/ejercicios'/>
+          <Route path='/dashboard/:client' />
         </Route>
+        <Route path="/UserConfig" element={<UserConfig/>}/>
       </Routes>
     </div>
   );
