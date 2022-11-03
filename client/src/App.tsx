@@ -9,6 +9,7 @@ import SingUp from "./components/Molecules/LoginSignup/LoginSignup";
 import Dashboard from "./page/Dashboard/Dashboard";
 // import Dcliente from "./page/Dashboard/Dcliente";
 import DAdmin from "./page/Dashboard/DAdmin";
+import UserConfig from "./components/Organisms/UserConfig/UserConfig";
 
 function App() {
   return (
@@ -41,8 +42,9 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/signup" element={<SingUp />} />
         <Route path="/dashboard" element={<Dashboard/>}>
-          {/* <Route path='/dashboard/:cliente' element={<Dcliente/>}/> */}
+          <Route path='/dashboard/:client' />
         </Route>
+        <Route path="/UserConfig" element={<UserConfig/>}/>
       </Routes>
     </div>
   );
