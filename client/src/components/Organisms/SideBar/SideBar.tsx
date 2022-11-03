@@ -101,44 +101,32 @@ function SideBar({ handle, setName, dashboard, handleClickItem }: Props) {
                                                 <Item
                                                     title={d.title}
                                                     type="cliente"
-                                                    handleClickItem={
-                                                        handleClickItem
-                                                    }
                                                 />
                                             ) : (
                                                 <Item2
                                                     active={d.active}
                                                     title={d.title}
-                                                    handleClickItem={
-                                                        handleClickItem
-                                                    }
                                                 />
                                             )}
                                         </div>
                                     ))
                                     : location.pathname === "/dashboard"
                                     ? admin.map((d) => (
-                                          <div className="">
-                                              {d.desplegable ? (
-                                                  <Item
-                                                      title={d.title}
-                                                      type="admin"
-                                                      handleClickItem={
-                                                          handleClickItem
-                                                      }
-                                                  />
-                                              ) : (
-                                                  <Item2
-                                                      active={d.active}
-                                                      title={d.title}
-                                                      handleClickItem={
-                                                          handleClickItem
-                                                      }
-                                                  />
-                                              )}
-                                          </div>
-                                      ))
-                                    : null}
+                                        <div className="">
+                                            {d.desplegable ? (
+                                                <Item
+                                                    title={d.title}
+                                                    type="admin"
+                                                />
+                                            ) : (
+                                                <Item2
+                                                    active={d.active}
+                                                    title={d.title}
+                                                />
+                                            )}
+                                        </div>
+                                    ))
+                                : null}
                             </div>
                         )}
                     </div>

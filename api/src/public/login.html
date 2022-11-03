@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>inicia seccion</title>
+</head>
+<body>
+<div id="app">
+   <h1>iniciar sección</h1>
+    <input type="email" name="email" v-model="datos.email" placeholder="correo">
+    <input type="password" name="password" v-model="datos.password" placeholder="contraseña">
+
+    <button @click="usuario" type="submit">enviar</button>
+
+        
+ 
+    <br>
+    <br>
+    
+
+    <a href="/logout"> <button>Registrarse </button></a>
+
+</div>
+<script>
+var app = new Vue ({
+el:'#app',
+data:{
+datos:{
+    email:null,
+    password:null
+}
+
+},
+methods:{
+usuario(){
+axios.post("/login",body= this.datos).then(()=>{
+    location.href = "/machine" 
+})
+},
+
+
+
+
+}
+})
+    </script>
+</body>
+</html>
