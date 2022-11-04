@@ -1,0 +1,23 @@
+import * as React from "react"
+
+interface Props {
+    props: any
+}
+
+const ChestIcon = ({props}:Props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    xmlSpace="preserve"
+    {...props}
+  >
+    <image
+      width={96}
+      height={96}
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAAABGdBTUEAALGPC/xhBQAAACBjSFJN AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACylBMVEUAAAD/v7/6ybf6yLj6 ybj6yrj6yLn/0bn/xbn5ybf6ybj6ybj6yLn2yLb6ybn6ybj/zLv//4D6ybj5ybj6yLj/v7//zMz7 yrn7ybj6ybf6ybn7ybj6ybj6ybj7yLf7ybj/27b5yLf7ybj6ybj7ybj5yrj/1ar6yrf5ybj7yrj6 ybj6yrf6ybj6yrn6yLn6ybj6ybj5yrn6ybn6ybj6ybf7yLf6ybj6ybj7ybf/zLP6ybj6ybf/v7/7 ybj6yLj/qqr7y7j7yrb5ybn5yLf6ybj5ybj6ybj6ybj6ybj6ybj7ybn6ybj6ybj6ybj5ybj5ybj5 yrf5ybj5yrj5zLn/xrj7yrj7ybf5ybf4zLb4yLr5ybj4y7f4ybX5yrf5ybj7yrj6ybj6ybj6ybj6 ybj7yLj6ybj6ybj7yrf5ybj6ybj4yrn/w7T7ybf8ybn/xqr/yLz6yLf6ybj4y7z6ybj7yrj6ybj7 ybf3xbX2yrn/zLj5yLn5ybn5yrn7ybn5yLj6ybj6yLj6ybn6ybf6ybj7ybn7yLj7yLn6ybn6ybj7 ybn6ybj8yLf5yLj6yrj/xLH6yrj6yrf6ybj7sZn8qo/6x7b6xrX/eE//dUz/flf8oIT6w7H6wrD9 n4H/fFX7sJn7s5v/d1D/e1T8ooX6x7T6xrT/elP/d077sJj7tJ3/eVH+g137t6H7tp/+gFv7tJz/ eFD/dk78o4f6yLf9noD/dk37s5z7tJ79l3f6x7X9k3L7tZ7/eFH9j276wq/6wq7+jmz8r5f8rZT8 qpH8p438pov/dkz8oob9noH9nH/6xrP9knD9j236xLH+gl7+glz9mHr9mnr9kXD9knH8sJf+f1n+ flf+flj8qZD9kG/9kHD+jWv7vKj9n4L8rJP8q5L8n4L9lHP/d0//e1P8rpX9k3P7wa3+h2P9lHT7 v6v6xbP+iGT/fVb+jGn///+aqq65AAAAkXRSTlMADGe77bpmCxaA7PGRHPb5DwJe528EBT56oMfj 7v55PQdYsPKvVgZu5uVsNdPSM/j3W1/9Yzz8+zkK390IdnADRD+Kh7y44d7z8OTg1dG3tFxaKygS SEe5IyWJJyaLiKzI6MXQrer0fLP6TRFyTAkXxMIinXOhsh8dGVS1V39T75+cy5NCQXRxjarpSk+U Db+Z+vy5iwAAAAFiS0dE7Va+g40AAAAHdElNRQfmCwQQLC4NujFoAAAENUlEQVRo3u2ZZ1sTQRSF xy6CgIioFCsqdhQ1KijYO/beFRUVQbFj7x0d0Ky9oWisJFbsXewNK/aCWH6EKWazk8wkdyb6wcec Dzybu/ecF2Z3htksQi655NJ/onz5CxTEVipYqHCRPxRf1K0Ypsrdo/gfiC/i5omZ8vLwdjK+hE9J bFfFfEuJJfuVLlPWPyAwCDtUUGCAf9ly5bk4FSpWquw42eqCBFepCoyvWi2EN92k6jX8IPk1a4nF G1S7juN8n7ri+RiH1nOUXz/MmXz9JW9gP79hI+fyMVY1tpffpKmz+RiHR9gBNKN7UlLX2xY3pKbQ u5uz8yPp0zZFLW3ctJmsbdm6TVJvp7YHlGACoqiGHTslvXbtTrOU9uzea6il76MaWjABLWnt+zWS SQcOmkuHDv8uqamEVkxAa0r3kaOSWRlaY0V37LhcUp+gWNowAW1tm09qJIVO6TA+namsHD1i62nH BNiucGfOSoTOnb9wkaxoTtqYApkAm1l2wiqfJs0Oa5eKCWhv1Xlpp+N8/b102crWgQnoSDZeyYDk S9Lxq6SvExPQmei7dh2WryfcIIxdmIBoRZfuJjTeoCydwtoVMtFu3ebJl6Q7dyETrZvl9j/Aly9J 9/bL5u5MQA+55z5vviTdl809mYBecs8DfsBD2ezNBPSWe/bxAyz/HfowAX3lnjQNb/5Zy2rOXOz6 KfZxj3gBjy3eoP4MwADFvfyEF3BJYWbdp8rVWpfNl5+tnGmMtWIgMd9T6UFPn9HrzwnzICrAh+jR vaAGZWZSyy/J5Y6+vxtMNqW9ogSl5+SkU8oX00jvECogmOjxxLrXNlnX32D81maRVb/T4VDCPJQK GEb0GLbwOe8/EEkfPxnOfPpIFD98ztEXhxPmEVRAJ6JnpPHnF22uvIXI+JpnOpX32VLL1X4x1moT 5nAqgHiWVMWYj76lZH3/oc7+qc2znM3T/sxW/8jN2v7NXIkhduWjqIDRypaAMZhLZaorP1WmAog9 RXAfPkBUrPLTWCpgXLiixbcX15NI2Pg45SWYQJ/K8W7yzaZKQBN5AJNQgsp87OnGfkJINP+hkxGa wgOIQ2jq78NpicieTOPUIQGh6Rxj1GgGQjPd7Y0OOU5hSYajaDhglqF/dhgOnRPhKN84TqaHoCQ4 YK7REBebCIi3KGIeNN8d8ntTNB8KWCCWj8BzLUoQEO8Fy/cSHCGEFsIAw0Tz0SIYwEMYEAcDVBMG zIYB5goDFsMApYUBS2CA8n8b0EIYALwGScKApTDAMmGABwywXBgQAwOsEAYAlwp/YcBKGCBEGAD8 jjZUGNAFBhgpDGgOA/gKA+JBX8OHxAsD0CrACwq8WjwfoTWO8xc5k4/82jjKjxZ8h2NW8gj7+ROT nctHqEkhe/lrnc7Xb/Bi2fnThDcsSkUyF9V1oJdCLrnk0r+vX5dmUSCXIZR0AAAAJXRFWHRkYXRl OmNyZWF0ZQAyMDIyLTExLTA0VDE1OjQ0OjQ2KzAxOjAwIkyF0wAAACV0RVh0ZGF0ZTptb2RpZnkA MjAyMi0xMS0wNFQxNTo0NDo0NiswMTowMFMRPW8AAAAASUVORK5CYII="
+    />
+  </svg>
+)
+
+export default ChestIcon

@@ -7,7 +7,6 @@ import Details from "./components/Organisms/Details/Details";
 import LoginForm from "./components/Molecules/LoginForm/LoginForm";
 import SingUp from "./components/Molecules/LoginSignup/LoginSignup";
 import Dashboard from "./page/Dashboard/Dashboard";
-import Ejercicios from "./components/Organisms/DashboardSections/Cliente/Ejercicios";
 import UserConfig from "./components/Organisms/UserConfig/UserConfig";
 
 function App() {
@@ -41,7 +40,9 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/signup" element={<SingUp />} />
         <Route path="/dashboard" element={<Dashboard/>}>
-          <Route path='/dashboard/:client' />
+          <Route path='/dashboard/:cliente'>
+            <Route path="/dashboard/:cliente/:item"/>
+          </Route>
         </Route>
         <Route path="/UserConfig" element={<UserConfig/>}/>
       </Routes>
