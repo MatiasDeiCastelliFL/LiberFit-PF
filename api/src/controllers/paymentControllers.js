@@ -1,5 +1,9 @@
-const axios = require('axios')
-const {PAYPAL_API, PAYPAL_API_CLIENT, PAYPAL_API_SECRET} = require('../config/config-paypal')
+const axios = require("axios");
+const {
+    PAYPAL_API,
+    PAYPAL_API_CLIENT,
+    PAYPAL_API_SECRET,
+} = require("../config/config-paypal");
 
 const {
     crearPayment,
@@ -46,36 +50,61 @@ const modificarPayment = async (req, res) => {
 };
 
 //Logica para la pasarela de pago con Paypal
-const getCreateOrder = async (req, res) => {
-    const order = {
-        intent: "CAPTURE",
-        purchase_units: [
-            {
-                amount: {
-                    currency_code: "USD",
-                    value: "35.7",
+const postCreateOrder = async (req, res) => {
+    try {
+        const order = {
+            intent: "CAPTURE",
+            purchase_units: [
+                {
+                    amount: {
+                        currency_code: "USD",
+                        value: "35.7",
+                    },
+                    description: "Plan Oro",
                 },
-                description: "Plan Oro",
+            ],
+            application_context: {
+                brand_name: "LiberFit",
+                landing_page: "LOGIN",
+                user_action: "PAY_NOW",
+                return_url: "http://localhost:3004/capture-order",
+                cancel_url: "http://localhost:3004/cancel-order",
             },
-        ],
-        application_context: {
-            brand_name: "LiberFit",
-            description:"Plan Oro",
-            landing_page: "LOGIN",
-            user_action: "PAY_NOW",
-            return_url: "http://localhost:3004/capture-order",
-            cancel_url: "http://localhost:3004/cancel-order",
-        },
-    };
+        };
 
-    const response = await axios.post(`${PAYPAL_API}/v2/checkout/orders`, order, {
-        auth : {
-            username : PAYPAL_API_CLIENT,
-            password : PAYPAL_API_SECRET
-        }
-    })
-    console.log(response.data)
-    res.send("Creando orden");
+        const params = new URLSearchParams();
+        params.append("grant_type", "client_credentials");
+
+        const {
+            data: { access_token },
+        } = await axios.post(
+            `https://api-m.sandbox.paypal.com/v1/oauth2/token`,
+            params,
+            {
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                auth: {
+                    username: PAYPAL_API_CLIENT,
+                    password: PAYPAL_API_SECRET,
+                },
+            }
+        );
+
+        const response = await axios.post(
+            `${PAYPAL_API}/v2/checkout/orders`,
+            order,
+            {
+                headers: {
+                    Authorization: `Bearer ${access_token}`,
+                },
+            }
+        );
+
+        res.send(response.data);
+    } catch (error) {
+        return res.status(500).send("Algo salio mal");
+    }
 };
 const getCaptureOrder = async (req, res) => {
     res.send("Capture orden");
@@ -85,10 +114,10 @@ const getCancelOrder = async (req, res) => {
 };
 
 module.exports = {
-    postPayment, 
+    postPayment,
     getPayment,
     modificarPayment,
-    getCreateOrder,
+    postCreateOrder,
     getCaptureOrder,
     getCancelOrder,
 };

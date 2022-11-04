@@ -3,7 +3,7 @@ const {
     postPayment,
     getPayment,
     modificarPayment,
-    getCreateOrder,
+    postCreateOrder,
     getCaptureOrder,
     getCancelOrder,
 } = require("../controllers/paymentControllers");
@@ -15,7 +15,7 @@ routerPayment.get("/payment", isAuthenticated, getPayment);
 routerPayment.put("/payment", isAuthenticated, modificarPayment);
 
 //Rutas para la pasarela de pago con Paypal
-routerPayment.get("/create-order", getCreateOrder);
+routerPayment.post("/create-order", postCreateOrder);
 routerPayment.get("/capture-order", getCaptureOrder);
 routerPayment.get("/cancel-order", getCancelOrder);
 
