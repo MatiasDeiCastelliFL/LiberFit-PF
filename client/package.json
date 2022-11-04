@@ -34,6 +34,7 @@
     "universal-cookie": "^4.0.4",
     "vite-react": "^0.7.1"
   },
+  "homepage":"https://dynamicsoft.com.co/libertfit/",
   "devDependencies": {
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
