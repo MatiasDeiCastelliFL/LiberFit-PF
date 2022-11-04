@@ -1,0 +1,35 @@
+.bg{
+    display: flex;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    max-height: 200px;
+    background-color: black;
+
+
+}
+
+.bg2{
+    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    
+    width: 30%;
+    max-width: 400px;
+    height: 40px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin:30px 30px;
+}
+
+table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
