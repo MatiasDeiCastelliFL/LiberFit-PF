@@ -2,7 +2,6 @@ import React from "react";
 import Logo from "../../Atoms/Logo/Logo";
 import Filter from "../../Molecules/Filter/Filter";
 import Search from "./../../Atoms/Inputs/Search/Search";
-import style from "./Style/sidebar.module.css";
 import { useAppDispatch, useAppSelector } from "./../../../App/Hooks/Hooks";
 import { Transition } from "@headlessui/react";
 import { useParams, Link, useLocation } from "react-router-dom";
