@@ -59,7 +59,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
             title: "Membresia",
             active: false,
             desplegable: true,
-            link: ''
+            link: "",
         },
     ];
 
@@ -186,12 +186,15 @@ function SideBar({ handle, setName, dashboard }: Props) {
                     <div className="border-t border-redGray w-max h-73 flex">
                         <div className="w-max flex flex-row">
                             <Link to={cookies.get("name") ? "" : "/login"}>
-                                <Perfil width="14" />
+                                <Perfil width={cookies.get('name') || user?.name ? "15" : "14"} />
                             </Link>
                             <Items />
                         </div>
                         {cookies.get("name") || user?.name ? (
-                            <div className="flex justify-end w-max" onClick={() => logout()}>
+                            <div
+                                className="flex justify-end w-max"
+                                onClick={() => logout()}
+                            >
                                 <ArrowLeftOnRectangleIcon className="w-8 mr-5 cursor-pointer text-redClare justify-end" />
                             </div>
                         ) : null}
