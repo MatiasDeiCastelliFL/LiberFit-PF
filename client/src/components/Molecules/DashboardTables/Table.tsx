@@ -22,7 +22,6 @@ const headers:any = {
 };
 
 function Table({ link }: any) {
-    console.log('file: Table.tsx ~ line 25 ~ Table ~ link', link)
     const { data}:any = useAppSelector((state) => state);
     const [sortOrder, setSortOrder] = useState("");
     const dispatch = useAppDispatch();
@@ -35,28 +34,28 @@ function Table({ link }: any) {
     // console.log(data.clients)
     // console.log(data.employees)
 
-    return (
-        <table>
-            <thead>
-                <tr>
-                    {headers[link]?.map((key:any) => {
-                        return <td key={key.key}>{key.label}</td>;
-                    })}
-                </tr>
-            </thead>
-
-        <tbody>
-      {data[link].map((person:any) => {
-        return (
-          <tr key={person.id}>
-            {headers[link].map((link: any) =>
-            <td>{person[link.key]}</td>
-            )}
-          </tr>
-        );
-      })}
-    </tbody>
-        </table>
+    return (<div>
+          <table>
+              <thead className='bg-white border-b'>
+                  <tr>
+                      {headers[link]?.map((key:any) => {
+                          return <th key={key.key} className='text-sm font-medium text-gray-900 px-6 py-4 text-left'>{key.label}</th>;
+                      })}
+                  </tr>
+              </thead>
+          <tbody>
+        {data[link].map((person:any) => {
+          return (
+            <tr key={person.id} className='bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100'>
+              {headers[link].map((link: any) =>
+              <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>{person[link.key]}</td>
+              )}
+            </tr>
+          );
+        })}
+      </tbody>
+          </table>
+    </div>
     );
 }
 
