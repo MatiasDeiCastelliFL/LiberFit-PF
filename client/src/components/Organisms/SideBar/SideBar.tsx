@@ -59,7 +59,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
             title: "Membresia",
             active: false,
             desplegable: true,
-            link: "",
+            link: ''
         },
     ];
 
