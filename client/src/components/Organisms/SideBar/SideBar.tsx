@@ -74,7 +74,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
             title: "Empleados",
             active: false,
             desplegable: false,
-            link: "/dashboard/admin/empleados",
+            link: "/dashboard/admin/employees",
         },
         {
             title: "Productos",
@@ -89,10 +89,10 @@ function SideBar({ handle, setName, dashboard }: Props) {
             link: "/dashboard/admin/ejercicios",
         },
         {
-            title: "CLientes",
+            title: "Clientes",
             active: false,
             desplegable: false,
-            link: "/dashboard/admin/clientes",
+            link: "/dashboard/admin/clients",
         },
     ];
 

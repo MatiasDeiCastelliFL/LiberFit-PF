@@ -31,7 +31,7 @@ const dataSlice = createSlice({
             state.clients = action.payload
         },
         getEmployeesReducer: (state, action: PayloadAction<any>) => {
-            state.employees = action.payload
+            state.employees = action.payload.datoEmpleadoTot
         }
     },
 });

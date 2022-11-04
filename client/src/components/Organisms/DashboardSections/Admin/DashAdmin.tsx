@@ -47,13 +47,13 @@ export default function DashGeneral({ link }: any) {
                         <DoughnutChart data={datosUsuarios} />
                         <LineChart data={datosUsuarios} />
                     </>
-            ) : link === "clientes" ? (
+            ) : link === "clients" ? (
                 <div className="flex-1">
-                    <DashClientes />
+                        <DashClientes link={link} />
                 </div>
-            ) : link === "empleados" ? (
+            ) : link === "employees" ? (
                 <div className="flex-1">
-                    <DashEmpleados />
+                    <DashEmpleados link={link} />
                 </div>
             ) : null}
         </div>

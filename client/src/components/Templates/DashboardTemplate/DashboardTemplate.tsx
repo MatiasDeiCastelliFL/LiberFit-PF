@@ -9,7 +9,6 @@ import DashAdmin from '../../Organisms/DashboardSections/Admin/DashAdmin';
 function DashboardTemplate() {
     const { client } = useParams<{ client: string }>();
     const { admin } = useParams<{ admin: string }>();
-    console.log('file: DashboardTemplate.tsx ~ line 12 ~ DashboardTemplate ~ admin', admin)
     
     return (
         <div className="flex flex-row select-none">

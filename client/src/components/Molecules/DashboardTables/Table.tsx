@@ -1,86 +1,56 @@
-import React, { useEffect, useState } from 'react';
-import { getClients, getEmployees } from '../../../App/Action/Action';
-import { useAppSelector, useAppDispatch } from '../../../App/Hooks/Hooks';
+import React, { useEffect, useState } from "react";
+import { getClients, getEmployees } from "../../../App/Action/Action";
+import { useAppSelector, useAppDispatch } from "../../../App/Hooks/Hooks";
 
-const clientUsers = [
-  { key: "name", label: "Nombre"},
-  { key: "phone", label: "Telefono"},
-  { key: "email", label: "Email"},
-  { key: "image", label: "Avatar"},
-  { key: "active", label: "Membresía"},
-  { key: "SubscriptionId", label: "Suscripción"}
-]
-
-const employeeUsers = [
-  { key: "name", label: "Nombre"},
-  { key: "phone", label: "Telefono"},
-  { key: "email", label: "Email"},
-  { key: "image", label: "Avatar"},
-  { key: "active", label: "Membresía"},
-  { key: "RolId", label: "Rol Empleado"}
-]
+const headers:any = {
+    clients: [
+        { key: "name", label: "Cliente" },
+        { key: "phone", label: "Telefono" },
+        { key: "email", label: "Email" },
+        { key: "image", label: "Avatar" },
+        { key: "active", label: "Membresía" },
+        { key: "SubscriptionId", label: "Suscripción" },
+    ],
+    employees: [
+        { key: "name", label: "Empleados" },
+        { key: "phone", label: "Telefono" },
+        { key: "email", label: "Email" },
+        { key: "image", label: "Avatar" },
+        { key: "active", label: "Membresía" },
+        { key: "RolId", label: "Rol Empleado" },
+    ],
+};
 
 function Table({ link }: any) {
+    console.log('file: Table.tsx ~ line 25 ~ Table ~ link', link)
+    const { data}:any = useAppSelector((state) => state);
+    const [sortOrder, setSortOrder] = useState("");
+    const dispatch = useAppDispatch();
 
-  const { data } = useAppSelector((state) => state);
-  const [sortOrder, setSortOrder] = useState("");
-  const dispatch = useAppDispatch();
+    useEffect(() => {
+        dispatch(getClients());
+        dispatch(getEmployees());
+    }, []);
 
-  useEffect(() => {
-    dispatch(getClients());
-    dispatch(getEmployees());
-  }, []);
+    // console.log(data.clients)
+    // console.log(data.employees)
 
-  // console.log(data.clients)
-  // console.log(data.employees)
+    return (
+        <table>
+            <thead>
+                <tr>
+                    {headers[link]?.map((key:any) => {
+                        return <td key={key.key}>{key.label}</td>;
+                    })}
+                </tr>
+            </thead>
 
-  const headers = []
-
-  for (const key in data.clients[0]) {
-    if(true) {
-      headers.push(key)
-    }
-  }
-  console.log("esto es headers:" + headers)
-
-  return (
-    <table>
-      <thead>
-        <tr>
-          { link === "clientes" ? (
-                clientUsers.map((key) => {
-                  return <td key={key.key}>{key.label}</td>
-                })
-            ) : link === "empleados" ? (
-                clientUsers.map((key) => {
-                  return <td key={key.key}>{key.label}</td>
-                })
-          ) : null }
-        </tr>
-      </thead>
-    </table>
-  )
-}
-
-export default Table;
-
-return (
-  <table>
-  <thead>
-    <tr>
-      {clientUsers.map(row => {
-        return (
-          <td key={row.key}>
-            {row.label}{''}
-            
-        </td>
-      )
-    })}
-    </tr>
-    </thead>
-    
-    <tbody>
-      {data.clients.map((person:any) => {
+        <tbody>
+        {headers[link]?.map((link:any) => {
+                        // return <td key={key.key}>{key.label}</td>;
+          return <td>{ data[link][link.key]}</td>;
+                    })}
+      {/* {data[link].map((person:any) => {
         return (
           <tr key={person.id}>
             <td>{person.name}</td>
@@ -88,11 +58,46 @@ return (
             <td>{person.email}</td>
             <td>{person.image}</td>
             <td>{person.active}</td>
-            <td>{person.SubscriptionId}</td>
+            <td>{person.SubscriptionId===1&& 'No suscrito'}</td>
           </tr>
         );
-      })}
+      })} */}
     </tbody>
+        </table>
+    );
+}
 
-</table>
-)
+export default Table;
+
+// return (
+//   <table>
+//   <thead>
+//     <tr>
+//       {clientUsers.map(row => {
+//         return (
+//           <td key={row.key}>
+//             {row.label}{''}
+
+//         </td>
+//       )
+//     })}
+//     </tr>
+//     </thead>
+
+    // <tbody>
+    //   {data.clients.map((person:any) => {
+    //     return (
+    //       <tr key={person.id}>
+    //         <td>{person.name}</td>
+    //         <td>{person.phone}</td>
+    //         <td>{person.email}</td>
+    //         <td>{person.image}</td>
+    //         <td>{person.active}</td>
+    //         <td>{person.SubscriptionId}</td>
+    //       </tr>
+    //     );
+    //   })}
+    // </tbody>
+
+// </table>
+// )
