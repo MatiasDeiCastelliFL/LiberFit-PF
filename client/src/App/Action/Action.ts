@@ -88,7 +88,7 @@ export const postElement = (payload:any, element:string) =>  (dispatch: any) => 
 export const loginAction = (payload:any) => async (dispatch: any) => {
     try {       
         let json = await axios.post("http://localhost:3004/login", payload) // {email, password}
-        console.log(json)
+        console.log("-->",json)
         return json // {}
     } catch (error) {
         console.log("login -->",error)
