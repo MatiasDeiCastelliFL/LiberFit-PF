@@ -71,6 +71,9 @@ async function validate(input, model) {
                 }else if(key === "code"){
                     if(value === ""){
                         errors.push(`${key} es requerido.`);
+                    }else{
+                        const mensaje="El codigo ya se encuentra registrado. Ingrese uno nuevo"
+                        repetition(model,value,mensaje,key);
                     }
 
                 }else if(key === "video"){
@@ -101,6 +104,10 @@ async function validate(input, model) {
                 }else if(key === "stock"){
                     if(value === ""){
                         errors.push(`${key} es requerido.`);
+                    }else{
+                        if (!value.match(valoresAceptados)) {
+                            errors.push("Ingrese solo numero.");
+                        }
                     }
 
                 }else if(key === "description"){

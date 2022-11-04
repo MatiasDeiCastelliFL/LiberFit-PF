@@ -11,7 +11,8 @@ import Items from "../../Atoms/Perfil/ItemsPefil/Items";
 import Item2 from "../../Atoms/SideItems/Item2";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/outline";
 import Cookies from "universal-cookie";
-import style from './Style/sidebar.module.css'
+import style from "./Style/sidebar.module.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
 interface Props {
     handle: any;
@@ -25,6 +26,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
     const location = useLocation();
     const dispatch = useAppDispatch();
     const { filter } = useAppSelector((state) => state);
+    const { user, logout } = useAuth0();
     const cerrarSesion = () => {
         cookies.remove("id", { path: "/" });
         cookies.remove("email", { path: "/" });
@@ -35,22 +37,21 @@ function SideBar({ handle, setName, dashboard }: Props) {
     };
 
     const client = [
-        { title: "Dashboard", active: true, desplegable: false, link: "/" },
         {
-            title: "Rutinas",
-            active: false,
+            title: "Dashboard",
+            active: location.pathname === "/dashboard/cliente" ? true : false,
             desplegable: false,
-            link: "/dashboard/cliente/ejercicios",
+            link: "/dashboard/cliente",
         },
         {
-            title: "Productos",
-            active: false,
+            title: "Rutinas",
+            active: location.pathname.includes("rutinas") ? true : false,
             desplegable: false,
-            link: "/dashboard/cliente/ejercicios",
+            link: "/dashboard/cliente/rutinas",
         },
         {
             title: "Ejercicios",
-            active: false,
+            active: location.pathname.includes("ejercicios") ? true : false,
             desplegable: false,
             link: "/dashboard/cliente/ejercicios",
         },
@@ -58,7 +59,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
             title: "Membresia",
             active: false,
             desplegable: true,
-            link: "/dashboard/cliente/ejercicios",
+            link: "",
         },
     ];
 
@@ -70,10 +71,11 @@ function SideBar({ handle, setName, dashboard }: Props) {
         { title: "usuarios", active: false, desplegable: false },
     ];
 
-    console.log(cookies.get("id"));
-    console.log(cookies.get("name"));
-    console.log(cookies.get("email"));
-    console.log(cookies.get("image"));
+    // console.log(cookies.get("id"));
+    // console.log(cookies.get("name"));
+    // console.log(cookies.get("email"));
+    // console.log(cookies.get("image"));
+    console.log(JSON.stringify(user));
 
     return (
         <div className="fixed flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
@@ -135,12 +137,10 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                     ? client.map((d) => (
                                           <div className="">
                                               {d.desplegable ? (
-                                                  <Link to={d.link}>
-                                                      <Item
-                                                          title={d.title}
-                                                          type="cliente"
-                                                      />
-                                                  </Link>
+                                                  <Item
+                                                      title={d.title}
+                                                      type="cliente"
+                                                  />
                                               ) : (
                                                   <Link to={d.link}>
                                                       <Item2
@@ -183,33 +183,19 @@ function SideBar({ handle, setName, dashboard }: Props) {
                     leaveFrom="opacity-100 rotate-0 scale-100 "
                     leaveTo="opacity-0 scale-95 "
                 >
-                    <div className="border-t border-redGray w-max h-73 flex flex-row">
-                        <Perfil width="14" />
-                        <Link to="/login">
+                    <div className="border-t border-redGray w-max h-73 flex">
+                        <div className="w-max flex flex-row">
+                            <Link to={cookies.get("name") ? "" : "/login"}>
+                                <Perfil width={cookies.get('name') || user?.name ? "15" : "14"} />
+                            </Link>
                             <Items />
-                        </Link>
-                        {cookies.get("name") ? (
-                            <div>
-                                <div className="flex h-full items-center ml-4">
-                                    <div className="flex flex-col">
-                                        <p
-                                            className={`${style.text} text-gray`}
-                                        >
-                                            {cookies.get('name')}
-                                        </p>
-                                        <p
-                                            className={`${style.text2} text-semiRed`}
-                                        >
-                                            {cookies.get('rol')}
-                                        </p>
-                                    </div>
-                                    <div
-                                        onClick={cerrarSesion}
-                                        // className="w-max flex justify-end"
-                                    >
-                                        <ArrowLeftOnRectangleIcon className="w-8 mr-5 cursor-pointer text-redClare" />
-                                    </div>
-                                </div>
+                        </div>
+                        {cookies.get("name") || user?.name ? (
+                            <div
+                                className="flex justify-end w-max"
+                                onClick={() => logout()}
+                            >
+                                <ArrowLeftOnRectangleIcon className="w-8 mr-5 cursor-pointer text-redClare justify-end" />
                             </div>
                         ) : null}
                     </div>

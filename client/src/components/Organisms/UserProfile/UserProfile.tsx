@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 interface Props {
     user: string;
 }
@@ -12,5 +13,3 @@ const UserProfile = ({user}:Props) => {
         </div>
     )
 }
-
-export default UserProfile

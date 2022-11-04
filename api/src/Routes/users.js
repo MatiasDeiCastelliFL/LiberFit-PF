@@ -3,13 +3,16 @@ const passport = require('passport')
 const routerLog = express.Router()
 const jwt = require('jsonwebtoken')
 
-routerLog.post('/login', passport.authenticate("local"), (req,res)=>{
 
-  const body={id:req.user.id, email:req.user.email, password: req.user.password}
-  const token = jwt.sign({user:body},'top_secret')  
+routerLog.post('/login', passport.authenticate("login"), (req,res)=>{
+  const token = jwt.sign({user:req.user},'top_secret')  
   res.json({token:token})    
 });
 
+  routerLog.post('/logup',passport.authenticate("local"),(req,res)=>{
+    const token = jwt.sign({user:req.user},'top_secret')  
+    res.json({token:token})   
+  }); 
 
 
   routerLog.get('/logout', (req, res, next) =>{
@@ -17,7 +20,8 @@ routerLog.post('/login', passport.authenticate("local"), (req,res)=>{
       if (err) { 
         return next(err); 
         }
-      res.redirect('/');
+  
+      res.json({msg:"sesion cerrada"})
     });
   });
 
