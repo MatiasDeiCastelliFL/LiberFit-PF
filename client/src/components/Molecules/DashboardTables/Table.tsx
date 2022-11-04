@@ -17,14 +17,10 @@ const employeeUsers = [
   { key: "email", label: "Email"},
   { key: "image", label: "Avatar"},
   { key: "active", label: "Membresía"},
-  { key: "SubscriptionId", label: "Suscripción"}
+  { key: "RolId", label: "Rol Empleado"}
 ]
 
-interface Props {
-  dashboard: boolean;
-}
-
-function Table({ dashboard }: Props) {
+function Table({ link }: any) {
 
   const { data } = useAppSelector((state) => state);
   const [sortOrder, setSortOrder] = useState("");
@@ -33,42 +29,70 @@ function Table({ dashboard }: Props) {
   useEffect(() => {
     dispatch(getClients());
     dispatch(getEmployees());
-  }, [])
+  }, []);
+
+  // console.log(data.clients)
+  // console.log(data.employees)
+
+  const headers = []
+
+  for (const key in data.clients[0]) {
+    if(true) {
+      headers.push(key)
+    }
+  }
+  console.log("esto es headers:" + headers)
 
   return (
     <table>
-    <thead>
-      <tr>
-        {clientUsers.map(row => {
-          return (
-            <td key={row.key}>
-              {row.label}{''}
-              
-          </td>
-        )
-      })}
-      </tr>
+      <thead>
+        <tr>
+          { link === "clientes" ? (
+                clientUsers.map((key) => {
+                  return <td key={key.key}>{key.label}</td>
+                })
+            ) : link === "empleados" ? (
+                clientUsers.map((key) => {
+                  return <td key={key.key}>{key.label}</td>
+                })
+          ) : null }
+        </tr>
       </thead>
-      
-      <tbody>
-        {data.clients.map((person:any) => {
-          return (
-            <tr key={person.id}>
-              <td>{person.name}</td>
-              <td>{person.phone}</td>
-              <td>{person.email}</td>
-              <td>{person.image}</td>
-              <td>{person.active}</td>
-              <td>{person.SubscriptionId}</td>
-            </tr>
-          );
-        })}
-      </tbody>
-  
-  </table>
+    </table>
   )
 }
 
 export default Table;
 
-  
+return (
+  <table>
+  <thead>
+    <tr>
+      {clientUsers.map(row => {
+        return (
+          <td key={row.key}>
+            {row.label}{''}
+            
+        </td>
+      )
+    })}
+    </tr>
+    </thead>
+    
+    <tbody>
+      {data.clients.map((person:any) => {
+        return (
+          <tr key={person.id}>
+            <td>{person.name}</td>
+            <td>{person.phone}</td>
+            <td>{person.email}</td>
+            <td>{person.image}</td>
+            <td>{person.active}</td>
+            <td>{person.SubscriptionId}</td>
+          </tr>
+        );
+      })}
+    </tbody>
+
+</table>
+)
