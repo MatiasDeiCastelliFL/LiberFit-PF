@@ -19,7 +19,7 @@ function GlobalTable({ dashboard }: Props) {
   console.log(data.clients)
 
   return (
-    <div>
+    <div>Tabla de empleados
     </div>
   )
 }

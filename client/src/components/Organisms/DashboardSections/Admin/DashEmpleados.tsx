@@ -2,6 +2,6 @@ import React from "react";
 
 export default function DashEmpleados() {
   return <div>
-    DashEmpleados
+    dash empleados
   </div>;
 }

@@ -9,7 +9,8 @@ import DashAdmin from '../../Organisms/DashboardSections/Admin/DashAdmin';
 function DashboardTemplate() {
     const { client } = useParams<{ client: string }>();
     const { admin } = useParams<{ admin: string }>();
-
+    console.log('file: DashboardTemplate.tsx ~ line 12 ~ DashboardTemplate ~ admin', admin)
+    
     return (
         <div className="flex flex-row select-none">
             <div className="z-10">
@@ -20,10 +21,10 @@ function DashboardTemplate() {
                     <NavBar dashboard={true} />
                 </div>
                 <div className="mt-40 ml-10">
-                    {client ? (
+                    { client ? (
                         <UserProfile user={client} />
                     ) : admin ? (
-                      <DashAdmin />
+                        <DashAdmin link={ admin} />
                     ) : null}
                 </div>
             </div>

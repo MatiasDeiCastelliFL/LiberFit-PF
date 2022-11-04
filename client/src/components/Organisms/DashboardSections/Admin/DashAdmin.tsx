@@ -2,7 +2,7 @@ import React from "react";
 import DoughnutChart from "../../../Atoms/DoughnutChart/DoughnutChart";
 import LineChart from "../../../Atoms/DoughnutChart/LineChart";
 
-export default function DashGeneral() {
+export default function DashGeneral({link}:any) {
     const dataEmpleados = {
         labels: ["Activos", "Inactivos"],
         datasets: [
@@ -14,23 +14,24 @@ export default function DashGeneral() {
         ],
     };
     const dataSedes = {
-        labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio"],
+        labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio","Julio"],
         datasets: [
             {
                 label: "Usuarios",
                 backgroundColor: ["#fca5a5", "#f87071"],
                 borderColor: "#f87071",
-                data: [0, 10, 5, 2, 20, 30, 45],
+                fill: false,
+                tension: 0.1,
+                data: [0, 10, 5, 2, 20, 30, 45,100],
             },
         ],
     };
     return (
-        <div className="flex w-5/6
+        <div className="flex justify-around 
         ">
-              <DoughnutChart data={dataEmpleados} />
-              <div className="h-96">
-                  <LineChart data={dataSedes} />
-              </div>
+            <DoughnutChart data={dataEmpleados} />
+            <LineChart data={dataSedes} />
+
         </div>
     );
 }
