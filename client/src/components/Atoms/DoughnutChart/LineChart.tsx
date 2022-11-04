@@ -20,6 +20,7 @@ interface LineChartProps {
   data: ChartData<'line'>;
 };
 
+
 const LineChart = ({data}:LineChartProps) => {
   return (
     <div >
