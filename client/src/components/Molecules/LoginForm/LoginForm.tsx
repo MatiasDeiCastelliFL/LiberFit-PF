@@ -10,9 +10,10 @@ import {
 } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
 import { useForm } from "react-hook-form";
-import { loginAction } from "../../../App/Action/Action"
-import { useAppDispatch } from "../../../App/Hooks/Hooks"
-import Cookies from "universal-cookie"
+import { loginAction } from "../../../App/Action/Action";
+import { useAppDispatch } from "../../../App/Hooks/Hooks";
+import Cookies from "universal-cookie";
+import jwt_decode from "jwt-decode"
 
 interface Inp {
   email: string;
@@ -29,26 +30,30 @@ const LoginForm = () => {
 
   const dispatch = useAppDispatch()
 
-  console.log(cookies.get("id"))
+
+ /* console.log(cookies.get("id"))
   console.log(cookies.get("name"))
-  console.log(cookies.get("email"))
+  console.log(cookies.get("email")) */
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
     dispatch(loginAction(data))
     .then(response => {
-      return response?.data.data
-      // console.log("-->",response?.data.data)
+      return response?.data.token
+      // console.log("-->",response?.data)
     })
     .then(response => {
       var respuesta = response
-      cookies.set("id", respuesta.id,{path: "/"})
-      cookies.set("email", respuesta.email,{path: "/"})
-      cookies.set("name", respuesta.name,{path: "/"})
+      var decode:any = jwt_decode(respuesta)
+
+      // console.log("<--->",decode.user.email)
+
+      cookies.set("id", decode.user.id,{path: "/"})
+      cookies.set("email", decode.user.email,{path: "/"})
+      cookies.set("name", decode.user.name,{path: "/"})
       cookies.set("phone", respuesta.phone,{path: "/"})
-      cookies.set("image", respuesta.image,{path: "/"})
-      alert(`Bienvenido ${respuesta.name}`)
-      // console.log("asdasd-->",respuesta.name)
+      cookies.set("image", decode.user.image,{path: "/"})
+      alert(`Bienvenido ${decode.user.name}`)
       window.location.href="./home"
     })
     .catch(error => {
@@ -77,14 +82,17 @@ const LoginForm = () => {
                 <div className="border-2 w-14 border-redClare inline-block mb-2"></div>
               </div>
               <div className="flex justify-center my-2">
-                <div className="border-2 w-min border-red-300 rounded-full p-3 mx-1">
+                {/* <div className="border-2 w-min border-red-300 rounded-full p-3 mx-1">
                   <FaFacebookF className="text-sm" />
                 </div>
                 <div className="border-2 w-min border-red-300 rounded-full p-3 mx-1">
                   <FaLinkedinIn className="text-sm" />
-                </div>
-                <div className="border-2 w-min border-red-300 rounded-full p-3 mx-1">
-                  <FaGoogle className="text-sm" />
+                </div> */}
+                <div className="flex border-2 w-min border-red-300 rounded-full p-3 mx-1">
+                  <button className="flex justify-around items-center">
+                    <FaGoogle className="text-lg" />
+                    <span>oogle</span>
+                  </button>
                 </div>
               </div>
               <p className=" text-red-800 my-3">o usa tu cuenta de correo</p>

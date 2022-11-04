@@ -5,9 +5,9 @@ const jwt = require('jsonwebtoken')
 
 routerLog.post('/login', passport.authenticate("local"), (req,res)=>{
 
-  const body={id:req.user.id, email:req.user.email, password: req.user.password}
-  const token = jwt.sign({user:body},'top_secret')  
-  res.json({token:token})    
+  
+  const token = jwt.sign({user:req.user},'top_secret')  
+  res.json({token:token,user:req.user})    
 });
 
 
@@ -17,7 +17,7 @@ routerLog.post('/login', passport.authenticate("local"), (req,res)=>{
       if (err) { 
         return next(err); 
         }
-      res.redirect('/');
+      res.json({msg:"sesion cerrada"})
     });
   });
 
