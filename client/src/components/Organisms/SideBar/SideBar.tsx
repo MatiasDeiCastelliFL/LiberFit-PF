@@ -11,7 +11,7 @@ import Items from "../../Atoms/Perfil/ItemsPefil/Items";
 import Item2 from "../../Atoms/SideItems/Item2";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/outline";
 import Cookies from "universal-cookie";
-import style from './Style/sidebar.module.css'
+import style from "./Style/sidebar.module.css";
 
 interface Props {
     handle: any;
@@ -70,10 +70,10 @@ function SideBar({ handle, setName, dashboard }: Props) {
         { title: "usuarios", active: false, desplegable: false },
     ];
 
-    console.log(cookies.get("id"));
-    console.log(cookies.get("name"));
-    console.log(cookies.get("email"));
-    console.log(cookies.get("image"));
+    // console.log(cookies.get("id"));
+    // console.log(cookies.get("name"));
+    // console.log(cookies.get("email"));
+    // console.log(cookies.get("image"));
 
     return (
         <div className=" flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
@@ -183,35 +183,26 @@ function SideBar({ handle, setName, dashboard }: Props) {
                     leaveFrom="opacity-100 rotate-0 scale-100 "
                     leaveTo="opacity-0 scale-95 "
                 >
-                    <div className="border-t border-redGray w-max h-73 flex flex-row">
-                        <Perfil width="14" />
-                        <Link to="/login">
-                            <Items />
-                        </Link>
+                    <div className="border-t border-redGray w-max h-73 flex flex-row justify-around">
                         {cookies.get("name") ? (
-                            <div>
-                                <div className="flex h-full items-center ml-4">
-                                    <div className="flex flex-col">
-                                        <p
-                                            className={`${style.text} text-gray`}
-                                        >
-                                            {cookies.get('name')}
-                                        </p>
-                                        <p
-                                            className={`${style.text2} text-semiRed`}
-                                        >
-                                            {cookies.get('rol')}
-                                        </p>
-                                    </div>
-                                    <div
-                                        onClick={cerrarSesion}
-                                        // className="w-max flex justify-end"
+                            <div className="flex items-center">
+                                    <img className=" w-10 rounded-3xl " src={cookies.get("image")} />
+                                    <p className={`${style.text} text-gray `}>{cookies.get("name")}</p>
+                                    <p className={`${style.text2} text-semiRed`}>{cookies.get("rol")}</p>
+                                
+                                <div onClick={cerrarSesion} // className="w-max flex justify-end" 
                                     >
-                                        <ArrowLeftOnRectangleIcon className="w-8 mr-5 cursor-pointer text-redClare" />
-                                    </div>
+                                    <ArrowLeftOnRectangleIcon className="w-8 mr-5 cursor-pointer text-redClare" />
                                 </div>
                             </div>
-                        ) : null}
+                        ) : (
+                            <div className="flex" >
+                                <Perfil width="14" />
+                                <Link to="/login">
+                                    <Items />
+                                </Link>
+                            </div>
+                        )}
                     </div>
                 </Transition>
             )}
