@@ -2,11 +2,11 @@ import React from "react";
 import DoughnutChart from "../../../Atoms/DoughnutChart/DoughnutChart";
 import LineChart from "../../../Atoms/DoughnutChart/LineChart";
 import DashEmpleados from "./DashEmpleados";
+import DashClientes from "./DashClientes";
 import { useAppSelector, useAppDispatch } from "../../../../App/Hooks/Hooks";
 
 export default function DashGeneral({ link }: any) {
     const { data } = useAppSelector((state) => state);
-    console.log("file: DashAdmin.tsx ~ line 10 ~ DashGeneral ~ data", data);
     const dispatch = useAppDispatch();
 
     const datosUsuarios = {
@@ -47,11 +47,15 @@ export default function DashGeneral({ link }: any) {
                         <DoughnutChart data={datosUsuarios} />
                         <LineChart data={datosUsuarios} />
                     </>
-            ) : (
+            ) : link === "clientes" ? (
+                <div className="flex-1">
+                    <DashClientes />
+                </div>
+            ) : link === "empleados" ? (
                 <div className="flex-1">
                     <DashEmpleados />
                 </div>
-            )}
+            ) : null}
         </div>
     );
 }
