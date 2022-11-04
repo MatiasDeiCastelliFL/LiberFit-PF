@@ -15,19 +15,14 @@ const {
 } = require("../db");
 const api = require("../controllers/gym.json");
 
-// function generateRandomElement(start, end, element) {
-//     const generators = {
-//         date: (start, end) => {
-//             const dateStart = new Date(start);
-//             const dateEnd = new Date(end);
-//             const date = new Date(
-//                 +dateStart + Math.random() * (dateEnd - dateStart)
-//             );
-//             return date;
-//         },
-//     };
-//     return generators[element]
-// }
+function generateRandomElement( element, start=0, end=1) {
+    const generators = {
+      date: new Date( +new Date('2022-08-25')+ (Math.random() * ( new Date(start) - new Date(end) ) )),
+      boolean: Math.round(0 + Math.random() * (1 - 0)) ? true: false,
+      number: Math.round(start + Math.random() * (end - start))
+    };
+    return generators[element]
+}
 
 // agregamos los datos que no necesitan datos previos para ser creadas
 const crearDesdeJsonAPaymentsDb = async () => {
@@ -199,10 +194,10 @@ const crearDesdeJsonAClientsDb = async () => {
             phone: client.phone,
             email: client.email,
             password: client.password,
-            // active: client.active || generateRandomElement(0, 1, "boolean"),
-            // createdAt:
-            //     client.createdAt ||
-            //     generateRandomElement("2022-08-25", "2022-11-04", "date"),
+            active: generateRandomElement("boolean"),
+            createdAt:
+                client.createdAt ||
+                generateRandomElement( "date","2022-08-25", "2022-11-04"),
             image: client.image,
         });
         // console.log('clientByName',clientByName.__proto__)
