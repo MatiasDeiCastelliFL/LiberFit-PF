@@ -12,7 +12,7 @@ routerLog.post('/login', passport.authenticate("login"), (req,res)=>{
   routerLog.post('/logup',passport.authenticate("local"),(req,res)=>{
     const token = jwt.sign({user:req.user},'top_secret')  
     res.json({token:token})   
-  });
+  }); 
 
 
   routerLog.get('/logout', (req, res, next) =>{
