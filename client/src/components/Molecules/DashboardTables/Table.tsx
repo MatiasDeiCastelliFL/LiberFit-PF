@@ -63,3 +63,36 @@ function Table({ link }: any) {
 }
 
 export default Table;
+
+return (
+  <table>
+  <thead>
+    <tr>
+      {clientUsers.map(row => {
+        return (
+          <td key={row.key}>
+            {row.label}{''}
+            
+        </td>
+      )
+    })}
+    </tr>
+    </thead>
+    
+    <tbody>
+      {data.clients.map((person:any) => {
+        return (
+          <tr key={person.id}>
+            <td>{person.name}</td>
+            <td>{person.phone}</td>
+            <td>{person.email}</td>
+            <td>{person.image}</td>
+            <td>{person.active}</td>
+            <td>{person.SubscriptionId}</td>
+          </tr>
+        );
+      })}
+    </tbody>
+
+</table>
+)
