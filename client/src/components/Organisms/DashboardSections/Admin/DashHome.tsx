@@ -1,5 +1,5 @@
 import React from "react";
-import DoughnutChart from "../../../Molecules/Chart/DoughnutChart/DoughnutChart";
+import DoughnutChart from "../../../Atoms/DoughnutChart/DoughnutChart";
 
 export default function DashGeneral() {
     const labels = ["Activos", "Inactivos"];

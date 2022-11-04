@@ -2,7 +2,9 @@ import React from "react";
 import 'chart.js/auto';
 import { Doughnut  } from 'react-chartjs-2'; // evita error en el renderisado de chart
 import { Pie } from "react-chartjs-2";
-const data = {
+
+// example data
+/* const data = {
   labels: ["January", "February", "March", "April", "May", "June"],
   datasets: [
     {
@@ -12,8 +14,19 @@ const data = {
       data: [0, 150, 50, 120, 120],
     },
   ],
+}; */
+
+interface DoughnutChart {
+  labels: string[],
+  datasets: [
+    {
+      label: string,
+      backgroundColor: string[],
+      data: number[],
+    },
+  ],
 };
-const DoughnutChart = () => {
+const DoughnutChart = (data:DoughnutChart) => {
   return (
     <div >
       <Doughnut data={data} />

@@ -42,7 +42,7 @@ function App() {
         <Route path="/signup" element={<SingUp />} />
         <Route path="/dashboard" element={<Dashboard/>}>
             <Route path='/dashboard/:client'/>
-            <Route path="/dashboard/admin"/>
+            <Route path="/dashboard/admin/:admin"/>
         </Route>
         <Route path="/UserConfig" element={<UserConfig/>}/>
       </Routes>
