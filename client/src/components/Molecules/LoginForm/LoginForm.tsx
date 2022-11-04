@@ -14,6 +14,7 @@ import { loginAction } from "../../../App/Action/Action";
 import { useAppDispatch } from "../../../App/Hooks/Hooks";
 import Cookies from "universal-cookie";
 import jwt_decode from "jwt-decode"
+import { useAuth0 } from "@auth0/auth0-react"
 
 interface Inp {
   email: string;
@@ -29,7 +30,7 @@ const LoginForm = () => {
   } = useForm<Inp>();
 
   const dispatch = useAppDispatch()
-
+  const {loginWithRedirect, user, logout} = useAuth0()
 
  /* console.log(cookies.get("id"))
   console.log(cookies.get("name"))
@@ -58,6 +59,7 @@ const LoginForm = () => {
     })
     .catch(error => {
       console.log(error)
+      alert("correo o cantraseña incorrecta")
     })
   });
 
@@ -88,10 +90,15 @@ const LoginForm = () => {
                 <div className="border-2 w-min border-red-300 rounded-full p-3 mx-1">
                   <FaLinkedinIn className="text-sm" />
                 </div> */}
-                <div className="flex border-2 w-min border-red-300 rounded-full p-3 mx-1">
+                {/* <div className="flex border-2 w-min border-red-300 rounded-full p-3 mx-1">
                   <button className="flex justify-around items-center">
                     <FaGoogle className="text-lg" />
                     <span>oogle</span>
+                  </button>
+                </div> */}
+                <div className="flex border-2 w-min border-red-300 rounded-full p-3 mx-1">
+                  <button onClick={() => loginWithRedirect()}>
+                    Google
                   </button>
                 </div>
               </div>
