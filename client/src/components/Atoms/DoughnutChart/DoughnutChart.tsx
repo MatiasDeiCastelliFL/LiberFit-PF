@@ -1,7 +1,7 @@
 import React from "react";
 import 'chart.js/auto';
+import type {ChartData, ChartOptions} from 'chart.js'
 import { Doughnut  } from 'react-chartjs-2'; // evita error en el renderisado de chart
-import { Pie } from "react-chartjs-2";
 
 // example data
 /* const data = {
@@ -16,17 +16,11 @@ import { Pie } from "react-chartjs-2";
   ],
 }; */
 
-interface DoughnutChart {
-  labels: string[],
-  datasets: [
-    {
-      label: string,
-      backgroundColor: string[],
-      data: number[],
-    },
-  ],
+interface DoughnutChartProps {
+  data: ChartData<'doughnut'>;
 };
-const DoughnutChart = (data:DoughnutChart) => {
+
+const DoughnutChart = ({data}:DoughnutChartProps) => {
   return (
     <div >
       <Doughnut data={data} />

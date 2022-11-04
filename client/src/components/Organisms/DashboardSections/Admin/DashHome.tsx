@@ -2,9 +2,8 @@ import React from "react";
 import DoughnutChart from "../../../Atoms/DoughnutChart/DoughnutChart";
 
 export default function DashGeneral() {
-    const labels = ["Activos", "Inactivos"];
     const dataEmpleados = {
-        labels: labels,
+        labels: ["Activos", "Inactivos"],
         datasets: [
             {
                 label: "Grafico empledos",
@@ -14,7 +13,7 @@ export default function DashGeneral() {
         ],
     };
     const dataSedes = {
-        labels: labels,
+        labels: ["Activos", "Inactivos"],
         datasets: [
             {
                 label: "Graficos Sedes",
