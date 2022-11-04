@@ -86,6 +86,16 @@ export const postUser = (payload:any) => async (dispatch: any) => {
     }
 }
 
+export const editUser = (payload:any) => async (dispatch: any) => {
+    try {
+        let json = await axios.put("http://localhost:3004/clients",payload) // enpoint de post user
+        console.log(json)
+        return json
+    } catch (error) {
+        console.log("--->",error)
+    }
+}
+
 export const postElement = (payload:any, element:string) =>  (dispatch: any) => {
     try {
         let json = axios.post(`http://localhost:3004/${element}`,payload) 

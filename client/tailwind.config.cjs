@@ -48,6 +48,7 @@ module.exports = {
                 swiper: "80vw",
                 card: "92rem",
                 cards_1: "14vw",
+                user: "6.5rem",
             },
             height: {
                 max: "100vh",
@@ -56,6 +57,7 @@ module.exports = {
                 73: "4.563rem",
                 custom_3: "31.25rem",
                 custom_4: "34rem",
+                user: "6.5rem",
             },
             blur: {
                 default: "30px",
