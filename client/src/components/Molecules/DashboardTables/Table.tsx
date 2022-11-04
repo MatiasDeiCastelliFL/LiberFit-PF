@@ -17,14 +17,10 @@ const employeeUsers = [
   { key: "email", label: "Email"},
   { key: "image", label: "Avatar"},
   { key: "active", label: "Membresía"},
-  { key: "SubscriptionId", label: "Suscripción"}
+  { key: "RolId", label: "Rol Empleado"}
 ]
 
-interface Props {
-  dashboard: boolean;
-}
-
-function Table({ dashboard }: Props) {
+function Table({ link }: any) {
 
   const { data } = useAppSelector((state) => state);
   const [sortOrder, setSortOrder] = useState("");
@@ -33,10 +29,10 @@ function Table({ dashboard }: Props) {
   useEffect(() => {
     dispatch(getClients());
     dispatch(getEmployees());
-  }, [])
+  }, []);
 
-  console.log(data.clients)
-  console.log(data.employees)
+  // console.log(data.clients)
+  // console.log(data.employees)
 
   const headers = []
 
@@ -48,17 +44,22 @@ function Table({ dashboard }: Props) {
   console.log("esto es headers:" + headers)
 
   return (
-    <div>
-      Renderizando la tabla
-    </div>
+    <table>
+      <thead>
+        <tr>
+          { link === "clientes" ? (
+                clientUsers.map((key) => {
+                  return <td key={key.key}>{key.label}</td>
+                })
+            ) : link === "empleados" ? (
+                clientUsers.map((key) => {
+                  return <td key={key.key}>{key.label}</td>
+                })
+          ) : null }
+        </tr>
+      </thead>
+    </table>
   )
 }
 
 export default Table;
-
-// // {
-//   id: '1115cbda-a5c9-4b67-9d0c-2bdd2f0977ab', 
-//   name: 'Sirhjan Rojas', 
-//   phone: '+23 45321279', 
-//   email: 'sirhjanrojas@gmail.com', 
-//   password: 'sirjrojas++', …}
