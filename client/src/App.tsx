@@ -41,9 +41,8 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/signup" element={<SingUp />} />
         <Route path="/dashboard" element={<Dashboard/>}>
-            <Route path='/dashboard/:client' />
-            <Route path="/dashboard/rutinas" />
-            <Route path="/dashboard/usuarios" />
+            <Route path='/dashboard/:client'/>
+            <Route path="/dashboard/admin"/>
         </Route>
         <Route path="/UserConfig" element={<UserConfig/>}/>
       </Routes>

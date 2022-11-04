@@ -12,7 +12,6 @@ import Items from "../../Atoms/Perfil/ItemsPefil/Items";
 import Item2 from "../../Atoms/SideItems/Item2";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/outline";
 import Cookies from "universal-cookie";
-import style from './Style/sidebar.module.css'
 
 interface Props {
     handle: any;
@@ -64,17 +63,37 @@ function SideBar({ handle, setName, dashboard }: Props) {
     ];
 
     const admin = [
-        { title: "Dashboard", active: true, desplegable: false },
-        { title: "Rutinas", active: false, desplegable: true },
-        { title: "Productos", active: false, desplegable: true },
-        { title: "Ejercicios", active: false, desplegable: true },
-        { title: "usuarios", active: false, desplegable: false },
+        {
+            title: "Dashboard",
+            active: true,
+            desplegable: false,
+            link: "/dashboard/home",
+        },
+        {
+            title: "Empleados",
+            active: false,
+            desplegable: false,
+            link: "/dashboard/rutinas",
+        },
+        {
+            title: "Productos",
+            active: false,
+            desplegable: false,
+            link: "/dashboard/productos",
+        },
+        {
+            title: "Ejercicios",
+            active: false,
+            desplegable: false,
+            link: "/dashboard/ejercicios",
+        },
+        {
+            title: "usuarios",
+            active: false,
+            desplegable: false,
+            link: "/dashboard/usuarios",
+        },
     ];
-
-    console.log(cookies.get("id"));
-    console.log(cookies.get("name"));
-    console.log(cookies.get("email"));
-    console.log(cookies.get("image"));
 
     return (
         <div className="fixed flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
@@ -156,15 +175,19 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                     ? admin.map((d) => (
                                           <div className="">
                                               {d.desplegable ? (
-                                                  <Item
-                                                      title={d.title}
-                                                      type="admin"
-                                                  />
+                                                  <Link to={d.link}>
+                                                      <Item
+                                                          title={d.title}
+                                                          type="admin"
+                                                      />
+                                                  </Link>
                                               ) : (
-                                                  <Item2
-                                                      active={d.active}
-                                                      title={d.title}
-                                                  />
+                                                  <Link to={d.link}>
+                                                      <Item2
+                                                          active={d.active}
+                                                          title={d.title}
+                                                      />{" "}
+                                                  </Link>
                                               )}
                                           </div>
                                       ))
@@ -196,12 +219,12 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                         <p
                                             className={`${style.text} text-gray`}
                                         >
-                                            {cookies.get('name')}
+                                            {cookies.get("name")}
                                         </p>
                                         <p
                                             className={`${style.text2} text-semiRed`}
                                         >
-                                            {cookies.get('rol')}
+                                            {cookies.get("rol")}
                                         </p>
                                     </div>
                                     <div

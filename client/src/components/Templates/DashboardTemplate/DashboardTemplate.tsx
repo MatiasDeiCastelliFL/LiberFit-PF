@@ -7,7 +7,10 @@ import UserProfile from "../../Organisms/UserProfile/UserProfile";
 
 function DashboardTemplate() {
 
-  const { client } = useParams<{ client: string }>();
+  // const { client } = useParams<{ client: string }>();
+  const params = useParams<{ client: string }>();
+  console.log('file: DashboardTemplate.tsx ~ line 12 ~ DashboardTemplate ~ params', params)
+  
   return (
     <div className="flex flex-row select-none">
       <div className="z-10">
@@ -18,8 +21,8 @@ function DashboardTemplate() {
       </div>
       <div className="mt-40 ml-10">
         {
-          client? (
-            <UserProfile user={client}/>
+          params.client? (
+            <UserProfile user={params.client}/>
           ):( null )
         }
       </div>

@@ -7,19 +7,13 @@ interface Props {
 }
 
 function Item2({ title, active }: Props) {
-    const [isActive, setIsActive] = useState(active);
-    
-    const handleClick = () => {
-        setIsActive(!isActive)
-    }
     return (
         <div className="w-max"
-            onClick={handleClick}
         >
             <div className="">
                 <div
                     className={`${
-                        isActive
+                        active
                             ? "bg-red-300 text-white"
                             : "hover:bg-gray-50 text-black"
                     } flex cursor-pointer items-center justify-between   p-4 `}
