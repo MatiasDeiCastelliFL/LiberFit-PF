@@ -35,22 +35,16 @@ function SideBar({ handle, setName, dashboard }: Props) {
     };
 
     const client = [
-        { title: "Dashboard", active: true, desplegable: false, link: "/" },
+        { title: "Dashboard", active: location.pathname === '/dashboard/cliente'? true : false, desplegable: false, link: "/dashboard/cliente" },
         {
             title: "Rutinas",
-            active: false,
+            active: location.pathname.includes('rutinas') ? true : false,
             desplegable: false,
-            link: "/dashboard/cliente/ejercicios",
-        },
-        {
-            title: "Productos",
-            active: false,
-            desplegable: false,
-            link: "/dashboard/cliente/ejercicios",
+            link: "/dashboard/cliente/rutinas",
         },
         {
             title: "Ejercicios",
-            active: false,
+            active: location.pathname.includes('ejercicios') ? true : false,
             desplegable: false,
             link: "/dashboard/cliente/ejercicios",
         },
@@ -58,7 +52,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
             title: "Membresia",
             active: false,
             desplegable: true,
-            link: "/dashboard/cliente/ejercicios",
+            link: ''
         },
     ];
 
@@ -135,12 +129,10 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                     ? client.map((d) => (
                                           <div className="">
                                               {d.desplegable ? (
-                                                  <Link to={d.link}>
                                                       <Item
                                                           title={d.title}
                                                           type="cliente"
                                                       />
-                                                  </Link>
                                               ) : (
                                                   <Link to={d.link}>
                                                       <Item2

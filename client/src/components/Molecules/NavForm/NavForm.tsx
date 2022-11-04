@@ -98,7 +98,7 @@ const NavForm = ({ dashboard }: Props) => {
                 }
             </div>
             {dashboard && (
-                <div className="mb-3">
+                <div className="mb-3 ">
                     <Search
                         Placeholder="search..."
                         setName={false}
@@ -111,7 +111,7 @@ const NavForm = ({ dashboard }: Props) => {
                 </div>
             )}
             <div
-                className={dashboard ? "flex xl:mr-96 2xl:mr-0" : "flex mr-4 "}
+                className={dashboard ? "flex 2xl:-mr-72 xl:-mr-44 lg:-mr-36"  : "flex mr-4 "}
             >
                 {!dashboard ? (
                     link2.map((elem, i) => (
@@ -130,18 +130,18 @@ const NavForm = ({ dashboard }: Props) => {
                         </div>
                     ))
                 ) : (
-                    <div className="w-max h-full flex items-center mb-2 ">
+                    <div className="w-max h-full flex items-center mb-2">
                         <div className="">
                             <span className="border-l border-redGray h-10"></span>
                         </div>
-                        <div className=" relative">
+                        <div className=" relative ">
                             <Popover>
                                 {({ open }) => (
                                     <>
                                         <Popover.Button
                                             className={`
-                ${open ? "" : "text-opacity-90"}
-                 group   text-white hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
+                                             ${open ? "" : "text-opacity-90"}
+                                                 group   text-white hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
                                         >
                                             <div className="flex flex-row gap-2 items-center">
                                                 <Perfil width="10" />
