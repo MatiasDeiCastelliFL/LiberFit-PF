@@ -1,5 +1,6 @@
 import React from "react";
 import DoughnutChart from "../../../Atoms/DoughnutChart/DoughnutChart";
+import LineChart from "../../../Atoms/DoughnutChart/LineChart";
 
 export default function DashGeneral() {
     const dataEmpleados = {
@@ -13,19 +14,23 @@ export default function DashGeneral() {
         ],
     };
     const dataSedes = {
-        labels: ["Activos", "Inactivos"],
+        labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio"],
         datasets: [
             {
-                label: "Graficos Sedes",
+                label: "Usuarios",
                 backgroundColor: ["#fca5a5", "#f87071"],
-                data: [0, 20, 30, 45, 75],
+                borderColor: "#f87071",
+                data: [0, 10, 5, 2, 20, 30, 45],
             },
         ],
     };
     return (
-        <div className="flex w-80">
+        <div className="flex w-5/6
+        ">
               <DoughnutChart data={dataEmpleados} />
-              <DoughnutChart data={dataSedes} />
+              <div className="h-96">
+                  <LineChart data={dataSedes} />
+              </div>
         </div>
     );
 }

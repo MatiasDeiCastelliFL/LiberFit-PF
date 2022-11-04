@@ -4,7 +4,7 @@ import SideBar from "./../../Organisms/SideBar/SideBar";
 import CreateForm from "../../Organisms/CreateForm/CreateForm";
 import { useParams } from "react-router-dom";
 import UserProfile from "../../Organisms/UserProfile/UserProfile";
-import DashGeneral from '../../Organisms/DashboardSections/Admin/DashHome';
+import DashAdmin from '../../Organisms/DashboardSections/Admin/DashAdmin';
 
 function DashboardTemplate() {
     const { client } = useParams<{ client: string }>();
@@ -23,7 +23,7 @@ function DashboardTemplate() {
                     {client ? (
                         <UserProfile user={client} />
                     ) : admin ? (
-                      <DashGeneral />
+                      <DashAdmin />
                     ) : null}
                 </div>
             </div>
