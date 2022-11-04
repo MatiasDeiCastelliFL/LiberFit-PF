@@ -46,58 +46,18 @@ function Table({ link }: any) {
             </thead>
 
         <tbody>
-        {headers[link]?.map((link:any) => {
-                        // return <td key={key.key}>{key.label}</td>;
-          return <td>{ data[link][link.key]}</td>;
-                    })}
-      {/* {data[link].map((person:any) => {
+      {data[link].map((person:any) => {
         return (
           <tr key={person.id}>
-            <td>{person.name}</td>
-            <td>{person.phone}</td>
-            <td>{person.email}</td>
-            <td>{person.image}</td>
-            <td>{person.active}</td>
-            <td>{person.SubscriptionId===1&& 'No suscrito'}</td>
+            {headers[link].map((link: any) =>
+            <td>{person[link.key]}</td>
+            )}
           </tr>
         );
-      })} */}
+      })}
     </tbody>
         </table>
     );
 }
 
 export default Table;
-
-// return (
-//   <table>
-//   <thead>
-//     <tr>
-//       {clientUsers.map(row => {
-//         return (
-//           <td key={row.key}>
-//             {row.label}{''}
-
-//         </td>
-//       )
-//     })}
-//     </tr>
-//     </thead>
-
-    // <tbody>
-    //   {data.clients.map((person:any) => {
-    //     return (
-    //       <tr key={person.id}>
-    //         <td>{person.name}</td>
-    //         <td>{person.phone}</td>
-    //         <td>{person.email}</td>
-    //         <td>{person.image}</td>
-    //         <td>{person.active}</td>
-    //         <td>{person.SubscriptionId}</td>
-    //       </tr>
-    //     );
-    //   })}
-    // </tbody>
-
-// </table>
-// )
