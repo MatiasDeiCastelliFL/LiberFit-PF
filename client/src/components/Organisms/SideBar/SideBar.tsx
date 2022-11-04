@@ -89,10 +89,10 @@ function SideBar({ handle, setName, dashboard }: Props) {
             link: "/dashboard/admin/ejercicios",
         },
         {
-            title: "usuarios",
+            title: "CLientes",
             active: false,
             desplegable: false,
-            link: "/dashboard/admin/usuarios",
+            link: "/dashboard/admin/clientes",
         },
     ];
 
