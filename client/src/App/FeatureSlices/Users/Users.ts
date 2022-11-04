@@ -20,6 +20,9 @@ const usersSlice = createSlice({
         postUsers: (state, action) => {
             state
         },
+        editUsers: (state, action) => {
+            state
+        },
         detail: (state, action) => {
             state.detail = action.payload
         }
@@ -27,4 +30,4 @@ const usersSlice = createSlice({
 });
 
 export default usersSlice.reducer;
-export const { getAllUsers, postUsers, detail } = usersSlice.actions;
+export const { getAllUsers, postUsers, detail, editUsers } = usersSlice.actions;

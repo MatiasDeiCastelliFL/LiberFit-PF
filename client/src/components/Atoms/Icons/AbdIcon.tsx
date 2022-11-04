@@ -1,0 +1,23 @@
+import * as React from "react"
+
+interface Props {
+    props: any
+}
+
+const AbdIcon = ({props}:Props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    xmlSpace="preserve"
+    {...props}
+  >
+    <image
+      width={96}
+      height={96}
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAAABGdBTUEAALGPC/xhBQAAACBjSFJN AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACx1BMVEUAAAD/v7/6ybf6yLj6 ybj6yrj6yLn/0bn/xbn5ybf6ybj6ybj6yLn2yLb6ybn6ybj/zLv//4D6ybj5ybj6yLj/v7//zMz7 yrn7ybj6ybf6ybn7ybj6ybj6ybj7yLf7ybj/1ar5yrn7ybj6ybj7ybj5yrj6ybn5ybj7yrj6ybj6 yrf6ybj6yrn6yLn6ybj6ybj5yrn6ybj6ybf7yLf6ybj6ybj7ybf/xqr6ybj6ybf/v7/7ybf6yLj/ qqr7yrf7yrb5ybj5yLf5ybj6ybj6ybj6ybj6ybj5ybj5ybj5ybn5yrf5ybj5yrj5zLn/xrj7yrj7 ybf5ybf4zLb4yLr6ybj4y7f4ybX6yLj5ybj7ybn7yrj6ybj6ybj6ybj6ybj7yLj6ybj7ybn7yrf7 y7j5ybj8ybn/w7T7ybf4yrn6ybj/yrX6yLf6ybj/yLz4y7z7ybf6yrj7yrj3zLv2yrn7ybn5ybf5 yLj6ybn5yLj/27b6ybj6ybn7yLr6ybj6ybj6ybf6yrf7yLj7x7f5yLn6yrj6ybf7ybf6ybj6ybj8 y7n5yLj6ybj6yrj7yrj6ybf/xLH6ybj/zLP6ybn6yrf6ybj6yLj8o4f+f1n/dUz/e1T+jmz7spv+ jWv8o4j6yLf8pIj8p4z8pov8pIr+gFv/flf/fVb+gVz/eFD/eVH+i2j+jGn7tZ7/dk3/eE//d07/ dk77tp/8q5H9kXD9kG/8rJP7v6v9mnz+g13+hF/8n4P6xrT6xbP8oIP8r5b+hWH/d0//dkz+f1j7 tJ38sJf8r5f8qI78p43+iGX+fVf+imf9j237tJz8qIz7vKb9mHn+glz6wq/9mHj7u6f8pYn/fFb/ fFX/elL+imb+imj8qo/8qZD6x7b+gVv6x7X7sJj/elP7sJn+jGr+jmv6yLb6xrX9knH6x7T+h2L+ iGT6xrP+h2P8rJL///98PORFAAAAlHRSTlMADGe77bpmCxaA7PGRHPb5DwJe528EBT56oMfj7v55 PQZXsPKvVm3m5Ww109Iz+Pdb/WM8/Ps5Cd7dCHVwA0M/iYe44PDU0be0ilxaKygSSEe5IyXhJyZd iK6s6cbf663z5HxEs0wRck30GMTCFyKynnMeHX9VtnFTB++cRsrIkm5BQFSQjqvo0ElPk5SxvQ3F CsCZDV8zggAAAAFiS0dE7CG5sxsAAAAHdElNRQfmCwQOJhwpOgYYAAAEXElEQVRo3u2Z/V8URRzH R1EJuUIB5VmQIslKQCEeAtFAyh7IHrTQUlQSw8esgNKeLNPSsnLyDiiCnjgFsQREJT1UfECTBzXK p7QnK/onutmZ2dvltXO3Ozv80Kv7/MJ8b777eS8z+52Z2wPAK6+8+p9oyFCfYXCAhg0f4SvI/ga/ kVBT/pYbBdj7+t0EmQqwjDJpPzowCLrVyOAxfM5jQ0LDwiMio6BHRUVGhIeNizbEiRkfe7Nn5wET cktcjN6bv3WCUXes+NvG6vGfeDufPdIdd3r2D5zE7w9hQqJH/yQz/s4pn+zef0qyOX8IU+5y55+a ZtYfwvQMN4C7zftDmMn2z+J8PtWKGM0ETBXhD2E2EzBNDGA6E+AjBnAPE5AjBpDGBPiLAUQyASli AClMgOE1Wlu5TECEGEAOEzBDDCCPCbhXDOA+JmCmGAC70O4XA3iACXhQDOAhJiBfDGAUE/CwGMAs JuARMQDmYveojnOcHkU9xgAI2g7Yz+njogCMtWK2KH8I52gCnhAHSBzMhQLpSU1AgSonwZil+kQ7 VxMQrsoJMmIP4TxV9JQm4GlVTp4xgPrMr73tz1emJBcY8ocLVKfy+ZqAQmXKwkXGAKHxyqhQE6A6 U8TOMgZYXKSMtM8Vz6QrUjLzDX0TSVpSrIjSl2qXckzws/ItlIBlRgDLwQp5AAIs7HcMK1eRpNUA PEcv+Hi71YZUUVmFP6j6pEL6wPppNc0pBiCMNItWAnfC45S7AoA1dIw+s8mqQXGtK/6cpCQ/D0CJ v7vRcSnjhQSY9CJqlZKrv3AZfonir1zx1ySlFOXHJcEEv1RP/micisqkv+Xk6jqXoQ3FitBOUsql C8o8jM5AvfQyvnoHG7ATZ/jruW8NrcaX1zfIhrtQ3CiHu7/BGWv5/ME6MgDf7qKOe1DYRKO6Zlpl nIDUAGLQsrfVORH2ffsPoKjtu312p3vr3hb64GdwAsAr+qrsVV5/8Jo+gIUbUEYcDh5y2Gzth5vq cXik6XC7zeY4dJR0v84NiMMGHfQxajiGwuNy2KGsAh69gQ1OyM/lSXUld+L+EG7AemxgZRWaFfdH mwVUsgCncH82N4DMwWm5lBtVldxwBPe/yQ2gW0KtQ7n20LWp8XvSXcYNeIs+6We6uuts9u6uHhT0 9HbbnYXce5b2buAGzNVXaG9zAwZ9qdhIHPCuXNFJCutoJ9qTrdvpjhzEDaAHYHlXlqa1hkbnSPck bsAm4iDvyudR9MPAHTmPGxBMHPq0C62PdGdyA1LJa84ftQE/4d4JnDsy0jv4i+0FuXZVgIsY8C6/ PwCbJYtLl+kuj6J2OgVXpM4tZvxB1nuSyc9kNapAwVXy31yTut6PMQUAW/EZuBebtqJ2K253SR0f bDXnD8CH0guMK7+41me8ev/6G2p/ZNrfeViVTty/75FLSyq7P66jZhH3gUU1DxbkVd38p+Ovv1Gr rd/R/4+0TGzT9aOQV1559d/Xv+Z3a9HlwnpyAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTExLTA0 VDE0OjM4OjI4KzAwOjAw4jG85AAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0xMS0wNFQxNDozODoy OCswMDowMJNsBFgAAAAASUVORK5CYII="
+    />
+  </svg>
+)
+
+export default AbdIcon
