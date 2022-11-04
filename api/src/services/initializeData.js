@@ -70,6 +70,7 @@ const crearDesdeJsonAProductsDb = async () => {
                     product.description || "Esto es ".concat(product.name),
                 size: product.size || "10",
                 brand: product.brand || "LiberFit",
+                active: product.active || false,
             };
         });
     await Products.bulkCreate(products);
