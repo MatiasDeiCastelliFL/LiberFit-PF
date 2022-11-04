@@ -10,8 +10,8 @@ const sequelize = new Sequelize(
     {
         logging: false,
     }
-);
-//.env 
+); 
+//.env      
 //.env
 // DB_USER=postgres
 // DB_PASSWORD=2jpPc5PGSrhXpDyY6B2m
@@ -140,3 +140,4 @@ module.exports = {
     ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
     conn: sequelize, // para importart la conexión { conn } = require('./db.js');
 };
+ 
