@@ -1,7 +1,8 @@
 import React from "react";
+import Table from '../../../Molecules/DashboardTables/Table';
 
 export default function DashEmpleados() {
   return <div>
-    dash empleados
+    <Table dashboard={true}/>
   </div>;
 }
