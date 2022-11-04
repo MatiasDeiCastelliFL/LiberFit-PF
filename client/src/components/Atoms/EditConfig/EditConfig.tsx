@@ -41,6 +41,10 @@ const EditConfig = ({name,type, title}:Props) => {
             editUser({
                 id: cookies.get("id"),
                 name: value,
+                phone: 211, 
+                email: cookies.get("email"), 
+                password: "4564",
+                image: cookies.get("image"),
             })
         )
     }
