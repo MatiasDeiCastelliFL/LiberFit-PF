@@ -35,30 +35,40 @@ function Table({ dashboard }: Props) {
     dispatch(getEmployees());
   }, [])
 
-  console.log(data.clients)
-  console.log(data.employees)
-
-  const headers = []
-
-  for (const key in data.clients[0]) {
-    if(true) {
-      headers.push(key)
-    }
-  }
-  console.log("esto es headers:" + headers)
-
   return (
-    <div>
-      Renderizando la tabla
-    </div>
+    <table>
+    <thead>
+      <tr>
+        {clientUsers.map(row => {
+          return (
+            <td key={row.key}>
+              {row.label}{''}
+              
+          </td>
+        )
+      })}
+      </tr>
+      </thead>
+      
+      <tbody>
+        {data.clients.map((person:any) => {
+          return (
+            <tr key={person.id}>
+              <td>{person.name}</td>
+              <td>{person.phone}</td>
+              <td>{person.email}</td>
+              <td>{person.image}</td>
+              <td>{person.active}</td>
+              <td>{person.SubscriptionId}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+  
+  </table>
   )
 }
 
 export default Table;
 
-// // {
-//   id: '1115cbda-a5c9-4b67-9d0c-2bdd2f0977ab', 
-//   name: 'Sirhjan Rojas', 
-//   phone: '+23 45321279', 
-//   email: 'sirhjanrojas@gmail.com', 
-//   password: 'sirjrojas++', …}
+  
