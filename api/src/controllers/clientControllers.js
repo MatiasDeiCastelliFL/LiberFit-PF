@@ -48,16 +48,11 @@ const postClientsRequest = async (req, res) => {
 };
 
 const putClientRequest = async (req, res) => {
+    console.log(req.body)
     try {
-        const clientValidationErrors = await validate(req.body, Clients);
-
-        if (clientValidationErrors.length > 0) {
-            res.status(400).json(clientValidationErrors);
-        } else {
-            const { name, phone, email, password, image } = req.body;
-            const updatedClient = await updateClient(name, phone, email, password, image);
+            const { id, name, phone, email, password, image } = req.body;
+            const updatedClient = await updateClient(id, name, phone, email, password, image);
             res.status(200).json(updatedClient);
-        }
     } catch (error) {
         res.status(500).json({error: error.message})
     }
