@@ -29,38 +29,15 @@ const UserConfig = () => {
                 <Perfil width="28" />
             <div className="flex flex-col divide-y text-white rounded-lg items-start p-5 bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-40 gap-2 w-2/4 h-fit">
                 <h1 className="text-3xl font-black font-sans mb-5">Cuenta</h1>
-                <EditConfig type="text" name="name" />
-                <div className="flex justify-between w-full p-4">
-                    <div>
-                        <h1 className="text-xl font-black font-sans">Contraseña</h1>
-                        <input type="password" className="text-white bg-transparent text-lg h-full" value={user.password}/>
-                    </div>
-                    <PencilSquareIcon className="h-8 w-8 text-white"/>
-                </div>
-                <div className="flex justify-between w-full p-4">
-                    <div>
-                        <h1 className="text-xl font-black font-sans">Email</h1>
-                        <input type="text" className="text-white bg-transparent w-72 text-lg h-full" value={user.email}/>
-                    </div>
-                    <PencilSquareIcon className="h-8 w-8 text-white"/>
-                </div>
-                <div className="flex justify-between w-full p-4">
-                    <div>
-                        <h1 className="text-xl font-black font-sans">Teléfono</h1>
-                        <h2 className="text-lg h-full">{user.phone}</h2>
-                    </div>
-                    <PencilSquareIcon className="h-8 w-8 text-white"/>
-                </div>
+                <EditConfig type="text" name="name" title="Nombre" />
+                <EditConfig type="password" name="password" title="Contraseña" />
+                <EditConfig type="text" name="email" title="Correo" />
+                <EditConfig type="text" name="phone" title="Teléfono" />
+                
             </div>
             <div className="flex flex-col divide-y text-white rounded-lg items-start p-5 bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-40 gap-2 w-2/4 h-fit">
                 <h1 className="text-3xl font-black font-sans mb-5">Membrecía</h1>
-                <div className="flex justify-between w-full p-4">
-                    <div>
-                        <h1 className="text-xl font-black font-sans">Plan actual</h1>
-                        <h2 className="text-lg h-full">{user.plan}</h2>
-                    </div>
-                    <PencilSquareIcon className="h-8 w-8 text-white"/>
-                </div>
+                <EditConfig type="text" name="membership" title="Plan Actual" />
                 <div className="flex justify-between w-full p-4">
                     <div>
                         <h1 className="text-xl font-black font-sans">Facturación</h1>
