@@ -4,6 +4,7 @@ import style from "./NavBar.module.css";
 import {
     ChatBubbleBottomCenterTextIcon,
     BanknotesIcon,
+    Squares2X2Icon
 } from "@heroicons/react/24/outline";
 import Perfil from "../../Atoms/Perfil/Perfil";
 import Items from "../../Atoms/Perfil/ItemsPefil/Items";
@@ -11,12 +12,16 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Search from "../../Atoms/Inputs/Search/Search";
 import Content from "../../Atoms/Perfil/Content/Content";
 import { Popover, Transition } from "@headlessui/react";
+import Cookies from "universal-cookie";
+import { useAuth0 } from "@auth0/auth0-react";
 
 interface Props {
     dashboard: boolean;
 }
 
 const NavForm = ({ dashboard }: Props) => {
+    const cookies = new Cookies();
+    const { user } = useAuth0();
     const links = [
         { name: "home", link: "/home" },
         { name: "about", link: "/about" },
@@ -29,9 +34,9 @@ const NavForm = ({ dashboard }: Props) => {
 
     const link2 = [
         {
-            name: "Membresias",
-            link: "/",
-            icon: <BanknotesIcon className="w-4" />,
+            name:cookies.get('name') || user?.name ? "Dashboard": "Membresias",
+            link: cookies.get('rol') === 1 ? "/dashboard":  cookies.get('rol') === 3 ? `/dashboard/${cookies.get('name')}`: '/',
+            icon: cookies.get('name') || user?.name ?  <Squares2X2Icon className="w-4"/> : <BanknotesIcon className="w-4" />,
         },
         {
             name: "Chat",
