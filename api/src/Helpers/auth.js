@@ -1,3 +1,4 @@
+
 const passport = require('passport')
 const {ExtractJwt}= require('passport-jwt')
 const {Strategy}=require('passport-jwt')
@@ -5,7 +6,7 @@ const helpers={}
 
 passport.use(new Strategy({
   secretOrKey:'top_secret',
-  jwtFromRequest: ExtractJwt.fromBodyField('token')
+  jwtFromRequest: ExtractJwt.fromUrlQueryParameter('token')
 },async (token,done)=>{
   try {
     return done(null, token.user)
@@ -14,15 +15,6 @@ passport.use(new Strategy({
   }
 }
 ))
-helpers.token = passport.authenticate('jwt')
-
-helpers.isAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    
-    return next();
-  }
-  res.redirect("/login");
-};
-
+helpers.isAuthenticated = passport.authenticate('jwt')
 
 module.exports = helpers;
