@@ -1,12 +1,37 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy ;
 const {Clients}= require('../db')
+const {createClient}=require('../services/clientServices')
 
+passport.use(new LocalStrategy(
+  {
+    passReqToCallback: true,
+    usernameField: "email",
+    passwordField: 'password',
+ 
+  },
+  async (req,email, password, done) => {
 
-passport.use("local",new LocalStrategy(
+    const user = await Clients.findOne({where:{ email: email }});
+
+    if (!user) {
+      const{email, password,picture,name}=req.body
+
+   const create= await createClient(name, phone="12345", email, password,active=false,picture)
+ 
+    return done(null, create);
+   
+
+    } else{
+      return done(null, user);
+    }
+  }
+)
+);
+
+passport.use('login',new LocalStrategy(
     {
       usernameField: "email",
-      passwordField:"password"
     },
     async (email, password, done) => {
       // Match Email's User

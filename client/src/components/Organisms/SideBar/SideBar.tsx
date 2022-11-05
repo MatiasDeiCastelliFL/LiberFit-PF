@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect} from "react";
 import Logo from "../../Atoms/Logo/Logo";
 import Filter from "../../Molecules/Filter/Filter";
 import Search from "./../../Atoms/Inputs/Search/Search";
 import { useAppDispatch, useAppSelector } from "./../../../App/Hooks/Hooks";
 import { Transition } from "@headlessui/react";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import Item from "../../Atoms/SideItems/Item";
 import Perfil from "../../Atoms/Perfil/Perfil";
 import Items from "../../Atoms/Perfil/ItemsPefil/Items";
@@ -13,6 +13,8 @@ import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/outline";
 import Cookies from "universal-cookie";
 import style from "./Style/sidebar.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
+import { cerrarLogin, loginGoogle } from "../../../App/Action/Action"
+import jwt_decode from "jwt-decode"
 
 interface Props {
     handle: any;
@@ -27,13 +29,21 @@ function SideBar({ handle, setName, dashboard }: Props) {
     const dispatch = useAppDispatch();
     const { filter } = useAppSelector((state) => state);
     const { user, logout } = useAuth0();
+    const navigate = useNavigate()
     const cerrarSesion = () => {
         cookies.remove("id", { path: "/" });
         cookies.remove("email", { path: "/" });
         cookies.remove("name", { path: "/" });
         cookies.remove("phone", { path: "/" });
         cookies.remove("image", { path: "/" });
-        window.location.href = "./home";
+        cookies.remove("token",{path:"/"})
+        
+        if (cookies.get("loginWith") === "local") {
+            dispatch(cerrarLogin())
+            navigate("/login")
+        }
+        else logout()
+        cookies.remove("loginWith",{path:"/"})
     };
 
     const client = [
@@ -73,12 +83,55 @@ function SideBar({ handle, setName, dashboard }: Props) {
 
     // console.log(cookies.get("id"));
     // console.log(cookies.get("name"));
-    // console.log(cookies.get("email"));
-    // console.log(cookies.get("image"));
-    console.log(JSON.stringify(user));
+    // console.log("-->",cookies.get("email"));
+    console.log("token--->",cookies.get("token"));
+    // const usario = user
+    const loginGoog = (user:any) => {
+        if(user) {
+            dispatch(loginGoogle({
+                email: user?.email,
+                password: user?.nickname,
+                picture: user?.picture,
+                name: user?.name
+            }))
+            .then(response => {
+                return response?.data.token
+                // console.log("-->",response?.data)
+              })
+              .then(response => {
+                console.log(response)
+                var respuesta = response
+                var decode:any = jwt_decode(respuesta)
+          
+                // console.log("<--->",decode.user.email)
+          
+                cookies.set("id", decode.user.id,{path: "/"})
+                cookies.set("email", decode.user.email,{path: "/"})
+                cookies.set("name", decode.user.name,{path: "/"})
+                cookies.set("phone", respuesta.phone,{path: "/"})
+                cookies.set("image", decode.user.image,{path: "/"})
+                cookies.set("loginWith","auth0",{path:"/"})
+                cookies.set("token",respuesta,{path:"/"})
+
+                // alert(`Bienvenido ${decode.user.email}`)
+                // window.location.href="./home"
+                // logout()
+              })
+        }
+    }
+    useEffect(() => {
+        loginGoog(user)
+    },[user])
+    // console.log({
+    //     password: user?.nickname,
+    //     email: user?.email,
+    //     name: user?.name,
+    //     picture: user?.picture
+    // });
+    // console.log("ibra-->",user)
 
     return (
-        <div className="fixed flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
+        <div className=" flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
             <div className="">
                 <Transition
                     show={filter.open === false ? true : false}
@@ -193,7 +246,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                         {cookies.get("name") || user?.name ? (
                             <div
                                 className="flex justify-end w-max"
-                                onClick={() => logout()}
+                                onClick={() => {cerrarSesion()}}
                             >
                                 <ArrowLeftOnRectangleIcon className="w-8 mr-5 cursor-pointer text-redClare justify-end" />
                             </div>

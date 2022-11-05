@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BtnLogin from "../../Atoms/Inputs/BtnLogin/BtnLogin";
 // import {} from "@heroicons/react/24/outline"
 import {
@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
 import { useForm } from "react-hook-form";
-import { loginAction } from "../../../App/Action/Action";
+import { loginAction, loginGoogle } from "../../../App/Action/Action";
 import { useAppDispatch } from "../../../App/Hooks/Hooks";
 import Cookies from "universal-cookie";
 import jwt_decode from "jwt-decode";
@@ -23,44 +23,57 @@ interface Inp {
 const cookies = new Cookies();
 
 const LoginForm = () => {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<Inp>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inp>();
+  const {loginWithRedirect, user, logout} = useAuth0()
 
-    const dispatch = useAppDispatch();
-    const { loginWithRedirect, user, logout } = useAuth0();
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+
+  const loginAuth0 = () => {
+    loginWithRedirect()
+  }
+  // console.log(JSON.stringify(user))
+  const logingoogle = JSON.stringify(user)
+  // dispatch(loginGoogle(loginGoogle))
 
     /* console.log(cookies.get("id"))
   console.log(cookies.get("name"))
   console.log(cookies.get("email")) */
 
-    const onSubmit = handleSubmit((data) => {
-        dispatch(loginAction(data))
-            .then((response) => {
-                return response?.data.token;
-                // console.log("-->",response?.data)
-            })
-            .then((response) => {
-                var respuesta = response;
-                var decode: any = jwt_decode(respuesta);
+  const onSubmit = handleSubmit((data) => {
+    console.log(data); // {email,passwod}
+    dispatch(loginAction(data))
+    .then(response => {
+      return response?.data.token
+      // console.log("-->",response?.data)
+    })
+    .then(response => {
+      console.log(response)
+      var respuesta = response
+      var decode:any = jwt_decode(respuesta)
 
                 // console.log("<--->",decode.user.email)
 
-                cookies.set("id", decode.user.id, { path: "/" });
-                cookies.set("email", decode.user.email, { path: "/" });
-                cookies.set("name", decode.user.name, { path: "/" });
-                cookies.set("phone", respuesta.phone, { path: "/" });
-                cookies.set("image", decode.user.image, { path: "/" });
-                alert(`Bienvenido ${decode.user.name}`);
-                window.location.href = "./home";
-            })
-            .catch((error) => {
-                console.log(error);
-                alert("correo o cantraseña incorrecta");
-            });
-    });
+      cookies.set("id", decode.user.id,{path: "/"})
+      cookies.set("email", decode.user.email,{path: "/"})
+      cookies.set("name", decode.user.name,{path: "/"})
+      cookies.set("phone", respuesta.phone,{path: "/"})
+      cookies.set("image", decode.user.image,{path: "/"})
+      cookies.set("loginWith","local",{path:"/"})
+      cookies.set("token",respuesta,{path:"/"})
+
+      alert(`Bienvenido ${decode.user.name}`)
+      navigate("/home")
+    })
+    .catch(error => {
+      console.log(error)
+      alert("correo o cantraseña incorrecta")
+    })
+  });
 
     return (
         <div
@@ -99,77 +112,66 @@ const LoginForm = () => {
                     <span>oogle</span>
                   </button>
                 </div> */}
-                                <div className="flex border-2 w-min border-red-300 rounded-full p-3 mx-1 hover:bg-red-400 hover:text-white">
-                                    <button onClick={() => loginWithRedirect()}>
-                                        Google
-                                    </button>
-                                </div>
-                            </div>
-                            <p className=" text-red-800 my-3">
-                                o usa tu cuenta de correo
-                            </p>
-                            <form
-                                onSubmit={onSubmit}
-                                className="flex flex-col items-center"
-                            >
-                                <div className=" bg-redGray w-64 p-2 flex items-center mt-3">
-                                    <FaRegEnvelope className="m-2" />
-                                    <input
-                                        type="text"
-                                        {...register("email", {
-                                            required: true,
-                                            pattern:
-                                                /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
-                                        })}
-                                        placeholder="email.."
-                                        className="bg-redGray outline-none text-sm flex-1 "
-                                    />
-                                </div>
-                                <div className="text-red-500 text-sm mt-2">
-                                    {errors.email?.type === "required" && (
-                                        <p>tu email es requerido</p>
-                                    )}
-                                    {errors.email?.type === "pattern" && (
-                                        <p>tu emeil esta incompleto</p>
-                                    )}
-                                </div>
-                                <div className=" bg-redGray w-64 p-2 flex items-center mt-3">
-                                    <MdLockOutline className="m-2" />
-                                    <input
-                                        type="password"
-                                        {...register("password", {
-                                            required: true,
-                                            maxLength: 10,
-                                            pattern: /^[a-zA-Z0-9\_\-]+$/i,
-                                        })}
-                                        placeholder="password.."
-                                        className="bg-redGray outline-none text-sm flex-1"
-                                    />
-                                </div>
-                                <div className="text-red-600 text-sm mt-2">
-                                    {errors.password?.type === "required" && (
-                                        <p>tu password es requerido</p>
-                                    )}
-                                    {errors.password?.type === "maxLength" && (
-                                        <p>
-                                            tu password debe tener menos de 10
-                                            caracteres
-                                        </p>
-                                    )}
-                                    {errors.password?.type === "pattern" && (
-                                        <p>
-                                            tu password no puede tener espacio
-                                        </p>
-                                    )}
-                                </div>
-                                <Link to="" className="text-xs p-2">
-                                    ¿Se te olvido tu contraseña?
-                                </Link>
-                                <div className="flex">
-                                    <input
-                                        type="submit"
-                                        value="Iniciar"
-                                        className="border-2 border-red-400 rounded-full px-8 py-2 inline-block font-semibold 
+                <div className="flex border-2 w-min border-red-300 rounded-full p-3 mx-1">
+                  <button onClick={() => loginAuth0()}>
+                    Google
+                  </button>
+                </div>
+              </div>
+              <p className=" text-red-800 my-3">o usa tu cuenta de correo</p>
+              <form onSubmit={onSubmit} className="flex flex-col items-center">
+                <div className=" bg-redGray w-64 p-2 flex items-center mt-3">
+                  <FaRegEnvelope className="m-2" />
+                  <input
+                    type="text"
+                    {...register("email", {
+                      required: true,
+                      pattern: /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
+                    })}
+                    placeholder="email.."
+                    className="bg-redGray outline-none text-sm flex-1 "
+                  />
+                </div>
+                <div className="text-red-500 text-sm mt-2">
+                  {errors.email?.type === "required" && (
+                    <p>tu email es requerido</p>
+                  )}
+                  {errors.email?.type === "pattern" && (
+                    <p>tu emeil esta incompleto</p>
+                  )}
+                </div>
+                <div className=" bg-redGray w-64 p-2 flex items-center mt-3">
+                  <MdLockOutline className="m-2" />
+                  <input
+                    type="password"
+                    {...register("password", {
+                      required: true,
+                      maxLength: 10,
+                      pattern: /^[a-zA-Z0-9\_\-]+$/i,
+                    })}
+                    placeholder="password.."
+                    className="bg-redGray outline-none text-sm flex-1"
+                  />
+                </div>
+                <div className="text-red-600 text-sm mt-2">
+                  {errors.password?.type === "required" && (
+                    <p>tu password es requerido</p>
+                  )}
+                  {errors.password?.type === "maxLength" && (
+                    <p>tu password debe tener menos de 10 caracteres</p>
+                  )}
+                  {errors.password?.type === "pattern" && (
+                    <p>tu password no puede tener espacio</p>
+                  )}
+                </div>
+                  <Link to="" className="text-xs p-2">
+                    ¿Se te olvido tu contraseña?
+                  </Link>
+                <div className="flex">
+                  <input
+                    type="submit"
+                    value="Iniciar"
+                    className="border-2 border-red-400 rounded-full px-8 py-2 inline-block font-semibold 
                   hover:bg-red-400 hover:text-white"
                                     />
                                     <Link

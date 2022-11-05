@@ -15,18 +15,15 @@ function CardExercises({minutos, ejercicio, descripcion, icon}:Props) {
                 <span className="absolute right-4 top-4 rounded-full bg-green-100 px-3 py-1.5 text-xs font-medium text-green-600">
                     {minutos}
                 </span>
-
                 <div className="mt-4 text-gray-500 sm:pr-8">
                     <div className="fles justify-start h-32">
                         {icon}
                     </div>
-
                     <h3 className="mt-4 text-xl font-bold text-gray-900">
                         {ejercicio}
                     </h3>
-
                     <p className="mt-2 hidden text-sm sm:block">
-                       {descripcion}
+                        {descripcion}
                     </p>
                 </div>
             </div>
