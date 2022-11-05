@@ -43,6 +43,9 @@ function App() {
           <Route path='/dashboard/:cliente'>
             <Route path="/dashboard/:cliente/:item"/>
           </Route>
+          <Route path='/dashboard/admin'>
+            <Route path="/dashboard/admin/:admin"/>
+          </Route>
         </Route>
         <Route path="/UserConfig" element={<UserConfig/>}/>
       </Routes>

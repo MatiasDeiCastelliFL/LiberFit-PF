@@ -24,6 +24,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
     const cookies = new Cookies();
     const params = useParams();
     const location = useLocation();
+    
     const dispatch = useAppDispatch();
     const { filter } = useAppSelector((state) => state);
     const { user, logout } = useAuth0();
@@ -64,21 +65,46 @@ function SideBar({ handle, setName, dashboard }: Props) {
     ];
 
     const admin = [
-        { title: "Dashboard", active: true, desplegable: false },
-        { title: "Rutinas", active: false, desplegable: true },
-        { title: "Productos", active: false, desplegable: true },
-        { title: "Ejercicios", active: false, desplegable: true },
-        { title: "usuarios", active: false, desplegable: false },
+        {
+            title: "Dashboard",
+            active: true,
+            desplegable: false,
+            link: "/dashboard/admin/home",
+        },
+        {
+            title: "Empleados",
+            active: false,
+            desplegable: false,
+            link: "/dashboard/admin/employees",
+        },
+        {
+            title: "Productos",
+            active: false,
+            desplegable: false,
+            link: "/dashboard/admin/productos",
+        },
+        {
+            title: "Ejercicios",
+            active: false,
+            desplegable: false,
+            link: "/dashboard/admin/ejercicios",
+        },
+        {
+            title: "Clientes",
+            active: false,
+            desplegable: false,
+            link: "/dashboard/admin/clients",
+        },
     ];
 
     // console.log(cookies.get("id"));
     // console.log(cookies.get("name"));
     // console.log(cookies.get("email"));
     // console.log(cookies.get("image"));
-    console.log(JSON.stringify(user));
+    // console.log(JSON.stringify(user));
 
     return (
-        <div className=" flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
+        <div className="flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
             <div className="">
                 <Transition
                     show={filter.open === false ? true : false}
@@ -135,38 +161,44 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                     "/dashboard/cliente"
                                 )
                                     ? client.map((d) => (
-                                          <div className="">
-                                              {d.desplegable ? (
-                                                  <Item
-                                                      title={d.title}
-                                                      type="cliente"
-                                                  />
-                                              ) : (
-                                                  <Link to={d.link}>
-                                                      <Item2
-                                                          active={d.active}
-                                                          title={d.title}
-                                                      />
-                                                  </Link>
-                                              )}
-                                          </div>
-                                      ))
-                                    : location.pathname === "/dashboard"
+                                        <div className="">
+                                            {d.desplegable ? (
+                                                <Link to={d.link}>
+                                                    <Item
+                                                        title={d.title}
+                                                        type="cliente"
+                                                    />
+                                                </Link>
+                                            ) : (
+                                                <Link to={d.link}>
+                                                    <Item2
+                                                        active={d.active}
+                                                        title={d.title}
+                                                    />
+                                                </Link>
+                                            )}
+                                        </div>
+                                    ))
+                                   : location.pathname.includes("/dashboard/admin")
                                     ? admin.map((d) => (
-                                          <div className="">
-                                              {d.desplegable ? (
-                                                  <Item
-                                                      title={d.title}
-                                                      type="admin"
-                                                  />
-                                              ) : (
-                                                  <Item2
-                                                      active={d.active}
-                                                      title={d.title}
-                                                  />
-                                              )}
-                                          </div>
-                                      ))
+                                        <div className="">
+                                            {d.desplegable ? (
+                                                <Link to={d.link}>
+                                                    <Item
+                                                        title={d.title}
+                                                        type="admin"
+                                                    />
+                                                </Link>
+                                            ) : (
+                                                <Link to={d.link}>
+                                                    <Item2
+                                                        active={d.active}
+                                                        title={d.title}
+                                                    />{" "}
+                                                </Link>
+                                            )}
+                                        </div>
+                                    ))
                                     : null}
                             </div>
                         )}
