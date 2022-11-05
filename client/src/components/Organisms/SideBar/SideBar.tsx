@@ -36,6 +36,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
         cookies.remove("name", { path: "/" });
         cookies.remove("phone", { path: "/" });
         cookies.remove("image", { path: "/" });
+        cookies.remove("RolId", { path: "/" });
         cookies.remove("token",{path:"/"})
         
         if (cookies.get("loginWith") === "local") {
@@ -108,8 +109,9 @@ function SideBar({ handle, setName, dashboard }: Props) {
                 cookies.set("id", decode.user.id,{path: "/"})
                 cookies.set("email", decode.user.email,{path: "/"})
                 cookies.set("name", decode.user.name,{path: "/"})
-                cookies.set("phone", respuesta.phone,{path: "/"})
+                cookies.set("phone", decode.user.phone,{path: "/"})
                 cookies.set("image", decode.user.image,{path: "/"})
+                cookies.set("RolId", decode.user.RolId,{path: "/"})
                 cookies.set("loginWith","auth0",{path:"/"})
                 cookies.set("token",respuesta,{path:"/"})
 
