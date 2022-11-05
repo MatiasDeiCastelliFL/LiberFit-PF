@@ -131,7 +131,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
     // console.log("ibra-->",user)
 
     return (
-        <div className="fixed flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
+        <div className=" flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
             <div className="">
                 <Transition
                     show={filter.open === false ? true : false}

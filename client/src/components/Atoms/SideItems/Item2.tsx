@@ -3,11 +3,13 @@ import React from "react";
 interface Props {
     title: string;
     active: boolean;
+
 }
 
 function Item2({ title, active }: Props) {
     return (
-        <div className="w-max">
+        <div className="w-max"
+>
             <div className="">
                 <div
                     className={`${
