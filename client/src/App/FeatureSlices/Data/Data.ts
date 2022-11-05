@@ -5,12 +5,15 @@ import { useLocation, useParams } from "react-router-dom";
 export interface filterState {
     data: any;
     locations: [];
+    user: any;
     
 }
 
 const initialState: filterState = {
     data: ["data"],
     locations: [],
+    user: [],
+
 }
 
 const dataSlice = createSlice({
@@ -22,9 +25,12 @@ const dataSlice = createSlice({
         },
         getLocationsReducer: (state, action: PayloadAction<any>) => {
             state.locations = action.payload
-        }
+        },
+        getUser: (state, action: PayloadAction<any>) => {
+            state.user = action.payload
+        },
     },
 });
 
 export default dataSlice.reducer;
-export const { getData, getLocationsReducer } = dataSlice.actions;
+export const { getData, getLocationsReducer, getUser } = dataSlice.actions;
