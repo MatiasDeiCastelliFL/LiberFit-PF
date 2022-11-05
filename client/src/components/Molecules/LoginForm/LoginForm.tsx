@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BtnLogin from "../../Atoms/Inputs/BtnLogin/BtnLogin";
 // import {} from "@heroicons/react/24/outline"
 import {
@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
 import { useForm } from "react-hook-form";
-import { loginAction } from "../../../App/Action/Action";
+import { loginAction, loginGoogle } from "../../../App/Action/Action";
 import { useAppDispatch } from "../../../App/Hooks/Hooks";
 import Cookies from "universal-cookie";
 import jwt_decode from "jwt-decode"
@@ -28,22 +28,31 @@ const LoginForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<Inp>();
+  const {loginWithRedirect, user, logout} = useAuth0()
 
   const dispatch = useAppDispatch()
-  const {loginWithRedirect, user, logout} = useAuth0()
+  const navigate = useNavigate()
+
+  const loginAuth0 = () => {
+    loginWithRedirect()
+  }
+  // console.log(JSON.stringify(user))
+  const logingoogle = JSON.stringify(user)
+  // dispatch(loginGoogle(loginGoogle))
 
  /* console.log(cookies.get("id"))
   console.log(cookies.get("name"))
   console.log(cookies.get("email")) */
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
+    console.log(data); // {email,passwod}
     dispatch(loginAction(data))
     .then(response => {
       return response?.data.token
       // console.log("-->",response?.data)
     })
     .then(response => {
+      console.log(response)
       var respuesta = response
       var decode:any = jwt_decode(respuesta)
 
@@ -54,8 +63,11 @@ const LoginForm = () => {
       cookies.set("name", decode.user.name,{path: "/"})
       cookies.set("phone", respuesta.phone,{path: "/"})
       cookies.set("image", decode.user.image,{path: "/"})
+      cookies.set("loginWith","local",{path:"/"})
+      cookies.set("token",respuesta,{path:"/"})
+
       alert(`Bienvenido ${decode.user.name}`)
-      window.location.href="./home"
+      navigate("/home")
     })
     .catch(error => {
       console.log(error)
@@ -97,7 +109,7 @@ const LoginForm = () => {
                   </button>
                 </div> */}
                 <div className="flex border-2 w-min border-red-300 rounded-full p-3 mx-1">
-                  <button onClick={() => loginWithRedirect()}>
+                  <button onClick={() => loginAuth0()}>
                     Google
                   </button>
                 </div>
