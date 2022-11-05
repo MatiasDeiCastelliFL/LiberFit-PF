@@ -1,4 +1,4 @@
-const { Clients, Locacions, Rols } = require('../db')
+const { Clients, Locacions } = require('../db')
 const bcrypt= require("bcrypt")
 
 const createClient = async (
@@ -12,18 +12,27 @@ const createClient = async (
     RolId = 3, 
     locacion = "Sin Sede Registrada"
 ) => {
-    await Clients.create({
+    const existe= await Clients.findOne({
+        where:{
+            email:`${email}`
+        }
+})
+  if(!existe){
+    const cli=  await Clients.create({
         name, phone, email, password, active, image, SubscriptionId, RolId
     });
-    // const data = await Locacions.findOne({
-    //     where:{
-    //         name:`${locacion}`
-    //     }
-    // })
-    // await cliente.addLocacions(data)
+     const data = await Locacions.findOne({
+        where:{
+        name:`${locacion}`
+        }
+     })
+     await cli.addLocacions(data)
     
-    return `El cliente ${name} fue cargado con éxito`;
+    return cli;
+}else{
+    return  `el usuario ya existe` 
 };
+  }
 
 
 const findClients = async () => {
