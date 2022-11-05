@@ -1,4 +1,3 @@
-
 const passport = require('passport')
 const {ExtractJwt}= require('passport-jwt')
 const {Strategy}=require('passport-jwt')
@@ -15,6 +14,15 @@ passport.use(new Strategy({
   }
 }
 ))
-helpers.isAuthenticated = passport.authenticate('jwt')
+helpers.token = passport.authenticate('jwt')
+
+helpers.isAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    
+    return next();
+  }
+  res.redirect("/login");
+};
+
 
 module.exports = helpers;
