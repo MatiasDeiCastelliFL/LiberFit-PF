@@ -25,7 +25,9 @@ const crearDesdeJsonAPaymentsDb = async () => {
         };
     });
 
-    await Payments.bulkCreate(subscriptions);
+    await Payments.bulkCreate(subscriptions,  {
+        ignoreDuplicates: true,
+      });
 };
 
 const crearDesdeJsonAMachinesDb = async () => {
@@ -45,7 +47,9 @@ const crearDesdeJsonAMachinesDb = async () => {
                     muscle: machine.muscle || "brazos",
                 };
             });
-        await Machines.bulkCreate(machines);
+        await Machines.bulkCreate(machines,  {
+            ignoreDuplicates: true,
+          });
     } catch (error) {
         console.log(error);
     }
@@ -65,15 +69,17 @@ const crearDesdeJsonAProductsDb = async () => {
                 price: product.price,
                 stock: product.stock || Math.ceil(Math.random()) * 100,
                 code: product.code || "12312",
+                active: product.active || true,
                 image: product.image,
-                description:
-                    product.description || "Esto es ".concat(product.name),
+                description: product.description || "Esto es ".concat(product.name),
                 size: product.size || "10",
                 brand: product.brand || "LiberFit",
                 active: product.active || false,
             };
         });
-    await Products.bulkCreate(products);
+    await Products.bulkCreate(products,  {
+        ignoreDuplicates: true,
+      });
 };
 
 const crearDesdeJsonATrainingsDb = async () => {
@@ -91,7 +97,9 @@ const crearDesdeJsonATrainingsDb = async () => {
                 timeSlot: "hoy",
             };
         });
-    await Trainings.bulkCreate(trainings);
+    await Trainings.bulkCreate(trainings,  {
+        ignoreDuplicates: true,
+      });
 };
 const crearDesdeJsonAExerciseDb = async () => {
     const exercises = api[0].exercises.map((e) => {
@@ -105,7 +113,9 @@ const crearDesdeJsonAExerciseDb = async () => {
             muscle: e.muscle,
         };
     });
-    await Exercises.bulkCreate(exercises);
+    await Exercises.bulkCreate(exercises,  {
+        ignoreDuplicates: true,
+      });
 };
 
 const crearDesdeJsonARutinesDb = async () => {
@@ -115,7 +125,9 @@ const crearDesdeJsonARutinesDb = async () => {
             name: rutine.name,
         };
     });
-    await Rutines.bulkCreate(dataJsonRutines);
+    await Rutines.bulkCreate(dataJsonRutines,  {
+        ignoreDuplicates: true,
+      });
 };
 
 const crearDesdeJsonASubscriptionsDb = async () => {
@@ -128,12 +140,16 @@ const crearDesdeJsonASubscriptionsDb = async () => {
         };
     });
 
-    await Subscriptions.bulkCreate(subscriptions);
+    await Subscriptions.bulkCreate(subscriptions,  {
+        ignoreDuplicates: true,
+      });
 };
 
 const crearDesdeJsonARolsDb = async () => {
     const rols = api[0].roles.map((e) => { return { id:e.id,name: e.name } });
-    await Rols.bulkCreate(rols);
+    await Rols.bulkCreate(rols,  {
+        ignoreDuplicates: true,
+      });
 };
 // agregamos los datos de las tablas que tienen  relaciones con las tablas que ya contienen datos
 
@@ -228,7 +244,9 @@ const crearDesdeJsonAOwnersDb = async () => {
         };
     });
 
-    await Owners.bulkCreate(owners);
+    await Owners.bulkCreate(owners,  {
+        ignoreDuplicates: true,
+      });
 };
 
 const crearDesdeJsonAGymsDb = async () => {

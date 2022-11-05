@@ -15,4 +15,5 @@ routerEmpleado.get("/FiltrarEmpleadoActivo",isAuthenticated,FiltrarUsuarioActivo
 routerEmpleado.get("/FiltrarEmpleadoInactivo",isAuthenticated,FiltrarUsuarioInactivo)
 routerEmpleado.get("/CantProductoInacativo",isAuthenticated,CantInacativo)
 routerEmpleado.get("/CantProductoActivo",isAuthenticated,CantActivo)
+
 module.exports = routerEmpleado;
