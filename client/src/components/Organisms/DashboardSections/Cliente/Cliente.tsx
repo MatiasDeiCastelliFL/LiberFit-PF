@@ -1,6 +1,7 @@
 import React from 'react'
 import Ejercicios from './Content/Ejercicios'
 import { useLocation } from 'react-router-dom'
+import Rutinas from './Content/Rutinas';
 
 function Cliente() {
   const location = useLocation()
@@ -9,7 +10,9 @@ function Cliente() {
     <div>
       {location.pathname.includes('ejercicios')? (
         <Ejercicios/>
-      ): location.pathname.includes('rutinas')? null : null}
+      ): location.pathname.includes('rutinas')? (
+          <Rutinas/>
+      ) : null}
     </div>
   )
 }

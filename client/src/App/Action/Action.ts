@@ -156,6 +156,8 @@ export const cerrarLogin = () => async (dispatch: any) => {
         return json
     } catch (error) {
         console.log(error)
+    }
+}
 
 export const getUserInfo = (payload:any) => async (dispatch: any) => {
     try {
@@ -166,3 +168,4 @@ export const getUserInfo = (payload:any) => async (dispatch: any) => {
         console.log("-->",error)
     }
 }
+    
