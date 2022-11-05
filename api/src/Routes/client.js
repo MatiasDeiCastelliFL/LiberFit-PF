@@ -4,6 +4,7 @@ const auth = require("../Helpers/auth");
 const routerClient= Router();
 const {isAuthenticated}= require('../Helpers/auth')
 
+
 routerClient.get("/clients", isAuthenticated,getClientsRequest); //QUERY: name, email
 routerClient.post("/clients", postClientsRequest); //BODY: { name, phone, email, password, image }
 routerClient.put("/clients",putClientRequest) //BODY: { id, name, phone, email, password, image }
