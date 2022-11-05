@@ -7,6 +7,7 @@ import Cliente from './../../Organisms/DashboardSections/Cliente/Cliente';
 
 function DashboardTemplate() {
     const { cliente } = useParams<{ cliente: string }>();
+    console.log(cliente)
     return (
         <div className="flex flex-row select-none">
             <div className="z-20">
