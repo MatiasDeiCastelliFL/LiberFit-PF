@@ -26,7 +26,6 @@ function Table({ link }: any) {
     const [sortOrder, setSortOrder] = useState("");
     const dispatch = useAppDispatch();
 
-    console.log("file: Table.tsx ~ line 26 ~ Table ~ data", data);
     useEffect(() => {
         dispatch(getClients());
         dispatch(getEmployees());
