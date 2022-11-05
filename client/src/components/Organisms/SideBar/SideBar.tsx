@@ -36,8 +36,9 @@ function SideBar({ handle, setName, dashboard }: Props) {
         cookies.remove("name", { path: "/" });
         cookies.remove("phone", { path: "/" });
         cookies.remove("image", { path: "/" });
-        cookies.remove("token", { path: "/" });
-
+        cookies.remove("RolId", { path: "/" });
+        cookies.remove("token",{path:"/"})
+      
         if (cookies.get("loginWith") === "local") {
             dispatch(cerrarLogin());
             navigate("/login");
@@ -85,34 +86,34 @@ function SideBar({ handle, setName, dashboard }: Props) {
     // console.log("-->",cookies.get("email"));
     console.log("token--->", cookies.get("token"));
     // const usario = user
-    const loginGoog = (user: any) => {
-        if (user) {
-            dispatch(
-                loginGoogle({
-                    email: user?.email,
-                    password: user?.nickname,
-                    picture: user?.picture,
-                    name: user?.name,
-                })
-            )
-                .then((response) => {
-                    return response?.data.token;
-                    // console.log("-->",response?.data)
-                })
-                .then((response) => {
-                    console.log(response);
-                    var respuesta = response;
-                    var decode: any = jwt_decode(respuesta);
-
-                    // console.log("<--->",decode.user.email)
-
-                    cookies.set("id", decode.user.id, { path: "/" });
-                    cookies.set("email", decode.user.email, { path: "/" });
-                    cookies.set("name", decode.user.name, { path: "/" });
-                    cookies.set("phone", respuesta.phone, { path: "/" });
-                    cookies.set("image", decode.user.image, { path: "/" });
-                    cookies.set("loginWith", "auth0", { path: "/" });
-                    cookies.set("token", respuesta, { path: "/" });
+    
+    const loginGoog = (user:any) => {
+        if(user) {
+            dispatch(loginGoogle({
+                email: user?.email,
+                password: user?.nickname,
+                picture: user?.picture,
+                name: user?.name
+            }))
+            .then(response => {
+                return response?.data.token
+                // console.log("-->",response?.data)
+              })
+              .then(response => {
+                console.log(response)
+                var respuesta = response
+                var decode:any = jwt_decode(respuesta)
+          
+                // console.log("<--->",decode.user.email)
+          
+                cookies.set("id", decode.user.id,{path: "/"})
+                cookies.set("email", decode.user.email,{path: "/"})
+                cookies.set("name", decode.user.name,{path: "/"})
+                cookies.set("phone", decode.user.phone,{path: "/"})
+                cookies.set("image", decode.user.image,{path: "/"})
+                cookies.set("RolId", decode.user.RolId,{path: "/"})
+                cookies.set("loginWith","auth0",{path:"/"})
+                cookies.set("token",respuesta,{path:"/"})
 
                     // alert(`Bienvenido ${decode.user.email}`)
                     // window.location.href="./home"

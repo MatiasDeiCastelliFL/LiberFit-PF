@@ -52,17 +52,18 @@ const LoginForm = () => {
       // console.log("-->",response?.data)
     })
     .then(response => {
-      console.log(response)
       var respuesta = response
       var decode:any = jwt_decode(respuesta)
+      console.log(decode)
 
                 // console.log("<--->",decode.user.email)
 
       cookies.set("id", decode.user.id,{path: "/"})
       cookies.set("email", decode.user.email,{path: "/"})
       cookies.set("name", decode.user.name,{path: "/"})
-      cookies.set("phone", respuesta.phone,{path: "/"})
+      cookies.set("phone", decode.user.phone,{path: "/"})
       cookies.set("image", decode.user.image,{path: "/"})
+      cookies.set("RolId", decode.user.RolId,{path: "/"})
       cookies.set("loginWith","local",{path:"/"})
       cookies.set("token",respuesta,{path:"/"})
 
