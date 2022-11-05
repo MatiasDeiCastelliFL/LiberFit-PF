@@ -3,6 +3,7 @@ import filterReducer from './FeatureSlices/Filters/Filter'
 import modalReducer from './FeatureSlices/Modal/Modal'
 import usersReducer from "./FeatureSlices/Users/Users"
 import dataReducer from "./FeatureSlices/Data/Data"
+import loginReducer from './FeatureSlices/login/login'
 
 
 export const store = configureStore({
@@ -10,7 +11,8 @@ export const store = configureStore({
         filter: filterReducer,
         modal: modalReducer,
         users: usersReducer,
-        data: dataReducer
+        data: dataReducer,
+        login: loginReducer
     }
 })
 

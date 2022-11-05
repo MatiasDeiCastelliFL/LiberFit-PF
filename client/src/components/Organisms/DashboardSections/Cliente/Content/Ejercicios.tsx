@@ -64,7 +64,7 @@ function Ejercicios() {
     return (
         <div className="w-full p-10">
             <div className="flex flex-wrap w-max">
-                <div className="flex flex-row gap-10 flex-wrap justify-center">
+                <div className="flex flex-row gap-10 flex-wrap ">
                     {CardItems.map((d) => (
                         <Link to="">
                             <CardExercises
