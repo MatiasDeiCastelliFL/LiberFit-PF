@@ -42,6 +42,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard/>}>
           <Route path='/dashboard/:cliente'>
             <Route path="/dashboard/:cliente/:item"/>
+            <Route path="/dashboard/:cliente/:item/:ejercicio"/>
           </Route>
           <Route path='/dashboard/admin'>
             <Route path="/dashboard/admin/:admin"/>
