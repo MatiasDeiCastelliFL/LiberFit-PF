@@ -3,26 +3,36 @@ import { PencilSquareIcon } from "@heroicons/react/24/outline";
 import Cookies from "universal-cookie";
 import { useStateManager } from "react-select";
 import { editUser } from "../../../App/Action/Action";
-import { useAppDispatch } from "../../../App/Hooks/Hooks";
+import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
+
+
 
 interface Props {
-    name: string;
+    field: string;
     type: string;
+    title: string;
+    info: any;
 }
 
-const EditConfig = ({name,type}:Props) => {
+const EditConfig = ({field,type, title, info}:Props) => {
 
     const dispatch = useAppDispatch()
-    const [disable, setDisable] = useState(true);
     const cookies = new Cookies()
-    const [value, setValue] = useState(cookies.get(name));
+    
+    const [disable, setDisable] = useState(true);
+    
     const inputRef = useRef<HTMLInputElement>(null);
+    
+    const { data } = useAppSelector((state) => state);
+    const { user } = data
 
+    const [value, setValue] = useState();
+
+    
     const handleEdit = () => {
         if (disable===true) {
             setDisable(false)
         } else {
-            inputRef.current?.focus()
             setDisable(true)
         }
     }
@@ -33,32 +43,40 @@ const EditConfig = ({name,type}:Props) => {
 
     const handleSubmit = (e:any) => {
         e.preventDefault()
-        console.log(value)
+        setDisable(true)
         dispatch(
-            editUser({
-                name: name,
-                phone: cookies.get("phone"), 
-                email: cookies.get("email"), 
-                password: cookies.get("password"), 
-                image: cookies.get("image"),
-            })
+            editUser(
+                {
+                    ...user,
+                    [field]: value
+                }
+            )
         )
+        alert("Your changes have been saved")
     }
 
+
+
     useEffect(() => {
-        console.log('focused: ', document.activeElement)
-    }, [disable, document.activeElement])
+    }, [user, value])
 
     return (
         <div className="flex justify-between w-full p-4">
             <div>
-                <h1 className="text-xl font-black font-sans">Nombre</h1>
-                <form onSubmit={handleSubmit}>
-                    <input ref={inputRef}  onChange={handleChage}  type={type} className="text-white bg-transparent text-lg h-full" value={value} disabled={!disable}/>
+                <h1 className="text-xl">{title}</h1>
+                <form onSubmit={handleSubmit} className='text-md flex gap-2'>
+                    {
+                        disable ? <p className="text-white bg-transparent h-full" >{user[field]}</p> 
+                        : 
+                        <div className = "flex gap-3">
+                            <input ref={inputRef} autoFocus placeholder={`Ingresa tu nuevo ${title}`}  onChange={handleChage}  type={type} className="text-white w-fit bg-transparent h-full" value={value}/>
+                            <input type="submit" name="confirmat" id={title} value="Confirmar" className="bg-redClare px-2 rounded-lg" />
+                        </div>  
+                    }
                 </form>
             </div>
             <button className="bg-transparent" onClick={handleEdit}>
-                <PencilSquareIcon className="h-8 w-8 text-white"/>
+                <PencilSquareIcon className="h-8 w-8 text-white hover:text-redClare"/>
             </button>
         </div>
     );

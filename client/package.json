@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^1.12.0",
     "@headlessui/react": "^1.7.3",
     "@heroicons/react": "^2.0.12",
     "@reduxjs/toolkit": "^1.8.6",

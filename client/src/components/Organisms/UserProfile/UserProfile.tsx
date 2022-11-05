@@ -13,5 +13,3 @@ const UserProfile = ({user}:Props) => {
         </div>
     )
 }
-
-export default UserProfile
