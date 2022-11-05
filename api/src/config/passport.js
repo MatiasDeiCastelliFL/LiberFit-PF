@@ -32,7 +32,6 @@ passport.use(new LocalStrategy(
 passport.use('login',new LocalStrategy(
     {
       usernameField: "email",
-      passwordField:"password"
     },
     async (email, password, done) => {
       // Match Email's User

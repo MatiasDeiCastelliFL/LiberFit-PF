@@ -6,7 +6,7 @@ const helpers={}
 
 passport.use(new Strategy({
   secretOrKey:'top_secret',
-  jwtFromRequest: ExtractJwt.fromBodyField('token')
+  jwtFromRequest: ExtractJwt.fromUrlQueryParameter('token')
 },async (token,done)=>{
   try {
     return done(null, token.user)
