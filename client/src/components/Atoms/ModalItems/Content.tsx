@@ -26,6 +26,7 @@ function Content() {
     },[])
     return (
         <div className="w-max max-h-max">
+            
             <div id="paypal-button-container"></div>
         </div>
     );

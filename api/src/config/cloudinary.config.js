@@ -7,10 +7,10 @@ cloudinary.config({
     api_key: api_key_ENV, 
     api_secret: api_secret_ENV
   });
-  
+
 //.env
 //cloud_name_ENV='dyliwhc3e', 
-// api_key_ENV='345744761585491', 
-//  api_secret_ENV='qIiUg4yIWYCVKlqJs_viYnQkmS4' 
+//api_key_ENV='345744761585491', 
+//api_secret_ENV='qIiUg4yIWYCVKlqJs_viYnQkmS4' 
 
 module.exports = {cloudinary}
