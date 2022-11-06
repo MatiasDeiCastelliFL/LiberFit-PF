@@ -8,47 +8,59 @@ import LoginForm from "./components/Molecules/LoginForm/LoginForm";
 import SingUp from "./components/Molecules/LoginSignup/LoginSignup";
 import Dashboard from "./page/Dashboard/Dashboard";
 import UserConfig from "./components/Organisms/UserConfig/UserConfig";
+import { useAuth0 } from "@auth0/auth0-react";
+import Cookies from "universal-cookie";
 
 function App() {
-  return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route
-          path="/home"
-          element={<Home />}
-          handle={{
-            crumb: (data: {
-              threadName:
-                | string
-                | number
-                | boolean
-                | React.ReactElement<
-                    any,
-                    string | React.JSXElementConstructor<any>
-                  >
-                | React.ReactFragment
-                | React.ReactPortal
-                | null
-                | undefined;
-            }) => <span>{data.threadName}</span>,
-          }}
-        >
-          <Route path="/home/:category" element={<CardsCategory />} />
-          <Route path="/home/:category/:name" element={<Details />} />
-        </Route>
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/signup" element={<SingUp />} />
-        <Route path="/dashboard" element={<Dashboard/>}>
-          <Route path='/dashboard/:cliente'>
-            <Route path="/dashboard/:cliente/:item"/>
-            <Route path="/dashboard/:cliente/:item/:ejercicio"/>
-          </Route>
-        </Route>
-        <Route path="/UserConfig" element={<UserConfig/>}/>
-      </Routes>
-    </div>
-  );
+    const cookies = new Cookies();
+    const { user } = useAuth0();
+    return (
+        <div className="App">
+            <Routes>
+                <Route path="/" element={<Landing />} />
+                <Route
+                    path="/home"
+                    element={<Home />}
+                    handle={{
+                        crumb: (data: {
+                            threadName:
+                                | string
+                                | number
+                                | boolean
+                                | React.ReactElement<
+                                      any,
+                                      string | React.JSXElementConstructor<any>
+                                  >
+                                | React.ReactFragment
+                                | React.ReactPortal
+                                | null
+                                | undefined;
+                        }) => <span>{data.threadName}</span>,
+                    }}
+                >
+                    <Route path="/home/:category" element={<CardsCategory />} />
+                    <Route path="/home/:category/:name" element={<Details />} />
+                </Route>
+                {cookies.get("name") || user?.name ? null : (
+                    <Route path="/login" element={<LoginForm />} />
+                )}
+                {cookies.get("name") || user?.name ? null : (
+                    <Route path="/signup" element={<SingUp />} />
+                )}
+                {cookies.get("name") || user?.name ? (
+                    <Route path="/dashboard" element={<Dashboard />}>
+                        <Route path="/dashboard/:cliente">
+                            <Route path="/dashboard/:cliente/:item" />
+                            <Route path="/dashboard/:cliente/:item/:ejercicio" />
+                        </Route>
+                    </Route>
+                ) : null}
+                {cookies.get("name") || user?.name ? (
+                    <Route path="/UserConfig" element={<UserConfig />} />
+                ) : null}
+            </Routes>
+        </div>
+    );
 }
 
 export default App;

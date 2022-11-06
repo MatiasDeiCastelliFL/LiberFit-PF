@@ -35,7 +35,7 @@ const NavForm = ({ dashboard }: Props) => {
     const link2 = [
         {
             name:cookies.get('name') || user?.name ? "Dashboard": "Membresias",
-            link: cookies.get('rol') === 1 ? "/dashboard":  cookies.get('rol') === 3 ? `/dashboard/${cookies.get('name')}`: '/',
+            link: cookies.get('RolId') === 1 ? "/dashboard":  cookies.get('RolId') === 3 ? `/dashboard/${cookies.get('name')}`: '/',
             icon: cookies.get('name') || user?.name ?  <Squares2X2Icon className="w-4"/> : <BanknotesIcon className="w-4" />,
         },
         {
@@ -61,6 +61,8 @@ const NavForm = ({ dashboard }: Props) => {
     const params = useLocation();
 
     const name = params.pathname.split("/").map((e, i) => e);
+
+    
 
     return (
         <div
