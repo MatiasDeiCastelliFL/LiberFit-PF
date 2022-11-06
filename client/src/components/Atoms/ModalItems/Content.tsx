@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 function Content() {
     function renderPaypalButton() {
-        paypal
+      /*   paypal?
             .Buttons({
                 createOrder: function (data: any, actions: any) {
                     // Set up the transaction
@@ -18,7 +18,7 @@ function Content() {
                     });
                 },
             })
-            .render("#paypal-button-container");
+            .render("#paypal-button-container"); */
     }
 
     useEffect(() => {
