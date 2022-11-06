@@ -1,6 +1,6 @@
 import React from "react";
 import Json from './data.json';
-import FormBanner from "../../Atoms/FormBanner/FormBanner";
+import FormBanner from "../../Atoms/formBanner/FormBanner";
 import ProductForm from "../../Molecules/CreateInputsContainer/ProductsForm/productForm";
 import MachineForm from "../../Molecules/CreateInputsContainer/machinesForm/MachineForm";
 import TrainingsForms from "../../Molecules/CreateInputsContainer/trainingsForm/trainingsForm";
