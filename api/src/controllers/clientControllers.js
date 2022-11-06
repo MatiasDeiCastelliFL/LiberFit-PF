@@ -4,6 +4,7 @@ const {
     findClientByNameAndOrEmail, 
     updateClient,
     updatePassword,
+    updateProfileImage,
     deleteClient 
 } = require('../services/clientServices');
 const { validate } = require('../validation/validations');
@@ -50,18 +51,25 @@ const postClientsRequest = async (req, res) => {
 
 const putClientRequest = async (req, res) => {
     const {changePassword} = req.query;
+    const { changeProfileImage } = req.query;
     try {
         if (changePassword) {
             const { id, password, oldPassword } = req.body;
             const updatedClient = await updatePassword(id, password, oldPassword);
             res.status(200).json(updatedClient);
+        } else if (changeProfileImage){
+            console.log(req.file)
+            const { path } = req.file;
+            const { id } = req.body;
+            const updateClient = await updateProfileImage(id, path);
+            res.status(200).json(updateClient);
         }else {
             const { id, name, phone, email, password, image } = req.body;
             const updatedClient = await updateClient(id, name, phone, email, password, image);
             res.status(200).json(updatedClient);
         }
     } catch (error) {
-        console.log('fgdfgdfg',error.message);
+        console.log('fgdfgdfg',error);
         res.status(500).send({error: error.message})
     }
 }

@@ -63,9 +63,9 @@ const TrainingsForm = ({background}:Props) => {
             {errors.name?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
             
 
-            <input  type="text"
+            <input  type="time"
                     {...register('timeSlot', {required:true})}
-                    placeholder='Time Slot'
+                    placeholder='Horario'
                     className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"
             />
             {errors.timeSlot?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}

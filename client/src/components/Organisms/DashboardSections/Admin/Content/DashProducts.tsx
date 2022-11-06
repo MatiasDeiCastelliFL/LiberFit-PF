@@ -6,14 +6,9 @@ import ProductForm from '../../../../Molecules/CreateInputsContainer/ProductsFor
 function DashProducts() {
   const [addItem, setAddItem] = useState(false);
   const handleAddItem = () => setAddItem(!addItem)
-  
-   return <div>
-     {!addItem ?<div>
-       <CardsCategory />
-       <button onClick={handleAddItem}>
-         Agregar Producto +
-         </button>
-     </div> :<ProductForm background={undefined}/>}
+  const background={background:"linear-gradient(180deg, #F94B40 0%, #B53B3B 56.25%, #FF0000 99.99%)"}
+    return <div>
+        <CardsCategory />
   </div>
 }
 export default DashProducts

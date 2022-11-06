@@ -10,10 +10,12 @@ import NeckIcon from "./../../../../Atoms/Icons/NeckIcon";
 import FullBIcon from "./../../../../Atoms/Icons/FullBIcon";
 import { Link, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import CardCreation from '../../../../Atoms/Card/CardCreation';
 
 function Ejercicios() {
     let location = useLocation();
     const user = location.pathname.split('/').slice(2,3)
+    console.log('file: Ejercicios.tsx ~ line 17 ~ Ejercicios ~ user', user)
     const params = useParams();
    
     const CardItems = [
@@ -87,6 +89,7 @@ function Ejercicios() {
                             />
                         </Link>
                     ))}
+                    {user[0] === 'admin' && <CardCreation item={ 'Ejercicio' } />}
                 </div>
             </div>
         </div>
