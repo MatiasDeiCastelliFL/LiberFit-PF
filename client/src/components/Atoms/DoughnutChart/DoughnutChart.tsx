@@ -22,9 +22,7 @@ interface DoughnutChartProps {
 
 const DoughnutChart = ({data}:DoughnutChartProps) => {
   return (
-    <div >
       <Doughnut data={data} />
-    </div>
   );
 };
 export default DoughnutChart;
