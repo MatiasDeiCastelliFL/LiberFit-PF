@@ -18,7 +18,7 @@ function Perfil({width}:Props) {
         <img
           className={`inline-block h-${width} w-${width} rounded-full ring-2 ring-white border border-redGray `}
          
-          src={cookies.get("name") || user?.name ? cookies.get('image') || user?.picture  :  "https://lh3.googleusercontent.com/-5wrzx0S6Dlo/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rd5-UYFTMAPPwq2-0596kcIYASp6Q/photo.jpg"}
+          src={ cookies.get('image') || user?.picture ? cookies.get('image') || user?.picture :  "https://lh3.googleusercontent.com/-5wrzx0S6Dlo/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rd5-UYFTMAPPwq2-0596kcIYASp6Q/photo.jpg"}
         />
     </div>
   );

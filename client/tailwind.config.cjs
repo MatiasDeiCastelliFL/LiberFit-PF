@@ -49,6 +49,7 @@ module.exports = {
                 card: "92rem",
                 cards_1: "14vw",
                 user: "6.5rem",
+                perfil: "1px",
             },
             height: {
                 max: "100vh",
