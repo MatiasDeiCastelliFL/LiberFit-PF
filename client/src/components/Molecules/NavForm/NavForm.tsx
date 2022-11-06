@@ -45,7 +45,7 @@ const NavForm = ({ dashboard }: Props) => {
                     ? "/dashboard"
                     : cookies.get("RolId") === 2
                     ? `/dashboard/${cookies.get("name") || user?.name}`
-                    : "/",
+                    : "#Membresias",
             icon:
                 cookies.get("name") || user?.name ? (
                     <Squares2X2Icon className="w-4" />
