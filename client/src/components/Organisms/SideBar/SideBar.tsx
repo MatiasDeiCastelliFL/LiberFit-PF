@@ -49,21 +49,21 @@ function SideBar({ handle, setName, dashboard }: Props) {
     const client = [
         {
             title: "Dashboard",
-            active: location.pathname === "/dashboard/cliente" ? true : false,
+            active: location.pathname === `/dashboard/${params.cliente}` ? true : false,
             desplegable: false,
-            link: "/dashboard/cliente",
+            link: `/dashboard/${params.cliente}`,
         },
         {
             title: "Rutinas",
             active: location.pathname.includes("rutinas") ? true : false,
             desplegable: false,
-            link: "/dashboard/cliente/rutinas",
+            link: `/dashboard/${params.cliente}/rutinas`,
         },
         {
             title: "Ejercicios",
             active: location.pathname.includes("ejercicios") ? true : false,
             desplegable: false,
-            link: "/dashboard/cliente/ejercicios",
+            link: `/dashboard/${params.cliente}/ejercicios`,
         },
         {
             title: "Membresia",
@@ -187,7 +187,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                         {dashboard && (
                             <div className="mt-10 flex gap-2 flex-col">
                                 {location.pathname.includes(
-                                    "/dashboard/cliente"
+                                    `/dashboard/${params.cliente}`
                                 )
                                     ? client.map((d) => (
                                           <div className="">

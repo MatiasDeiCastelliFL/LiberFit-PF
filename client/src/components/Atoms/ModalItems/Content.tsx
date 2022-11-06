@@ -6,8 +6,12 @@ import { postPaymentPaypal } from "../../../App/Action/Action";
 
 function Content() {
     const dispatch = useAppDispatch()
+    const data = {
+        amount: '10',
+        description: 'plan plata'
+    }
     const dispatchAction = () => {
-        dispatch(postPaymentPaypal)
+        dispatch(postPaymentPaypal(data))
     }
     return (
         <div className="w-max max-h-max">

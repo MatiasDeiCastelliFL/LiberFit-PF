@@ -173,9 +173,10 @@ export const getUserInfo = (payload:any) => async (dispatch: any) => {
     }
 }
 
-export const postPaymentPaypal = async (payload:any)  => {
+export const postPaymentPaypal = (payload:any)  => async  (dispatch : any) => {
     try {
-        const res = await axios.post(`${Route}/`,payload)
+        const res = await axios.post(`${Route}/create-order`,payload)
+        dispatch(postPayment(payload))
         return res     
     } catch (error) {
         
