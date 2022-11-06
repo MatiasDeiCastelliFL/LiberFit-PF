@@ -52,10 +52,14 @@ passport.use('login',new LocalStrategy(
   )
 );
 
-passport.serializeUser((user, done) => {
- done(null, user.id);
+
+passport.serializeUser((user, done)=>{
+  done(null, user.id)
 });
 
-passport.deserializeUser((user, done) => {
-   done(null, {user: user});
-}); 
+
+passport.deserializeUser((id, done)=>{
+  Clients.findByPk(id, (err, user) =>{
+      done(err, user)
+  })
+});

@@ -6,7 +6,8 @@ const {postEmpleado,getEmpleado,modificarEmpleado,deleteEmployee,inactivarEmploy
 const routerEmpleado = Router();
 
 routerEmpleado.post("/empleado",isAuthenticated, upload ,postEmpleado);
-routerEmpleado.get("/empleado",isAuthenticated,getEmpleado);
+// routerEmpleado.get("/empleado",isAuthenticated,getEmpleado);
+routerEmpleado.get("/empleado",getEmpleado);
 routerEmpleado.put("/empleado",isAuthenticated,modificarEmpleado);
 routerEmpleado.delete("/empleado",isAuthenticated,deleteEmployee);
 routerEmpleado.put("/empleadoDesactivar",isAuthenticated,inactivarEmployee);

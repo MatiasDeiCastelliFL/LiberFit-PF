@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface Props {
     title: string;
@@ -9,7 +9,7 @@ interface Props {
 function Item2({ title, active }: Props) {
     return (
         <div className="w-max"
->
+        >
             <div className="">
                 <div
                     className={`${

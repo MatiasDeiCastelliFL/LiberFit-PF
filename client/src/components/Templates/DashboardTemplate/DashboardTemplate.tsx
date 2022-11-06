@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import NavBar from "../../Organisms/Navbar/NavBar";
 import SideBar from "./../../Organisms/SideBar/SideBar";
 import CreateForm from "../../Organisms/CreateForm/CreateForm";
-import { useParams } from "react-router-dom";
+import { useParams,useLocation } from "react-router-dom";
 import Cliente from './../../Organisms/DashboardSections/Cliente/Cliente';
+import DashAdmin from '../../Organisms/DashboardSections/Admin/DashAdmin';
 
 function DashboardTemplate() {
     const { cliente } = useParams<{ cliente: string }>();
-    console.log(cliente)
+    const isAdmin = useLocation().pathname.includes('/dashboard/admin')
+
     return (
         <div className="flex flex-row select-none">
             <div className="z-20">
@@ -18,6 +20,7 @@ function DashboardTemplate() {
                 <NavBar dashboard={true} />
             </div>
             <div className="z-0 ml-sidebar flex justify-center flex-col">
+                    {isAdmin && <DashAdmin />}
                     {cliente ? <Cliente/> : null}
                 </div>
             </div>

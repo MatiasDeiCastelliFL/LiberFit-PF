@@ -8,4 +8,3 @@ server.listen(server.get('port'), () => {
 conn.sync({ force:false }).then(() => {
 	console.log("db is conect");
 });
- 
