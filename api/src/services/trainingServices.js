@@ -1,20 +1,24 @@
-const { Trainings,Locacions } = require("../db");
-const api = require("../controllers/gym.json");
+const { Trainings } = require("../db");
+const {cloudinary}=require('../config/cloudinary.config')
+const fs= require('fs-extra')
 
-const crearTraining = async (body) => {
-    const { name, image, timeSlot,LocacionId } = body;
+const crearTraining = async (name,timeSlot,LocacionId,path ) => {
+
 
     try {
+
+        const url = await cloudinary.v2.uploader.upload(path)
         const training = await Trainings.create({
             name,
-            image,
+            image:url.secure_url,
             timeSlot,
         });
+    
 
+    await training.addLocacions(LocacionId);
+    await fs.unlink(path)
+    return "Training creado"  
 
-            await training.addLocacions(LocacionId);
-        
-      
     } catch (error) {
         return error;
     }
@@ -27,15 +31,17 @@ const buscarTrainingPorId = async (id) => {
     return training;
 };
 
-const updateTraining = async (id, body) => {
-    const { idClient, name, image, timeSlot } = body;
+const updateTraining = async (id, name, timeSlot,path) => {
+
     try {
+        const url = await cloudinary.v2.uploader.upload(path)
         let trainingToUpdate = await Trainings.findOne({ where: { id } });
         await trainingToUpdate.update({
             name,
-            image,
+            image:url.secure_url,
             timeSlot,
         });
+        await fs.unlink(path)
         return trainingToUpdate;
     } catch (error) {
         return error;
