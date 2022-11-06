@@ -77,31 +77,31 @@ function SideBar({ handle, setName, dashboard }: Props) {
     const admin = [
         {
             title: "Dashboard",
-            active: true,
+            active: location.pathname === '/dashboard/admin' ? true : false,
             desplegable: false,
-            link: "/dashboard/admin/home",
+            link: "/dashboard/admin",
         },
         {
             title: "Empleados",
-            active: false,
+            active: location.pathname.includes("employees") ? true : false,
             desplegable: false,
             link: "/dashboard/admin/employees",
         },
         {
             title: "Productos",
-            active: false,
+            active: location.pathname.includes("productos") ? true : false,
             desplegable: false,
             link: "/dashboard/admin/productos",
         },
         {
             title: "Ejercicios",
-            active: false,
+            active: location.pathname.includes("ejercicios") ? true : false,
             desplegable: false,
             link: "/dashboard/admin/ejercicios",
         },
         {
             title: "Clientes",
-            active: false,
+            active: location.pathname.includes("clients") ? true : false,
             desplegable: false,
             link: "/dashboard/admin/clients",
         },
