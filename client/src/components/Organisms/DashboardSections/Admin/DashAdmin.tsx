@@ -12,9 +12,8 @@ import { getFilterData } from '../../../../App/Action/FilterActions';
 import { getMainData } from '../../../../App/Action/Action';
 import TrainingsForm from '../../../Molecules/CreateInputsContainer/trainingsForm/trainingsForm';
 function DashAdmin() {
-
+// TODO botones de modificacion de cada item  
     const [addItem, setAddItem] = useState(false);
-    const handleAddItem = ()=> setAddItem(!addItem)
 
     const dispatch = useAppDispatch();
     useEffect(() => {
@@ -22,6 +21,11 @@ function DashAdmin() {
         dispatch(getMainData());
     }, [dispatch]);
     const location = useLocation();
+
+    useEffect(() => {
+        setAddItem(false)
+    }, [location]);
+    
 
     const background={background:"linear-gradient(180deg, #F94B40 0%, #B53B3B 56.25%, #FF0000 99.99%)"}
 
@@ -35,7 +39,7 @@ function DashAdmin() {
                 <DashProducts  />
             ) : location.pathname === "/dashboard/admin/ejercicios" ? (addItem?<TrainingsForm background={background}/>:
                             <>
-                                <button onClick={handleAddItem}>Agregar Ejercicio</button>
+                                <button onClick={()=>setAddItem(!addItem)}>Agregar Ejercicio</button>
                                 <Ejercicios />
                             </>
             ) : location.pathname === "/dashboard/admin/clients" ? (

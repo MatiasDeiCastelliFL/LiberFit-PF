@@ -10,9 +10,7 @@ function DashProducts() {
    return <div>
      {!addItem ?<div>
        <CardsCategory />
-       <button onClick={handleAddItem}>
-         Agregar Producto +
-         </button>
+       
      </div> :<ProductForm background={background}/>}
   </div>
 }
