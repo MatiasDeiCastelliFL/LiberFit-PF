@@ -9,12 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^1.12.0",
     "@headlessui/react": "^1.7.3",
     "@heroicons/react": "^2.0.12",
     "@reduxjs/toolkit": "^1.8.6",
+    "@types/jsonwebtoken": "^8.5.9",
     "autoprefixer": "^10.4.12",
     "axios": "^1.1.3",
     "dotenv": "^16.0.3",
+    "jwt-decode": "^3.1.2",
     "mercadopago": "^1.5.14",
     "postcss": "^8.4.18",
     "postcss-import": "^15.0.0",
@@ -36,7 +39,7 @@
   },
   "homepage":"https://dynamicsoft.com.co/",
   "devDependencies": {
-    "@types/react": "^18.0.17",
+    "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.6",
     "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^2.1.0",
