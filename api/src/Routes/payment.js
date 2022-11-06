@@ -10,7 +10,7 @@ const {
 const { isAuthenticated } = require("../Helpers/auth");
 const routerPayment = Router();
 
-routerPayment.post("/payment", isAuthenticated, postPayment);
+routerPayment.post("/payment", postPayment);
 routerPayment.get("/payment", isAuthenticated, getPayment);
 routerPayment.put("/payment", isAuthenticated, modificarPayment);
 

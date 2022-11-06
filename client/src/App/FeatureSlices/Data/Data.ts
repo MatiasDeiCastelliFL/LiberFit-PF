@@ -43,4 +43,4 @@ const dataSlice = createSlice({
 });
 
 export default dataSlice.reducer;
-export const { getData, getLocationsReducer, getClientsReducer, getEmployeesReducer } = dataSlice.actions;
+export const { getData, getLocationsReducer,getUser, getClientsReducer, getEmployeesReducer } = dataSlice.actions;
