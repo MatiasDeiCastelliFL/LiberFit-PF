@@ -113,7 +113,7 @@ const LoginForm = () => {
                     <span>oogle</span>
                   </button>
                 </div> */}
-                <div className="flex border-2 w-min border-red-300 rounded-full p-3 mx-1">
+                <div className="flex border-2 w-min border-red-300 rounded-full p-3 mx-1 hover:bg-redClare hover:text-white">
                   <button onClick={() => loginAuth0()}>
                     Google
                   </button>

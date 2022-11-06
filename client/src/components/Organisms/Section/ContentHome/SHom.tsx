@@ -7,7 +7,7 @@ function SHom() {
   return (
     <div>
         <CardsContent/>
-        <div className='mt-20'>
+        <div className='mt-20' id='Membresias'>
           <Plan/>
         </div>
     </div>

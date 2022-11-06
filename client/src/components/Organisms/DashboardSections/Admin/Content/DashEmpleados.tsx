@@ -8,7 +8,6 @@ export default function DashEmpleados({ link }: any) {
   const background={background:"linear-gradient(180deg, #F94B40 0%, #B53B3B 56.25%, #FF0000 99.99%)"}
   return <div>
            {!addItem?<div>
-             <button onClick={handleAddItem}>Agregar Empleado</button>
                  <Table link={link} />
            </div>:<EmployeeForm background={background}/>}
     
