@@ -1,21 +1,44 @@
-import React from "react";
-import DashHome from "./DashHome";
-import DashEmpleados from "./DashEmpleados";
-import DashClientes from "./DashClientes";
-import { useParams } from "react-router-dom";
-
+import React, { useEffect, useState } from "react";
+import DashHome from "./Content/DashHome";
+import DashEmpleados from "./Content/DashEmpleados";
+import DashClientes from "./Content/DashClientes";
+import { useParams, useLocation } from "react-router-dom";
+import Ejercicios from "../Cliente/Content/Ejercicios";
+import DashProducts from "./Content/DashProducts";
+import { useAppDispatch, useAppSelector } from '../../../../App/Hooks/Hooks';
+import { getFilterData } from '../../../../App/Action/FilterActions';
+import { getMainData } from '../../../../App/Action/Action';
+import TrainingsForm from '../../../Molecules/CreateInputsContainer/trainingsForm/trainingsForm';
 function DashAdmin() {
-    const { admin } = useParams<{ admin: string }>();
+    const [addItem, setAddItem] = useState(false);
+    const handleAddItem = ()=> setAddItem(!addItem)
+
+    const dispatch = useAppDispatch();
+    useEffect(() => {
+        dispatch(getFilterData());
+        dispatch(getMainData());
+    }, [dispatch]);
+    const location = useLocation();
+
+    
+ 
     return (
-        <>
-            {admin === "home" ? (
+        <div>
+            {location.pathname === "/dashboard/admin/home" ? (
                 <DashHome />
-            ) : admin === "employees" ? (
-                    <DashEmpleados link={admin} />
-            ) : admin === "clients" ? (
-                    <DashClientes link={admin} />
+            ) : location.pathname === "/dashboard/admin/employees" ? (
+                <DashEmpleados link={'employees'} />
+            ) : location.pathname === "/dashboard/admin/Products" ? (
+                <DashProducts  />
+            ) : location.pathname === "/dashboard/admin/ejercicios" ? (addItem?<TrainingsForm background={undefined}/>:
+                            <>
+                                <button onClick={handleAddItem}>Agregar Ejercicio</button>
+                                <Ejercicios />
+                            </>
+            ) : location.pathname === "/dashboard/admin/clients" ? (
+                                <DashClientes link={'clients'} handleAddItem={handleAddItem } />
             ) : null}
-        </>
+        </div>
     );
 }
 

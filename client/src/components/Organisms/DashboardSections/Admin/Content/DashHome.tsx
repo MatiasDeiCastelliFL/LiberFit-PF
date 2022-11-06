@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import LineChart from "../../../Atoms/DoughnutChart/LineChart";
-import DoughnutChart from "../../../Atoms/DoughnutChart/DoughnutChart";
-import { useAppSelector, useAppDispatch } from "../../../../App/Hooks/Hooks";
-import { getClients } from "../../../../App/Action/Action";
+import LineChart from "../../../../Atoms/DoughnutChart/LineChart";
+import DoughnutChart from "../../../../Atoms/DoughnutChart/DoughnutChart";
+import { useAppSelector, useAppDispatch } from "../../../../../App/Hooks/Hooks";
+import { getClients } from "../../../../../App/Action/Action";
 
-export default function DashHome() {
+function DashHome() {
   useEffect(() => {
     dispatch(getClients());
   }, []);
@@ -95,3 +95,4 @@ const dataSedes = {
  </div>
 </div>
 }
+export default DashHome

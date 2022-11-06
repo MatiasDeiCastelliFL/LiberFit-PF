@@ -44,8 +44,10 @@ function App() {
             <Route path="/dashboard/:cliente/:item"/>
             <Route path="/dashboard/:cliente/:item/:ejercicio"/>
           </Route>
-          <Route path='/dashboard/admin'>
-            <Route path="/dashboard/admin/:admin"/>
+          <Route path='/dashboard/admin/:category'>
+            <Route path="/dashboard/admin/:category"/>
+            <Route path="/dashboard/admin/:category/:item"/>
+            
           </Route>
         </Route>
         <Route path="/UserConfig" element={<UserConfig/>}/>

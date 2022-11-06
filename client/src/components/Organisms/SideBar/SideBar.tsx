@@ -77,9 +77,9 @@ function SideBar({ handle, setName, dashboard }: Props) {
     const admin = [
         {
             title: "Dashboard",
-            active: location.pathname === '/dashboard/admin' ? true : false,
+            active: location.pathname.includes("home") ? true : false,
             desplegable: false,
-            link: "/dashboard/admin",
+            link: "/dashboard/admin/home",
         },
         {
             title: "Empleados",
@@ -89,9 +89,9 @@ function SideBar({ handle, setName, dashboard }: Props) {
         },
         {
             title: "Productos",
-            active: location.pathname.includes("productos") ? true : false,
+            active: location.pathname.includes("Productos") ? true : false,
             desplegable: false,
-            link: "/dashboard/admin/productos",
+            link: "/dashboard/admin/Products",
         },
         {
             title: "Ejercicios",
@@ -110,7 +110,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
     // console.log(cookies.get("id"));
     // console.log(cookies.get("name"));
     // console.log("-->",cookies.get("email"));
-    console.log("token--->", cookies.get("token"));
+    // console.log("token--->", cookies.get("token"));
     // const usario = user
     
     const loginGoog = (user:any) => {
