@@ -8,11 +8,16 @@ import BackIcon from "./../../../../Atoms/Icons/BackBIcon";
 import TorsoIcon from "./../../../../Atoms/Icons/TorsoIcon";
 import NeckIcon from "./../../../../Atoms/Icons/NeckIcon";
 import FullBIcon from "./../../../../Atoms/Icons/FullBIcon";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import CardCreation from '../../../../Atoms/Card/CardCreation';
 
 function Ejercicios() {
+    let location = useLocation();
+    const user = location.pathname.split('/').slice(2,3)
+    console.log('file: Ejercicios.tsx ~ line 17 ~ Ejercicios ~ user', user)
     const params = useParams();
+   
     const CardItems = [
         {
             minutos: "5 min",
@@ -64,14 +69,14 @@ function Ejercicios() {
         },
     ];
     const parametro = CardItems.map(d => d.ejercicio.split(" ").slice(-1))
-    console.log(parametro);
+    
     return (
         <div className="w-full p-10">
             <div className="flex flex-wrap w-max">
                 <div className="flex flex-row gap-10 flex-wrap ">
                     {CardItems.map((d) => (
                         <Link
-                            to={`/dashboard/cliente/ejercicios/${d.ejercicio
+                            to={`/dashboard/${user}/ejercicios/${d.ejercicio
                                 .split(" ")
                                 .slice(-1)}`}
                         >
@@ -84,6 +89,7 @@ function Ejercicios() {
                             />
                         </Link>
                     ))}
+                    {user[0] === 'admin' && <CardCreation item={ 'Ejercicio' } />}
                 </div>
             </div>
         </div>

@@ -7,6 +7,7 @@ export interface filterState {
     locations: [];
     user: any;
     clients: any;
+    employees: any;
     payment: any;
 }
 
@@ -16,6 +17,7 @@ const initialState: filterState = {
     user: [],
     payment: [],
     clients: [],
+    employees: [],
 };
 
 const dataSlice = createSlice({
@@ -34,6 +36,9 @@ const dataSlice = createSlice({
         getClientsReducer: (state, action: PayloadAction<any>) => {
             state.clients = action.payload;
         },
+        getEmployeesReducer: (state, action: PayloadAction<any>) => {
+            state.employees = action.payload.datoEmpleadoTot
+        },
         postPayment: (state, action: PayloadAction<any>) => {
             state.payment = action.payload;
         },
@@ -41,5 +46,5 @@ const dataSlice = createSlice({
 });
 
 export default dataSlice.reducer;
-export const { getData, getLocationsReducer, getUser, getClientsReducer, postPayment } =
-    dataSlice.actions;
+export const { getData, getLocationsReducer, getUser, getClientsReducer,getEmployeesReducer,postPayment } = dataSlice.actions;
+
