@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Table from "../../../../Molecules/DashboardTables/Table";
-
-export default function DashClientes({link,handleAddItem}:any) {
+import EmployeeForm from '../../../../Molecules/CreateInputsContainer/EmployeeForm/EmployeeForm';
+export default function DashClientes({ link }: any) {
+  const [addItem, setAddItem] = useState(false);
+  const handleAddItem = () => setAddItem(!addItem)
   return <div>
-    <Table link={link} />
+                 {!addItem?<div>
+                   <button onClick={handleAddItem}>Modificar Cliente</button>
+                       <Table link={link} />
+                 </div>:<EmployeeForm background={undefined}/>}
   </div>
 }

@@ -8,7 +8,7 @@ export default function DashEmpleados({ link }: any) {
   
   return <div>
            {!addItem?<div>
-             <button onClick={handleAddItem}></button>
+             <button onClick={handleAddItem}>Agregar Empleado</button>
                  <Table link={link} />
            </div>:<EmployeeForm background={undefined}/>}
     
