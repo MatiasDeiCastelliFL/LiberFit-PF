@@ -1,5 +1,7 @@
 const { Clients, Locacions } = require('../db')
 const bcrypt= require("bcrypt")
+const { cloudinary } = require('../config/cloudinary.config')
+const fs = require('fs-extra')
 
 const createClient = async (
     name, 
@@ -110,11 +112,31 @@ const updatePassword = async (id, password, oldPassword) => {
         if(encryptedOldPassword === foundClient.password) {
             await foundClient.update({password: encryptedPassword})
         } else {
-            throw new Error("La contraseña ingresada no coincide con la actual")
+            return 'Contraseña incorrecta'
         }
     }
     return foundClient;
 };
+
+const updateProfileImage = async (id, path) => {
+    console.log('Entra al updateProfileImage')
+    console.log(id)
+    const foundClient = await Clients.findOne({
+        where: {
+            id: id
+        }
+    })
+
+    if (foundClient) {
+        console.log('Entra al if')
+        
+        const url = await cloudinary.v2.uploader.upload(path)
+        await fs.unlink(path)
+        await foundClient.update({image: url.secure_url})
+    }
+
+    return foundClient;
+}
 
 const deleteClient = async (id, name, email) => {
     if (id) {
@@ -147,6 +169,7 @@ module.exports = {
     findClientByNameAndOrEmail, 
     updateClient,
     updatePassword,
+    updateProfileImage,
     deleteClient 
 };
 
