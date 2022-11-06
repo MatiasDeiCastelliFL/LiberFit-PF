@@ -8,7 +8,6 @@ import PasswordConfig from "../../Atoms/EditConfig/PasswordConfig";
 import EditProfileImage from "../../Atoms/EditConfig/EditProfileImage";
 import { getUserInfo } from "../../../App/Action/Action";
 
-
 const UserConfig = () => {
     
     const dispatch = useAppDispatch()
@@ -24,8 +23,6 @@ const UserConfig = () => {
     useEffect(() => {
     }, [user])
 
-
-
     const today = new Date();
     return(  
         <div className=" flex flex-col justify-center items-center p-10 gap-5 bg-gradient-to-br from-black via-emerald-900 to-green-900">
@@ -37,7 +34,6 @@ const UserConfig = () => {
                 <PasswordConfig  field="password" title="Contraseña" info={user} />
                 <EditConfig type="text" field="email" title="Correo" info={user} />
                 <EditConfig type="text" field="phone" title="Teléfono" info={user} />
-                
             </div>
             <div className="flex flex-col divide-y text-white rounded-lg items-start p-5 bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-40 gap-2 w-2/4 h-fit">
                 <h1 className="text-3xl font-black font-sans mb-5">Membrecía</h1>
