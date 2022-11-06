@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { getClients, getEmployees } from "../../../App/Action/Action";
+// line a 2 poner getEmployees
+import { getClients,getEmployees} from "../../../App/Action/Action";
 import { useAppSelector, useAppDispatch } from "../../../App/Hooks/Hooks";
 
 const headers: any = {

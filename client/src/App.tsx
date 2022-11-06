@@ -8,6 +8,7 @@ import LoginForm from "./components/Molecules/LoginForm/LoginForm";
 import SingUp from "./components/Molecules/LoginSignup/LoginSignup";
 import Dashboard from "./page/Dashboard/Dashboard";
 import UserConfig from "./components/Organisms/UserConfig/UserConfig";
+import Payments from "./components/Molecules/Payments/Payments";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
           </Route>
         </Route>
         <Route path="/UserConfig" element={<UserConfig/>}/>
+        <Route path="/dashboard/element" element={<Payments/>}/>
       </Routes>
     </div>
   );

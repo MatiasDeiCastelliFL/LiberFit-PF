@@ -6,6 +6,7 @@ import { filterDataPrice,openFilter, filterDataName} from "../FeatureSlices/Filt
 import { getData, getLocationsReducer, getUser, getClientsReducer} from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users"
 import { login } from "../FeatureSlices/login/login"
+import { payment} from "../FeatureSlices/Payments/payments";
 
 const data = Json[0].sedes.map(d => d.products.map(d => d.name))
 const exercises = Json[0].exercises.map(d => d)
@@ -152,6 +153,17 @@ export const getUserInfo = (payload:any) => async (dispatch: any) => {
     try {
         let json = await axios.get("http://localhost:3004/clients",  {params: {id: payload}}) // {email, password}
         dispatch(getUser(json.data[0]))
+        return json // {}
+    } catch (error) {
+        console.log("-->",error)
+    }
+}
+
+export const getPayment = () => async (dispatch:any) => {
+    try {
+        let json = await axios.get("http://localhost:3004/payment")
+        console.log(json);
+        dispatch(payment(json))
         return json // {}
     } catch (error) {
         console.log("-->",error)
