@@ -172,3 +172,4 @@ export const getUserInfo = (payload:any) => async (dispatch: any) => {
         console.log("-->",error)
     }
 }
+    

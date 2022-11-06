@@ -1,4 +1,4 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import Logo from "../../Atoms/Logo/Logo";
 import Filter from "../../Molecules/Filter/Filter";
 import Search from "./../../Atoms/Inputs/Search/Search";
@@ -13,8 +13,8 @@ import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/outline";
 import Cookies from "universal-cookie";
 import style from "./Style/sidebar.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
-import { cerrarLogin, loginGoogle } from "../../../App/Action/Action"
-import jwt_decode from "jwt-decode"
+import { cerrarLogin, loginGoogle } from "../../../App/Action/Action";
+import jwt_decode from "jwt-decode";
 
 interface Props {
     handle: any;
@@ -29,21 +29,21 @@ function SideBar({ handle, setName, dashboard }: Props) {
     const dispatch = useAppDispatch();
     const { filter } = useAppSelector((state) => state);
     const { user, logout } = useAuth0();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const cerrarSesion = () => {
         cookies.remove("id", { path: "/" });
         cookies.remove("email", { path: "/" });
         cookies.remove("name", { path: "/" });
         cookies.remove("phone", { path: "/" });
         cookies.remove("image", { path: "/" });
+        cookies.remove("RolId", { path: "/" });
         cookies.remove("token",{path:"/"})
-        
+      
         if (cookies.get("loginWith") === "local") {
-            dispatch(cerrarLogin())
-            navigate("/login")
-        }
-        else logout()
-        cookies.remove("loginWith",{path:"/"})
+            dispatch(cerrarLogin());
+            navigate("/login");
+        } else logout();
+        cookies.remove("loginWith", { path: "/" });
     };
 
     const client = [
@@ -84,8 +84,9 @@ function SideBar({ handle, setName, dashboard }: Props) {
     // console.log(cookies.get("id"));
     // console.log(cookies.get("name"));
     // console.log("-->",cookies.get("email"));
-    console.log("token--->",cookies.get("token"));
+    console.log("token--->", cookies.get("token"));
     // const usario = user
+    
     const loginGoog = (user:any) => {
         if(user) {
             dispatch(loginGoogle({
@@ -108,20 +109,21 @@ function SideBar({ handle, setName, dashboard }: Props) {
                 cookies.set("id", decode.user.id,{path: "/"})
                 cookies.set("email", decode.user.email,{path: "/"})
                 cookies.set("name", decode.user.name,{path: "/"})
-                cookies.set("phone", respuesta.phone,{path: "/"})
+                cookies.set("phone", decode.user.phone,{path: "/"})
                 cookies.set("image", decode.user.image,{path: "/"})
+                cookies.set("RolId", decode.user.RolId,{path: "/"})
                 cookies.set("loginWith","auth0",{path:"/"})
                 cookies.set("token",respuesta,{path:"/"})
 
-                // alert(`Bienvenido ${decode.user.email}`)
-                // window.location.href="./home"
-                // logout()
-              })
+                    // alert(`Bienvenido ${decode.user.email}`)
+                    // window.location.href="./home"
+                    // logout()
+                });
         }
-    }
+    };
     useEffect(() => {
-        loginGoog(user)
-    },[user])
+        loginGoog(user);
+    }, [user]);
     // console.log({
     //     password: user?.nickname,
     //     email: user?.email,
@@ -131,7 +133,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
     // console.log("ibra-->",user)
 
     return (
-        <div className=" flex min-h-screen h-full w-sidebar flex-col justify-between border-r border-redGray bg-white select-none overflow-y-auto">
+        <div className=" flex  h-full w-sidebar flex-col justify-between fixed border-r border-redGray bg-white select-none overflow-y-auto">
             <div className="">
                 <Transition
                     show={filter.open === false ? true : false}
@@ -237,16 +239,26 @@ function SideBar({ handle, setName, dashboard }: Props) {
                     leaveTo="opacity-0 scale-95 "
                 >
                     <div className="border-t border-redGray w-max h-73 flex">
-                        <div className="w-max flex flex-row">
+                        <div className="w-max flex flex-row gaP-20">
                             <Link to={cookies.get("name") ? "" : "/login"}>
-                                <Perfil width={cookies.get('name') || user?.name ? "15" : "14"} />
+                                <Perfil
+                                    width={
+                                        cookies.get("name") || user?.name
+                                            ? "14"
+                                            : "14"
+                                    }
+                                />
                             </Link>
-                            <Items />
+                            <div className="">
+                                <Items />
+                            </div>
                         </div>
                         {cookies.get("name") || user?.name ? (
                             <div
-                                className="flex justify-end w-max"
-                                onClick={() => {cerrarSesion()}}
+                                className="flex justify-end w-min"
+                                onClick={() => {
+                                    cerrarSesion();
+                                }}
                             >
                                 <ArrowLeftOnRectangleIcon className="w-8 mr-5 cursor-pointer text-redClare justify-end" />
                             </div>

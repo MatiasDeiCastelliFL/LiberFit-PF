@@ -3,24 +3,24 @@ import { Link, useNavigate } from "react-router-dom";
 import BtnLogin from "../../Atoms/Inputs/BtnLogin/BtnLogin";
 // import {} from "@heroicons/react/24/outline"
 import {
-  FaFacebookF,
-  FaLinkedinIn,
-  FaGoogle,
-  FaRegEnvelope,
+    FaFacebookF,
+    FaLinkedinIn,
+    FaGoogle,
+    FaRegEnvelope,
 } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { loginAction, loginGoogle } from "../../../App/Action/Action";
 import { useAppDispatch } from "../../../App/Hooks/Hooks";
 import Cookies from "universal-cookie";
-import jwt_decode from "jwt-decode"
-import { useAuth0 } from "@auth0/auth0-react"
+import jwt_decode from "jwt-decode";
+import { useAuth0 } from "@auth0/auth0-react";
 
 interface Inp {
-  email: string;
-  password: string;
+    email: string;
+    password: string;
 }
-const cookies = new Cookies()
+const cookies = new Cookies();
 
 const LoginForm = () => {
   const {
@@ -40,7 +40,7 @@ const LoginForm = () => {
   const logingoogle = JSON.stringify(user)
   // dispatch(loginGoogle(loginGoogle))
 
- /* console.log(cookies.get("id"))
+    /* console.log(cookies.get("id"))
   console.log(cookies.get("name"))
   console.log(cookies.get("email")) */
 
@@ -52,17 +52,18 @@ const LoginForm = () => {
       // console.log("-->",response?.data)
     })
     .then(response => {
-      console.log(response)
       var respuesta = response
       var decode:any = jwt_decode(respuesta)
+      console.log(decode)
 
-      // console.log("<--->",decode.user.email)
+                // console.log("<--->",decode.user.email)
 
       cookies.set("id", decode.user.id,{path: "/"})
       cookies.set("email", decode.user.email,{path: "/"})
       cookies.set("name", decode.user.name,{path: "/"})
-      cookies.set("phone", respuesta.phone,{path: "/"})
+      cookies.set("phone", decode.user.phone,{path: "/"})
       cookies.set("image", decode.user.image,{path: "/"})
+      cookies.set("RolId", decode.user.RolId,{path: "/"})
       cookies.set("loginWith","local",{path:"/"})
       cookies.set("token",respuesta,{path:"/"})
 
@@ -75,34 +76,38 @@ const LoginForm = () => {
     })
   });
 
-  return (
-    <div
-      className="w-full h-full bg-center bg-no-repeat bg-cover"
-      style={{ backgroundImage: "url(https://fondosmil.com/fondo/4046.jpg)" }}
-    >
-      <div className="flex flex-col items-center justify-center min-h-screen py-2">
-        <div className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-          <div className="bg-white opacity-95 rounded-2xl  shadow-2xl flex w-2/3 max-w-4xl">
-            {/* Sign in */}
-            <div className="w-3/5 p-5">
-              <div className="text-left font-bold">
-                <span className="text-red-400 text-2xl px-2">Liberfit</span>
-                Gym
-              </div>
-              <div className="py-4">
-                <h2 className="text-3xl font-bold text-redClare">
-                  Iniciar sesión
-                </h2>
-                <div className="border-2 w-14 border-redClare inline-block mb-2"></div>
-              </div>
-              <div className="flex justify-center my-2">
-                {/* <div className="border-2 w-min border-red-300 rounded-full p-3 mx-1">
+    return (
+        <div
+            className="w-full h-full bg-center bg-no-repeat bg-cover"
+            style={{
+                backgroundImage: "url(https://fondosmil.com/fondo/4046.jpg)",
+            }}
+        >
+            <div className="flex flex-col items-center justify-center min-h-screen py-2">
+                <div className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+                    <div className="bg-white opacity-95 rounded-2xl  shadow-2xl flex w-2/3 max-w-4xl">
+                        {/* Sign in */}
+                        <div className="w-3/5 p-5">
+                            <div className="text-left font-bold">
+                                <span className="text-red-400 text-2xl px-2">
+                                    Liberfit
+                                </span>
+                                Gym
+                            </div>
+                            <div className="py-4">
+                                <h2 className="text-3xl font-bold text-redClare">
+                                    Iniciar sesión
+                                </h2>
+                                <div className="border-2 w-14 border-redClare inline-block mb-2"></div>
+                            </div>
+                            <div className="flex justify-center my-2">
+                                {/* <div className="border-2 w-min border-red-300 rounded-full p-3 mx-1">
                   <FaFacebookF className="text-sm" />
                 </div>
                 <div className="border-2 w-min border-red-300 rounded-full p-3 mx-1">
                   <FaLinkedinIn className="text-sm" />
                 </div> */}
-                {/* <div className="flex border-2 w-min border-red-300 rounded-full p-3 mx-1">
+                                {/* <div className="flex border-2 w-min border-red-300 rounded-full p-3 mx-1">
                   <button className="flex justify-around items-center">
                     <FaGoogle className="text-lg" />
                     <span>oogle</span>
@@ -169,39 +174,41 @@ const LoginForm = () => {
                     value="Iniciar"
                     className="border-2 border-red-400 rounded-full px-8 py-2 inline-block font-semibold 
                   hover:bg-red-400 hover:text-white"
-                  />
-                  <Link
-                    to="/signup"
-                    className="border-2 border-white rounded-full px-8 py-2 inline-block font-semibold 
+                                    />
+                                    <Link
+                                        to="/signup"
+                                        className="border-2 border-white rounded-full px-8 py-2 inline-block font-semibold 
                 hover:bg-white hover:text-red-400"
-                  >
-                    Inscribirse
-                  </Link>
-                </div>
-              </form>
-            </div>
+                                    >
+                                        Inscribirse
+                                    </Link>
+                                </div>
+                            </form>
+                        </div>
 
-            {/* Sing un */}
-            <div className="w-2/5 bg-redClare text-white rounded-tr-2xl rounded-br-2xl py-36 px-12">
-              <h2 className="text-3xl font-bold mb-2">Hola amigo Gym!</h2>
-              <div className="border-2 w-10 border-whithe inline-block mb-2"></div>
-              <p className="mb-2">
-                Empieza Tu nueva Rutina y cambia tu vida...❤
-              </p>
+                        {/* Sing un */}
+                        <div className="w-2/5 bg-redClare text-white rounded-tr-2xl rounded-br-2xl py-36 px-12">
+                            <h2 className="text-3xl font-bold mb-2">
+                                Hola amigo Gym!
+                            </h2>
+                            <div className="border-2 w-10 border-whithe inline-block mb-2"></div>
+                            <p className="mb-2">
+                                Empieza Tu nueva Rutina y cambia tu vida...❤
+                            </p>
 
-              <Link
-                to="/home"
-                className="border-2 border-white rounded-full px-10 py-2 m-2 inline-block font-semibold 
+                            <Link
+                                to="/home"
+                                className="border-2 border-white rounded-full px-10 py-2 m-2 inline-block font-semibold 
                         hover:bg-white hover:text-red-600"
-              >
-                Home
-              </Link>
+                            >
+                                Home
+                            </Link>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default LoginForm;

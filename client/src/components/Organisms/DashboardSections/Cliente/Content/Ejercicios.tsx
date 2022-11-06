@@ -9,8 +9,10 @@ import TorsoIcon from "./../../../../Atoms/Icons/TorsoIcon";
 import NeckIcon from "./../../../../Atoms/Icons/NeckIcon";
 import FullBIcon from "./../../../../Atoms/Icons/FullBIcon";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function Ejercicios() {
+    const params = useParams();
     const CardItems = [
         {
             minutos: "5 min",
@@ -61,12 +63,18 @@ function Ejercicios() {
             icon: <FullBIcon props={{ width: "100%", height: "100%" }} />,
         },
     ];
+    const parametro = CardItems.map(d => d.ejercicio.split(" ").slice(-1))
+    console.log(parametro);
     return (
         <div className="w-full p-10">
             <div className="flex flex-wrap w-max">
-                <div className="flex flex-row gap-10 flex-wrap justify-center">
+                <div className="flex flex-row gap-10 flex-wrap ">
                     {CardItems.map((d) => (
-                        <Link to="">
+                        <Link
+                            to={`/dashboard/cliente/ejercicios/${d.ejercicio
+                                .split(" ")
+                                .slice(-1)}`}
+                        >
                             <CardExercises
                                 minutos={d.minutos}
                                 ejercicio={d.ejercicio}
