@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { ArrowUpTrayIcon } from '@heroicons/react/24/outline';
 interface Props{
   onImageUpload: () => void;
   dragProps: any;
@@ -11,9 +11,10 @@ const BoxDragAndDrop = ({ isDragging, onImageUpload, dragProps }:Props) => {
       <div
         onClick={onImageUpload}
         {...dragProps}
-        className={`container-dnd center-flex ${isDragging ? 'isDragging' : ''}`}
+        className={`bg-transparent flex flex-col justify-center items-center ${isDragging ? 'isDragging' : ''}`}
       >
-        <span className='label-dnd'>Chosee an Image or Drag and Drop an Image 📤</span>
+        <p>Arrastra o sube una imagen</p>
+        <ArrowUpTrayIcon className="w-10 h-10" />
       </div>
     )
 }

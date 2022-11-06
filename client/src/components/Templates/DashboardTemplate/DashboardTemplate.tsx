@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "../../Organisms/Navbar/NavBar";
 import SideBar from "./../../Organisms/SideBar/SideBar";
 import CreateForm from "../../Organisms/CreateForm/CreateForm";
@@ -7,6 +7,7 @@ import Cliente from './../../Organisms/DashboardSections/Cliente/Cliente';
 
 function DashboardTemplate() {
     const { cliente } = useParams<{ cliente: string }>();
+    console.log(cliente)
     return (
         <div className="flex flex-row select-none">
             <div className="z-20">
