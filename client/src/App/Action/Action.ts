@@ -3,7 +3,7 @@ import Json from '../../assets/gym.json'
 import arraySet from "../utils/arraySet";
 import { modalOpen } from "../FeatureSlices/Modal/Modal";
 import { filterDataPrice,openFilter, filterDataName} from "../FeatureSlices/Filters/Filter";
-import { getData, getLocationsReducer, getUser, getClientsReducer} from "../FeatureSlices/Data/Data";
+import { getData, getLocationsReducer, getUser, getClientsReducer, postPayment,getEmployeesReducer } from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users"
 import { login } from "../FeatureSlices/login/login"
 
@@ -181,6 +181,16 @@ export const getUserInfo = (payload:any) => async (dispatch: any) => {
         return json // {}
     } catch (error) {
         console.log("-->",error)
+    }
+}
+
+export const postPaymentPaypal = (payload:any)  => async  (dispatch : any) => {
+    try {
+        const res = await axios.post(`${Route}/create-order`,payload)
+        dispatch(postPayment(payload))
+        return res     
+    } catch (error) {
+        
     }
 }
     
