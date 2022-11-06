@@ -2,7 +2,7 @@ import React, {useState, useRef, useEffect } from "react";
 import { PencilSquareIcon } from "@heroicons/react/24/outline";
 import Cookies from "universal-cookie";
 import { useStateManager } from "react-select";
-import { editUser } from "../../../App/Action/Action";
+import { editUser, getUserInfo } from "../../../App/Action/Action";
 import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
 
 
@@ -58,7 +58,11 @@ const EditConfig = ({field,type, title, info}:Props) => {
 
 
     useEffect(() => {
-    }, [user, value])
+    }, [user, value, data])
+
+    useEffect(() => {
+        dispatch(getUserInfo(cookies.get("id")))
+    }, [])
 
     return (
         <div className="flex justify-between w-full p-4">
@@ -66,7 +70,7 @@ const EditConfig = ({field,type, title, info}:Props) => {
                 <h1 className="text-xl">{title}</h1>
                 <form onSubmit={handleSubmit} className='text-md flex gap-2'>
                     {
-                        disable ? <p className="text-white bg-transparent h-full" >{user[field]}</p> 
+                        disable ? <p className="text-white bg-transparent h-full" >{data.user[field]}</p> 
                         : 
                         <div className = "flex gap-3">
                             <input ref={inputRef} autoFocus placeholder={`Ingresa tu nuevo ${title}`}  onChange={handleChage}  type={type} className="text-white w-fit bg-transparent h-full" value={value}/>

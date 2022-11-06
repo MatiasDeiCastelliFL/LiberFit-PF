@@ -11,7 +11,7 @@ const { isAuthenticated } = require("../Helpers/auth");
 const routerPayment = Router();
 
 routerPayment.post("/payment", postPayment);
-routerPayment.get("/payment", isAuthenticated, getPayment);
+routerPayment.get("/payment",  getPayment);
 routerPayment.put("/payment", isAuthenticated, modificarPayment);
 
 //Rutas para la pasarela de pago con Paypal

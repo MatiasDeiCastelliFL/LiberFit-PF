@@ -3,7 +3,7 @@ import Json from '../../assets/gym.json'
 import arraySet from "../utils/arraySet";
 import { modalOpen } from "../FeatureSlices/Modal/Modal";
 import { filterDataPrice,openFilter, filterDataName} from "../FeatureSlices/Filters/Filter";
-import { getData, getLocationsReducer, getUser, getClientsReducer} from "../FeatureSlices/Data/Data";
+import { getData, getLocationsReducer, getUser, getClientsReducer, postPayment} from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users"
 import { login } from "../FeatureSlices/login/login"
 import { payment} from "../FeatureSlices/Payments/payments";
@@ -107,6 +107,21 @@ export const changePassword = (payload:any) => async (dispatch: any) => {
     }
 }
 
+export const changeProfileImage = (payload:any) => async (dispatch: any) => {
+    console.log(payload)
+    try {
+        let json = await axios.put("http://localhost:3004/clients?changeProfileImage=true", payload , {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }) // enpoint de post user
+        console.log(json)
+        return json.data
+    } catch (error:any) {
+        console.log(error)
+    }
+}
+
 export const postElement = (payload:any, element:string) =>  (dispatch: any) => {
     try {
         let json = axios.post(`http://localhost:3004/${element}`,payload) 
@@ -159,10 +174,20 @@ export const getUserInfo = (payload:any) => async (dispatch: any) => {
     }
 }
 
-export const getPayment = () => async (dispatch:any) => {
+export const postPaymentPaypal = (payload:any)  => async  (dispatch : any) => {
     try {
-        let json = await axios.get("http://localhost:3004/payment")
-        console.log(json);
+        const res = await axios.post(`${Route}/create-order`,payload)
+        dispatch(postPayment(payload))
+        return res     
+    } catch (error) {
+        
+    }
+}
+
+export const getPayment = () => async (dispatch: any) => {
+    try {
+        let json = await axios.get("http://localhost:3004/payment") // {email, password}
+        console.log("getPay--->",json)
         dispatch(payment(json))
         return json // {}
     } catch (error) {

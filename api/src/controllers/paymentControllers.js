@@ -25,7 +25,7 @@ const postPayment = async (req, res) => {
 
 const getPayment = async (req, res) => {
     const datoPaymentTotal = await buscarPaymentTotal();
-    res.status(200).json({ datoPaymentTotal });
+    res.status(200).json(datoPaymentTotal);
 };
 
 const modificarPayment = async (req, res) => {
