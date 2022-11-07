@@ -6,13 +6,14 @@ import { filterDataPrice,openFilter, filterDataName} from "../FeatureSlices/Filt
 import { getData, getLocationsReducer, getUser, getClientsReducer, postPayment,getEmployeesReducer } from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users"
 import { login } from "../FeatureSlices/login/login"
+import { Link } from "react-router-dom";
 
 const data = Json[0].sedes.map(d => d.products.map(d => d.name))
 const exercises = Json[0].exercises.map(d => d)
 const products = Json[0].sedes.map(d => d.products.map(d => d))
 
 const Route = import.meta.env.VITE_LOCAL_HOST
-const BASE_URL = import.meta.env.VITE_API;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const getMainData= () => async (dispatch: any) => {
     try {
@@ -187,11 +188,13 @@ export const getUserInfo = (payload:any) => async (dispatch: any) => {
 
 export const postPaymentPaypal = (payload:any)  => async  (dispatch : any) => {
     try {
-        const res = await axios.post(`${BASE_URL || Route}/create-order`,payload)
+        const res = await axios.get(`${BASE_URL || Route}/create-order`,payload)
+        const href =  res.data.links[1].href
+        window.location.href = href 
         dispatch(postPayment(payload))
         return res     
     } catch (error) {
-        
+        console.log(error)
     }
 }
     
