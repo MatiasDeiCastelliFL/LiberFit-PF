@@ -46,9 +46,6 @@ export const getClients = () => async (dispatch: any) => {
     } catch (error) {
         console.log(error);
     }
-<<<<<<< HEAD
-};   
-=======
 }; 
 
 export const getEmployees = () => async (dispatch: any) => {
@@ -61,7 +58,6 @@ export const getEmployees = () => async (dispatch: any) => {
         console.log(error);
     }
 }; 
->>>>>>> 60711c17647884cfa54b475189ec3d3931916c82
 
 export const getDataByName = (name:any) => (dispatch:any) => {
     const dataSet = arraySet(data.flat())
