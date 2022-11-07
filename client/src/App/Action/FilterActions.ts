@@ -10,6 +10,7 @@ const exercises = Json[0].exercises.map(d => d)
 const products = Json[0].sedes.map(d => d.products.map(d => d))
 
 const Route = "http://localhost:3004"
+const BASE_URL = process.env.REACT_APP_API;
 
 export const getFilterData = () => async (dispatch: any) => {
     try {
@@ -74,7 +75,7 @@ export const getUsers = () => async (dispatch:any) => {
 
 export const postUser = (payload:any) => async (dispatch: any) => {
     try {
-        let json = await axios.post("http://localhost:3004/clients",payload) // enpoint de post user
+        let json = await axios.post(`${Route || BASE_URL}/clients`,payload) // enpoint de post user
         return json
     } catch (error) {
         console.log("--->",error)   
@@ -83,7 +84,7 @@ export const postUser = (payload:any) => async (dispatch: any) => {
 
 export const postElement = (payload:any, element:string) =>  (dispatch: any) => {
     try {
-        let json = axios.post(`http://localhost:3004/${element}`,payload) 
+        let json = axios.post(`${Route || BASE_URL}/${element}`,payload) 
         console.log("Action")
         console.log(payload)
     } catch (error) {
