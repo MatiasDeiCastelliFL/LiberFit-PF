@@ -45,7 +45,7 @@ export const getClients = () => async (dispatch: any) => {
     } catch (error) {
         console.log(error);
     }
-}; 
+};   
 
 export const getDataByName = (name:any) => (dispatch:any) => {
     const dataSet = arraySet(data.flat())

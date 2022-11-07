@@ -1,0 +1,11 @@
+### creando un cliente
+POST http://localhost:3004/login
+Content-Type: application/json
+
+{
+  "email":"carlos@liberfit.com",
+  "password":"1234567"
+}
+
+###
+get http://localhost:3004/logout
