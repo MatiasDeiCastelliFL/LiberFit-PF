@@ -13,6 +13,7 @@ function Home() {
     const [name, setName] = useState("");
 
     useEffect(() => {
+        console.log("params", params);
         dispatch(getFilterData());
         dispatch(getMainData());
     }, [dispatch]);
