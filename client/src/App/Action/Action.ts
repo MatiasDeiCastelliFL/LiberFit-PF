@@ -57,7 +57,7 @@ export const getClients = () => async (dispatch: any) => {
 
 export const getEmployees = () => async (dispatch: any) => {
     try {
-        const employee = await axios.get(`${Route}/empleado`);
+        const employee = await axios.get(`${Route || BASE_URL}/empleado`);
 
         dispatch(getEmployeesReducer(employee.data));
     } catch (error) {
