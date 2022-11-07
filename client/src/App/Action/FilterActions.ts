@@ -21,11 +21,11 @@ const BASE_URL = import.meta.env.VITE_API;
 
 export const getFilterData = () => async (dispatch: any) => {
     try {
-        const data = await axios.get(`${Route || BASE_URL}/infolocaciones`);
-        const products = await axios.get(`${Route || BASE_URL}/product`);
-        const machines = await axios.get(`${Route || BASE_URL}/machine`);
-        const exercises = await axios.get(`${Route || BASE_URL}/exercises`);
-        const trainings = await axios.get(`${Route || BASE_URL}/training`);
+        const data = await axios.get(`${ BASE_URL}/infolocaciones`);
+        const products = await axios.get(`${BASE_URL}/product`);
+        const machines = await axios.get(`${BASE_URL}/machine`);
+        const exercises = await axios.get(`${BASE_URL}/exercises`);
+        const trainings = await axios.get(`${BASE_URL}/training`);
 
         const response = {
             data: data.data,
@@ -99,7 +99,7 @@ export const postUser = (payload: any) => async (dispatch: any) => {
 export const postElement =
     (payload: any, element: string) => (dispatch: any) => {
         try {
-            let json = axios.post(`${Route || BASE_URL}/${element}`, payload);
+            let json = axios.post(`${BASE_URL}/${element}`, payload);
             console.log("Action");
             console.log(payload);
         } catch (error) {

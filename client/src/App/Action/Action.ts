@@ -27,7 +27,7 @@ const BASE_URL = import.meta.env.VITE_API;
 
 export const getMainData = () => async (dispatch: any) => {
     try {
-        const locations = await axios.get(`${Route || BASE_URL}/locacion`);
+        const locations = await axios.get(`${BASE_URL}/locacion`);
 
         dispatch(getData(locations.data));
     } catch (error) {
@@ -37,7 +37,7 @@ export const getMainData = () => async (dispatch: any) => {
 
 export const getLocations = () => async (dispatch: any) => {
     try {
-        const locations = await axios.get(`${Route || BASE_URL}/locacion`);
+        const locations = await axios.get(`${BASE_URL}/locacion`);
 
         dispatch(getLocationsReducer(locations.data));
     } catch (error) {
@@ -47,7 +47,7 @@ export const getLocations = () => async (dispatch: any) => {
 
 export const getClients = () => async (dispatch: any) => {
     try {
-        const clients = await axios.get(`${Route || BASE_URL}/clients`);
+        const clients = await axios.get(`${BASE_URL}/clients`);
 
         dispatch(getClientsReducer(clients.data));
     } catch (error) {
@@ -57,7 +57,7 @@ export const getClients = () => async (dispatch: any) => {
 
 export const getEmployees = () => async (dispatch: any) => {
     try {
-        const employee = await axios.get(`${Route || BASE_URL}/empleado`);
+        const employee = await axios.get(`${BASE_URL}/empleado`);
 
         dispatch(getEmployeesReducer(employee.data));
     } catch (error) {
@@ -104,7 +104,7 @@ export const getUsers = () => async (dispatch: any) => {
 
 export const postUser = (payload: any) => async (dispatch: any) => {
     try {
-        let json = await axios.post(`${Route || BASE_URL}/clients`, payload); // enpoint de post user
+        let json = await axios.post(`${BASE_URL}/clients`, payload); // enpoint de post user
         console.log(json);
         return json;
     } catch (error) {
@@ -114,7 +114,7 @@ export const postUser = (payload: any) => async (dispatch: any) => {
 
 export const editUser = (payload: any) => async (dispatch: any) => {
     try {
-        let json = await axios.put(`${Route || BASE_URL}/clients`, payload); // enpoint de post user
+        let json = await axios.put(`${BASE_URL}/clients`, payload); // enpoint de post user
         console.log(json);
         return json;
     } catch (error) {
@@ -125,7 +125,7 @@ export const editUser = (payload: any) => async (dispatch: any) => {
 export const changePassword = (payload: any) => async (dispatch: any) => {
     try {
         let json = await axios.put(
-            `${Route || BASE_URL}/clients?changePassword=true`,
+            `${BASE_URL}/clients?changePassword=true`,
             payload
         ); // enpoint de post user
         console.log(json);
@@ -137,7 +137,7 @@ export const changeProfileImage = (payload: any) => async (dispatch: any) => {
     console.log(payload);
     try {
         let json = await axios.put(
-            `${Route || BASE_URL}/clients?changeProfileImage=true`,
+            `${BASE_URL}/clients?changeProfileImage=true`,
             payload,
             {
                 headers: {
@@ -197,7 +197,7 @@ export const cerrarLogin = () => async (dispatch: any) => {
 
 export const getUserInfo = (payload: any) => async (dispatch: any) => {
     try {
-        let json = await axios.get(`${Route || BASE_URL}/clients`, {
+        let json = await axios.get(`${BASE_URL}/clients`, {
             params: { id: payload },
         }); // {email, password}
         dispatch(getUser(json.data[0]));
@@ -210,7 +210,7 @@ export const getUserInfo = (payload: any) => async (dispatch: any) => {
 export const postPaymentPaypal = (payload: any) => async (dispatch: any) => {
     try {
         const res = await axios.post(
-            `${Route || BASE_URL}/create-order`,
+            `${BASE_URL}/create-order`,
             payload
         );
         dispatch(postPayment(payload));
