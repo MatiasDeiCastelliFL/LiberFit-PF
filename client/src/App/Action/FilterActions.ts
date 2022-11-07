@@ -10,16 +10,16 @@ const exercises = Json[0].exercises.map(d => d)
 const products = Json[0].sedes.map(d => d.products.map(d => d))
 
 const Route = "http://localhost:3004"
-const BASE_URL = process.env.REACT_APP_API;
+const BASE_URL = process.env.VITE_API;
 
 export const getFilterData = () => async (dispatch: any) => {
     try {
 
-        const data = await axios.get(`${Route}/infolocaciones`);
-        const products = await axios.get(`${Route}/product`);
-        const machines = await axios.get(`${Route}/machine`);
-        const exercises = await axios.get(`${Route}/exercises`);
-        const trainings = await axios.get(`${Route}/training`);
+        const data = await axios.get(`${Route || BASE_URL}/infolocaciones`);
+        const products = await axios.get(`${Route || BASE_URL}/product`);
+        const machines = await axios.get(`${Route || BASE_URL}/machine`);
+        const exercises = await axios.get(`${Route || BASE_URL}/exercises`);
+        const trainings = await axios.get(`${Route || BASE_URL}/training`);
 
         const response = {
             data: data.data,
