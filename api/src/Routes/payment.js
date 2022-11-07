@@ -17,7 +17,7 @@ routerPayment.put("/payment", isAuthenticated, modificarPayment);
 routerPayment.get("/payment/Cuota",isAuthenticated,getIdClientePaymentss)
 
 //Rutas para la pasarela de pago con Paypal
-routerPayment.post("/create-order", postCreateOrder);
+routerPayment.get("/create-order", postCreateOrder);
 routerPayment.get("/capture-order", getCaptureOrder);
 routerPayment.get("/cancel-order", getCancelOrder);
 
