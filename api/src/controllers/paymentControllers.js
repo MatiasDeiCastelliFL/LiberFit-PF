@@ -61,7 +61,7 @@ const postCreateOrder = async (req, res) => {
                         value: "35.7",
                     },
                     description: "Plan Oro",
-                },ç+A
+                },
                 
             ],
             application_context: {
