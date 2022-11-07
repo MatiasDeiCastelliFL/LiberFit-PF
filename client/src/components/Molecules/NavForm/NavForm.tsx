@@ -78,10 +78,15 @@ const NavForm = ({ dashboard }: Props) => {
         cookies.remove("loginWith", { path: "/" });
     };
 
+    const userConfig = () => {
+        navigate("/userConfig");
+    };
+
+
     const solutions = [
         {
             name: "Configuracion",
-            href: "##",
+            href: userConfig
         },
         {
             name: "Cerrar sesion",
