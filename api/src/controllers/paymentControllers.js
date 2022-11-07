@@ -9,6 +9,7 @@ const {
     crearPayment,
     buscarPaymentTotal,
     ModificarPayment,
+    getIdClientePayments
 } = require("../services/paymentServices");
 const { validate } = require("../validation/validations");
 
@@ -113,6 +114,12 @@ const getCancelOrder = async (req, res) => {
     res.send("Cancel orden");
 };
 
+const getIdClientePaymentss = async (req, res) => {
+    const {id}=req.query
+    const datoCliente= await getIdClientePayments(id)
+    res.status(200).json(datoCliente)
+};
+
 module.exports = {
     postPayment,
     getPayment,
@@ -120,4 +127,5 @@ module.exports = {
     postCreateOrder,
     getCaptureOrder,
     getCancelOrder,
+    getIdClientePaymentss
 };

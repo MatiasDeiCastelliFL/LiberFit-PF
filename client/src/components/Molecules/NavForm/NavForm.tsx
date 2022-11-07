@@ -16,7 +16,7 @@ import Cookies from "universal-cookie";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useAppDispatch, useAppSelector } from "./../../../App/Hooks/Hooks";
 import { cerrarLogin, loginGoogle } from "../../../App/Action/Action";
-import { normalize } from './../../../App/utils/NormalText';
+import { normalize } from "./../../../App/utils/NormalText";
 
 interface Props {
     dashboard: boolean;
@@ -39,12 +39,15 @@ const NavForm = ({ dashboard }: Props) => {
 
     const link2 = [
         {
-            name: cookies.get("name") ? "Dashboard" : "Membresias",
+            name:
+                cookies.get("name") || user?.name ? "Dashboard" : "Membresias",
             link:
                 cookies.get("RolId") === "1"
-                    ? "/dashboard"
+                    ? "/dashboard/admin"
                     : cookies.get("RolId") === "3"
-                    ? `/dashboard/${normalize(cookies.get("name").replace(/\s+/g, ""))}`
+                    ? `/dashboard/${normalize(
+                          cookies.get("name").replace(/\s+/g, "")
+                      )}`
                     : "/",
             icon: cookies.get("name") ? (
                 <Squares2X2Icon className="w-4" />
@@ -212,9 +215,7 @@ const NavForm = ({ dashboard }: Props) => {
                                                             (item) => (
                                                                 <div
                                                                     className="-m-3 flex items-center rounded-lg transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50 cursor-pointer"
-                                                                    onClick={
-                                                                      item.href
-                                                                    }
+                                                                    onClick={item.href}
                                                                 >
                                                                     <div className="flex h-10 w-10 shrink-0 items-center justify-center text-white sm:h-12 sm:w-12"></div>
                                                                     <div className="">

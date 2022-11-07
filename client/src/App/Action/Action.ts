@@ -3,7 +3,7 @@ import Json from '../../assets/gym.json'
 import arraySet from "../utils/arraySet";
 import { modalOpen } from "../FeatureSlices/Modal/Modal";
 import { filterDataPrice,openFilter, filterDataName} from "../FeatureSlices/Filters/Filter";
-import { getData, getLocationsReducer, getUser, getClientsReducer, postPayment} from "../FeatureSlices/Data/Data";
+import { getData, getLocationsReducer, getUser, getClientsReducer, postPayment,getEmployeesReducer } from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users"
 import { login } from "../FeatureSlices/login/login"
 import { payment} from "../FeatureSlices/Payments/payments";
@@ -184,11 +184,12 @@ export const postPaymentPaypal = (payload:any)  => async  (dispatch : any) => {
     }
 }
 
-export const getPayment = () => async (dispatch: any) => {
+export const getPayment = (payload:any) => async (dispatch: any) => {
     try {
-        let json = await axios.get("http://localhost:3004/payment") // {email, password}
-        console.log("getPay--->",json)
-        dispatch(payment(json))
+        
+        let json = await axios.get("http://localhost:3004/payment/Cuota",{params: {id: payload}}) // {email, password}
+        
+        dispatch(payment(json?.data[0]))
         return json // {}
     } catch (error) {
         console.log("-->",error)

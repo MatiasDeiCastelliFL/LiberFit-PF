@@ -208,7 +208,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                             leaveFrom="opacity-100 rotate-0 scale-100 "
                             leaveTo="opacity-0 "
                         >
-                            <Filter />
+                            {!dashboard && <Filter />}
                         </Transition>
                         {dashboard && (
                             <div className="mt-10 flex gap-2 flex-col">
