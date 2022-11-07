@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { useAppSelector } from "../../../App/Hooks/Hooks";
 import Card from "../../Atoms/Card/Card";
+import CardCreation from '../../Atoms/Card/CardCreation';
 import style from "./CardsCategory.module.css";
 
 function CardsCategory() {
     const { filter } = useAppSelector((state) => state);
-
-    let { category } = useParams();
-
+    const local = useLocation().pathname.includes('admin')
+    let {category}= useParams();
+    
     const [location, setLocation] = React.useState("0");
 
     return (
@@ -80,7 +81,12 @@ function CardsCategory() {
                                                   />
                                               </Link>
                                           ))
-                                        : null}
+                                                : null}
+                                    {local && (
+                                                <CardCreation
+                                                    item={"Producto"}
+                                                />
+                                            )}
                                 </div>
                             ) : (
                                 filter.dataLocation.map((locationInfo) =>

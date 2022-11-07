@@ -49,10 +49,18 @@ function App() {
                 )}
                 {cookies.get("name") || user?.name ? (
                     <Route path="/dashboard" element={<Dashboard />}>
-                        <Route path="/dashboard/:cliente">
-                            <Route path="/dashboard/:cliente/:item" />
-                            <Route path="/dashboard/:cliente/:item/:ejercicio" />
-                        </Route>
+                        {cookies.get("RolId") === "3" && (
+                            <Route path="/dashboard/:cliente">
+                                <Route path="/dashboard/:cliente/:item" />
+                                <Route path="/dashboard/:cliente/:item/:ejercicio" />
+                            </Route>
+                        )}
+                        {cookies.get("RolId") === "1" && (
+                            <Route path="/dashboard/admin/:category">
+                                <Route path="/dashboard/admin/:category" />
+                                <Route path="/dashboard/admin/:category/:item" />
+                            </Route>
+                        )}
                     </Route>
                 ) : null}
                 {cookies.get("name") || user?.name ? (

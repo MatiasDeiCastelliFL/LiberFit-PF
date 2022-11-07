@@ -1,4 +1,4 @@
-const { crearRol, enviarRol, borrarRol,actualizarRol } = require('../services/RolServices')
+const { crearRol, enviarRol, borrarRol,actualizarRol } = require('../services/rolServices')
 
 const postRol = async (req, res) => {
     try {
