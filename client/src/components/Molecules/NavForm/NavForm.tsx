@@ -1,9 +1,10 @@
 import React, { Fragment } from "react";
-import { useParams, useLocation, Link } from "react-router-dom";
+import { useParams, useLocation, Link, useNavigate } from "react-router-dom";
 import style from "./NavBar.module.css";
 import {
     ChatBubbleBottomCenterTextIcon,
     BanknotesIcon,
+    Squares2X2Icon,
 } from "@heroicons/react/24/outline";
 import Perfil from "../../Atoms/Perfil/Perfil";
 import Items from "../../Atoms/Perfil/ItemsPefil/Items";
@@ -11,12 +12,21 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Search from "../../Atoms/Inputs/Search/Search";
 import Content from "../../Atoms/Perfil/Content/Content";
 import { Popover, Transition } from "@headlessui/react";
+import Cookies from "universal-cookie";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useAppDispatch, useAppSelector } from "./../../../App/Hooks/Hooks";
+import { cerrarLogin, loginGoogle } from "../../../App/Action/Action";
+import { normalize } from "./../../../App/utils/NormalText";
 
 interface Props {
     dashboard: boolean;
 }
 
 const NavForm = ({ dashboard }: Props) => {
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+    const cookies = new Cookies();
+    const { user, logout } = useAuth0();
     const links = [
         { name: "home", link: "/home" },
         { name: "about", link: "/about" },
@@ -29,9 +39,21 @@ const NavForm = ({ dashboard }: Props) => {
 
     const link2 = [
         {
-            name: "Membresias",
-            link: "/",
-            icon: <BanknotesIcon className="w-4" />,
+            name:
+                cookies.get("name") || user?.name ? "Dashboard" : "Membresias",
+            link:
+                cookies.get("RolId") === "1"
+                    ? "/dashboard/admin"
+                    : cookies.get("RolId") === "3"
+                    ? `/dashboard/${normalize(
+                          cookies.get("name").replace(/\s+/g, "")
+                      )}`
+                    : "/",
+            icon: cookies.get("name") ? (
+                <Squares2X2Icon className="w-4" />
+            ) : (
+                <BanknotesIcon className="w-4" />
+            ),
         },
         {
             name: "Chat",
@@ -40,16 +62,28 @@ const NavForm = ({ dashboard }: Props) => {
         },
     ];
 
+    const cerrarSesion = () => {
+        cookies.remove("id", { path: "/" });
+        cookies.remove("email", { path: "/" });
+        cookies.remove("name", { path: "/" });
+        cookies.remove("phone", { path: "/" });
+        cookies.remove("image", { path: "/" });
+        cookies.remove("RolId", { path: "/" });
+        cookies.remove("token", { path: "/" });
+
+        if (cookies.get("loginWith") === "local") {
+            dispatch(cerrarLogin());
+            navigate("/login");
+        } else logout();
+        cookies.remove("loginWith", { path: "/" });
+    };
+
     const solutions = [
         {
             name: "Configuracion",
-            description: "Measure actions your users take",
-            href: "##",
         },
         {
             name: "Cerrar sesion",
-            description: "Create your own targeted content",
-            href: "##",
         },
     ];
 
@@ -111,7 +145,11 @@ const NavForm = ({ dashboard }: Props) => {
                 </div>
             )}
             <div
-                className={dashboard ? "flex 2xl:-mr-72 xl:-mr-44 lg:-mr-36"  : "flex mr-4 "}
+                className={
+                    dashboard
+                        ? "flex 2xl:-mr-72 xl:-mr-44 lg:-mr-36"
+                        : "flex mr-4 "
+                }
             >
                 {!dashboard ? (
                     link2.map((elem, i) => (
@@ -146,7 +184,8 @@ const NavForm = ({ dashboard }: Props) => {
                                             <div className="flex flex-row gap-2 items-center">
                                                 <Perfil width="10" />
                                                 <p className="text-sm font-poppins font-light text-gray-400 ">
-                                                    User 1
+                                                    {user?.name ||
+                                                        cookies.get("name")}
                                                 </p>
 
                                                 <ChevronDownIcon
@@ -172,14 +211,9 @@ const NavForm = ({ dashboard }: Props) => {
                                                     <div className="relative grid gap-8 bg-white p-4 lg:grid-row">
                                                         {solutions.map(
                                                             (item) => (
-                                                                <a
-                                                                    key={
-                                                                        item.name
-                                                                    }
-                                                                    href={
-                                                                        item.href
-                                                                    }
-                                                                    className="-m-3 flex items-center rounded-lg transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                                                                <div
+                                                                    className="-m-3 flex items-center rounded-lg transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50 cursor-pointer"
+                                                                    onClick={cerrarSesion}
                                                                 >
                                                                     <div className="flex h-10 w-10 shrink-0 items-center justify-center text-white sm:h-12 sm:w-12"></div>
                                                                     <div className="">
@@ -189,7 +223,7 @@ const NavForm = ({ dashboard }: Props) => {
                                                                             }
                                                                         </p>
                                                                     </div>
-                                                                </a>
+                                                                </div>
                                                             )
                                                         )}
                                                     </div>

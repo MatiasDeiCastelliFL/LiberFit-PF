@@ -14,18 +14,30 @@ const {
     Payments,
 } = require("../db");
 const api = require("../controllers/gym.json");
+
+function generateRandomElement( element, start=0, end=1) {
+    const generators = {
+      date: new Date( +new Date('2022-08-25')+ (Math.random() * ( new Date(start) - new Date(end) ) )),
+      boolean: Math.round(0 + Math.random() * (1 - 0)) ? true: false,
+      number: Math.round(start + Math.random() * (end - start))
+    };
+    return generators[element]
+}
+
 // agregamos los datos que no necesitan datos previos para ser creadas
 const crearDesdeJsonAPaymentsDb = async () => {
     const subscriptions = api[0].payment.map((pay) => {
         return {
-            id:pay.id,
-            name:pay.name||"",
+            id: pay.id,
+            name: pay.name || "",
             amount: pay.amount, // tiene que ser double
             active: pay.active, // tiene que se boolean
         };
     });
 
-    await Payments.bulkCreate(subscriptions);
+    await Payments.bulkCreate(subscriptions,  {
+        ignoreDuplicates: true,
+      });
 };
 
 const crearDesdeJsonAMachinesDb = async () => {
@@ -39,13 +51,15 @@ const crearDesdeJsonAMachinesDb = async () => {
             )
             .map((machine) => {
                 return {
-                    id:machine.id,
+                    id: machine.id,
                     name: machine.name,
                     image: machine.image,
                     muscle: machine.muscle || "brazos",
                 };
             });
-        await Machines.bulkCreate(machines);
+        await Machines.bulkCreate(machines,  {
+            ignoreDuplicates: true,
+          });
     } catch (error) {
         console.log(error);
     }
@@ -73,7 +87,9 @@ const crearDesdeJsonAProductsDb = async () => {
                 active: product.active || false,
             };
         });
-    await Products.bulkCreate(products);
+    await Products.bulkCreate(products,  {
+        ignoreDuplicates: true,
+      });
 };
 
 const crearDesdeJsonATrainingsDb = async () => {
@@ -91,12 +107,14 @@ const crearDesdeJsonATrainingsDb = async () => {
                 timeSlot: "hoy",
             };
         });
-    await Trainings.bulkCreate(trainings);
+    await Trainings.bulkCreate(trainings,  {
+        ignoreDuplicates: true,
+      });
 };
 const crearDesdeJsonAExerciseDb = async () => {
     const exercises = api[0].exercises.map((e) => {
         return {
-            id:e.id,
+            id: e.id,
             name: e.name,
             repetition: e.repetition,
             series: e.series,
@@ -105,7 +123,9 @@ const crearDesdeJsonAExerciseDb = async () => {
             muscle: e.muscle,
         };
     });
-    await Exercises.bulkCreate(exercises);
+    await Exercises.bulkCreate(exercises,  {
+        ignoreDuplicates: true,
+      });
 };
 
 const crearDesdeJsonARutinesDb = async () => {
@@ -115,32 +135,38 @@ const crearDesdeJsonARutinesDb = async () => {
             name: rutine.name,
         };
     });
-    await Rutines.bulkCreate(dataJsonRutines);
+    await Rutines.bulkCreate(dataJsonRutines,  {
+        ignoreDuplicates: true,
+      });
 };
 
 const crearDesdeJsonASubscriptionsDb = async () => {
     const subscriptions = api[0].subscriptions.map((sub) => {
         return {
-            id:sub.id,
+            id: sub.id,
             name: sub.name,
             price: sub.price || "$0.00",
             description: sub.description || "No Suscripto",
         };
     });
 
-    await Subscriptions.bulkCreate(subscriptions);
+    await Subscriptions.bulkCreate(subscriptions,  {
+        ignoreDuplicates: true,
+      });
 };
 
 const crearDesdeJsonARolsDb = async () => {
     const rols = api[0].roles.map((e) => { return { id:e.id,name: e.name } });
-    await Rols.bulkCreate(rols);
+    await Rols.bulkCreate(rols,  {
+        ignoreDuplicates: true,
+      });
 };
 // agregamos los datos de las tablas que tienen  relaciones con las tablas que ya contienen datos
 
 const crearDesdeJsonALocacionsDb = async () => {
     api[0].locations.forEach(async (loc) => {
         const location = await Locacions.create({
-            id:loc.id,
+            id: loc.id,
             name: loc.name,
             phone: loc.phone,
             address: loc.adress,
@@ -178,12 +204,15 @@ const crearDesdeJsonAClientsDb = async () => {
 
     api[0].clients.forEach(async (client, i) => {
         const clientByName = await Clients.create({
-            id:client.id,
+            id: client.id,
             name: client.name,
             phone: client.phone,
             email: client.email,
             password: client.password,
-            active: client.active,
+            active: generateRandomElement("boolean"),
+            createdAt:
+                client.createdAt ||
+                generateRandomElement( "date","2022-08-25", "2022-11-04"),
             image: client.image,
         });
         // console.log('clientByName',clientByName.__proto__)
@@ -197,7 +226,7 @@ const crearDesdeJsonAClientsDb = async () => {
 const crearDesdeJsonAEmployeesDb = async () => {
     api[0].employees.forEach(async (employee, i) => {
         const EmployeeByName = await Employees.create({
-            id:employee.id,
+            id: employee.id,
             name: employee.name,
             phone: employee.phone,
             email: employee.email,
@@ -228,12 +257,14 @@ const crearDesdeJsonAOwnersDb = async () => {
         };
     });
 
-    await Owners.bulkCreate(owners);
+    await Owners.bulkCreate(owners,  {
+        ignoreDuplicates: true,
+      });
 };
 
 const crearDesdeJsonAGymsDb = async () => {
     await Gyms.create({
-        id:api[0].id,
+        id: api[0].id,
         name: api[0].name,
         email: api[0].email,
         phone: api[0].phone,
@@ -319,7 +350,6 @@ const createDBonfromatOfJSON = async () => {
         },
     ];
 };
-
 
 module.exports = {
     crearDesdeJsonAPaymentsDb,

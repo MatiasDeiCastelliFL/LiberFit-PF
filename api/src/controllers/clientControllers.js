@@ -3,6 +3,8 @@ const {
     findClients, 
     findClientByNameAndOrEmail, 
     updateClient,
+    updatePassword,
+    updateProfileImage,
     deleteClient 
 } = require('../services/clientServices');
 const { validate } = require('../validation/validations');
@@ -10,10 +12,10 @@ const { Clients } = require("../db");
 
 const getClientsRequest = async (req, res) => {
     try {
-        const { name, email } = req.query;
+        const { name, email, id } = req.query;
 
-        if(email || name) {
-            const dataClient = await findClientByNameAndOrEmail(name, email)
+        if(email || name || id) {
+            const dataClient = await findClientByNameAndOrEmail(name, email, id);
 
             if (dataClient.length !== 0) {
                 res.status(200).json(dataClient)
@@ -48,13 +50,27 @@ const postClientsRequest = async (req, res) => {
 };
 
 const putClientRequest = async (req, res) => {
-    console.log(req.body)
+    const {changePassword} = req.query;
+    const { changeProfileImage } = req.query;
     try {
+        if (changePassword) {
+            const { id, password, oldPassword } = req.body;
+            const updatedClient = await updatePassword(id, password, oldPassword);
+            res.status(200).json(updatedClient);
+        } else if (changeProfileImage){
+            console.log(req.file)
+            const { path } = req.file;
+            const { id } = req.body;
+            const updateClient = await updateProfileImage(id, path);
+            res.status(200).json(updateClient);
+        }else {
             const { id, name, phone, email, password, image } = req.body;
             const updatedClient = await updateClient(id, name, phone, email, password, image);
             res.status(200).json(updatedClient);
+        }
     } catch (error) {
-        res.status(500).json({error: error.message})
+        console.log('fgdfgdfg',error);
+        res.status(500).send({error: error.message})
     }
 }
 

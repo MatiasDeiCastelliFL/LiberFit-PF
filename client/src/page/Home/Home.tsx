@@ -28,6 +28,7 @@ function Home() {
     if (location.pathname === "/home" || params.name) {
         dispatch(openFilters(false));
     }
+   
 
     return <HomeTemplate handle={handleSubmit} name={setName} />;
 }
