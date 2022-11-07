@@ -10,10 +10,12 @@ import Dashboard from "./page/Dashboard/Dashboard";
 import UserConfig from "./components/Organisms/UserConfig/UserConfig";
 import { useAuth0 } from "@auth0/auth0-react";
 import Cookies from "universal-cookie";
-
+alert(import.meta.env.VITE_API)
 function App() {
     const cookies = new Cookies();
     const { user } = useAuth0();
+
+    
     return (
         <div className="App">
             <Routes>
