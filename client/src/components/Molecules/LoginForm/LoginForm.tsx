@@ -69,7 +69,9 @@ const LoginForm = () => {
       cookies.set("token",respuesta,{path:"/"})
 
       alert(`Bienvenido ${decode.user.name}`)
-      navigate("/home")
+      if (cookies.get("RolId") === "3") navigate("/home")
+      if (cookies.get("RolId") === "1") navigate("/dashboard/admin") //url del rol id 1
+      
     })
     .catch(error => {
       console.log(error)
