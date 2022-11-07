@@ -9,16 +9,17 @@ const data = Json[0].sedes.map(d => d.products.map(d => d.name))
 const exercises = Json[0].exercises.map(d => d)
 const products = Json[0].sedes.map(d => d.products.map(d => d))
 
-const Route = "http://localhost:3004"
+const Route = import.meta.env.VITE_LOCAL_HOST
+const BASE_URL = import.meta.env.VITE_API;
 
 export const getFilterData = () => async (dispatch: any) => {
     try {
 
-        const data = await axios.get(`${Route}/infolocaciones`);
-        const products = await axios.get(`${Route}/product`);
-        const machines = await axios.get(`${Route}/machine`);
-        const exercises = await axios.get(`${Route}/exercises`);
-        const trainings = await axios.get(`${Route}/training`);
+        const data = await axios.get(`${BASE_URL || Route}/infolocaciones`);
+        const products = await axios.get(`${BASE_URL || Route}/product`);
+        const machines = await axios.get(`${BASE_URL || Route}/machine`);
+        const exercises = await axios.get(`${BASE_URL || Route}/exercises`);
+        const trainings = await axios.get(`${BASE_URL || Route}/training`);
 
         const response = {
             data: data.data,
@@ -74,7 +75,7 @@ export const getUsers = () => async (dispatch:any) => {
 
 export const postUser = (payload:any) => async (dispatch: any) => {
     try {
-        let json = await axios.post("http://localhost:3004/clients",payload) // enpoint de post user
+        let json = await axios.post(`${BASE_URL || Route}/clients`,payload) // enpoint de post user
         return json
     } catch (error) {
         console.log("--->",error)   
@@ -83,7 +84,7 @@ export const postUser = (payload:any) => async (dispatch: any) => {
 
 export const postElement = (payload:any, element:string) =>  (dispatch: any) => {
     try {
-        let json = axios.post(`http://localhost:3004/${element}`,payload) 
+        let json = axios.post(`${BASE_URL || Route}/${element}`,payload) 
         console.log("Action")
         console.log(payload)
     } catch (error) {

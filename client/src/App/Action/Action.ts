@@ -12,12 +12,13 @@ const data = Json[0].sedes.map(d => d.products.map(d => d.name))
 const exercises = Json[0].exercises.map(d => d)
 const products = Json[0].sedes.map(d => d.products.map(d => d))
 
-const Route = "http://localhost:3004"
+const Route = import.meta.env.VITE_LOCAL_HOST
+const BASE_URL = import.meta.env.VITE_API;
 
 export const getMainData= () => async (dispatch: any) => {
     try {
 
-        const locations = await axios.get(`${Route}/locacion`);
+        const locations = await axios.get(`${BASE_URL || Route}/locacion`);
 
         dispatch(getData(locations.data));
     } catch (error) {
@@ -28,7 +29,7 @@ export const getMainData= () => async (dispatch: any) => {
 export const getLocations = () => async (dispatch: any) => {
     try {
 
-        const locations = await axios.get(`${Route}/locacion`);
+        const locations = await axios.get(`${BASE_URL || Route}/locacion`);
 
         dispatch(getLocationsReducer(locations.data));
     } catch (error) {
@@ -39,13 +40,24 @@ export const getLocations = () => async (dispatch: any) => {
 export const getClients = () => async (dispatch: any) => {
     try {
 
-        const clients = await axios.get(`${Route}/clients`);
+        const clients = await axios.get(`${BASE_URL || Route}/clients`);
 
         dispatch(getClientsReducer(clients.data));
     } catch (error) {
         console.log(error);
     }
-};   
+}; 
+
+export const getEmployees = () => async (dispatch: any) => {
+    try {
+
+        const employee = await axios.get(`${BASE_URL || Route}/empleado`);
+
+        dispatch(getEmployeesReducer(employee.data));
+    } catch (error) {
+        console.log(error);
+    }
+}; 
 
 export const getDataByName = (name:any) => (dispatch:any) => {
     const dataSet = arraySet(data.flat())
@@ -79,7 +91,7 @@ export const getUsers = () => async (dispatch:any) => {
 
 export const postUser = (payload:any) => async (dispatch: any) => {
     try {
-        let json = await axios.post("http://localhost:3004/clients",payload) // enpoint de post user
+        let json = await axios.post(`${BASE_URL || Route}/clients`,payload) // enpoint de post user
         console.log(json)
         return json
     } catch (error) {
@@ -89,7 +101,7 @@ export const postUser = (payload:any) => async (dispatch: any) => {
 
 export const editUser = (payload:any) => async (dispatch: any) => {
     try {
-        let json = await axios.put("http://localhost:3004/clients",payload) // enpoint de post user
+        let json = await axios.put(`${BASE_URL || Route}/clients`,payload) // enpoint de post user
         console.log(json)
         return json
     } catch (error) {
@@ -99,7 +111,7 @@ export const editUser = (payload:any) => async (dispatch: any) => {
 
 export const changePassword = (payload:any) => async (dispatch: any) => {
     try {
-        let json = await axios.put("http://localhost:3004/clients?changePassword=true", payload ) // enpoint de post user
+        let json = await axios.put(`${BASE_URL || Route}/clients?changePassword=true`, payload ) // enpoint de post user
         console.log(json)
         return json.data
     } catch (error:any) {
@@ -110,7 +122,7 @@ export const changePassword = (payload:any) => async (dispatch: any) => {
 export const changeProfileImage = (payload:any) => async (dispatch: any) => {
     console.log(payload)
     try {
-        let json = await axios.put("http://localhost:3004/clients?changeProfileImage=true", payload , {
+        let json = await axios.put(`${BASE_URL || Route}/clients?changeProfileImage=true`, payload , {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -124,7 +136,7 @@ export const changeProfileImage = (payload:any) => async (dispatch: any) => {
 
 export const postElement = (payload:any, element:string) =>  (dispatch: any) => {
     try {
-        let json = axios.post(`http://localhost:3004/${element}`,payload) 
+        let json = axios.post(`${BASE_URL || Route}/${element}`,payload) 
         console.log("Action")
         console.log(payload)
     } catch (error) {
@@ -134,7 +146,7 @@ export const postElement = (payload:any, element:string) =>  (dispatch: any) => 
 
 export const loginAction = (payload:any) => async (dispatch: any) => {
     try {       
-        let json = await axios.post("http://localhost:3004/login", payload) // {email, password}
+        let json = await axios.post(`${BASE_URL || Route}/login`, payload) // {email, password}
         // console.log("-->",json)
         return json // {}
     } catch (error) {
@@ -146,7 +158,7 @@ export const loginGoogle = (payload: any) => async (dispatch: any) => {
     try {
         console.log("carlos-->",payload);
         
-        let json = await axios.post("http://localhost:3004/logup", payload) // {email,picture,name,password}
+        let json = await axios.post(`${BASE_URL || Route}/logup`, payload) // {email,picture,name,password}
         console.log("cuenta google -->", json)
         return json
     } catch (error) {
@@ -156,7 +168,7 @@ export const loginGoogle = (payload: any) => async (dispatch: any) => {
 
 export const cerrarLogin = () => async (dispatch: any) => {
     try {
-        let json = await axios.get("http://localhost:3004/logout")
+        let json = await axios.get(`${BASE_URL || Route}/logout`)
         console.log("loginCerrado --->",json)
         return json
     } catch (error) {
@@ -166,7 +178,7 @@ export const cerrarLogin = () => async (dispatch: any) => {
 
 export const getUserInfo = (payload:any) => async (dispatch: any) => {
     try {
-        let json = await axios.get("http://localhost:3004/clients",  {params: {id: payload}}) // {email, password}
+        let json = await axios.get(`${BASE_URL || Route}/clients`,  {params: {id: payload}}) // {email, password}
         dispatch(getUser(json.data[0]))
         return json // {}
     } catch (error) {
@@ -176,7 +188,7 @@ export const getUserInfo = (payload:any) => async (dispatch: any) => {
 
 export const postPaymentPaypal = (payload:any)  => async  (dispatch : any) => {
     try {
-        const res = await axios.post(`${Route}/create-order`,payload)
+        const res = await axios.post(`${BASE_URL || Route}/create-order`,payload)
         dispatch(postPayment(payload))
         return res     
     } catch (error) {

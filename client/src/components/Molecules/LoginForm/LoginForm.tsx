@@ -8,7 +8,7 @@ import {
     FaGoogle,
     FaRegEnvelope,
 } from "react-icons/fa";
-import { MdLockOutline } from "react-icons/md";
+import { MdLockOutline, MdVisibility, MdVisibilityOff } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { loginAction, loginGoogle } from "../../../App/Action/Action";
 import { useAppDispatch } from "../../../App/Hooks/Hooks";
@@ -43,6 +43,7 @@ const LoginForm = () => {
     /* console.log(cookies.get("id"))
   console.log(cookies.get("name"))
   console.log(cookies.get("email")) */
+  const [pass, setPass] = useState<boolean>(false)
 
   const onSubmit = handleSubmit((data) => {
     console.log(data); // {email,passwod}
@@ -144,7 +145,7 @@ const LoginForm = () => {
                 <div className=" bg-redGray w-64 p-2 flex items-center mt-3">
                   <MdLockOutline className="m-2" />
                   <input
-                    type="password"
+                    type={pass ? "text" : "password"}
                     {...register("password", {
                       required: true,
                       maxLength: 10,
@@ -153,6 +154,14 @@ const LoginForm = () => {
                     placeholder="password.."
                     className="bg-redGray outline-none text-sm flex-1"
                   />
+                  <div className="cursor-pointer" onClick={() => setPass(!pass)}>
+                    {
+                      pass ?
+                      <MdVisibility className="m-2" /> :
+                      <MdVisibilityOff className="m-2" />
+                    }
+                  </div>
+
                 </div>
                 <div className="text-red-600 text-sm mt-2">
                   {errors.password?.type === "required" && (

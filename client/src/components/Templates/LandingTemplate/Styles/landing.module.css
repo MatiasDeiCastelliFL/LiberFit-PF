@@ -6,3 +6,7 @@
 
     font-size: 90px;
 }
+
+.landing {
+    background-image: url('../../../../assets/IMG/LandingBG.png');
+}
