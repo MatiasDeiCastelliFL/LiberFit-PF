@@ -1,7 +1,9 @@
+import {useState} from "react"
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks"
 import { postUser } from "../../../App/Action/Action"
+import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 
 interface Inputs {
   name: string;
@@ -20,6 +22,8 @@ const SingUp = () => {
 
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
+  const [pass, setPass] = useState<boolean>(false)
+
   const onSubmit = handleSubmit((data) => {
     console.log(data);
     dispatch(postUser(data))
@@ -113,15 +117,24 @@ const SingUp = () => {
                 
                 <div className="w-64 p-2 flex flex-col mb-1">
                   <label className=" text-left">Password</label>
-                  <input
-                    type="password"
+                  <div className="flex justify-between items-center">
+                    <input
+                    type={pass ? "text" : "password"}
                     {...register("password", {
                       required: true,
                       pattern: /^[a-zA-Z0-9\_\-]+$/i,
                     })}
                     placeholder="password"
-                    className="bg-transparent text-sm focus:outline-none border-b border-red-400 tracking-wider"
-                  />
+                    className="bg-transparent text-sm focus:outline-none w-full border-b border-red-400 tracking-wider"
+                    />
+                    <div className="cursor-pointer"  onClick={() => setPass(!pass)}>
+                      {
+                        pass ?
+                        <MdVisibility className="m-2" /> :
+                        <MdVisibilityOff className="m-2" />
+                      }
+                    </div>
+                  </div>
                 </div>
                 <div className="text-red-500 text-sm">
                   {errors.password?.type === "required" && (
