@@ -24,32 +24,6 @@ export default function Payments({ clients }: any) {
     }, [])
     
     return (
-      <div className="flex flex-col">
-          <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                  <div className="overflow-x-auto">
-                      <table className="min-w-full">
-                          <thead className="bg-white border-b">
-                              <tr>
-                                  {headers[clients]?.map((key: any) => {
-                                      return (
-                                          <th
-                                              key={key.key}
-                                              className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                                          >
-                                              {key.label}
-                                          </th>
-                                      );
-                                  })}
-                              </tr>
-                          </thead>
-                          <tbody>
-                        
-                          </tbody>
-                      </table>
-                  </div>
-              </div>
-          </div>
-      </div>
+      <div>hola</div>
   );
 }

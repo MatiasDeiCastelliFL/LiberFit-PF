@@ -66,7 +66,7 @@ function App() {
                 {cookies.get("name") || user?.name ? (
                     <Route path="/UserConfig" element={<UserConfig />} />
                 ) : null}
-                  {/* <Route path="/dashboard/element" element={<Payments/>} /> */}
+                  <Route path="/dashboard/element" element={<Payments/>} />
             </Routes>
         </div>
     );
