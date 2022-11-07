@@ -7,8 +7,6 @@ import { Provider } from "react-redux";
 import { store } from "./App/Store";
 import { Auth0Provider } from "@auth0/auth0-react";
 import axios from 'axios'
-import dotenv from "dotenv";
-dotenv.config()
 axios.defaults.baseURL = import.meta.env.VITE_API||"http://localhost:3004";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
