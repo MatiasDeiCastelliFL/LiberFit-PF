@@ -81,11 +81,9 @@ const NavForm = ({ dashboard }: Props) => {
     const solutions = [
         {
             name: "Configuracion",
-            href: "##",
         },
         {
             name: "Cerrar sesion",
-            href: cerrarSesion,
         },
     ];
 
@@ -215,7 +213,7 @@ const NavForm = ({ dashboard }: Props) => {
                                                             (item) => (
                                                                 <div
                                                                     className="-m-3 flex items-center rounded-lg transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50 cursor-pointer"
-                                                                    onClick={item.href}
+                                                                    onClick={cerrarSesion}
                                                                 >
                                                                     <div className="flex h-10 w-10 shrink-0 items-center justify-center text-white sm:h-12 sm:w-12"></div>
                                                                     <div className="">
