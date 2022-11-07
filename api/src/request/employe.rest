@@ -1,0 +1,97 @@
+### obteniendo empleados
+GET http://localhost:3004/empleado
+
+### creando un empleado
+POST http://localhost:3004/empleado
+Content-Type: application/json
+
+{
+  "name":"Ricardo",
+  "email":"ricardo_arjona@hoyamil.com",
+  "phone":"123123",
+  "active":true,
+  "password":"1234Ac",
+  "image":"https://ui-avatars.com/api/?name=ric+ob",
+  "RolId":1
+} 
+
+### creando un empleado
+POST http://localhost:3004/empleado
+Content-Type: application/json
+
+{
+  "name":"Ricardo1",
+  "email":"ricardo_ar1jona@hoyamil.com",
+  "phone":"123123",
+  "active":true,
+  "password":"1234Ac",
+  "image":"https://ui-avatars.com/api/?name=ric+ob",
+  "RolId":1
+} 
+### creando un empleado sin nombre ni email
+POST http://localhost:3004/empleado
+Content-Type: application/json
+
+{
+  "name":"",
+  "email":"",
+  "phone":"123123",
+  "active":true,
+  "password":"1234Ac",
+  "image":"https://ui-avatars.com/api/?name=ric+ob",
+  "RolId":1
+} 
+
+### creando un empleado  email incorecto
+POST http://localhost:3004/empleado
+Content-Type: application/json
+
+{
+  "name":"Ricardo",
+  "email":"ricardo_ar1jon",
+  "phone":"123123",
+  "active":true,
+  "password":"1234Ac",
+  "image":"https://ui-avatars.com/api/?name=ric+ob",
+  "RolId":1
+} 
+### creando un empleado teleefono con letras
+POST http://localhost:3004/empleado
+Content-Type: application/json
+
+{
+  "name":"Ricardo",
+  "email":"ricardo_ar1jon",
+  "phone":"123f123",
+  "active":true,
+  "password":"1234Ac",
+  "image":"https://ui-avatars.com/api/?name=ric+ob",
+  "RolId":1
+} 
+### creando un empleado sin password
+POST http://localhost:3004/empleado
+Content-Type: application/json
+
+{
+  "name":"Ricardo",
+  "email":"ricardo_ar1jona@hoyamil.com",
+  "phone":"123123",
+  "active":true,
+  "password":"",
+  "image":"https://ui-avatars.com/api/?name=ric+ob",
+  "RolId":1
+} 
+
+### creando un empleado sin Rol
+POST http://localhost:3004/empleado
+Content-Type: application/json
+
+{
+  "name":"Ricardo",
+  "email":"ricardo_ar1jona@hoyamil.com",
+  "phone":"123123",
+  "active":true,
+  "password":"asdasda",
+  "image":"https://ui-avatars.com/api/?name=ric+ob",
+  "RolId":2
+} 

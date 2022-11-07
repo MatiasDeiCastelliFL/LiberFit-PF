@@ -1,0 +1,24 @@
+###
+GET http://localhost:3004/machine
+###
+POST http://localhost:3004/machine
+Content-Type: application/json
+
+{ 
+  "name":"pesas",
+  "image":"https://ui-avatars.com/api/?name=Elon+Musk",
+  "muscle":"brazos"
+} 
+
+###
+PUT  http://localhost:3004/machine
+Content-Type: application/json
+
+{ 
+  "name":"macuernas",
+  "image":"https://ui-avatars.com/api/?name=Elon+Musk",
+  "muscle":"piernas"
+} 
+###
+DELETE  http://localhost:3004/machine
+Content-Type: application/json

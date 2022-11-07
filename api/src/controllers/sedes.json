@@ -1,0 +1,1907 @@
+[
+  {
+    "id": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+    "name": "AbsoluteFit - Sede Bernal",
+    "phone": "+23 17485278",
+    "address": "Primera Junta 512",
+    "machines": [],
+    "products": [
+      {
+          "name": "Quemador de Grasa",
+          "image": "https://res.cloudinary.com/dim2wnoej/image/upload/v1667262034/iwkmqhwcbnhqiylxjaig.jpg",
+          "price": 1000
+      },
+      {
+          "name": "Guantes",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+          "price": 500
+      },
+      {
+          "name": "Remeras",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+          "price": 3400
+      },
+      {
+          "name": "Musculosa",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+          "price": 2800
+      },
+      {
+          "name": "Proteinas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+          "price": 2500
+      },
+      {
+          "name": "Barra de Cereales",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+          "price": 200
+      },
+      {
+          "name": "Mancuernas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+          "price": 5000
+      }
+  ],
+    "trainings": [
+      {
+        "id": 1,
+        "name": "Funcional",
+        "image": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.477Z",
+          "updatedAt": "2022-10-31T17:47:04.477Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "TrainingId": 1
+        }
+      },
+      {
+        "id": 2,
+        "name": "Boxeo",
+        "image": "https://images.unsplash.com/photo-1606335543042-57c525922933?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1ODk2MTIwNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.479Z",
+          "updatedAt": "2022-10-31T17:47:04.479Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "TrainingId": 2
+        }
+      },
+      {
+        "id": 3,
+        "name": "Spinning",
+        "image": "https://i.blogs.es/a82e3b/istock-1134717663-1-/500_333.jpeg",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.478Z",
+          "updatedAt": "2022-10-31T17:47:04.478Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "TrainingId": 3
+        }
+      },
+      {
+        "id": 4,
+        "name": "Yoga",
+        "image": "https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/temas/yoga.jpg",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.483Z",
+          "updatedAt": "2022-10-31T17:47:04.483Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "TrainingId": 4
+        }
+      },
+      {
+        "id": 5,
+        "name": "Crossfit",
+        "image": "https://images.unsplash.com/photo-1434596922112-19c563067271?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.482Z",
+          "updatedAt": "2022-10-31T17:47:04.482Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "TrainingId": 5
+        }
+      },
+      {
+        "id": 6,
+        "name": "Gap",
+        "image": "https://images.unsplash.com/photo-1536922246289-88c42f957773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIyNzY5Mjk4&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.480Z",
+          "updatedAt": "2022-10-31T17:47:04.480Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "TrainingId": 6
+        }
+      },
+      {
+        "id": 7,
+        "name": "Body Combat",
+        "image": "https://images.unsplash.com/photo-1602827113876-839bcf3ccb3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2NjcxNDUzMw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.481Z",
+          "updatedAt": "2022-10-31T17:47:04.481Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "TrainingId": 7
+        }
+      }
+    ],
+    "clients": [
+      {
+        "id": "e5c4fb2c-3565-4260-889b-d8f4387122ec",
+        "name": "Jeramiah Rojas",
+        "phone": "+23 45321211",
+        "email": "jeramiahrojas@gmail.com",
+        "password": "jerrojas++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
+        "SubscriptionId": 1,
+        "RolId": 3,
+        "LocacionsClients": {
+          "createdAt": "2022-10-31T17:47:04.802Z",
+          "updatedAt": "2022-10-31T17:47:04.802Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "ClientId": "e5c4fb2c-3565-4260-889b-d8f4387122ec"
+        }
+      },
+      {
+        "id": "f7972298-88db-4969-992d-20a91a24dcb4",
+        "name": "Kenza Rojas",
+        "phone": "+23 45321278",
+        "email": "kenzarojas@gmail.com",
+        "password": "kenzrojas++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
+        "SubscriptionId": 1,
+        "RolId": 3,
+        "LocacionsClients": {
+          "createdAt": "2022-10-31T17:47:04.800Z",
+          "updatedAt": "2022-10-31T17:47:04.800Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "ClientId": "f7972298-88db-4969-992d-20a91a24dcb4"
+        }
+      },
+      {
+        "id": "c09534f7-480e-4717-bbc9-4d4336839042",
+        "name": "Sirhjan Rojas",
+        "phone": "+23 45321279",
+        "email": "sirhjanrojas@gmail.com",
+        "password": "sirjrojas++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
+        "SubscriptionId": 1,
+        "RolId": 3,
+        "LocacionsClients": {
+          "createdAt": "2022-10-31T17:47:04.807Z",
+          "updatedAt": "2022-10-31T17:47:04.807Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "ClientId": "c09534f7-480e-4717-bbc9-4d4336839042"
+        }
+      },
+      {
+        "id": "abc1c66f-755c-430a-a835-9c78f1d87a4d",
+        "name": "Memphis Rojas",
+        "phone": "+23 45321282",
+        "email": "memphisrojas@gmail.com",
+        "password": "memrojas++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
+        "SubscriptionId": 1,
+        "RolId": 3,
+        "LocacionsClients": {
+          "createdAt": "2022-10-31T17:47:04.801Z",
+          "updatedAt": "2022-10-31T17:47:04.801Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "ClientId": "abc1c66f-755c-430a-a835-9c78f1d87a4d"
+        }
+      },
+      {
+        "id": "8e83d115-57f0-4f03-892e-5cbad773933f",
+        "name": "Kalani Rojas",
+        "phone": "+23 45321283",
+        "email": "kalanirojas@gmail.com",
+        "password": "kalarojas++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
+        "SubscriptionId": 1,
+        "RolId": 3,
+        "LocacionsClients": {
+          "createdAt": "2022-10-31T17:47:04.808Z",
+          "updatedAt": "2022-10-31T17:47:04.808Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "ClientId": "8e83d115-57f0-4f03-892e-5cbad773933f"
+        }
+      },
+      {
+        "id": "64d49ce4-347e-46cb-beb0-8427840d80e2",
+        "name": "Cristian Rojas",
+        "phone": "+23 453212710",
+        "email": "crojas@gmail.com",
+        "password": "crojas++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
+        "SubscriptionId": 1,
+        "RolId": 3,
+        "LocacionsClients": {
+          "createdAt": "2022-10-31T17:47:04.808Z",
+          "updatedAt": "2022-10-31T17:47:04.808Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "ClientId": "64d49ce4-347e-46cb-beb0-8427840d80e2"
+        }
+      },
+      {
+        "id": "e8e8ea5c-486b-462e-9b49-e9ccf540eb74",
+        "name": "Jeevan Rojas",
+        "phone": "+23 45321281",
+        "email": "jeevanrojas@gmail.com",
+        "password": "jeevrojas++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
+        "SubscriptionId": 1,
+        "RolId": 3,
+        "LocacionsClients": {
+          "createdAt": "2022-10-31T17:47:04.803Z",
+          "updatedAt": "2022-10-31T17:47:04.803Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "ClientId": "e8e8ea5c-486b-462e-9b49-e9ccf540eb74"
+        }
+      },
+      {
+        "id": "c5a7d232-73ba-434f-a2a8-b58fbac8d641",
+        "name": "Nahum Rojas",
+        "phone": "+23 45321284",
+        "email": "nahumrojas@gmail.com",
+        "password": "nahumrojas++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
+        "SubscriptionId": 1,
+        "RolId": 3,
+        "LocacionsClients": {
+          "createdAt": "2022-10-31T17:47:04.804Z",
+          "updatedAt": "2022-10-31T17:47:04.804Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "ClientId": "c5a7d232-73ba-434f-a2a8-b58fbac8d641"
+        }
+      },
+      {
+        "id": "c37f0442-317f-410e-b178-e27bc0f4c044",
+        "name": "Eden Rojas",
+        "phone": "+23 45321280",
+        "email": "edenrojas@gmail.com",
+        "password": "edenrojas++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
+        "SubscriptionId": 1,
+        "RolId": 3,
+        "LocacionsClients": {
+          "createdAt": "2022-10-31T17:47:04.805Z",
+          "updatedAt": "2022-10-31T17:47:04.805Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "ClientId": "c37f0442-317f-410e-b178-e27bc0f4c044"
+        }
+      },
+      {
+        "id": "2163f80b-8239-4a03-9190-8958f263623e",
+        "name": "Jalil Rojas",
+        "phone": "+23 45321285",
+        "email": "jalilrojas@gmail.com",
+        "password": "jalilrojas++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBEZ-TVf2OYZDX4e00LqVaiZ0OjORcfUTImQ&usqp=CAU",
+        "SubscriptionId": 1,
+        "RolId": 3,
+        "LocacionsClients": {
+          "createdAt": "2022-10-31T17:47:04.809Z",
+          "updatedAt": "2022-10-31T17:47:04.809Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "ClientId": "2163f80b-8239-4a03-9190-8958f263623e"
+        }
+      }
+    ],
+    "employes": [
+      {
+        "id": "96be04cf-9e9e-4ce7-b511-c87d5736eb1a",
+        "name": "Alejandro Santilli",
+        "phone": "+23 12389278",
+        "email": "asantilli@gmail.com",
+        "password": "asantilli++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.643Z",
+          "updatedAt": "2022-10-31T17:47:04.643Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "96be04cf-9e9e-4ce7-b511-c87d5736eb1a"
+        }
+      },
+      {
+        "id": "8272ee3b-5c13-4f66-b936-6a62116ba549",
+        "name": "Julieta Venegas",
+        "phone": "+23 44689278",
+        "email": "jvenegas@gmail.com",
+        "password": "jvenegas++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 1,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.642Z",
+          "updatedAt": "2022-10-31T17:47:04.642Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "8272ee3b-5c13-4f66-b936-6a62116ba549"
+        }
+      },
+      {
+        "id": "8def7817-648b-43f1-addd-9e0d6a86d598",
+        "name": "Marcelo Roque",
+        "phone": "+23 44687658",
+        "email": "mroque@gmail.com",
+        "password": "mroque++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.650Z",
+          "updatedAt": "2022-10-31T17:47:04.650Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "8def7817-648b-43f1-addd-9e0d6a86d598"
+        }
+      },
+      {
+        "id": "1c56eb5e-d49e-4685-bde8-02097a33b12e",
+        "name": "Alejandro Santilli",
+        "phone": "+23 12389278",
+        "email": "asantilli@gmail.com",
+        "password": "asantilli++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.651Z",
+          "updatedAt": "2022-10-31T17:47:04.651Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "1c56eb5e-d49e-4685-bde8-02097a33b12e"
+        }
+      },
+      {
+        "id": "999729f8-3781-4a9f-85ee-19eaed8cdf41",
+        "name": "Matias Castillos",
+        "phone": "+23 44569278",
+        "email": "mcastillos@gmail.com",
+        "password": "mcastillos++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.644Z",
+          "updatedAt": "2022-10-31T17:47:04.644Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "999729f8-3781-4a9f-85ee-19eaed8cdf41"
+        }
+      },
+      {
+        "id": "63116106-4468-421b-8284-401f0fc408e9",
+        "name": "Sirjhan Palacios",
+        "phone": "+23 44459278",
+        "email": "spalacios@gmail.com",
+        "password": "spalacios++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.648Z",
+          "updatedAt": "2022-10-31T17:47:04.648Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "63116106-4468-421b-8284-401f0fc408e9"
+        }
+      },
+      {
+        "id": "67da3c40-79d4-4ea6-aa81-f86ab78f84fd",
+        "name": "Alejandro Santilli",
+        "phone": "+23 12389278",
+        "email": "asantilli@gmail.com",
+        "password": "asantilli++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.650Z",
+          "updatedAt": "2022-10-31T17:47:04.650Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "67da3c40-79d4-4ea6-aa81-f86ab78f84fd"
+        }
+      },
+      {
+        "id": "be521562-ad33-47b0-8396-d9226176953d",
+        "name": "Marcelo Roque",
+        "phone": "+23 44687658",
+        "email": "mroque@gmail.com",
+        "password": "mroque++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.652Z",
+          "updatedAt": "2022-10-31T17:47:04.652Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "be521562-ad33-47b0-8396-d9226176953d"
+        }
+      },
+      {
+        "id": "98e66470-2072-4395-b6fd-25378b5f7407",
+        "name": "Pablo Vargas",
+        "phone": "+23 44689278",
+        "email": "pvargas@gmail.com",
+        "password": "pvargas++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 1,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.653Z",
+          "updatedAt": "2022-10-31T17:47:04.653Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "98e66470-2072-4395-b6fd-25378b5f7407"
+        }
+      },
+      {
+        "id": "73ff4b6c-0a4c-4f8b-9476-c8ad9f262266",
+        "name": "Marcelo Roque",
+        "phone": "+23 44687658",
+        "email": "mroque@gmail.com",
+        "password": "mroque++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.654Z",
+          "updatedAt": "2022-10-31T17:47:04.654Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "73ff4b6c-0a4c-4f8b-9476-c8ad9f262266"
+        }
+      },
+      {
+        "id": "3bd10b21-109e-43c6-812f-576019958f60",
+        "name": "Alejandro Santilli",
+        "phone": "+23 12389278",
+        "email": "asantilli@gmail.com",
+        "password": "asantilli++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.656Z",
+          "updatedAt": "2022-10-31T17:47:04.656Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "3bd10b21-109e-43c6-812f-576019958f60"
+        }
+      },
+      {
+        "id": "9f8ba49e-a95b-4b3a-9520-f243cc69630f",
+        "name": "Marcelo Roque",
+        "phone": "+23 44687658",
+        "email": "mroque@gmail.com",
+        "password": "mroque++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.657Z",
+          "updatedAt": "2022-10-31T17:47:04.657Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "9f8ba49e-a95b-4b3a-9520-f243cc69630f"
+        }
+      },
+      {
+        "id": "50137304-a5e0-459f-9854-7b15b4f00bdf",
+        "name": "Alejandro Santilli",
+        "phone": "+23 12389278",
+        "email": "asantilli@gmail.com",
+        "password": "asantilli++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.659Z",
+          "updatedAt": "2022-10-31T17:47:04.659Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "50137304-a5e0-459f-9854-7b15b4f00bdf"
+        }
+      },
+      {
+        "id": "ac129580-f580-4255-8dce-386a8df3513b",
+        "name": "Marcelo Roque",
+        "phone": "+23 44687658",
+        "email": "mroque@gmail.com",
+        "password": "mroque++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.660Z",
+          "updatedAt": "2022-10-31T17:47:04.660Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "ac129580-f580-4255-8dce-386a8df3513b"
+        }
+      },
+      {
+        "id": "fcd71db9-005c-470b-8ec1-5227f8b627e0",
+        "name": "Alejandro Santilli",
+        "phone": "+23 12389278",
+        "email": "asantilli@gmail.com",
+        "password": "asantilli++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.661Z",
+          "updatedAt": "2022-10-31T17:47:04.661Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "fcd71db9-005c-470b-8ec1-5227f8b627e0"
+        }
+      },
+      {
+        "id": "2efd195b-7c60-4ea7-b7d3-1c7acf4a3855",
+        "name": "Marcelo Roque",
+        "phone": "+23 44687658",
+        "email": "mroque@gmail.com",
+        "password": "mroque++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.662Z",
+          "updatedAt": "2022-10-31T17:47:04.662Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "2efd195b-7c60-4ea7-b7d3-1c7acf4a3855"
+        }
+      },
+      {
+        "id": "d4619249-4ae8-4728-ad76-a6319a76f02c",
+        "name": "Alejandro Santilli",
+        "phone": "+23 12389278",
+        "email": "asantilli@gmail.com",
+        "password": "asantilli++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.664Z",
+          "updatedAt": "2022-10-31T17:47:04.664Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "d4619249-4ae8-4728-ad76-a6319a76f02c"
+        }
+      },
+      {
+        "id": "d3e4f0a3-afc7-47ee-b445-f2336bf0830d",
+        "name": "Marcelo Roque",
+        "phone": "+23 44687658",
+        "email": "mroque@gmail.com",
+        "password": "mroque++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.665Z",
+          "updatedAt": "2022-10-31T17:47:04.665Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "d3e4f0a3-afc7-47ee-b445-f2336bf0830d"
+        }
+      },
+      {
+        "id": "47894363-3af2-4240-982e-8f989027f7f3",
+        "name": "Alejandro Santilli",
+        "phone": "+23 12389278",
+        "email": "asantilli@gmail.com",
+        "password": "asantilli++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.666Z",
+          "updatedAt": "2022-10-31T17:47:04.666Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "47894363-3af2-4240-982e-8f989027f7f3"
+        }
+      },
+      {
+        "id": "3f39bf07-c15f-42a9-9847-0c5a8b1a92fe",
+        "name": "Marcelo Roque",
+        "phone": "+23 44687658",
+        "email": "mroque@gmail.com",
+        "password": "mroque++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.668Z",
+          "updatedAt": "2022-10-31T17:47:04.668Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "3f39bf07-c15f-42a9-9847-0c5a8b1a92fe"
+        }
+      },
+      {
+        "id": "448c177e-4d4e-4bc0-8343-9fd577242064",
+        "name": "Alejandro Santilli",
+        "phone": "+23 12389278",
+        "email": "asantilli@gmail.com",
+        "password": "asantilli++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.669Z",
+          "updatedAt": "2022-10-31T17:47:04.669Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "448c177e-4d4e-4bc0-8343-9fd577242064"
+        }
+      },
+      {
+        "id": "197787bb-d3a0-415a-a99a-eb17e456b001",
+        "name": "Marcelo Roque",
+        "phone": "+23 44687658",
+        "email": "mroque@gmail.com",
+        "password": "mroque++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.673Z",
+          "updatedAt": "2022-10-31T17:47:04.673Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "197787bb-d3a0-415a-a99a-eb17e456b001"
+        }
+      },
+      {
+        "id": "728a7bae-3059-44d2-80b7-7e4ee44128ba",
+        "name": "Alejandro Santilli",
+        "phone": "+23 12389278",
+        "email": "asantilli@gmail.com",
+        "password": "asantilli++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.676Z",
+          "updatedAt": "2022-10-31T17:47:04.676Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "728a7bae-3059-44d2-80b7-7e4ee44128ba"
+        }
+      },
+      {
+        "id": "19c77cd1-24e3-45bc-bf73-023813ebddd1",
+        "name": "Marcelo Roque",
+        "phone": "+23 44687658",
+        "email": "mroque@gmail.com",
+        "password": "mroque++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.677Z",
+          "updatedAt": "2022-10-31T17:47:04.677Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "19c77cd1-24e3-45bc-bf73-023813ebddd1"
+        }
+      },
+      {
+        "id": "46e465d6-6334-4af3-9d82-bcbff20df3d9",
+        "name": "Alejandro Santilli",
+        "phone": "+23 12389278",
+        "email": "asantilli@gmail.com",
+        "password": "asantilli++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.678Z",
+          "updatedAt": "2022-10-31T17:47:04.678Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "46e465d6-6334-4af3-9d82-bcbff20df3d9"
+        }
+      },
+      {
+        "id": "4c804087-1275-4690-9839-ea9f2dbc9bfb",
+        "name": "Marcelo Roque",
+        "phone": "+23 44687658",
+        "email": "mroque@gmail.com",
+        "password": "mroque++",
+        "active": true,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBdNKuOO2i1jBTO1sdDzuqLJJo4q9LJbdW6Q&usqp=CAU",
+        "RolId": 2,
+        "LocacionsEmployees": {
+          "createdAt": "2022-10-31T17:47:04.679Z",
+          "updatedAt": "2022-10-31T17:47:04.679Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "EmployeeId": "4c804087-1275-4690-9839-ea9f2dbc9bfb"
+        }
+      }
+    ],
+    "subscriptions": [
+      {
+        "id": 1,
+        "name": "No Suscripto",
+        "price": "$0.00",
+        "description": "No Suscripto",
+        "LocacionsSubscription": {
+          "createdAt": "2022-10-31T17:47:04.485Z",
+          "updatedAt": "2022-10-31T17:47:04.485Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "SubscriptionId": 1
+        }
+      },
+      {
+        "id": 2,
+        "name": "Oro",
+        "price": "$ 32.640",
+        "description": "Anual Bonificado",
+        "LocacionsSubscription": {
+          "createdAt": "2022-10-31T17:47:04.485Z",
+          "updatedAt": "2022-10-31T17:47:04.485Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "SubscriptionId": 2
+        }
+      },
+      {
+        "id": 3,
+        "name": "Plata",
+        "price": "$ 9.180",
+        "description": "Trimestral Bonificado",
+        "LocacionsSubscription": {
+          "createdAt": "2022-10-31T17:47:04.485Z",
+          "updatedAt": "2022-10-31T17:47:04.485Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "SubscriptionId": 3
+        }
+      },
+      {
+        "id": 4,
+        "name": "Bronce",
+        "price": "$ 3.400",
+        "description": "Mensual",
+        "LocacionsSubscription": {
+          "createdAt": "2022-10-31T17:47:04.485Z",
+          "updatedAt": "2022-10-31T17:47:04.485Z",
+          "LocacionId": "6dafd16b-7412-447e-b276-caacf3f0dab2",
+          "SubscriptionId": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "2f3fb801-b71e-44a2-8860-752b892afb09",
+    "name": "AbsoluteFit - Sede Caseros",
+    "phone": "+23 17485289",
+    "address": "12 de Octubre 3452",
+    "GymId": null
+  },
+  {
+    "id": "f666946e-3442-4c1f-b199-53b23a4c805e",
+    "name": "AbsoluteFit - Sede Quilmes",
+    "phone": "+23 17485299",
+    "address": "Laprida 2312",
+    "machines": [],
+    "products": [
+      {
+          "name": "Quemador de Grasa",
+          "image": "https://res.cloudinary.com/dim2wnoej/image/upload/v1667262034/iwkmqhwcbnhqiylxjaig.jpg",
+          "price": 1000
+      },
+      {
+          "name": "Guantes",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+          "price": 500
+      },
+      {
+          "name": "Remeras",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+          "price": 3400
+      },
+      {
+          "name": "Musculosa",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+          "price": 2800
+      },
+      {
+          "name": "Proteinas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+          "price": 2500
+      },
+      {
+          "name": "Barra de Cereales",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+          "price": 200
+      },
+      {
+          "name": "Mancuernas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+          "price": 5000
+      }
+  ],
+    "trainings": [
+      {
+        "id": 1,
+        "name": "Funcional",
+        "image": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.496Z",
+          "updatedAt": "2022-10-31T17:47:04.496Z",
+          "LocacionId": "f666946e-3442-4c1f-b199-53b23a4c805e",
+          "TrainingId": 1
+        }
+      },
+      {
+        "id": 2,
+        "name": "Boxeo",
+        "image": "https://images.unsplash.com/photo-1606335543042-57c525922933?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1ODk2MTIwNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.497Z",
+          "updatedAt": "2022-10-31T17:47:04.497Z",
+          "LocacionId": "f666946e-3442-4c1f-b199-53b23a4c805e",
+          "TrainingId": 2
+        }
+      },
+      {
+        "id": 3,
+        "name": "Spinning",
+        "image": "https://i.blogs.es/a82e3b/istock-1134717663-1-/500_333.jpeg",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.495Z",
+          "updatedAt": "2022-10-31T17:47:04.495Z",
+          "LocacionId": "f666946e-3442-4c1f-b199-53b23a4c805e",
+          "TrainingId": 3
+        }
+      },
+      {
+        "id": 4,
+        "name": "Yoga",
+        "image": "https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/temas/yoga.jpg",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.500Z",
+          "updatedAt": "2022-10-31T17:47:04.500Z",
+          "LocacionId": "f666946e-3442-4c1f-b199-53b23a4c805e",
+          "TrainingId": 4
+        }
+      },
+      {
+        "id": 7,
+        "name": "Body Combat",
+        "image": "https://images.unsplash.com/photo-1602827113876-839bcf3ccb3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2NjcxNDUzMw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.501Z",
+          "updatedAt": "2022-10-31T17:47:04.501Z",
+          "LocacionId": "f666946e-3442-4c1f-b199-53b23a4c805e",
+          "TrainingId": 7
+        }
+      }
+    ],
+    "clients": [],
+    "employes": [],
+    "subscriptions": [
+      {
+        "id": 1,
+        "name": "No Suscripto",
+        "price": "$0.00",
+        "description": "No Suscripto",
+        "LocacionsSubscription": {
+          "createdAt": "2022-10-31T17:47:04.499Z",
+          "updatedAt": "2022-10-31T17:47:04.499Z",
+          "LocacionId": "f666946e-3442-4c1f-b199-53b23a4c805e",
+          "SubscriptionId": 1
+        }
+      },
+      {
+        "id": 2,
+        "name": "Oro",
+        "price": "$ 32.640",
+        "description": "Anual Bonificado",
+        "LocacionsSubscription": {
+          "createdAt": "2022-10-31T17:47:04.499Z",
+          "updatedAt": "2022-10-31T17:47:04.499Z",
+          "LocacionId": "f666946e-3442-4c1f-b199-53b23a4c805e",
+          "SubscriptionId": 2
+        }
+      },
+      {
+        "id": 3,
+        "name": "Plata",
+        "price": "$ 9.180",
+        "description": "Trimestral Bonificado",
+        "LocacionsSubscription": {
+          "createdAt": "2022-10-31T17:47:04.499Z",
+          "updatedAt": "2022-10-31T17:47:04.499Z",
+          "LocacionId": "f666946e-3442-4c1f-b199-53b23a4c805e",
+          "SubscriptionId": 3
+        }
+      },
+      {
+        "id": 4,
+        "name": "Bronce",
+        "price": "$ 3.400",
+        "description": "Mensual",
+        "LocacionsSubscription": {
+          "createdAt": "2022-10-31T17:47:04.499Z",
+          "updatedAt": "2022-10-31T17:47:04.499Z",
+          "LocacionId": "f666946e-3442-4c1f-b199-53b23a4c805e",
+          "SubscriptionId": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "d66bde43-7f1b-4092-be4e-d6e1ce0d1725",
+    "name": "AbsoluteFit - Sede Florencio Varela",
+    "phone": "+23 27485278",
+    "address": "Guido 2312",
+    "machines": [],
+    "products": [
+      {
+          "name": "Quemador de Grasa",
+          "image": "https://res.cloudinary.com/dim2wnoej/image/upload/v1667262034/iwkmqhwcbnhqiylxjaig.jpg",
+          "price": 1000
+      },
+      {
+          "name": "Guantes",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+          "price": 500
+      },
+      {
+          "name": "Remeras",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+          "price": 3400
+      },
+      {
+          "name": "Musculosa",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+          "price": 2800
+      },
+      {
+          "name": "Proteinas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+          "price": 2500
+      },
+      {
+          "name": "Barra de Cereales",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+          "price": 200
+      },
+      {
+          "name": "Mancuernas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+          "price": 5000
+      }
+  ],
+  "trainings": [
+    {
+      "id": 1,
+      "name": "Funcional",
+      "image": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.464Z",
+        "updatedAt": "2022-10-31T17:47:04.464Z",
+        "LocacionId": "d66bde43-7f1b-4092-be4e-d6e1ce0d1725",
+        "TrainingId": 1
+      }
+    },
+    {
+      "id": 2,
+      "name": "Boxeo",
+      "image": "https://images.unsplash.com/photo-1606335543042-57c525922933?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1ODk2MTIwNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.459Z",
+        "updatedAt": "2022-10-31T17:47:04.459Z",
+        "LocacionId": "d66bde43-7f1b-4092-be4e-d6e1ce0d1725",
+        "TrainingId": 2
+      }
+    },
+    {
+      "id": 5,
+      "name": "Crossfit",
+      "image": "https://images.unsplash.com/photo-1434596922112-19c563067271?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.469Z",
+        "updatedAt": "2022-10-31T17:47:04.469Z",
+        "LocacionId": "d66bde43-7f1b-4092-be4e-d6e1ce0d1725",
+        "TrainingId": 5
+      }
+    },
+    {
+      "id": 6,
+      "name": "Gap",
+      "image": "https://images.unsplash.com/photo-1536922246289-88c42f957773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIyNzY5Mjk4&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.467Z",
+        "updatedAt": "2022-10-31T17:47:04.467Z",
+        "LocacionId": "d66bde43-7f1b-4092-be4e-d6e1ce0d1725",
+        "TrainingId": 6
+      }
+    },
+    {
+      "id": 7,
+      "name": "Body Combat",
+      "image": "https://images.unsplash.com/photo-1602827113876-839bcf3ccb3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2NjcxNDUzMw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.471Z",
+        "updatedAt": "2022-10-31T17:47:04.471Z",
+        "LocacionId": "d66bde43-7f1b-4092-be4e-d6e1ce0d1725",
+        "TrainingId": 7
+      }
+    }
+  ],
+  "clients": [],
+  "employes": [],
+  "subscriptions": [
+    {
+      "id": 1,
+      "name": "No Suscripto",
+      "price": "$0.00",
+      "description": "No Suscripto",
+      "LocacionsSubscription": {
+        "createdAt": "2022-10-31T17:47:04.473Z",
+        "updatedAt": "2022-10-31T17:47:04.473Z",
+        "LocacionId": "d66bde43-7f1b-4092-be4e-d6e1ce0d1725",
+        "SubscriptionId": 1
+      }
+    },
+    {
+      "id": 2,
+      "name": "Oro",
+      "price": "$ 32.640",
+      "description": "Anual Bonificado",
+      "LocacionsSubscription": {
+        "createdAt": "2022-10-31T17:47:04.473Z",
+        "updatedAt": "2022-10-31T17:47:04.473Z",
+        "LocacionId": "d66bde43-7f1b-4092-be4e-d6e1ce0d1725",
+        "SubscriptionId": 2
+      }
+    },
+    {
+      "id": 3,
+      "name": "Plata",
+      "price": "$ 9.180",
+      "description": "Trimestral Bonificado",
+      "LocacionsSubscription": {
+        "createdAt": "2022-10-31T17:47:04.473Z",
+        "updatedAt": "2022-10-31T17:47:04.473Z",
+        "LocacionId": "d66bde43-7f1b-4092-be4e-d6e1ce0d1725",
+        "SubscriptionId": 3
+      }
+    },
+    {
+      "id": 4,
+      "name": "Bronce",
+      "price": "$ 3.400",
+      "description": "Mensual",
+      "LocacionsSubscription": {
+        "createdAt": "2022-10-31T17:47:04.473Z",
+        "updatedAt": "2022-10-31T17:47:04.473Z",
+        "LocacionId": "d66bde43-7f1b-4092-be4e-d6e1ce0d1725",
+        "SubscriptionId": 4
+      }
+    }
+  ]
+  },
+  {
+    "id": "97e877c0-a8bc-40d1-8df3-888dde8a1592",
+    "name": "AbsoluteFit - Sede Moron",
+    "phone": "+23 47485278",
+    "address": "Matienzo 2891",
+    "machines": [],
+    "products": [
+      {
+          "name": "Quemador de Grasa",
+          "image": "https://res.cloudinary.com/dim2wnoej/image/upload/v1667262034/iwkmqhwcbnhqiylxjaig.jpg",
+          "price": 1000
+      },
+      {
+          "name": "Guantes",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+          "price": 500
+      },
+      {
+          "name": "Remeras",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+          "price": 3400
+      },
+      {
+          "name": "Musculosa",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+          "price": 2800
+      },
+      {
+          "name": "Proteinas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+          "price": 2500
+      },
+      {
+          "name": "Barra de Cereales",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+          "price": 200
+      },
+      {
+          "name": "Mancuernas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+          "price": 5000
+      }
+  ],
+  "trainings": [
+    {
+      "id": 1,
+      "name": "Funcional",
+      "image": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.504Z",
+        "updatedAt": "2022-10-31T17:47:04.504Z",
+        "LocacionId": "97e877c0-a8bc-40d1-8df3-888dde8a1592",
+        "TrainingId": 1
+      }
+    },
+    {
+      "id": 6,
+      "name": "Gap",
+      "image": "https://images.unsplash.com/photo-1536922246289-88c42f957773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIyNzY5Mjk4&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.507Z",
+        "updatedAt": "2022-10-31T17:47:04.507Z",
+        "LocacionId": "97e877c0-a8bc-40d1-8df3-888dde8a1592",
+        "TrainingId": 6
+      }
+    },
+    {
+      "id": 7,
+      "name": "Body Combat",
+      "image": "https://images.unsplash.com/photo-1602827113876-839bcf3ccb3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2NjcxNDUzMw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.505Z",
+        "updatedAt": "2022-10-31T17:47:04.505Z",
+        "LocacionId": "97e877c0-a8bc-40d1-8df3-888dde8a1592",
+        "TrainingId": 7
+      }
+    }
+  ],
+  "clients": [],
+  "employes": [],
+  "subscriptions": [
+    {
+      "id": 1,
+      "name": "No Suscripto",
+      "price": "$0.00",
+      "description": "No Suscripto",
+      "LocacionsSubscription": {
+        "createdAt": "2022-10-31T17:47:04.507Z",
+        "updatedAt": "2022-10-31T17:47:04.507Z",
+        "LocacionId": "97e877c0-a8bc-40d1-8df3-888dde8a1592",
+        "SubscriptionId": 1
+      }
+    },
+    {
+      "id": 2,
+      "name": "Oro",
+      "price": "$ 32.640",
+      "description": "Anual Bonificado",
+      "LocacionsSubscription": {
+        "createdAt": "2022-10-31T17:47:04.507Z",
+        "updatedAt": "2022-10-31T17:47:04.507Z",
+        "LocacionId": "97e877c0-a8bc-40d1-8df3-888dde8a1592",
+        "SubscriptionId": 2
+      }
+    },
+    {
+      "id": 3,
+      "name": "Plata",
+      "price": "$ 9.180",
+      "description": "Trimestral Bonificado",
+      "LocacionsSubscription": {
+        "createdAt": "2022-10-31T17:47:04.507Z",
+        "updatedAt": "2022-10-31T17:47:04.507Z",
+        "LocacionId": "97e877c0-a8bc-40d1-8df3-888dde8a1592",
+        "SubscriptionId": 3
+      }
+    },
+    {
+      "id": 4,
+      "name": "Bronce",
+      "price": "$ 3.400",
+      "description": "Mensual",
+      "LocacionsSubscription": {
+        "createdAt": "2022-10-31T17:47:04.507Z",
+        "updatedAt": "2022-10-31T17:47:04.507Z",
+        "LocacionId": "97e877c0-a8bc-40d1-8df3-888dde8a1592",
+        "SubscriptionId": 4
+      }
+    }
+  ]
+  },
+  {
+    "id": "5032098c-23a5-45a7-b7dc-d857a9dbf2ba",
+    "name": "AbsoluteFit - Sede Ezpeleta",
+    "phone": "+23 37485278",
+    "address": "Marmol 7843",
+    "machines": [
+      {
+        "id": "f69d1f1e-8e40-448d-988e-b6db5be965c2",
+        "name": "Banco press",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5croExMS0Wcy2UKU6oolpSmrwXoQ7MREVMOR-VXjCpdH-eRBs7eVgv5n5Mp7MaciEgjE&usqp=CAU",
+        "muscle": "brazos",
+        "LocacionId": "5032098c-23a5-45a7-b7dc-d857a9dbf2ba"
+      },
+      {
+        "id": "37a2960b-c5cb-4a3c-bbf8-2d73ebc38a1b",
+        "name": "Bicicleta Indoor",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVhWno-_qDG6Nx4b0rGvOlHPNBujCNJ3_qEg&usqp=CAU",
+        "muscle": "brazos",
+        "LocacionId": "5032098c-23a5-45a7-b7dc-d857a9dbf2ba"
+      },
+      {
+        "id": "cbd963d0-b95f-4423-8822-716a239afb6f",
+        "name": "Cinta de correr",
+        "image": "https://www.purefitness.es/5264-thickbox_default/cinta-de-correr-profesional-bh-lk5500.jpg",
+        "muscle": "brazos",
+        "LocacionId": "5032098c-23a5-45a7-b7dc-d857a9dbf2ba"
+      },
+      {
+        "id": "fe2b1b50-9c6f-4400-941b-d8886eddd557",
+        "name": "Bicicletas Elipticas",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb-mvM1JLze_Do_UnrP2BQphZp20Qw-ZqIMw&usqp=CAU",
+        "muscle": "brazos",
+        "LocacionId": "5032098c-23a5-45a7-b7dc-d857a9dbf2ba"
+      }
+    ],
+    "products": [
+      {
+          "name": "Quemador de Grasa",
+          "image": "https://res.cloudinary.com/dim2wnoej/image/upload/v1667262034/iwkmqhwcbnhqiylxjaig.jpg",
+          "price": 1000
+      },
+      {
+          "name": "Guantes",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+          "price": 500
+      },
+      {
+          "name": "Remeras",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+          "price": 3400
+      },
+      {
+          "name": "Musculosa",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+          "price": 2800
+      },
+      {
+          "name": "Proteinas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+          "price": 2500
+      },
+      {
+          "name": "Barra de Cereales",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+          "price": 200
+      },
+      {
+          "name": "Mancuernas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+          "price": 5000
+      }
+  ],
+    "trainings": [
+      {
+        "id": 1,
+        "name": "Funcional",
+        "image": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.533Z",
+          "updatedAt": "2022-10-31T17:47:04.533Z",
+          "LocacionId": "5032098c-23a5-45a7-b7dc-d857a9dbf2ba",
+          "TrainingId": 1
+        }
+      },
+      {
+        "id": 2,
+        "name": "Boxeo",
+        "image": "https://images.unsplash.com/photo-1606335543042-57c525922933?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1ODk2MTIwNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.532Z",
+          "updatedAt": "2022-10-31T17:47:04.532Z",
+          "LocacionId": "5032098c-23a5-45a7-b7dc-d857a9dbf2ba",
+          "TrainingId": 2
+        }
+      },
+      {
+        "id": 3,
+        "name": "Spinning",
+        "image": "https://i.blogs.es/a82e3b/istock-1134717663-1-/500_333.jpeg",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.534Z",
+          "updatedAt": "2022-10-31T17:47:04.534Z",
+          "LocacionId": "5032098c-23a5-45a7-b7dc-d857a9dbf2ba",
+          "TrainingId": 3
+        }
+      },
+      {
+        "id": 4,
+        "name": "Yoga",
+        "image": "https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/temas/yoga.jpg",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.534Z",
+          "updatedAt": "2022-10-31T17:47:04.534Z",
+          "LocacionId": "5032098c-23a5-45a7-b7dc-d857a9dbf2ba",
+          "TrainingId": 4
+        }
+      },
+      {
+        "id": 6,
+        "name": "Gap",
+        "image": "https://images.unsplash.com/photo-1536922246289-88c42f957773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIyNzY5Mjk4&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.535Z",
+          "updatedAt": "2022-10-31T17:47:04.535Z",
+          "LocacionId": "5032098c-23a5-45a7-b7dc-d857a9dbf2ba",
+          "TrainingId": 6
+        }
+      },
+      {
+        "id": 7,
+        "name": "Body Combat",
+        "image": "https://images.unsplash.com/photo-1602827113876-839bcf3ccb3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2NjcxNDUzMw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.540Z",
+          "updatedAt": "2022-10-31T17:47:04.540Z",
+          "LocacionId": "5032098c-23a5-45a7-b7dc-d857a9dbf2ba",
+          "TrainingId": 7
+        }
+      }
+    ],
+    "clients": [],
+    "employes": [],
+    "subscriptions": [
+      {
+        "id": 1,
+        "name": "No Suscripto",
+        "price": "$0.00",
+        "description": "No Suscripto",
+        "LocacionsSubscription": {
+          "createdAt": "2022-10-31T17:47:04.536Z",
+          "updatedAt": "2022-10-31T17:47:04.536Z",
+          "LocacionId": "5032098c-23a5-45a7-b7dc-d857a9dbf2ba",
+          "SubscriptionId": 1
+        }
+      },
+      {
+        "id": 2,
+        "name": "Oro",
+        "price": "$ 32.640",
+        "description": "Anual Bonificado",
+        "LocacionsSubscription": {
+          "createdAt": "2022-10-31T17:47:04.536Z",
+          "updatedAt": "2022-10-31T17:47:04.536Z",
+          "LocacionId": "5032098c-23a5-45a7-b7dc-d857a9dbf2ba",
+          "SubscriptionId": 2
+        }
+      },
+      {
+        "id": 3,
+        "name": "Plata",
+        "price": "$ 9.180",
+        "description": "Trimestral Bonificado",
+        "LocacionsSubscription": {
+          "createdAt": "2022-10-31T17:47:04.536Z",
+          "updatedAt": "2022-10-31T17:47:04.536Z",
+          "LocacionId": "5032098c-23a5-45a7-b7dc-d857a9dbf2ba",
+          "SubscriptionId": 3
+        }
+      },
+      {
+        "id": 4,
+        "name": "Bronce",
+        "price": "$ 3.400",
+        "description": "Mensual",
+        "LocacionsSubscription": {
+          "createdAt": "2022-10-31T17:47:04.536Z",
+          "updatedAt": "2022-10-31T17:47:04.536Z",
+          "LocacionId": "5032098c-23a5-45a7-b7dc-d857a9dbf2ba",
+          "SubscriptionId": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "564bb6af-373d-43d6-96d1-5289a619ea93",
+    "name": "AbsoluteFit - Sede Castelar",
+    "phone": "+23 57485278",
+    "address": "San Martin 9843",
+    "machines": [],
+    "products": [
+      {
+          "name": "Quemador de Grasa",
+          "image": "https://res.cloudinary.com/dim2wnoej/image/upload/v1667262034/iwkmqhwcbnhqiylxjaig.jpg",
+          "price": 1000
+      },
+      {
+          "name": "Guantes",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+          "price": 500
+      },
+      {
+          "name": "Remeras",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+          "price": 3400
+      },
+      {
+          "name": "Musculosa",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+          "price": 2800
+      },
+      {
+          "name": "Proteinas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+          "price": 2500
+      },
+      {
+          "name": "Barra de Cereales",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+          "price": 200
+      },
+      {
+          "name": "Mancuernas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+          "price": 5000
+      }
+  ],
+  "trainings": [
+    {
+      "id": 3,
+      "name": "Spinning",
+      "image": "https://i.blogs.es/a82e3b/istock-1134717663-1-/500_333.jpeg",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.510Z",
+        "updatedAt": "2022-10-31T17:47:04.510Z",
+        "LocacionId": "564bb6af-373d-43d6-96d1-5289a619ea93",
+        "TrainingId": 3
+      }
+    },
+    {
+      "id": 4,
+      "name": "Yoga",
+      "image": "https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/temas/yoga.jpg",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.511Z",
+        "updatedAt": "2022-10-31T17:47:04.511Z",
+        "LocacionId": "564bb6af-373d-43d6-96d1-5289a619ea93",
+        "TrainingId": 4
+      }
+    },
+    {
+      "id": 5,
+      "name": "Crossfit",
+      "image": "https://images.unsplash.com/photo-1434596922112-19c563067271?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.512Z",
+        "updatedAt": "2022-10-31T17:47:04.512Z",
+        "LocacionId": "564bb6af-373d-43d6-96d1-5289a619ea93",
+        "TrainingId": 5
+      }
+    },
+    {
+      "id": 6,
+      "name": "Gap",
+      "image": "https://images.unsplash.com/photo-1536922246289-88c42f957773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIyNzY5Mjk4&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.515Z",
+        "updatedAt": "2022-10-31T17:47:04.515Z",
+        "LocacionId": "564bb6af-373d-43d6-96d1-5289a619ea93",
+        "TrainingId": 6
+      }
+    },
+    {
+      "id": 7,
+      "name": "Body Combat",
+      "image": "https://images.unsplash.com/photo-1602827113876-839bcf3ccb3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2NjcxNDUzMw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.513Z",
+        "updatedAt": "2022-10-31T17:47:04.513Z",
+        "LocacionId": "564bb6af-373d-43d6-96d1-5289a619ea93",
+        "TrainingId": 7
+      }
+    }
+  ],
+  "clients": [],
+  "employes": [],
+  "subscriptions": [
+    {
+      "id": 1,
+      "name": "No Suscripto",
+      "price": "$0.00",
+      "description": "No Suscripto",
+      "LocacionsSubscription": {
+        "createdAt": "2022-10-31T17:47:04.516Z",
+        "updatedAt": "2022-10-31T17:47:04.516Z",
+        "LocacionId": "564bb6af-373d-43d6-96d1-5289a619ea93",
+        "SubscriptionId": 1
+      }
+    },
+    {
+      "id": 2,
+      "name": "Oro",
+      "price": "$ 32.640",
+      "description": "Anual Bonificado",
+      "LocacionsSubscription": {
+        "createdAt": "2022-10-31T17:47:04.516Z",
+        "updatedAt": "2022-10-31T17:47:04.516Z",
+        "LocacionId": "564bb6af-373d-43d6-96d1-5289a619ea93",
+        "SubscriptionId": 2
+      }
+    },
+    {
+      "id": 3,
+      "name": "Plata",
+      "price": "$ 9.180",
+      "description": "Trimestral Bonificado",
+      "LocacionsSubscription": {
+        "createdAt": "2022-10-31T17:47:04.516Z",
+        "updatedAt": "2022-10-31T17:47:04.516Z",
+        "LocacionId": "564bb6af-373d-43d6-96d1-5289a619ea93",
+        "SubscriptionId": 3
+      }
+    },
+    {
+      "id": 4,
+      "name": "Bronce",
+      "price": "$ 3.400",
+      "description": "Mensual",
+      "LocacionsSubscription": {
+        "createdAt": "2022-10-31T17:47:04.516Z",
+        "updatedAt": "2022-10-31T17:47:04.516Z",
+        "LocacionId": "564bb6af-373d-43d6-96d1-5289a619ea93",
+        "SubscriptionId": 4
+      }
+    }
+  ]
+  },
+  {
+    "id": "591d99e1-06b5-4f57-aca1-e0afcae6f1d3",
+    "name": "AbsoluteFit - Sede Avellanera",
+    "phone": "+23 17495278",
+    "address": "Sarmiento 6732",
+    "machines": [],
+    "products": [
+      {
+          "name": "Quemador de Grasa",
+          "image": "https://res.cloudinary.com/dim2wnoej/image/upload/v1667262034/iwkmqhwcbnhqiylxjaig.jpg",
+          "price": 1000
+      },
+      {
+          "name": "Guantes",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+          "price": 500
+      },
+      {
+          "name": "Remeras",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+          "price": 3400
+      },
+      {
+          "name": "Musculosa",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+          "price": 2800
+      },
+      {
+          "name": "Proteinas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+          "price": 2500
+      },
+      {
+          "name": "Barra de Cereales",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+          "price": 200
+      },
+      {
+          "name": "Mancuernas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+          "price": 5000
+      }
+  ],
+  "trainings": [
+    {
+      "id": 1,
+      "name": "Funcional",
+      "image": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.519Z",
+        "updatedAt": "2022-10-31T17:47:04.519Z",
+        "LocacionId": "591d99e1-06b5-4f57-aca1-e0afcae6f1d3",
+        "TrainingId": 1
+      }
+    },
+    {
+      "id": 2,
+      "name": "Boxeo",
+      "image": "https://images.unsplash.com/photo-1606335543042-57c525922933?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1ODk2MTIwNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.520Z",
+        "updatedAt": "2022-10-31T17:47:04.520Z",
+        "LocacionId": "591d99e1-06b5-4f57-aca1-e0afcae6f1d3",
+        "TrainingId": 2
+      }
+    },
+    {
+      "id": 3,
+      "name": "Spinning",
+      "image": "https://i.blogs.es/a82e3b/istock-1134717663-1-/500_333.jpeg",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.523Z",
+        "updatedAt": "2022-10-31T17:47:04.523Z",
+        "LocacionId": "591d99e1-06b5-4f57-aca1-e0afcae6f1d3",
+        "TrainingId": 3
+      }
+    },
+    {
+      "id": 4,
+      "name": "Yoga",
+      "image": "https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/temas/yoga.jpg",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.524Z",
+        "updatedAt": "2022-10-31T17:47:04.524Z",
+        "LocacionId": "591d99e1-06b5-4f57-aca1-e0afcae6f1d3",
+        "TrainingId": 4
+      }
+    },
+    {
+      "id": 5,
+      "name": "Crossfit",
+      "image": "https://images.unsplash.com/photo-1434596922112-19c563067271?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+      "timeSlot": "hoy",
+      "LocacionsTrainings": {
+        "createdAt": "2022-10-31T17:47:04.525Z",
+        "updatedAt": "2022-10-31T17:47:04.525Z",
+        "LocacionId": "591d99e1-06b5-4f57-aca1-e0afcae6f1d3",
+        "TrainingId": 5
+      }
+    }
+  ],
+  "clients": [],
+  "employes": [],
+  "subscriptions": [
+    {
+      "id": 1,
+      "name": "No Suscripto",
+      "price": "$0.00",
+      "description": "No Suscripto",
+      "LocacionsSubscription": {
+        "createdAt": "2022-10-31T17:47:04.521Z",
+        "updatedAt": "2022-10-31T17:47:04.521Z",
+        "LocacionId": "591d99e1-06b5-4f57-aca1-e0afcae6f1d3",
+        "SubscriptionId": 1
+      }
+    },
+    {
+      "id": 2,
+      "name": "Oro",
+      "price": "$ 32.640",
+      "description": "Anual Bonificado",
+      "LocacionsSubscription": {
+        "createdAt": "2022-10-31T17:47:04.521Z",
+        "updatedAt": "2022-10-31T17:47:04.521Z",
+        "LocacionId": "591d99e1-06b5-4f57-aca1-e0afcae6f1d3",
+        "SubscriptionId": 2
+      }
+    },
+    {
+      "id": 3,
+      "name": "Plata",
+      "price": "$ 9.180",
+      "description": "Trimestral Bonificado",
+      "LocacionsSubscription": {
+        "createdAt": "2022-10-31T17:47:04.521Z",
+        "updatedAt": "2022-10-31T17:47:04.521Z",
+        "LocacionId": "591d99e1-06b5-4f57-aca1-e0afcae6f1d3",
+        "SubscriptionId": 3
+      }
+    },
+    {
+      "id": 4,
+      "name": "Bronce",
+      "price": "$ 3.400",
+      "description": "Mensual",
+      "LocacionsSubscription": {
+        "createdAt": "2022-10-31T17:47:04.521Z",
+        "updatedAt": "2022-10-31T17:47:04.521Z",
+        "LocacionId": "591d99e1-06b5-4f57-aca1-e0afcae6f1d3",
+        "SubscriptionId": 4
+      }
+    }
+  ]
+  },
+  {
+    "id": "54d1c385-a140-4c2e-9a3e-6703622048da",
+    "name": "AbsoluteFit - Sede Ranelagh",
+    "phone": "+23 17485271",
+    "address": "Conesa 9821",
+    "machines": [
+      {
+        "id": "e50ab5c8-1458-494a-87f3-5001d85310e0",
+        "name": "Maquina de femorales",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpH10bmuibbcWqC6OZEVJPSS_gm7SeQp4rAg&usqp=CAU",
+        "muscle": "brazos",
+        "LocacionId": "54d1c385-a140-4c2e-9a3e-6703622048da"
+      },
+      {
+        "id": "8ee75c41-f54c-46e8-93eb-3defc49b46e8",
+        "name": "Prensa de piernas",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk6nwXj5ksV6rm3DMJLflOHoErVup15D9T-SbvilapAxeueXByJWMFgTMRu4veAYgJqhw&usqp=CAU",
+        "muscle": "brazos",
+        "LocacionId": "54d1c385-a140-4c2e-9a3e-6703622048da"
+      },
+      {
+        "id": "b534bbee-8c8f-41b4-8232-7c0b1069844c",
+        "name": "Paralelas",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWcZkD4NyjiE_gJ4rDVpFDA1mH2yTx3B0ogw&usqp=CAU",
+        "muscle": "brazos",
+        "LocacionId": "54d1c385-a140-4c2e-9a3e-6703622048da"
+      },
+      {
+        "id": "d3a1ccec-9691-4e4a-92ae-c78e5e8697b4",
+        "name": "Maquina de aductores",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnCT1VKaUOn6Rhp-9RYrKTzSWjg_5B-Vdsgw&usqp=CAU",
+        "muscle": "brazos",
+        "LocacionId": "54d1c385-a140-4c2e-9a3e-6703622048da"
+      }
+    ],
+    "products": [
+      {
+          "name": "Quemador de Grasa",
+          "image": "https://res.cloudinary.com/dim2wnoej/image/upload/v1667262034/iwkmqhwcbnhqiylxjaig.jpg",
+          "price": 1000
+      },
+      {
+          "name": "Guantes",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAeqDg4_2br28X3DrsDlQRC3E1iX9mJ5ATg&usqp=CAUefq-gbwn-xqq",
+          "price": 500
+      },
+      {
+          "name": "Remeras",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYNMWUOzMxuC04x5fw1wdf7v_rjq9n7M2Tdg&usqp=CAUefq-gbwn-xqq",
+          "price": 3400
+      },
+      {
+          "name": "Musculosa",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-M3mDXZ1yUcl5ruxgOci3nDcx7dgZCrYuiw&usqp=CAU",
+          "price": 2800
+      },
+      {
+          "name": "Proteinas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZsbJH21rkiTYMCzSiRmcoRPF21wWj6rhF1A&usqp=CAUefq-gbwn-xqq",
+          "price": 2500
+      },
+      {
+          "name": "Barra de Cereales",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJelLUGUt8ULqiuCGoS1agHpd6WUI4CYOI-A&usqp=CAU",
+          "price": 200
+      },
+      {
+          "name": "Mancuernas",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLWGxewpBNv3JBxaKMTiwef_iEEl8H2xO5w&usqp=CAUefq-gbwn-xqq",
+          "price": 5000
+      }
+  ],
+    "trainings": [
+      {
+        "id": 1,
+        "name": "Funcional",
+        "image": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.527Z",
+          "updatedAt": "2022-10-31T17:47:04.527Z",
+          "LocacionId": "54d1c385-a140-4c2e-9a3e-6703622048da",
+          "TrainingId": 1
+        }
+      },
+      {
+        "id": 6,
+        "name": "Gap",
+        "image": "https://images.unsplash.com/photo-1536922246289-88c42f957773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIyNzY5Mjk4&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.531Z",
+          "updatedAt": "2022-10-31T17:47:04.531Z",
+          "LocacionId": "54d1c385-a140-4c2e-9a3e-6703622048da",
+          "TrainingId": 6
+        }
+      },
+      {
+        "id": 7,
+        "name": "Body Combat",
+        "image": "https://images.unsplash.com/photo-1602827113876-839bcf3ccb3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2NjcxNDUzMw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+        "timeSlot": "hoy",
+        "LocacionsTrainings": {
+          "createdAt": "2022-10-31T17:47:04.529Z",
+          "updatedAt": "2022-10-31T17:47:04.529Z",
+          "LocacionId": "54d1c385-a140-4c2e-9a3e-6703622048da",
+          "TrainingId": 7
+        }
+      }
+    ],
+    "clients": [],
+    "employes": [],
+    "subscriptions": [
+      {
+        "id": 1,
+        "name": "No Suscripto",
+        "price": "$0.00",
+        "description": "No Suscripto",
+        "LocacionsSubscription": {
+          "createdAt": "2022-10-31T17:47:04.530Z",
+          "updatedAt": "2022-10-31T17:47:04.530Z",
+          "LocacionId": "54d1c385-a140-4c2e-9a3e-6703622048da",
+          "SubscriptionId": 1
+        }
+      },
+      {
+        "id": 2,
+        "name": "Oro",
+        "price": "$ 32.640",
+        "description": "Anual Bonificado",
+        "LocacionsSubscription": {
+          "createdAt": "2022-10-31T17:47:04.530Z",
+          "updatedAt": "2022-10-31T17:47:04.530Z",
+          "LocacionId": "54d1c385-a140-4c2e-9a3e-6703622048da",
+          "SubscriptionId": 2
+        }
+      },
+      {
+        "id": 3,
+        "name": "Plata",
+        "price": "$ 9.180",
+        "description": "Trimestral Bonificado",
+        "LocacionsSubscription": {
+          "createdAt": "2022-10-31T17:47:04.530Z",
+          "updatedAt": "2022-10-31T17:47:04.530Z",
+          "LocacionId": "54d1c385-a140-4c2e-9a3e-6703622048da",
+          "SubscriptionId": 3
+        }
+      },
+      {
+        "id": 4,
+        "name": "Bronce",
+        "price": "$ 3.400",
+        "description": "Mensual",
+        "LocacionsSubscription": {
+          "createdAt": "2022-10-31T17:47:04.530Z",
+          "updatedAt": "2022-10-31T17:47:04.530Z",
+          "LocacionId": "54d1c385-a140-4c2e-9a3e-6703622048da",
+          "SubscriptionId": 4
+        }
+      }
+    ]
+  }
+]

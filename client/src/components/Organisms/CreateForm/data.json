@@ -1,0 +1,90 @@
+[
+    {
+        "name":"Productos",
+        "background":"linear-gradient(180deg, #00FFE0 0%, rgba(28, 136, 237, 0.6) 99.99%, rgba(28, 237, 212, 0) 100%)",
+        "fields": [
+            {
+                "type": "text",
+                "placeholder": "Nombre"
+            },
+            {
+                "type": "number",
+                "placeholder": "Precio"
+            }
+        ],
+        "selectFields": [
+            {
+                "name":"options",
+                "options": ["Sede 1", "Sede 2", "Sede 3"]
+            }
+        ]
+    },
+    {
+        "name": "Maquinas",
+        "background":"linear-gradient(180deg, #D7A301 0%, #E3B735 56.25%, #EA580C 99.99%)",
+        "fields": [
+            {
+                "type": "text",
+                "placeholder": "Nombre"
+            },
+            {
+                "type": "text",
+                "placeholder": "Músculo"
+            }
+        ],
+        "selectFields": [
+            {
+                "name":"options",
+                "options": ["Sede 1", "Sede 2", "Sede 3"]
+            }
+        ]
+    },
+    {
+        "name": "Entrenamientos",
+        "background":"linear-gradient(180deg, #1AFF3E 0%, #09FF3F 56.25%, #60EA0C 99.99%)",
+        "fields": [
+            {
+                "type": "text",
+                "placeholder": "Nombre"
+            },
+            {
+                "type": "text",
+                "placeholder": "Precio"
+            }
+        ],
+        "selectFields": [
+            {
+                "name":"options",
+                "options":["Sede 1", "Sede 2", "Sede 3"]
+            },
+            {
+                "name":"options",
+                "options":["Profesor 1", "Profesor 2", "Profesor 3"]
+            }
+        ]
+    },
+    {
+        "name": "Ejercicios",
+        "background":"linear-gradient(180deg, #F94B40 0%, #B53B3B 56.25%, #FF0000 99.99%)",
+        "fields": [
+            {
+                "type": "text",
+                "placeholder": "Nombre"
+            },
+            {
+                "type": "text",
+                "placeholder": "Músculo"
+            },
+            {
+                "type": "text",
+                "placeholder": "Video"
+            }
+        ],
+        "selectFields": [
+            {
+                "name":"options",
+                "options":["Maquina 1", "Maquina 2", "Maquina 3"]
+            }
+        ]
+    }
+]

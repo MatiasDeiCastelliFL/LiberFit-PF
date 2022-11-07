@@ -1,0 +1,26 @@
+###
+GET http://localhost:3004/training?id=boxeo
+
+###
+GET http://localhost:3004/training
+
+###
+POST http://localhost:3004/training
+Content-Type: application/json
+
+{ 
+  "name":"boxeo",
+  "image":"https://ui-avatars.com/api/?name=ric+ob",
+  "timeSlot":"hoy"
+} 
+###
+PUT http://localhost:3004/training/3
+Content-Type: application/json
+
+{ 
+  "name":"boxeo",
+  "image":"https://ui-avatars.com/api/?name=ric+ob",
+  "timeSlot":"hoy"
+} 
+###
+DELETE http://localhost:3004/training/4

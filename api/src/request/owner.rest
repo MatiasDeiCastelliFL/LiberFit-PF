@@ -1,0 +1,16 @@
+###
+GET http://localhost:3004/owner
+###
+POST http://localhost:3004/owner
+Content-Type: application/json
+
+{ 
+  "name":"carlos",
+  "email":"carlos@liberfit.com",
+  "password":"1234567",
+  "phone":"123 123123",
+  "avatar":"https://ui-avatars.com/api/?name=Elon+Musk"
+} 
+
+
+
