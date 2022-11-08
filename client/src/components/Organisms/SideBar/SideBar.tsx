@@ -42,7 +42,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
       
         if (cookies.get("loginWith") === "local") {
             dispatch(cerrarLogin());
-            // navigate("/login");
+            navigate("/home");
         } else logout();
         cookies.remove("loginWith", { path: "/" });
     };
@@ -285,7 +285,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                 <Items />
                             </div>
                         </div>
-                        {cookies.get("name") || user?.name ? (
+                        {cookies.get("name") ? (
                             <div
                                 className="flex justify-end w-min"
                                 onClick={() => {
