@@ -19,7 +19,7 @@ const Plan = () => {
   console.log(modal.open)
 
   return (
-    <div className="flex flex-col justify-center items-center pt-5">
+    <div className="flex flex-col justify-center items-center flex-wrap">
       <h1 className="tracking-wider font-black font-sans text-51 mb-5 text-gray_custom">
         Membresias Libertfit
       </h1>
@@ -29,12 +29,12 @@ const Plan = () => {
           Accede a nuestras membresias y disfruta del mejor Gym
         </p>
       </div>
-      <div className="flex">
+      <div className="flex gap-5 lg:gap-2">
         {subscription.map((item, i) => {
           return (
             <div
               key={i}
-              className="bg-semiRed text-white flex flex-col justify-around items-center m-4 p-4 border-2 border-gray-200 rounded-lg w-96 h-custom_3"
+              className="bg-semiRed text-white flex flex-col justify-around items-center p-4 border-2 border-gray-200 rounded-lg w-96 xl:w-80 lg:w-60 lg:h-96 h-custom_3"
             >
               <div className="flex flex-col items-center justify-center">
                 <h1 className="text-4xl font-bold">{item.name}</h1>

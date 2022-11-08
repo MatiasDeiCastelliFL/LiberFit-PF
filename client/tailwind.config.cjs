@@ -16,6 +16,9 @@ module.exports = {
                 xl: "1280px",
                 // => @media (min-width: 1280px) { ... }
 
+                xl2: '1440px',
+                // => @media (min-width: 1440px) { ... }
+
                 "2xl": "1536px",
                 // => @media (min-width: 1536px) { ... }
                 "3xl": "1600px",
@@ -30,6 +33,9 @@ module.exports = {
             },
             spacing: {
                 sidebar: "18vw",
+                xl: '15vw',
+                lg: '5vw',
+                lg_sidebar: '13.5vw'
             },
             fontFamily: {
                 poppins: "Poppins",
@@ -40,6 +46,7 @@ module.exports = {
                 custom_2: "21.4rem",
                 custom_3: "84vw",
                 custom_4: "30%",
+                '2xl': '14.8125rem',
                 sidebar: "18vw",
                 input: "16vw",
                 swiper: "80vw",
@@ -47,6 +54,7 @@ module.exports = {
                 cards_1: "14vw",
                 user: "6.5rem",
                 perfil: "1px",
+                lg_fit: '49rem'
             },
             height: {
                 max: "100vh",
@@ -69,14 +77,21 @@ module.exports = {
                 custom_6: "45rem",
                 custom_7: "-0.375rem",
                 mobile_1: "19rem",
-                mobile_2: "33rem",
+                lg_mobile_1: "26rem",
+                mobile_2: "31.5rem",
                 mobile_3: "29rem",
+                lg_mobile_3: "37rem",
                 mobile_4: "33.1rem",
-                mobile_5: "39rem",
+                lg_mobile_4: "41rem",
+                mobile_5: "36rem",
                 mobile_6: "27rem",
+                lg_mobile_6: "35rem",
                 mobile_7: "24rem",
                 mobile_8: "28.1rem",
                 pop: "-0.800rem",
+                xl: '9rem',
+                xxl: '-3.5rem',
+                xxl2: '2rem'
             },
             inset: {
                 custom: "41rem",
@@ -98,6 +113,8 @@ module.exports = {
                 mobile_11: "39rem",
                 mobile_12: "23.4rem",
                 mobile_13: "22rem",
+                xl: '10rem',
+                xl_l: '15rem'
             },
             fontSize: {
                 90: "90px",

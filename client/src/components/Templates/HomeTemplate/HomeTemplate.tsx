@@ -18,18 +18,18 @@ interface Props {
 function HomeTemplate({ handle, name }: Props) {
   const params = useParams();
   return (
-    <div className="flex flex-row select-none">
+    <div className="flex flex-row select-none ">
   
         <div className="z-10">
           <Modal />
           <SideBar handle={handle} setName={name} dashboard={false} />
         </div>
-        <div className="flex w-custom_3 flex-col justify-center ml-sidebar">
+        <div className="flex w-custom_3 flex-col justify-center ml-sidebar xl:ml-xl lg:ml-lg_sidebar ">
           <div className="flex flex-col justify-start ">
             <NavBar dashboard={false}/>
           </div>
-          <div className="z-0 p-4">
-            <div className="border border-redGray h-52 w-fit mb-2 overflow-hidden">
+          <div className="z-0 p-4 xl:ml-10 2xl:ml-20 lg:ml-lg" >
+            <div className="border border-redGray h-52 xl:w-full lg:w-lg_fit mb-2 overflow-hidden">
               <Anuncio />
             </div>
             <div className="">
