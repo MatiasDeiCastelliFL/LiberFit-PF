@@ -113,9 +113,9 @@ Rutines.belongsToMany(Trainings, { through: "TrainingsRutines" });
 Clients.belongsToMany(Employees, { through: "Reviews" });
 Employees.belongsToMany(Clients, { through: "Reviews" });
 
-Clients.hasMany(Payments);
-Payments.belongsTo(Clients);
 
+Clients.belongsToMany(Payments, { through: "ClientsPayments" });
+Payments.belongsToMany(Clients, { through: "ClientsPayments" });
 
 Subscriptions.hasMany(Payments);
 Payments.belongsTo(Subscriptions);
