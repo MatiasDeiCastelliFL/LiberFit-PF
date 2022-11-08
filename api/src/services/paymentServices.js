@@ -1,10 +1,11 @@
 const { Payments,Clients } = require('../db')
-const crearPayment = async (name,active, amount,ClientId) => {
+const crearPayment = async (name,active, amount,ClientId,SubscriptionId) => {
   await Payments.create({
     name,
     active,
     amount,
-    ClientId
+    ClientId,
+    SubscriptionId
   })
 }
 

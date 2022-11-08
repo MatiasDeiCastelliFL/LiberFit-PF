@@ -22,6 +22,14 @@ module.exports = (sequelize) => {
                 type: DataTypes.DOUBLE,
                 allowNull: false,
             },
+            fechaCreacion: {
+                type: DataTypes.DATEONLY,
+                defaultValue:DataTypes.NOW
+            },
+            fechaFinalizacion: {
+                type: DataTypes.DATEONLY,
+                allowNull: true
+            }
         },
         {
             freezeTableName: true,

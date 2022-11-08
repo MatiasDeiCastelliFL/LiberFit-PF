@@ -15,9 +15,9 @@ const { validate } = require("../validation/validations");
 
 const postPayment = async (req, res) => {
     try {
-        const { name, active, amount,ClientId } = req.body;
+        const { name, active, amount,ClientId, SubscriptionId } = req.body;
 
-        const datoPayment = await crearPayment(name, active, amount,ClientId);
+        const datoPayment = await crearPayment(name, active, amount,ClientId, SubscriptionId);
         res.status(200).json(datoPayment);
     } catch (error) {
         console.log(error);
