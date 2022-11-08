@@ -59,7 +59,6 @@ let capsEntries = entries.map((entry) => [
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-// Traemos los modelos:
 const {
     Clients,
     Employees,
@@ -113,12 +112,8 @@ Rutines.belongsToMany(Trainings, { through: "TrainingsRutines" });
 Clients.belongsToMany(Employees, { through: "Reviews" });
 Employees.belongsToMany(Clients, { through: "Reviews" });
 
-
-Clients.belongsToMany(Payments, { through: "ClientsPayments" });
-Payments.belongsToMany(Clients, { through: "ClientsPayments" });
-
-Subscriptions.hasMany(Payments);
-Payments.belongsTo(Subscriptions);
+Clients.hasMany(Payments);
+Payments.belongsTo(Clients);
 
 Clients.belongsTo(Subscriptions);
 Subscriptions.hasMany(Clients);
@@ -137,7 +132,6 @@ Rols.hasMany(Employees);
 
 Rols.hasMany(Clients);
 Clients.belongsTo(Rols);
-
 
 
 module.exports = {

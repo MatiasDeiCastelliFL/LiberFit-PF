@@ -44,13 +44,26 @@ const findClients = async () => {
 
 const getIdClientePayments= async(idClient)=>{
   
-    const TraerCuenta=await Clients.findAll({
-        include: Payments,Subscriptions,
+    const TraerCuenta=await Payments.findAll({
+        include:Clients,
         where:{
-          id:idClient
+            ClientId:idClient
         }
     })
-    return TraerCuenta
+
+  
+    return TraerCuenta; 
+  }
+
+  const getIdClienteSuscription= async(SubscriptionId)=>{
+  
+    const TraerCuenta=await Clients.findAll({
+        include: Subscriptions,
+        where:{
+            SubscriptionId:SubscriptionId
+        }
+    })
+    return TraerCuenta; 
   }
 
 const findClientByNameAndOrEmail = async (name, email, id) => {
@@ -182,6 +195,7 @@ module.exports = {
     updatePassword,
     getIdClientePayments,
     updateProfileImage,
-    deleteClient 
+    deleteClient,
+    getIdClienteSuscription 
 };
 

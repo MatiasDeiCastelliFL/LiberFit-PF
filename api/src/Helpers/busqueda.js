@@ -1,6 +1,6 @@
 //TODO busqueda de dato Cliente y empleado payments
 
-
+const {paymentSuscription} = require("../db");
 
 
 /** Funcion para traer todas las cuenta de usuario, cliente , payments o otro modelo que tienen el atribute active */
@@ -70,10 +70,16 @@ const MostrarDatoMultipleInactivo = async(modelo1, modelo2)=>{
     return UserLocal
 }
 
+const pagosActivo = async()=>{
+    const UserLocal= paymentSuscription.findAll()
+    
+    return UserLocal
+}
 
 
 
-module.exports = {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo};
+
+module.exports = {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,pagosActivo};
 
 
 
