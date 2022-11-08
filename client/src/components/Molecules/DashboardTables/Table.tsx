@@ -40,10 +40,8 @@ export default function Table({ link }: any) {
     // console.log(data.employees)
 
     return (
-        <div className="w-full flex p-10">
-            <div className="w-96">
                 <div className="flex flex-col">
-                    <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div className="overflow-x-hidden sm:-mx-6 lg:-mx-8">
                         <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                             <div className="overflow-x-auto">
                                 <table className="min-w-full">
@@ -85,8 +83,6 @@ export default function Table({ link }: any) {
                                 </table>
                             </div>
                         </div>
-                    </div>
-                </div>
             </div>
         </div>
         
