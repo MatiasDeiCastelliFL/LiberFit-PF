@@ -90,8 +90,8 @@ const putClientRequest = async (req, res) => {
             const updateClient = await updateProfileImage(id, path);
             res.status(200).json(updateClient);
         }else {
-            const { id, name, phone, email, password, image } = req.body;
-            const updatedClient = await updateClient(id, name, phone, email, password, image);
+            const { id, name, phone, email, password, image, RolId } = req.body;
+            const updatedClient = await updateClient(id, name, phone, email, password, image, RolId);
             res.status(200).json(updatedClient);
         }
     } catch (error) {
