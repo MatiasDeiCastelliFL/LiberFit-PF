@@ -1,4 +1,4 @@
-const { Clients, Locacions } = require('../db')
+const { Clients, Locacions, Payments,Subscriptions } = require('../db')
 const bcrypt= require("bcrypt")
 const { cloudinary } = require('../config/cloudinary.config')
 const fs = require('fs-extra')
@@ -41,6 +41,17 @@ const findClients = async () => {
     const clients = await Clients.findAll()
     return clients
 };
+
+const getIdClientePayments= async(idClient)=>{
+  
+    const TraerCuenta=await Clients.findAll({
+        include: Payments,Subscriptions,
+        where:{
+          id:idClient
+        }
+    })
+    return TraerCuenta
+  }
 
 const findClientByNameAndOrEmail = async (name, email, id) => {
     if (name && email && id) {
@@ -169,6 +180,7 @@ module.exports = {
     findClientByNameAndOrEmail, 
     updateClient,
     updatePassword,
+    getIdClientePayments,
     updateProfileImage,
     deleteClient 
 };

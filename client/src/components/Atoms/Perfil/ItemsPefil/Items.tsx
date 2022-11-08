@@ -15,6 +15,9 @@ function Items() {
                         <p className={`${style.textI} text-gray`}>
                             {cookies.get("name") || user?.name}
                         </p>
+                        {
+                            cookies.get("RolId") === "3" ? <p className={`${style.textI} text-gray`}>Cliente</p> : null
+                        }
                     </div>
                 ) : (
                     <div className="">

@@ -6,13 +6,15 @@ const {
     postCreateOrder,
     getCaptureOrder,
     getCancelOrder,
+    getIdClientePaymentss
 } = require("../controllers/paymentControllers");
 const { isAuthenticated } = require("../Helpers/auth");
 const routerPayment = Router();
 
-routerPayment.post("/payment", isAuthenticated, postPayment);
-routerPayment.get("/payment", isAuthenticated, getPayment);
+routerPayment.post("/payment",postPayment);
+routerPayment.get("/payment", getPayment);
 routerPayment.put("/payment", isAuthenticated, modificarPayment);
+routerPayment.get("/payment/Cuota",isAuthenticated,getIdClientePaymentss)
 
 //Rutas para la pasarela de pago con Paypal
 routerPayment.get("/create-order", postCreateOrder);

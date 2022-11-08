@@ -47,4 +47,4 @@ const dataSlice = createSlice({
 
 export default dataSlice.reducer;
 export const { getData, getLocationsReducer, getUser, getClientsReducer,getEmployeesReducer,postPayment } = dataSlice.actions;
-
+      

@@ -4,7 +4,7 @@ import modalReducer from './FeatureSlices/Modal/Modal'
 import usersReducer from "./FeatureSlices/Users/Users"
 import dataReducer from "./FeatureSlices/Data/Data"
 import loginReducer from './FeatureSlices/login/login'
-
+import payment from './FeatureSlices/Payments/payments'
 
 export const store = configureStore({
     reducer: {
@@ -12,7 +12,8 @@ export const store = configureStore({
         modal: modalReducer,
         users: usersReducer,
         data: dataReducer,
-        login: loginReducer
+        login: loginReducer,
+        payment:payment
     }
 })
 

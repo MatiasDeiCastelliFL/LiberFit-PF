@@ -42,7 +42,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
       
         if (cookies.get("loginWith") === "local") {
             dispatch(cerrarLogin());
-            // navigate("/login");
+            navigate("/home");
         } else logout();
         cookies.remove("loginWith", { path: "/" });
     };
