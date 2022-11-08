@@ -1,5 +1,5 @@
 const { Owners } = require('../db')
-const crearOwner = async (name, email, password, phone, avatar) => {
+const crearOwner = async (name, email, password, phone, avatar,RolId=4) => {
   const owner = await Owners.create({
     name,
     email,

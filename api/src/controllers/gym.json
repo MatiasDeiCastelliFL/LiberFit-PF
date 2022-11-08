@@ -1790,6 +1790,9 @@
             {
                 "id": 3,
                 "name": "Cliente"
+            },{
+                "id": 4,
+                "name": "Owner"
             }
         ],
         "rutines": [

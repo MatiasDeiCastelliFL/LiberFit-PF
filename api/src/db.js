@@ -11,28 +11,7 @@ const sequelize = new Sequelize(
         logging: false,
     }
 ); 
-//.env      
-//.env
-// DB_USER=postgres
-// DB_PASSWORD=2jpPc5PGSrhXpDyY6B2m
-// DB_HOST=containers-us-west-58.railway.app:6092
-// DB=railway
-
-// const sequelize = new Sequelize({
-//   database: `${DB}`,
-//   username: `${DB_USER}`,
-//   password:`${DB_PASSWORD}` ,
-//   host: `${DB_HOST}`,
-//   port: 5432,
-//   dialect: "postgres",
-//   logging: false,
-//   dialectOptions: {
-//     ssl: {
-//       require: true,
-//       rejectUnauthorized: false
-//     }
-//   },
-// });
+ 
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
