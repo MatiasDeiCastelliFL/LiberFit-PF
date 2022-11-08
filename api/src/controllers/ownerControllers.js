@@ -15,7 +15,6 @@ const postClient = async (req, res) => {
             password,
             phone,
             avatar,
-            RolId
         )
         res.status(200).json(datoOwner)
     } catch (error) {

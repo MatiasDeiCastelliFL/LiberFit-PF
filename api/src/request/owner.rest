@@ -6,9 +6,9 @@ Content-Type: application/json
 
 { 
   "name":"carlos",
-  "email":"carlos@liberfit.com",
+  "email":"carlosOwner@liberfit.com",
   "password":"1234567",
-  "phone":"123 123123",
+  "phone":"123123123",
   "avatar":"https://ui-avatars.com/api/?name=Elon+Musk"
 } 
 
