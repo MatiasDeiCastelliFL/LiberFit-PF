@@ -1,10 +1,11 @@
-const { Payments } = require('../db')
-const crearPayment = async (name,active, amount) => {
+const { Payments,Clients } = require('../db')
+const crearPayment = async (name,active, amount,ClientId,SubscriptionId) => {
   await Payments.create({
     name,
     active,
-    amount
-    
+    amount,
+    ClientId,
+    SubscriptionId
   })
 }
 
@@ -32,5 +33,16 @@ const ModificarPayment=async(active, amount, id,name)=>{
   }
 }
 
+const getIdClientePayments= async(id)=>{
+  console.log("llegue",id);
+  const TraerCuenta=await Clients.findAll({
+      include: Payments,
+      where:{
+        id:id
+      }
+  })
+  return TraerCuenta
+}
 
-module.exports = {crearPayment,buscarPaymentTotal, ModificarPayment}
+
+module.exports = {crearPayment,buscarPaymentTotal, ModificarPayment,getIdClientePayments}

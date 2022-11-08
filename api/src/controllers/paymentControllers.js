@@ -9,14 +9,15 @@ const {
     crearPayment,
     buscarPaymentTotal,
     ModificarPayment,
+    getIdClientePayments
 } = require("../services/paymentServices");
 const { validate } = require("../validation/validations");
 
 const postPayment = async (req, res) => {
     try {
-        const { name, active, amount } = req.body;
+        const { name, active, amount,ClientId, SubscriptionId } = req.body;
 
-        const datoPayment = await crearPayment(name, active, amount);
+        const datoPayment = await crearPayment(name, active, amount,ClientId, SubscriptionId);
         res.status(200).json(datoPayment);
     } catch (error) {
         console.log(error);
@@ -25,7 +26,7 @@ const postPayment = async (req, res) => {
 
 const getPayment = async (req, res) => {
     const datoPaymentTotal = await buscarPaymentTotal();
-    res.status(200).json({ datoPaymentTotal });
+    res.status(200).json(datoPaymentTotal);
 };
 
 const modificarPayment = async (req, res) => {
@@ -114,6 +115,12 @@ const getCancelOrder = async (req, res) => {
     res.send("Cancel orden");
 };
 
+const getIdClientePaymentss = async (req, res) => {
+    const {id}=req.query
+    const datoCliente= await getIdClientePayments(id)
+    res.status(200).json(datoCliente)
+};
+
 module.exports = {
     postPayment,
     getPayment,
@@ -121,4 +128,5 @@ module.exports = {
     postCreateOrder,
     getCaptureOrder,
     getCancelOrder,
+    getIdClientePaymentss
 };

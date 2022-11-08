@@ -23,7 +23,11 @@ const getTraining = async (req, res) => {
 
 const postTraining = async (req, res) => {
     try {
-        const datoTraining = await crearTraining(req.body);
+        const {name, timeSlot,LocacionId }= req.body
+        
+        const {path}= req.file
+        console.log(path);
+        const datoTraining = await crearTraining(name, timeSlot,LocacionId,path );
         res.status(200).json(datoTraining);
     } catch (error) {
         res.status(400).json(error);
@@ -32,8 +36,12 @@ const postTraining = async (req, res) => {
 
 const putTraining = async (req, res) => {
     const { id } = req.params;
+    const { path } = req.file;
+    const { name, timeSlot } = req.body;
+    
+
     try {
-        let updatedTrancingId = await updateTraining(id, req.body);
+        let updatedTrancingId = await updateTraining(id, name, timeSlot,path);
         res.status(200).json(updatedTrancingId);
     } catch (error) {
         res.status(400).json(error);

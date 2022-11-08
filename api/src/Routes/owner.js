@@ -3,6 +3,6 @@ const postOwner = require("../controllers/ownerControllers")
 const {isAuthenticated}= require('../Helpers/auth')
 const routerOwner= Router();
 
-routerOwner.post("/owner",isAuthenticated,postOwner);
+routerOwner.post("/owner",postOwner);
 
 module.exports = routerOwner
