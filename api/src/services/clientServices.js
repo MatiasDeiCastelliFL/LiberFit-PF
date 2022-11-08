@@ -47,6 +47,7 @@ const findClients = async () => {
 const getPaymentsInfo= async(idClient)=>{
     let dataClient
     if (idClient) {
+        console.log(idClient)
         dataClient = await Payments.findAll({
             include: Clients,
             where: {
