@@ -7,8 +7,8 @@ export default function DashEmpleados({ link }: any) {
   const handleAddItem = () => setAddItem(!addItem)
   const background={background:"linear-gradient(180deg, #F94B40 0%, #B53B3B 56.25%, #FF0000 99.99%)"}
   return <div>
-           {!addItem?<div>
-                 <Table link={link} />
+           {!addItem?<div className="w-100">
+                 <div className="w-tables"><Table link={link} /></div>
            </div>:<EmployeeForm background={background}/>}
     
   </div>;
