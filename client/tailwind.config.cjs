@@ -32,7 +32,7 @@ module.exports = {
                 gray_custom: "#9B9B9B",
             },
             spacing: {
-                sidebar: "18vw",
+                sidebar: "16vw",
                 xl: '15vw',
                 lg: '5vw',
                 lg_sidebar: '13.5vw'
