@@ -116,6 +116,10 @@ Employees.belongsToMany(Clients, { through: "Reviews" });
 Clients.hasMany(Payments);
 Payments.belongsTo(Clients);
 
+
+Subscriptions.hasMany(Payments);
+Payments.belongsTo(Subscriptions);
+
 Clients.belongsTo(Subscriptions);
 Subscriptions.hasMany(Clients);
 
