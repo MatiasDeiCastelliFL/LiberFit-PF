@@ -285,7 +285,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                 <Items />
                             </div>
                         </div>
-                        {cookies.get("name") ? (
+                        {cookies.get("name") || user?.name ? (
                             <div
                                 className="flex justify-end w-min"
                                 onClick={() => {
