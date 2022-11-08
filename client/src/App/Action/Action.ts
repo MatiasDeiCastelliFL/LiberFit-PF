@@ -23,7 +23,7 @@ const exercises = Json[0].exercises.map((d) => d);
 const products = Json[0].sedes.map((d) => d.products.map((d) => d));
 
 
-const Route = import.meta.env.VITE_LOCAL_HOST
+const Route = null
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const getMainData = () => async (dispatch: any) => {
