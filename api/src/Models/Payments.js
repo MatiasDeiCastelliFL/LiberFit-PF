@@ -14,6 +14,10 @@ module.exports = (sequelize) => {
                 type:DataTypes.STRING,
                 allowNull:false
             },
+            descripcion:{
+                type:DataTypes.STRING,
+                allowNull:true
+            },
             active: {
                 type: DataTypes.BOOLEAN,
                 allowNull: false,
@@ -22,6 +26,14 @@ module.exports = (sequelize) => {
                 type: DataTypes.DOUBLE,
                 allowNull: false,
             },
+            fechaCreacion: {
+                type: DataTypes.DATEONLY,
+                defaultValue:DataTypes.NOW
+            },
+            fechaFinalizacion: {
+                type: DataTypes.DATEONLY,
+                allowNull: true
+            }
         },
         {
             freezeTableName: true,

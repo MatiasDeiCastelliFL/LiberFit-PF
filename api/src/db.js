@@ -38,7 +38,6 @@ let capsEntries = entries.map((entry) => [
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-// Traemos los modelos:
 const {
     Clients,
     Employees,
@@ -112,7 +111,6 @@ Rols.hasMany(Employees);
 
 Rols.hasMany(Clients);
 Clients.belongsTo(Rols);
-
 
 
 module.exports = {

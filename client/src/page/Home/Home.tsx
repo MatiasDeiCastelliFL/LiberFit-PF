@@ -13,6 +13,7 @@ function Home() {
     const [name, setName] = useState("");
 
     useEffect(() => {
+        console.log("params", params);
         dispatch(getFilterData());
         dispatch(getMainData());
     }, [dispatch]);
@@ -28,6 +29,7 @@ function Home() {
     if (location.pathname === "/home" || params.name) {
         dispatch(openFilters(false));
     }
+   
 
     return <HomeTemplate handle={handleSubmit} name={setName} />;
 }
