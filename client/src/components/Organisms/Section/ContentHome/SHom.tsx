@@ -5,7 +5,7 @@ import Plan from '../../../Molecules/Plan/Plan'
 function SHom() {
   
   return (
-    <div>
+    <div className='xl2:w-xl2_custom lg:w-xl_custom'>
         <CardsContent/>
         <div className='mt-20' id='Membresias'>
           <Plan/>
