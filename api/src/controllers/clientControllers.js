@@ -5,10 +5,12 @@ const {
     updateClient,
     updatePassword,
     updateProfileImage,
-    deleteClient 
+    deleteClient,
+    getIdClientePayments,
+    getIdClienteSuscription
 } = require('../services/clientServices');
 const { validate } = require('../validation/validations');
-const { Clients } = require("../db");
+const { Clients, Payments } = require("../db");
 
 const getClientsRequest = async (req, res) => {
     try {
@@ -30,6 +32,30 @@ const getClientsRequest = async (req, res) => {
         res.status(500).json({error: error.message})
     }
 };
+
+
+const getClientsPayments = async (req, res) =>{
+    try {
+        const { id,SubscriptionId} = req.query;
+
+        if( id) {
+            const paymentsClient = await getIdClientePayments(id)
+            const suscriptionClient= await getIdClienteSuscription(SubscriptionId);
+            // const dato3= paymentsClient.concat(suscriptionClient)
+            console.log(suscriptionClient)
+            if (paymentsClient.length !== 0) {
+                res.status(200).json(paymentsClient)
+            } else {
+                res.status(400).json({ error: "No se encuentra un Cliente por ese NOMBRE o EMAIL." });
+            }
+        } else {
+            const clientsData = await findClients();
+            res.status(200).json(clientsData);   
+        }
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+}
 
 const postClientsRequest = async (req, res) => {
     try {
@@ -95,5 +121,6 @@ module.exports = {
     getClientsRequest, 
     postClientsRequest, 
     putClientRequest,
-    deleteClientRequest 
+    deleteClientRequest ,
+    getClientsPayments
 };

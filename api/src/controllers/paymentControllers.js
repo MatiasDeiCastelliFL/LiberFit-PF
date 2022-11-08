@@ -11,13 +11,15 @@ const {
     ModificarPayment,
     getIdClientePayments
 } = require("../services/paymentServices");
+
+const {pagosActivo} = require("../Helpers/busqueda")
 const { validate } = require("../validation/validations");
 
 const postPayment = async (req, res) => {
     try {
-        const { name, active, amount,ClientId, SubscriptionId } = req.body;
+        const { name, active, amount,ClientId,SubscriptionId} = req.body;
 
-        const datoPayment = await crearPayment(name, active, amount,ClientId, SubscriptionId);
+        const datoPayment = await crearPayment(name, active, amount,ClientId,SubscriptionId);
         res.status(200).json(datoPayment);
     } catch (error) {
         console.log(error);
@@ -117,7 +119,7 @@ const getCancelOrder = async (req, res) => {
 
 const getIdClientePaymentss = async (req, res) => {
     const {id}=req.query
-    const datoCliente= await getIdClientePayments(id)
+    const datoCliente= await pagosActivo()
     res.status(200).json(datoCliente)
 };
 

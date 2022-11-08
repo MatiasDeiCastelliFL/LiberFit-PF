@@ -33,7 +33,7 @@ const CardsContent = () => {
   return (
     <div>
       <div>
-        <div className={style.container}>
+        <div className={`${style.container} w-full`}>
           {data.map((item) => {
             return (
               <Link to={`/home/${item.category}`} key={item.category}>

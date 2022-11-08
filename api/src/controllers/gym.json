@@ -21,26 +21,28 @@
             {
                 "id": 1,
                 "name": "No Suscripto",
-                "price": "$0.00",
+                "price": 0,
                 "description": "No Suscripto"
             },
             {
                 "id": 2,
                 "name": "Oro",
-                "price": "$ 32.640",
-                "description": "Anual Bonificado"
+                "price": 32640,
+                "description": "Anual Bonificado",
+                "duration": 4
             },
             {
                 "id": 3,
                 "name": "Plata",
-                "price": "$ 9.180",
+                "price": 9180,
                 "description": "Trimestral Bonificado"
             },
             {
                 "id": 4,
                 "name": "Bronce",
-                "price": "$ 3.400",
-                "description": "Mensual"
+                "price": 3400,
+                "description": "Mensual",
+                "duration": 12
             }
         ],
         "locations": [
@@ -1790,6 +1792,9 @@
             {
                 "id": 3,
                 "name": "Cliente"
+            },{
+                "id": 4,
+                "name": "Owner"
             }
         ],
         "rutines": [
