@@ -1,82 +1,107 @@
 import React, { useEffect, useState } from "react";
 // line a 2 poner getEmployees
-import { getClients} from "../../../App/Action/Action";
+import { getClients, getEmployees} from "../../../App/Action/Action";
 import { useAppSelector, useAppDispatch } from "../../../App/Hooks/Hooks";
+import Avatar from "react-avatar";
 
 const headers: any = {
     clients: [
+        { key: "image", label: "Avatar" },
         { key: "name", label: "Cliente" },
         { key: "phone", label: "Telefono" },
         { key: "email", label: "Email" },
-        // { key: "image", label: "Avatar" },
         { key: "active", label: "Membresía" },
         { key: "SubscriptionId", label: "Suscripción" },
+        { key: "Update", label: "Actualizar" }
     ],
     employees: [
+        { key: "image", label: "Avatar" },
         { key: "name", label: "Empleados" },
         { key: "phone", label: "Telefono" },
         { key: "email", label: "Email" },
-        // { key: "image", label: "Avatar" },
         { key: "active", label: "Membresía" },
         { key: "RolId", label: "Rol Empleado" },
+        { key: "Update", label: "Actualizar" }
     ],
 };
 
-function Table({ link }: any) {
+export default function Table({ link }: any) {
     const { data }: any = useAppSelector((state) => state);
+    console.log(data)
     const [sortOrder, setSortOrder] = useState("");
     const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(getClients());
-        // dispatch(getEmployees());
+        dispatch(getEmployees());
     }, []);
 
     // console.log(data.clients)
     // console.log(data.employees)
 
     return (
-        <div className="flex flex-col">
-            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                    <div className="overflow-x-auto">
-                        <table className="min-w-full">
-                            <thead className="bg-white border-b">
-                                <tr>
-                                    {headers[link]?.map((key: any) => {
-                                        return (
-                                            <th
-                                                key={key.key}
-                                                className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                                            >
-                                                {key.label}
-                                            </th>
-                                        );
-                                    })}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {data[link].map((person: any) => {
-                                    return (
-                                        <tr
-                                            key={person.id}
-                                            className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
-                                        >
-                                            {headers[link].map((link: any) => (
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                    {person[link.key]}
-                                                </td>
-                                            ))}
+        <div className="w-full flex p-10">
+            <div className="w-96">
+                <div className="flex flex-col">
+                    <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                            <div className="overflow-x-auto">
+                                <table className="min-w-full">
+                                    <thead className="bg-white border-b">
+                                        <tr>
+                                            {headers[link]?.map((key: any) => {
+                                                return (
+                                                    <th
+                                                        key={key.key}
+                                                        className="text-sm font-medium text-gray-900 px-6 py-4 text-center"
+                                                    >
+                                                        {key.label}
+                                                    </th>
+                                                );
+                                            })}
                                         </tr>
-                                    );
-                                })}
-                            </tbody>
-                        </table>
+                                    </thead>
+                                    <tbody>
+                                        {data[link].map((person: any) => (
+                                            
+                                            <tr key={person.id} className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                                                <td className="flex justify-center m-2">
+                                                <Avatar
+                                                    className="mr-2"
+                                                    name={person.name}
+                                                    size="45"
+                                                    round={true}
+                                                /> 
+                                                </td>
+                                                <td>{person.name}</td>
+                                                <td>{person.phone}</td>
+                                                <td>{person.email}</td>
+                                                <td>{person.active == true ? "true" : "false"}</td>
+                                                {/* <td>{person.RolId == "1" ? "Propietario" : }</td> */}
+                                            </tr>
+                                            
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        
     );
 }
 
-export default Table;
+
+
+{/* <tr
+    key={person.id}
+    className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+>
+    {headers[link].map((link: any) => (
+        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+            {person[link.key]}
+        </td>
+    ))}
+</tr> */}
