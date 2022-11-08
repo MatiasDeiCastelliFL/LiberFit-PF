@@ -34,9 +34,6 @@ module.exports = {
             fontFamily: {
                 poppins: "Poppins",
             },
-            backgroundImage: {
-                landing: "url('./src/assets/IMG/LandingBG.png')",
-            },
             width: {
                 max: "100%",
                 custom_1: "30.25rem",

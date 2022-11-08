@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function LandingTemplate() {
   return (
-    <div className="bg-landing w-max h-max xl:h-screen object-cover bg-cover select-none overflow-hidden">
+    <div className={`${Styles.landing} w-max h-max xl:h-screen object-cover bg-cover select-none overflow-hidden`}>
       <div className="z-50 2xl:ml-0 lg:ml-10">
         <div className="flex justify-center">
           <div className="2xl:mt-72 xl:mt-44 lg:mt-64 flex justify-center  xl:w-custom_3 absolute z-0 ">

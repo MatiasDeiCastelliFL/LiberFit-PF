@@ -10,10 +10,11 @@ import Dashboard from "./page/Dashboard/Dashboard";
 import UserConfig from "./components/Organisms/UserConfig/UserConfig";
 import { useAuth0 } from "@auth0/auth0-react";
 import Cookies from "universal-cookie";
-
 function App() {
     const cookies = new Cookies();
     const { user } = useAuth0();
+
+    
     return (
         <div className="App">
             <Routes>
@@ -65,7 +66,7 @@ function App() {
                 ) : null}
                 {cookies.get("name") || user?.name ? (
                     <Route path="/UserConfig" element={<UserConfig />} />
-                ) : null}
+                    ) : null}
             </Routes>
         </div>
     );
