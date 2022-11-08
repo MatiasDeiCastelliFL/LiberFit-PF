@@ -11,28 +11,7 @@ const sequelize = new Sequelize(
         logging: false,
     }
 ); 
-//.env      
-//.env
-// DB_USER=postgres
-// DB_PASSWORD=2jpPc5PGSrhXpDyY6B2m
-// DB_HOST=containers-us-west-58.railway.app:6092
-// DB=railway
-
-// const sequelize = new Sequelize({
-//   database: `${DB}`,
-//   username: `${DB_USER}`,
-//   password:`${DB_PASSWORD}` ,
-//   host: `${DB_HOST}`,
-//   port: 5432,
-//   dialect: "postgres",
-//   logging: false,
-//   dialectOptions: {
-//     ssl: {
-//       require: true,
-//       rejectUnauthorized: false
-//     }
-//   },
-// });
+ 
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -59,7 +38,6 @@ let capsEntries = entries.map((entry) => [
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-// Traemos los modelos:
 const {
     Clients,
     Employees,
@@ -113,12 +91,8 @@ Rutines.belongsToMany(Trainings, { through: "TrainingsRutines" });
 Clients.belongsToMany(Employees, { through: "Reviews" });
 Employees.belongsToMany(Clients, { through: "Reviews" });
 
-
-Clients.belongsToMany(Payments, { through: "ClientsPayments" });
-Payments.belongsToMany(Clients, { through: "ClientsPayments" });
-
-Subscriptions.hasMany(Payments);
-Payments.belongsTo(Subscriptions);
+Clients.hasMany(Payments);
+Payments.belongsTo(Clients);
 
 Clients.belongsTo(Subscriptions);
 Subscriptions.hasMany(Clients);
@@ -137,6 +111,9 @@ Rols.hasMany(Employees);
 
 Rols.hasMany(Clients);
 Clients.belongsTo(Rols);
+
+Rols.hasMany(Owners);
+Owners.belongsTo(Rols);
 
 
 

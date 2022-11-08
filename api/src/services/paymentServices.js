@@ -1,9 +1,11 @@
 const { Payments,Clients,Subscriptions } = require('../db')
-const crearPayment = async (name,active, amount,ClientId,SubscriptionId) => {
+const crearPayment = async (name,active,amount,ClientId,SubscriptionId) => {
   
   let subscriptionInfo= await Subscriptions.findOne({where:{
      id:SubscriptionId
-  }}) 
+  }})
+
+  console.log(subscriptionInfo);
   let fechaActual=new Date()
 
   let day = fechaActual.getDate()
@@ -25,8 +27,9 @@ const crearPayment = async (name,active, amount,ClientId,SubscriptionId) => {
     name,
     active,
     amount:subscriptionInfo.price,
-    SubscriptionId,
-    fechaFinalizacion:fechaFinalizacion
+    descripcion:subscriptionInfo.name,
+    fechaFinalizacion:fechaFinalizacion,
+    ClientId
   })
 
 
@@ -43,7 +46,7 @@ const crearPayment = async (name,active, amount,ClientId,SubscriptionId) => {
   }
 
 
-  DatoGenerado.addClients(ClientId);
+ 
 }
 
 const buscarPaymentTotal= async ()=>{
@@ -52,13 +55,11 @@ const buscarPaymentTotal= async ()=>{
   return payments
 }
 
-const ModificarPayment=async(active, amount, id,name)=>{
+const ModificarPayment=async(active,id)=>{
   const encontrarPago= await Payments.findByPk(id)
   if(encontrarPago){  
     await Payments.update({
-      active:active,
-      amount:amount,    
-      name:name
+      active:active
     },{
       where:{
         id:encontrarPago.id

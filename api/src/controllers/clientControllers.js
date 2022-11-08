@@ -6,7 +6,8 @@ const {
     updatePassword,
     updateProfileImage,
     deleteClient,
-    getIdClientePayments
+    getIdClientePayments,
+    getIdClienteSuscription
 } = require('../services/clientServices');
 const { validate } = require('../validation/validations');
 const { Clients, Payments } = require("../db");
@@ -35,11 +36,13 @@ const getClientsRequest = async (req, res) => {
 
 const getClientsPayments = async (req, res) =>{
     try {
-        const { id } = req.query;
+        const { id,SubscriptionId} = req.query;
 
         if( id) {
             const paymentsClient = await getIdClientePayments(id)
-
+            const suscriptionClient= await getIdClienteSuscription(SubscriptionId);
+            // const dato3= paymentsClient.concat(suscriptionClient)
+            console.log(suscriptionClient)
             if (paymentsClient.length !== 0) {
                 res.status(200).json(paymentsClient)
             } else {

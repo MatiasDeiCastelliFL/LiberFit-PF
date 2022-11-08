@@ -1,13 +1,18 @@
-const { Owners } = require('../db')
+const { Owners,Gyms } = require('../db')
+
 const crearOwner = async (name, email, password, phone, avatar) => {
+  var RolId=4
   const owner = await Owners.create({
     name,
     email,
     password,
     phone,
     avatar,
+    RolId
   })
-  console.log(owner)
+const gym= await Gyms.findAll()
+
+ await gym[0].addOwners(owner)
 }
 
 module.exports = crearOwner
