@@ -10,7 +10,7 @@ const exercises = Json[0].exercises.map(d => d)
 const products = Json[0].sedes.map(d => d.products.map(d => d))
 
 const Route = "http://localhost:3004"
-const BASE_URL = process.env.REACT_APP_API;
+// const BASE_URL = process.env.REACT_APP_API;
 
 export const getFilterData = () => async (dispatch: any) => {
     try {
