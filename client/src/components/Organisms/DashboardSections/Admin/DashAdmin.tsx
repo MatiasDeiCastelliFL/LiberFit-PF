@@ -37,9 +37,9 @@ function DashAdmin() {
     return (
             
         <div className="">
-            
+            {cookies.get("RolId") === "1" && (
             <div>
-                {location.pathname === "/dashboard/admin" ? (
+                {location.pathname === "/dashboard/admin/home" ? (
                     <DashHome />
                 ) : location.pathname === "/dashboard/admin/employees" ? (
                     <DashEmpleados link={"employees"} />
@@ -50,7 +50,7 @@ function DashAdmin() {
                 ) : location.pathname === "/dashboard/admin/clients" ? (
                     <DashClientes link={"clients"} />
                 ) : null}
-            </div>
+            </div>)}
         </div>
     );
 }

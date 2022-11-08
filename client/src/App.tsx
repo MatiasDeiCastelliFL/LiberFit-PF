@@ -48,7 +48,7 @@ function App() {
                 {cookies.get("name") || user?.name ? null : (
                     <Route path="/signup" element={<SingUp />} />
                 )}
-                
+                {cookies.get("name") || user?.name ? (
                     <Route path="/dashboard" element={<Dashboard />}>
                         {cookies.get("RolId") === "3" && (
                             <Route path="/dashboard/:cliente">
@@ -56,14 +56,14 @@ function App() {
                                 <Route path="/dashboard/:cliente/:item/:ejercicio" />
                             </Route>
                         )}
-                        
-                            <Route path="/dashboard/admin">
+                        {cookies.get("RolId") === "1" && (
+                            <Route path="/dashboard/admin/:category">
                                 <Route path="/dashboard/admin/:category" />
                                 <Route path="/dashboard/admin/:category/:item" />
                             </Route>
-                       
+                        )}
                     </Route>
-                
+                ) : null}
                 {cookies.get("name") || user?.name ? (
                     <Route path="/UserConfig" element={<UserConfig />} />
                     ) : null}
