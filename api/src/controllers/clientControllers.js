@@ -36,13 +36,12 @@ const getClientsRequest = async (req, res) => {
 
 const getClientsPayments = async (req, res) =>{
     try {
-        const { id,SubscriptionId} = req.query;
+        const { id} = req.query;
 
         if( id) {
             const paymentsClient = await getIdClientePayments(id)
-            const suscriptionClient= await getIdClienteSuscription(SubscriptionId);
-            // const dato3= paymentsClient.concat(suscriptionClient)
-            console.log(suscriptionClient)
+        
+       
             if (paymentsClient.length !== 0) {
                 res.status(200).json(paymentsClient)
             } else {
