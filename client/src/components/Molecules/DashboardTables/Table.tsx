@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getClients, getEmployees} from "../../../App/Action/Action";
 import { useAppSelector, useAppDispatch } from "../../../App/Hooks/Hooks";
 import Avatar from "react-avatar";
+import EditIMG from "./lapiz.gif"
 
 const headers: any = {
     clients: [
@@ -62,7 +63,7 @@ export default function Table({ link }: any) {
                             <tbody>
                                 {data[link].map((person: any) => (
                                     
-                                    <tr key={person.id} className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                                    <tr key={person.id} className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100 text-center">
                                         <td className="flex justify-center m-2">
                                         <Avatar
                                             className="mr-2"
@@ -81,7 +82,7 @@ export default function Table({ link }: any) {
                                         person.RolId == "3" ? "Cliente" :
                                         person.RolId == "4" ? "Recepcionista" : null }
                                         </td>
-                                        <td><button>Editar</button></td>
+                                        <td><button><img src={EditIMG} alt="imagen edición" className="w-8"/>Editar</button></td>
                                     </tr>
                                     
                                 ))}

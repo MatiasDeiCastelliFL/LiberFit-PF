@@ -8,7 +8,9 @@ export default function DashEmpleados({ link }: any) {
   const background={background:"linear-gradient(180deg, #F94B40 0%, #B53B3B 56.25%, #FF0000 99.99%)"}
   return <div>
            {!addItem?<div className="w-100">
-                 <div className="w-tables"><Table link={link} /></div>
+                <div className="w-tables overflow-hidden ">
+                <Table link={link} />
+                </div>
            </div>:<EmployeeForm background={background}/>}
     
   </div>;

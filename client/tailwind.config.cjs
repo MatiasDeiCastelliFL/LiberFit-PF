@@ -55,7 +55,7 @@ module.exports = {
                 user: "6.5rem",
                 perfil: "1px",
                 lg_fit: '49rem',
-                tables: '30rem'
+                table: '30rem'
             },
             height: {
                 max: "100vh",
