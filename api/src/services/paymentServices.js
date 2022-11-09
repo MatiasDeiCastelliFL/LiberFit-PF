@@ -1,11 +1,14 @@
 const { Payments,Clients,Subscriptions } = require('../db')
-const crearPayment = async (name,active,amount,ClientId,SubscriptionId) => {
+const { monthName } = require("../Helpers/monthName.js");
+const crearPayment = async (amount, ClientId, description) => {
   
   let subscriptionInfo= await Subscriptions.findOne({where:{
-     id:SubscriptionId
+    id:2
   }})
 
-  console.log(subscriptionInfo);
+  let SubscriptionId=subscriptionInfo.id
+  let active=true
+
   let fechaActual=new Date()
 
   let day = fechaActual.getDate()
@@ -24,9 +27,10 @@ const crearPayment = async (name,active,amount,ClientId,SubscriptionId) => {
 
 
   const DatoGenerado=await Payments.create({
-    name,
-    active,
-    amount:subscriptionInfo.price,
+    name: monthName(month-subscriptionInfo.duration),
+    active:true,
+    description:description,
+    amount:amount,
     descripcion:subscriptionInfo.name,
     fechaFinalizacion:fechaFinalizacion,
     ClientId
@@ -45,8 +49,6 @@ const crearPayment = async (name,active,amount,ClientId,SubscriptionId) => {
     })
   }
 
-
- 
 }
 
 const buscarPaymentTotal= async ()=>{

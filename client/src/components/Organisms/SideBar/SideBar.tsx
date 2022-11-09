@@ -76,6 +76,12 @@ function SideBar({ handle, setName, dashboard }: Props) {
             icon: <GiMuscleUp/>
         },
         {
+            title: "Pagos",
+            active: location.pathname.includes("pagos") ? true : false,
+            desplegable: false,
+            link: `/dashboard/${params.cliente}/pagos`,
+        },
+        {
             title: "Membresia",
             active: false,
             desplegable: true,
