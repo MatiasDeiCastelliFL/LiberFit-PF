@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { BsPaypal } from "react-icons/bs";
-import { useAppDispatch} from "../../../App/Hooks/Hooks";
+import { useAppDispatch, useAppSelector} from "../../../App/Hooks/Hooks";
 import { postPaymentPaypal } from "../../../App/Action/Action";
 
 function Content() {
     const dispatch = useAppDispatch()
-    const data = {
-        amount: '10',
-        description: 'plan plata'
+    const { data } = useAppSelector((state) => state)
+    const payload = {
+        amount: data.paymentinfo.amount,
+        description: data.paymentinfo.description,
+        ClientId : data.user.id,
+        
     }
     const dispatchAction = () => {
-        dispatch(postPaymentPaypal(data))
+        console.log(payload)
+        dispatch(postPaymentPaypal(payload))
     }
     return (
         <div className="w-max max-h-max">

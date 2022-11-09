@@ -13,7 +13,7 @@ function CardsCategory() {
     const [location, setLocation] = React.useState("0");
 
     return (
-        <div>
+        <div className=" overflow-y-auto overflow-x-hidden xl3:h-xl3_limit_Card xl:h-xl_limit_Card xl2:h-xl2_limit_Card lg:h-lg_limit_Card 3xl:h-limit_Card">
             <div>
                 {filter.dataLocation.length ? (
                     category !== "Exercises" ? (

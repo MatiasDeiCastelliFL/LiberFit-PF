@@ -2,6 +2,8 @@ import React from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { Landing, Home } from "./page/Index";
+import PaymentComplet from "./page/payment/paymentComplet";
+import PaymentCancel from "./page/payment/paymentCancel";
 import CardsCategory from "./components/Molecules/CardCategory/CardsCategory";
 import Details from "./components/Organisms/Details/Details";
 import LoginForm from "./components/Molecules/LoginForm/LoginForm";
@@ -19,6 +21,9 @@ function App() {
     return (
         <div className="App">
             <Routes>
+                <Route path="/paymentComplet" element={<PaymentComplet />} />
+                <Route path="/paymentCancel" element={<PaymentCancel />} />
+
                 <Route path="/" element={<Landing />} />
                 <Route
                     path="/home"
@@ -40,6 +45,7 @@ function App() {
                         }) => <span>{data.threadName}</span>,
                     }}
                 >
+                    
                     <Route path="/home/:category" element={<CardsCategory />} />
                     <Route path="/home/:category/:name" element={<Details />} />
                 </Route>
@@ -59,7 +65,7 @@ function App() {
                             </Route>
                         )}
                         {cookies.get("RolId") === "1" && (
-                            <Route path="/dashboard/admin/:category">
+                            <Route path="/dashboard/admin">
                                 <Route path="/dashboard/admin/:category" />
                                 <Route path="/dashboard/admin/:category/:item" />
                             </Route>

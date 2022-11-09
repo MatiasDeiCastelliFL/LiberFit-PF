@@ -16,12 +16,14 @@ module.exports = {
                 xl: "1280px",
                 // => @media (min-width: 1280px) { ... }
 
+                xl3: '1366px',
+
                 xl2: '1440px',
                 // => @media (min-width: 1440px) { ... }
 
                 "2xl": "1536px",
                 // => @media (min-width: 1536px) { ... }
-                "3xl": "1600px",
+                "3xl": '1900px',
             },
             colors: {
                 redGray: "#FEE2E2",
@@ -65,6 +67,12 @@ module.exports = {
                 custom_3: "31.25rem",
                 custom_4: "34rem",
                 user: "6.5rem",
+                limit_Card: '38rem',
+                lg_limit_Card: '25rem',
+                xl_limit_Card: '34rem',
+                xl2_limit_Card: '31rem',
+                xl3_limit_Card: '22.2rem',
+                
             },
             blur: {
                 default: "30px",

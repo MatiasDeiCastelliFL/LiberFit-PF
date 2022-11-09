@@ -15,6 +15,12 @@ import style from "./Style/sidebar.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { cerrarLogin, loginGoogle } from "../../../App/Action/Action";
 import jwt_decode from "jwt-decode";
+import { BsBuilding } from 'react-icons/bs';
+import { FaUserTie, FaUserFriends, FaRegCreditCard, FaDumbbell, FaClipboardList } from 'react-icons/fa';
+import { MdOutlineProductionQuantityLimits } from 'react-icons/md';
+import { GiMuscleUp } from 'react-icons/gi';
+import { GoDashboard } from 'react-icons/go';
+
 
 interface Props {
     handle: any;
@@ -53,24 +59,34 @@ function SideBar({ handle, setName, dashboard }: Props) {
             active: location.pathname === `/dashboard/${params.cliente}` ? true : false,
             desplegable: false,
             link: `/dashboard/${params.cliente}`,
+            icon: <GoDashboard/>
         },
         {
             title: "Rutinas",
             active: location.pathname.includes("rutinas") ? true : false,
             desplegable: false,
             link: `/dashboard/${params.cliente}/rutinas`,
+            icon: <FaClipboardList/>
         },
         {
             title: "Ejercicios",
             active: location.pathname.includes("ejercicios") ? true : false,
             desplegable: false,
             link: `/dashboard/${params.cliente}/ejercicios`,
+            icon: <GiMuscleUp/>
+        },
+        {
+            title: "Pagos",
+            active: location.pathname.includes("pagos") ? true : false,
+            desplegable: false,
+            link: `/dashboard/${params.cliente}/pagos`,
         },
         {
             title: "Membresia",
             active: false,
             desplegable: true,
             link: "",
+            icon: <FaRegCreditCard/>
         },
     ];
 
@@ -80,30 +96,56 @@ function SideBar({ handle, setName, dashboard }: Props) {
             active: location.pathname.includes("home") ? true : false,
             desplegable: false,
             link: "/dashboard/admin/home",
+            icon: <GoDashboard/>
+        },
+        {
+            title: "Sedes",
+            active: location.pathname.includes("locations") ? true : false,
+            desplegable: false,
+            link: "/dashboard/admin/locations",
+            icon: <BsBuilding/>
         },
         {
             title: "Empleados",
             active: location.pathname.includes("employees") ? true : false,
             desplegable: false,
             link: "/dashboard/admin/employees",
+            icon: <FaUserTie/>
         },
         {
             title: "Productos",
             active: location.pathname.includes("Productos") ? true : false,
             desplegable: false,
-            link: "/dashboard/admin/Products",
+            link: "/dashboard/admin/products",
+            icon: <MdOutlineProductionQuantityLimits/>
         },
         {
             title: "Ejercicios",
             active: location.pathname.includes("ejercicios") ? true : false,
             desplegable: false,
             link: "/dashboard/admin/ejercicios",
+            icon: <GiMuscleUp/>
         },
         {
             title: "Clientes",
             active: location.pathname.includes("clients") ? true : false,
             desplegable: false,
             link: "/dashboard/admin/clients",
+            icon: <FaUserFriends/>
+        },
+        {
+            title: "Membresías",
+            active: location.pathname.includes("subscriptions") ? true : false,
+            desplegable: false,
+            link: "/dashboard/admin/subscriptions",
+            icon: <FaRegCreditCard/>
+        },
+        {
+            title: "Entrenamientos",
+            active: location.pathname.includes("trainings") ? true : false,
+            desplegable: false,
+            link: "/dashboard/admin/trainings",
+            icon: <FaDumbbell/>
         },
     ];
 
@@ -228,6 +270,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                                 <Link to={d.link}>
                                                     <Item2
                                                         active={d.active}
+                                                        icon={d.icon}
                                                         title={d.title}
                                                     />
                                                 </Link>
@@ -236,7 +279,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                     ))
                                    : location.pathname.includes("/dashboard/admin")
                                     ? admin.map((d) => (
-                                        <div className="">
+                                        <div className="flex justify-flex-start items-center">
                                             {d.desplegable ? (
                                                 <Link to={d.link}>
                                                     <Item
@@ -248,6 +291,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                                 <Link to={d.link}>
                                                     <Item2
                                                         active={d.active}
+                                                        icon={d.icon}
                                                         title={d.title}
                                                     />{" "}
                                                 </Link>
