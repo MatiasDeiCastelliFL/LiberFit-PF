@@ -28,13 +28,13 @@ function HomeTemplate({ handle, name }: Props) {
           <div className="flex flex-col justify-start ">
             <NavBar dashboard={false}/>
           </div>
-          <div className="z-0 p-4 xl:ml-10 2xl:ml-10 lg:ml-lg" >
+          <div className="z-0 p-4 xl:ml-10 2xl:ml-8 lg:ml-lg" >
             <div className="border border-redGray h-52 xl:w-full lg:w-lg_fit mb-2 overflow-hidden">
               <Anuncio />
             </div>
             <div className="">
               <BreadCrumbs />
-              <div className="ml-1 mt-5">
+              <div className="mt-5 lg:w-mi">
                 {params.category ? null: <SHom/>}
                 <Transition
                   show={params.category ? true : false}
