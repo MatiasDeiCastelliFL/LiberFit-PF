@@ -108,10 +108,10 @@ export const postElement = (payload:any, element:string) =>  (dispatch: any) => 
     } 
 }
 
-export const getPaymentInfo = (payload: any) => async (dispatch: any) => {
+export const getPaymentInfo = (payload: any,token:any) => async (dispatch: any) => {
     try {
        
-        let InforpagoClient = await axios.get(`clients/payments?id=${payload}` ) // {email, password}
+        let InforpagoClient = await axios.get(`clients/payments?token=${token}&id=${payload}` ) // {email, password}
         
         dispatch(payment(InforpagoClient.data))
         return InforpagoClient // {}
@@ -120,9 +120,8 @@ export const getPaymentInfo = (payload: any) => async (dispatch: any) => {
     }
 };
 
-export const getPaymentAllInfo = () => async (dispatch: any) => {
+export const getPaymentAllInfo = (token:any) => async (dispatch: any) => {
     try {
-        const token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJuYW1lIjoiY2FybG9zIiwiZW1haWwiOiJjYXJsb3NPd25lckBsaWJlcmZpdC5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NjciLCJwaG9uZSI6IjEyMzEyMzEyMyIsImF2YXRhciI6Imh0dHBzOi8vdWktYXZhdGFycy5jb20vYXBpLz9uYW1lPUVsb24rTXVzayIsImNyZWF0ZWRBdCI6IjIwMjItMTEtMDhUMjE6NDY6NDAuOTg0WiIsInVwZGF0ZWRBdCI6IjIwMjItMTEtMDhUMjE6NDY6NDEuMjIxWiIsIkd5bUlkIjoiMjA0MTA1ODctOTNkOC00YzUwLTgwODctNDEzNTYzMDUyY2MxIiwiUm9sSWQiOjR9LCJpYXQiOjE2Njc5NDQwNDR9.RsqdvuxUbZfnPTYjdt6ENX85ViE0Jc3P70-Bwqwx4hM"
         let InforpagoClient = await axios.get(`clients/payments?token=${token}`) // {email, password}
         
         dispatch(paymentALL(InforpagoClient.data))

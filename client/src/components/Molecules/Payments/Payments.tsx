@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks"
 import { getPaymentInfo,getPaymentAllInfo } from "../../../App/Action/FilterActions"
+import Cookies from 'universal-cookie';
 
-
+const cookies= new Cookies;
+const token =cookies.get('token');
+const id = cookies.get('id')
 const headers: any = {
   clients: [
       { key: "id", label: "Id" },
@@ -17,17 +20,19 @@ const headers: any = {
 export default function Payments({ clients }: any) {
 
     const dispatch = useAppDispatch()
-    const getPay = useAppSelector(state => state.payment)
-    const id:string="9183db49-6703-4ebc-a964-b004da68ffc4"
+    const payment = useAppSelector(state => state.payment)
+  
     useEffect(() => {
-      console.log();
-     
-        dispatch(getPaymentAllInfo())
+        dispatch(getPaymentAllInfo(token))
+        dispatch(getPaymentInfo(id,token))
     }, [])
     
-    console.log(getPay);
+   console.log(payment);
+   
+   
 
     return (
-      <div>hola</div>
+      <p>hola</p>
+     
   );
 }
