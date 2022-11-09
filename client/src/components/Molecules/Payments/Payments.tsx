@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks"
-import { getPayment } from "../../../App/Action/Action"
+import { getPaymentInfo,getPaymentAllInfo } from "../../../App/Action/FilterActions"
 
 
 const headers: any = {
@@ -13,16 +13,20 @@ const headers: any = {
   ],
 };
 
-
+ 
 export default function Payments({ clients }: any) {
 
     const dispatch = useAppDispatch()
     const getPay = useAppSelector(state => state.payment)
-    const id:string="200cf821-e8f1-4e99-adf2-d25cc223b492"
+    const id:string="9183db49-6703-4ebc-a964-b004da68ffc4"
     useEffect(() => {
-        dispatch(getPayment(id))
+      console.log();
+     
+        dispatch(getPaymentAllInfo())
     }, [])
     
+    console.log(getPay);
+
     return (
       <div>hola</div>
   );

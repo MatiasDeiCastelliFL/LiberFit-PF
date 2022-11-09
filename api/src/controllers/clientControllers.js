@@ -6,7 +6,7 @@ const {
     updatePassword,
     updateProfileImage,
     deleteClient,
-    getIdClientePayments,
+    getIdClientePayments: getPaymentsInfo,
     getIdClienteSuscription
 } = require('../services/clientServices');
 const { validate } = require('../validation/validations');
@@ -36,20 +36,17 @@ const getClientsRequest = async (req, res) => {
 
 const getClientsPayments = async (req, res) =>{
     try {
-        const { id} = req.query;
-
-        if( id) {
-            const paymentsClient = await getIdClientePayments(id)
-        
-       
+        const { id } = req.query;
+        if(id) {
+            const paymentsClient = await getPaymentsInfo(id)
             if (paymentsClient.length !== 0) {
                 res.status(200).json(paymentsClient)
             } else {
-                res.status(400).json({ error: "No se encuentra un Cliente por ese NOMBRE o EMAIL." });
+                res.status(400).json({ error: "No hay pagos realizados por el cliente" });
             }
         } else {
-            const clientsData = await findClients();
-            res.status(200).json(clientsData);   
+            const paymentsClient = await getPaymentsInfo()
+            res.status(200).json(paymentsClient);   
         }
     } catch (error) {
         res.status(500).json({error: error.message})

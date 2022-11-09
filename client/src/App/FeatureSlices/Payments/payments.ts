@@ -14,9 +14,12 @@ const usersSlice = createSlice({
     reducers: {
         payment: (state, action) => {
             state.paymentState = action.payload
+        },
+        paymentALL:(state, action) => {
+            state.paymentState = action.payload
         }
     },
 });
 
 export default usersSlice.reducer;
-export const { payment } = usersSlice.actions;
+export const { payment,paymentALL } = usersSlice.actions;
