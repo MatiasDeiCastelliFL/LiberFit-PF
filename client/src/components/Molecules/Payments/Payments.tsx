@@ -20,24 +20,20 @@ export default function Payments({ clients }: any) {
     const dispatch = useAppDispatch()
     const [tab, setTab] = React.useState("payments");
 
-    const columns = useMemo(
+    const columns:any = useMemo(
       () => [
         {
-          Header: "Id",
-          accessor: "id"
+          Header: "Nombre",
+          accessor: "nombre"
         },
         {
-          Header: "Modelo",
-          accessor: "modelo"
+          Header: "Descripción",
+          accessor: "descripcion"
         },
         {
-          Header: "Segmento",
-          accessor: "segmento"
+          Header: "Monto",
+          accessor: "monto"
         },
-        {
-          Header: "Año",
-          accessor: "anio"
-        }
       ],
       []
     );
@@ -45,88 +41,74 @@ export default function Payments({ clients }: any) {
     const data = useMemo(
       () => [
         {
-          marca: "Audi",
-          modelo: "A3",
-          segmento: "Sedan, Convertible",
-          anio: "2015"
+          nombre: "Audi",
+          descripcion: "A3",
+          monto: "Sedan, Convertible",
         },
         {
-          marca: "Audi",
-          modelo: "A3",
-          segmento: "Wagon",
-          anio: "2013"
+          nombre: "Audi",
+          descripcion: "A3",
+          monto: "Wagon",
         },
         {
-          marca: "Audi",
-          modelo: "A3 Sportback e-tron",
-          segmento: "Wagon",
-          anio: "2016"
+          nombre: "Audi",
+          descripcion: "A3 Sportback e-tron",
+          monto: "Wagon",
         },
         {
-          marca: "Audi",
-          modelo: "A4",
-          segmento: "Sedan, Convertible",
-          anio: "2006"
+          nombre: "Audi",
+          descripcion: "A4",
+          monto: "Sedan, Convertible",
         },
         {
-          marca: "Audi",
-          modelo: "A4",
-          segmento: "Sedan, Wagon",
-          anio: "2001"
+          nombre: "Audi",
+          descripcion: "A4",
+          monto: "Sedan, Wagon",
         },
         {
-          marca: "Audi",
-          modelo: "A4 allroad",
-          segmento: "Wagon",
-          anio: "2019"
+          nombre: "Audi",
+          descripcion: "A4 allroad",
+          monto: "Wagon",
         },
         {
-          marca: "Audi",
-          modelo: "A5",
-          segmento: "Coupe",
-          anio: "2008"
+          nombre: "Audi",
+          descripcion: "A5",
+          monto: "Coupe",
         },
         {
-          marca: "Audi",
-          modelo: "A5 Sport",
-          segmento: "Convertible, Coupe",
-          anio: "2017"
+          nombre: "Audi",
+          descripcion: "A5 Sport",
+          monto: "Convertible, Coupe",
         },
         {
-          marca: "Audi",
-          modelo: "Q3",
-          segmento: "SUV",
-          anio: "2020"
+          nombre: "Audi",
+          descripcion: "Q3",
+          monto: "SUV",
         },
         {
-          marca: "Audi",
-          modelo: "R8",
-          segmento: "Coupe",
-          anio: "2008"
+          nombre: "Audi",
+          descripcion: "R8",
+          monto: "Coupe",
         },
         {
-          marca: "Audi",
-          modelo: "TT",
-          segmento: "Coupe",
-          anio: "2019"
+          nombre: "Audi",
+          descripcion: "TT",
+          monto: "Coupe",
         },
         {
-          marca: "Audi",
-          modelo: "Q7",
-          segmento: "SUV",
-          anio: "2015"
+          nombre: "Audi",
+          descripcion: "Q7",
+          monto: "SUV",
         },
         {
-          marca: "Audi",
-          modelo: "Q8",
-          segmento: "SUV",
-          anio: "2019"
+          nombre: "Audi",
+          descripcion: "Q8",
+          monto: "SUV",
         },
         {
-          marca: "Audi",
-          modelo: "Cabriolet",
-          segmento: "Convertible, Coupe",
-          anio: "1996"
+          nombre: "Audi",
+          descripcion: "Cabriolet",
+          monto: "Convertible, Coupe",
         }
       ],
       []
@@ -152,7 +134,7 @@ export default function Payments({ clients }: any) {
           {
             (tab === "payments") ? (
               <div className="flex flex-col">
-                <table {...getTableProps()} className="table-auto">
+                {/* <table {...getTableProps()} className="table-auto">
                   <thead>
                     {headerGroups.map((headerGroup: { getHeaderGroupProps: () => JSX.IntrinsicAttributes & React.ClassAttributes<HTMLTableRowElement> & React.HTMLAttributes<HTMLTableRowElement>; headers: any[]; }) => (
 
@@ -164,7 +146,7 @@ export default function Payments({ clients }: any) {
                     ))}
                   </thead>
                   <tbody {...getTableBodyProps()}>
-                    {rows.map((row: { getRowProps: () => JSX.IntrinsicAttributes & React.ClassAttributes<HTMLTableRowElement> & React.HTMLAttributes<HTMLTableRowElement>; cells: { getCellProps: () => JSX.IntrinsicAttributes & React.ClassAttributes<HTMLTableDataCellElement> & React.TdHTMLAttributes<HTMLTableDataCellElement>; render: (arg0: string) => string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }[]; }) => {
+                    {rows.map((row: { getRowProps:any cells: { getCellProps: () => JSX.IntrinsicAttributes & React.ClassAttributes<HTMLTableDataCellElement> & React.TdHTMLAttributes<HTMLTableDataCellElement>; render: (arg0: string) => string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }[]; }) => {
                       prepareRow(row);
                       return (
                         <tr {...row.getRowProps()}>
@@ -175,7 +157,7 @@ export default function Payments({ clients }: any) {
                       );
                     })}
                   </tbody>
-                </table>
+                </table> */}
               </div>)
             : (tab === "subscription") ? (
               <div className="flex flex-col">

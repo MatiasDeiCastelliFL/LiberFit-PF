@@ -1,4 +1,7 @@
 const axios = require("axios");
+
+const { CLIENT_URL } = process.env;
+
 const {
     PAYPAL_API,
     PAYPAL_API_CLIENT,
@@ -14,6 +17,9 @@ const {
 
 const {pagosActivo} = require("../Helpers/busqueda")
 const { validate } = require("../validation/validations");
+
+var idCliente = ''
+var descripcion_plan = ''
 
 const postPayment = async (req, res) => {
     try {
@@ -54,6 +60,12 @@ const modificarPayment = async (req, res) => {
 
 //Logica para la pasarela de pago con Paypal
 const postCreateOrder = async (req, res) => {
+
+
+    const { amount, description, ClientId} = req.query;
+    idCliente = ClientId
+    descripcion_plan = description
+    const value = parseFloat(amount);
     try {
         const order = {
             intent: "CAPTURE",
@@ -61,9 +73,9 @@ const postCreateOrder = async (req, res) => {
                 {
                     amount: {
                         currency_code: "USD",
-                        value: "35.7",
+                        value: value,
                     },
-                    description: "Plan Oro",
+                    description: description,
                 },
                 
             ],
@@ -111,11 +123,42 @@ const postCreateOrder = async (req, res) => {
     }
 };
 const getCaptureOrder = async (req, res) => {
-    res.send("Capture orden");
+    try {
+        const { token } = req.query;
+        const response = await axios.post(
+            `${PAYPAL_API}/v2/checkout/orders/${token}/capture`,
+            {},
+            {
+                auth: {
+                    username: PAYPAL_API_CLIENT,
+                    password: PAYPAL_API_SECRET,
+                },
+            } 
+        );
+        console.log(response.data);
+    
+        const { amount } = response.data.purchase_units[0].payments.captures[0];
+        const description= response.data.purchase_units[0].shipping;
+        const payments = response.data.purchase_units[0].payments
+    
+        console.log(amount);
+        console.log(description);
+        console.log(payments);
+    
+        const datoPayment = await crearPayment(amount.value,idCliente,descripcion_plan);
+        res.redirect('http://127.0.0.1:5173/paymentComplet');
+    }catch (error) {
+        console.log(error);
+        res.status(500).send("Algo salio mal");
+    }
+
 };
 const getCancelOrder = async (req, res) => {
-    res.send("Cancel orden");
+    res.redirect('http://127.0.0.1:5173/paymentCancel');
 };
+
+// const completPayment = async (req, res) => {
+
 
 const getIdClientePaymentss = async (req, res) => {
     const {id}=req.query

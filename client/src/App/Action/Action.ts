@@ -13,6 +13,7 @@ import {
     getUser,
     getClientsReducer,
     postPayment,
+    initilizePayment,
     getEmployeesReducer,
 } from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users";
@@ -23,7 +24,8 @@ const exercises = Json[0].exercises.map((d) => d);
 const products = Json[0].sedes.map((d) => d.products.map((d) => d));
 
 
-const Route = null
+const Route = import.meta.env.VITE_LOCAL_HOST
+// https://liberfit-back-production.up.railway.app
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const getMainData = () => async (dispatch: any) => {
@@ -196,6 +198,7 @@ export const cerrarLogin = () => async (dispatch: any) => {
 export const getUserInfo = (payload: any) => async (dispatch: any) => {
     try {
         let json = await axios.get(`${BASE_URL || Route}/clients`,  {params: {id: payload}}) // {email, password}
+        console.log("getUserInfo -->",json.data[0])
         dispatch(getUser(json.data[0]))
         return json // {}
     } catch (error) {
@@ -204,13 +207,25 @@ export const getUserInfo = (payload: any) => async (dispatch: any) => {
 };
 
 export const postPaymentPaypal = (payload: any) => async (dispatch: any) => {
-    try {
-        const res = await axios.get(`${BASE_URL || Route}/create-order`,payload)
+    // try {
+        console.log("PAYPAL PAYMENT", payload);
+        const res = await axios.get(`${BASE_URL || Route}/create-order`, {params: 
+            {
+                amount: payload.amount , 
+                description: payload.description,
+                ClientId: payload.ClientId,
+            }
+        });
         const href =  res.data.links[1].href
-        window.location.href = href 
+        window.open(href, "_blank")
         dispatch(postPayment(payload))
         return res     
-    } catch (error) {
-        console.log(error)
-    }
+    // } catch (error) {
+    //     console.log(error)
+    // }
+}
+
+export const getInitilizePayment = (payload: any) => async (dispatch: any) => {
+    console.log("payload",payload)
+    dispatch(initilizePayment(payload))
 }
