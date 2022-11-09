@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import HomeTemplate from "../../components/Templates/HomeTemplate/HomeTemplate";
 import { useAppSelector, useAppDispatch } from "../../App/Hooks/Hooks";
-import { getDataByName, getMainData, getUserInfo } from "./../../App/Action/Action";
+import { getDataByName, getMainData, getUserInfo, getSubscriptionsInfo } from "./../../App/Action/Action";
 import { getFilterData } from "./../../App/Action/FilterActions";
 import { openFilters } from "./../../App/Action/Action";
 import { useLocation, useParams } from "react-router-dom";
@@ -16,6 +16,7 @@ function Home() {
     useEffect(() => {
         console.log("params", params);
         dispatch(getFilterData());
+        dispatch(getSubscriptionsInfo());
         cookies.get("id") && dispatch(getUserInfo(cookies.get("id")));
         dispatch(getMainData());
     }, [dispatch]);

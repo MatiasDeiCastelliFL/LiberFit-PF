@@ -15,6 +15,7 @@ import {
     postPayment,
     initilizePayment,
     getEmployeesReducer,
+    getSubscriptions,
 } from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users";
 import { login } from "../FeatureSlices/login/login";
@@ -228,4 +229,15 @@ export const postPaymentPaypal = (payload: any) => async (dispatch: any) => {
 export const getInitilizePayment = (payload: any) => async (dispatch: any) => {
     console.log("payload",payload)
     dispatch(initilizePayment(payload))
+}
+
+export const getSubscriptionsInfo = () => async (dispatch: any) => {
+    try {
+        let json = await axios.get(`${BASE_URL || Route}/suscription`)
+        console.log("getSubscriptionsInfo -->",json.data)
+        dispatch(getSubscriptions(json.data.allSuscription))
+        return json
+    } catch (error) {
+        console.log("-->", error);
+    }
 }
