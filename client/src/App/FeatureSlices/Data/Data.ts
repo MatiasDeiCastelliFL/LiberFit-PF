@@ -36,7 +36,6 @@ const dataSlice = createSlice({
             state.locations = action.payload;
         },
         getUser: (state, action: PayloadAction<any>) => {
-            console.log('data linea 37',action.payload);
             state.user = action.payload;
         },
         getClientsReducer: (state, action: PayloadAction<any>) => {
