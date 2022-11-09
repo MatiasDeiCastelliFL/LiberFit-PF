@@ -57,7 +57,7 @@ function App() {
                             </Route>
                         )}
                         {cookies.get("RolId") === "1" && (
-                            <Route path="/dashboard/admin/:category">
+                            <Route path="/dashboard/admin">
                                 <Route path="/dashboard/admin/:category" />
                                 <Route path="/dashboard/admin/:category/:item" />
                             </Route>
