@@ -29,12 +29,12 @@ const Plan = () => {
           Accede a nuestras membresias y disfruta del mejor Gym
         </p>
       </div>
-      <div className="flex gap-5 lg:gap-2">
+      <div className="flex gap-5 lg:gap-2 2xl:gap-20">
         {subscription.map((item, i) => {
           return (
             <div
               key={i}
-              className="bg-semiRed text-white flex flex-col justify-around items-center p-4 border-2 border-gray-200 rounded-lg w-96 xl:w-80 lg:w-60 lg:h-96 h-custom_3"
+              className="bg-semiRed text-white flex flex-col justify-around items-center p-4 border-2 border-gray-200 rounded-lg w-96 xl:w-80 lg:w-60 lg:h-96 2xl:w-96 2xl:h-custom_3"
             >
               <div className="flex flex-col items-center justify-center">
                 <h1 className="text-4xl font-bold">{item.name}</h1>
