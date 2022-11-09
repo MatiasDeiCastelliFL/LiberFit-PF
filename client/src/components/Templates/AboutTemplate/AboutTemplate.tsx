@@ -44,7 +44,7 @@ function AboutTemplate() {
         <div className="flex">
             <div className="">
             <div className="w-aboutbar h-max border-r border-redGray border-opacity-20 mr-2">
-                <div className="h-max flex  content-center items-center flex-col mt-72">
+                <div className="h-max flex  content-center items-center flex-col mt-60">
                     <div className="">
                         <div className="h-20 flex justify-center items-center">
                             <h1 className='text-center text-3xl font-poppins font-bold text-redClare'>PROYECTO LIBERFIT</h1>
@@ -77,7 +77,7 @@ function AboutTemplate() {
                 </div>
             </div>
             </div>
-            <div className="flex  mt-64 w-max ">
+            <div className="flex  mt-60 w-max ">
                     <Swiper
                         slidesPerView={3}
                         spaceBetween={100}
