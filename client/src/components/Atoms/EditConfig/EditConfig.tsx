@@ -87,10 +87,10 @@ const EditConfig = ({field,type, title}:Props) => {
     return (
         <div className="flex justify-between w-full p-4">
             <div>
-                <h1 className="text-xl">{title}</h1>
+                <h1 className="text-xl font-extrabold">{title}</h1>
                 <form onSubmit={onSubmit} className='text-md flex gap-2'>
                     {
-                        disable ? <p className="text-white bg-transparent h-full" >{data.user[field]}</p> 
+                        disable ? <p className=" text-neutral-500 bg-transparent h-full" >{data.user[field]}</p> 
                         : 
                         <div className="flex flex-col">
                             <div className = "flex gap-3">
@@ -98,7 +98,7 @@ const EditConfig = ({field,type, title}:Props) => {
                                         placeholder={`Ingresa tu nuevo ${title}`}  
                                         onChange={handleChage}  
                                         type={type} 
-                                        className="text-white w-fit bg-transparent h-full" 
+                                        className=" text-neutral-500 w-fit bg-transparent h-full" 
                                         value={value}/>
                                 <input type="submit" name="confirmat" id={title} value="Confirmar" className="bg-redClare px-2 rounded-lg" />
                             </div>  
@@ -110,7 +110,7 @@ const EditConfig = ({field,type, title}:Props) => {
                 </form>
             </div>
             <button className="bg-transparent" onClick={handleEdit}>
-                <PencilSquareIcon className="h-8 w-8 text-white hover:text-redClare"/>
+                <PencilSquareIcon className="h-8 w-8  text-neutral-900 hover:text-redClare"/>
             </button>
         </div>
     );
