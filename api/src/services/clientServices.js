@@ -35,12 +35,13 @@ const createClient = async (
                 name: `${locacion}`,
             },
         });
-        await cli.addLocacions(data,{review:'5'});
+        await cli.addLocacions(data, { review: "5" });
 
         return cli;
     } else {
         return `el usuario ya existe`;
-    }image.png
+    }
+    image.png;
 };
 
 const createReview = async (email, comment, rate, location) => {
@@ -55,12 +56,16 @@ const createReview = async (email, comment, rate, location) => {
                 name: location,
             },
         });
-        // console.log('clientByEmail ',clientByEmail.__proto__)
-        // console.log('location proto ',LocationByName.__proto__)
+        // En el caso de que se vaya a 
+        // const LocationByName = await clientByEmail.getLocacions()
         await LocationByName.createLocacionReview({
             clientId: clientByEmail.id,
-        rate,comment})
-    } catch (error) {console.error(error);}
+            rate,
+            comment,
+        });
+    } catch (error) {
+        console.error(error);
+    }
 };
 
 const findClients = async () => {
