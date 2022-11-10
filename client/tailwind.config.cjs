@@ -62,7 +62,7 @@ module.exports = {
                 aboutbar: '40rem',
                 xl_aboutbar: '30rem',
                 lg_aboutbar: '35rem',
-                slade: '78rem',
+                slade: '9rem',
                 xl2_slade: '45rem',
                 xl_slade: '48rem',
                 lg_slade: '20rem',

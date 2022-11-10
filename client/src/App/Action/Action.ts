@@ -16,6 +16,7 @@ import {
     initilizePayment,
     getEmployeesReducer,
     getSubscriptions,
+    getTrainingsReducer
 } from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users";
 import { login } from "../FeatureSlices/login/login";
@@ -64,6 +65,15 @@ export const getEmployees = () => async (dispatch: any) => {
     try {
         const employee = await axios.get(`${BASE_URL || Route}/empleado`);
         dispatch(getEmployeesReducer(employee.data));
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getTrainings = () => async (dispatch: any) => {
+    try {
+        const training = await axios.get(`${BASE_URL || Route}/training`);
+        dispatch(getTrainingsReducer(training.data));
     } catch (error) {
         console.log(error);
     }

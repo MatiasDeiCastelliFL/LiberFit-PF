@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import EmployeeForm from '../../../../Molecules/CreateInputsContainer/EmployeeForm/EmployeeForm';
-import Table from '../../../../Molecules/DashboardTables/Table';
+import Table from '../../../../Molecules/DashboardTables/UsersTable';
 
 export default function DashEmpleados({ link }: any) {
   const [addItem, setAddItem] = useState(false);

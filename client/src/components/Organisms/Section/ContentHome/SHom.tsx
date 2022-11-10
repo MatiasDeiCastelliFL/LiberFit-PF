@@ -9,13 +9,13 @@ function SHom() {
   const { filter } = useAppSelector((state) => state)
   
   return (
-    <div className='xl2:w-xl2_custom lg:w-xl_custom'>
+    <div className=''>
         {
           filter.activeSearch ? <SearchedCards />
           : <CardsContent/>
         }
         <div className='mt-20' id='Membresias'>
-          <Plan/>
+            <Plan/>
         </div>
     </div>
   )
