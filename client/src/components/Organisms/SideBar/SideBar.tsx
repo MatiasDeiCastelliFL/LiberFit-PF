@@ -203,7 +203,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
     // console.log("ibra-->",user)
 
     return (
-        <div className=" flex  h-full w-sidebar flex-col justify-between fixed border-r border-redGray bg-white select-none overflow-y-auto">
+        <div className=" flex  h-full  flex-col justify-between fixed border-r border-redGray bg-white select-none overflow-y-auto">
             <div className="">
                 <Transition
                     show={filter.open === false ? true : false}
