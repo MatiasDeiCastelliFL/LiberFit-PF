@@ -7,12 +7,10 @@ import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
 
 
 interface Props {
-    field: string;
     title: string;
-    info: any;
 }
 
-const PasswordConfig = ({field, title, info}:Props) => {
+const PasswordConfig = ({title}:Props) => {
 
     const dispatch = useAppDispatch()
     
