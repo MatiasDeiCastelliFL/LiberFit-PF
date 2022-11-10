@@ -1,13 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import { Landing, Home } from "./page/Index";
-import CardsCategory from "./components/Molecules/CardCategory/CardsCategory";
-import Details from "./components/Organisms/Details/Details";
-import LoginForm from "./components/Molecules/LoginForm/LoginForm";
-import SingUp from "./components/Molecules/LoginSignup/LoginSignup";
-import Dashboard from "./page/Dashboard/Dashboard";
-import UserConfig from "./components/Organisms/UserConfig/UserConfig";
+import { Landing, Home, Dashboard, UserConfig, SingUp, Details, CardsCategory, LoginForm, PaymentComplet , PaymentCancel, About} from "./page/Index";
 import { useAuth0 } from "@auth0/auth0-react";
 import Cookies from "universal-cookie";
 function App() {
@@ -18,6 +12,8 @@ function App() {
     return (
         <div className="App">
             <Routes>
+                <Route path="/paymentComplet" element={<PaymentComplet />} />
+                <Route path="/paymentCancel" element={<PaymentCancel />} />
                 <Route path="/" element={<Landing />} />
                 <Route
                     path="/home"
@@ -39,9 +35,11 @@ function App() {
                         }) => <span>{data.threadName}</span>,
                     }}
                 >
+                    
                     <Route path="/home/:category" element={<CardsCategory />} />
                     <Route path="/home/:category/:name" element={<Details />} />
                 </Route>
+                <Route path="/about" element={<About/>}/>
                 {cookies.get("name") || user?.name ? null : (
                     <Route path="/login" element={<LoginForm />} />
                 )}

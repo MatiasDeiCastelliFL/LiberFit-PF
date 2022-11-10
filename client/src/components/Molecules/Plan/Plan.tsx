@@ -5,14 +5,22 @@ import gold from "../../../assets/IMG/gold.svg";
 import silver from "../../../assets/IMG/silver.svg";
 import bronze from "../../../assets/IMG/bronze.svg";
 import { useAppDispatch, useAppSelector } from './../../../App/Hooks/Hooks';
-import { openModal } from "../../../App/Action/Action";
+import { openModal, getInitilizePayment } from "../../../App/Action/Action";
 
 
 const Plan = () => {
-  const subscription = Json[0].subscriptions;
+  // const subscription = Json[0].subscriptions;
   const dispatch = useAppDispatch()
   const { modal } = useAppSelector((state) => state);
-  const modalOpen = () => {
+  const { data } = useAppSelector((state) => state);
+  const { subscriptions } = data;
+
+
+  const modalOpen = (e:any) => {
+    e.preventDefault();
+    const amount = e.target.value.split(",")[0].split(" ")[1];
+    const description = e.target.value.split(",")[1];
+    dispatch(getInitilizePayment({amount, description}))
     dispatch(openModal(true))
   }
 
@@ -30,8 +38,9 @@ const Plan = () => {
         </p>
       </div>
       <div className="flex gap-5 lg:gap-2 2xl:gap-20">
-        {subscription.map((item, i) => {
+        {subscriptions.map((item: { name: string | any; price: string | number | any ; description: string | number | any },i: React.Key | null | undefined) => {
           return (
+            item.name === 'No Suscripto' ? null:
             <div
               key={i}
               className="bg-semiRed text-white flex flex-col justify-around items-center p-4 border-2 border-gray-200 rounded-lg w-96 xl:w-80 lg:w-60 lg:h-96 2xl:w-96 2xl:h-custom_3"
@@ -55,8 +64,8 @@ const Plan = () => {
                 <p className="text-xl font-bold">{item.description}</p>
               </div>
               <div>
-                <button className="bg-white text-redClare p-5 rounded-lg" onClick={modalOpen}>
-                  Subscribe
+                <button className="bg-white text-redClare p-5 rounded-lg" value={[item.price, item.description]} onClick={modalOpen}>
+                  Subscribirse
                 </button >
               </div>
             </div>

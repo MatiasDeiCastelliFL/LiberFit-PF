@@ -9,18 +9,6 @@ interface Props {
     background: React.CSSProperties
 }
 
-// interface form {
-//     name: string,
-//     price: number,
-//     stock: string,
-//     code: string,
-//     image: string,
-//     description: string,
-//     muscle: string,
-//     brand: string,
-//     location: string,
-// }
-
 const ExersicesForm = ({background}:Props) => {
 
     const dispatch = useAppDispatch()
