@@ -107,7 +107,7 @@ const sendEmail = async (name, email) => {
 
   await axios.post(`https://api.emailjs.com/api/v1.0/email/send`,data)
   .then (res => {
-    console.log(res);
+    console.log(res.status);
   }
   )
 
