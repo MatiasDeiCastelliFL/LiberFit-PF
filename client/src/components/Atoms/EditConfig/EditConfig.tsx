@@ -1,9 +1,9 @@
 import React, {useState, useRef, useEffect } from "react";
 import { PencilSquareIcon } from "@heroicons/react/24/outline";
 import Cookies from "universal-cookie";
-import { useStateManager } from "react-select";
 import { editUser, getUserInfo } from "../../../App/Action/Action";
 import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
@@ -11,10 +11,9 @@ interface Props {
     field: any | string;
     type: string;
     title: string;
-    info: any;
 }
 
-const EditConfig = ({field,type, title, info}:Props) => {
+const EditConfig = ({field,type, title}:Props) => {
 
     const dispatch = useAppDispatch()
     const cookies = new Cookies()
@@ -24,15 +23,14 @@ const EditConfig = ({field,type, title, info}:Props) => {
     const [error, setError] = useState(false);
     
     const { data } = useAppSelector((state) => state);
-    const { user } = data
 
-    const [value, setValue] = useState();
+    const [value, setValue] = useState(data.user[field]);
 
     let RegExpresions : any = {
     }
 
     RegExpresions = {
-        name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+        name: /^[a-zA-ZÀ-ÿ\s]{3,40}$/,
         email: /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
         phone: /^\d{7,14}$/,
     };
@@ -60,12 +58,18 @@ const EditConfig = ({field,type, title, info}:Props) => {
             dispatch(
                 editUser(
                     {
-                        ...user,
+                        ...data.user,
                         [field]: value
                     }
                 )
             )
-            alert("Your changes have been saved")
+            toast.success(`Se ha actualizado el campo ${title} correctamente`, {
+                duration: 6000,
+                position: 'top-center',
+            })
+            setTimeout(() => {
+                dispatch(getUserInfo(cookies.get("id")))
+            }, 500);
         } else {
             setError(true)
         }
@@ -74,7 +78,7 @@ const EditConfig = ({field,type, title, info}:Props) => {
 
 
     useEffect(() => {
-    }, [user, value, data])
+    }, [data.user, value, data])
 
     useEffect(() => {
         dispatch(getUserInfo(cookies.get("id")))
