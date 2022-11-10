@@ -126,6 +126,7 @@ const filterSlice = createSlice({
             }
         },
         filterDataName: (state, action: PayloadAction<any>) => {
+            state.activeSearch = true;
             if (location.pathname === "/home") {
                 state.filteredProducts = state.products.filter((d) =>
                     d.name.toLowerCase().includes(action.payload.toLowerCase())
@@ -143,41 +144,27 @@ const filterSlice = createSlice({
                 state.dataByName.machines = state.filteredMachines;
                 state.dataByName.exercises = state.filteredExercises;
                 state.dataByName.trainings = state.filteredTrainings;
-                state.activeSearch = true;
             } else if (location.pathname === "/home/Exercises") {
-                state.dataByName.exercises = state.exercises.filter((d) =>
-                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                state.filteredExercises = state.exercises.filter((d) =>
+                d.name.toLowerCase().includes(action.payload.toLowerCase())
                 );
-
-                state.filteredExercises = state.filteredExercises.filter((d) =>
-                    d.name.toLowerCase().includes(action.payload.toLowerCase())
-                );
+                state.dataByName.exercises = state.filteredExercises;
             } else if (location.pathname === "/home/Trainings") {
-                state.dataByName.trainings = state.trainigns.filter((d) =>
-                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                state.filteredTrainings = state.trainigns.filter((d) =>
+                d.name.toLowerCase().includes(action.payload.toLowerCase())
                 );
+                state.dataByName.trainings = state.filteredTrainings;
             } else if (location.pathname === "/home/Machines") {
-                state.dataByName.machines = state.machines.filter((d) =>
-                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                state.filteredMachines = state.machines.filter((d) =>
+                d.name.toLowerCase().includes(action.payload.toLowerCase())
                 );
-                state.filteredMachines = state.filteredMachines.filter((d) =>
-                    d.name.toLowerCase().includes(action.payload.toLowerCase())
-                );
+                state.dataByName.machines = state.filteredMachines;
             } else if (location.pathname === "/home/Products") {
-                state.dataByName.products = state.products.filter((d) =>
+                state.filteredProducts = state.products.filter((d) =>
                     d.name.toLowerCase().includes(action.payload.toLowerCase())
                 );
-                state.filteredProducts = state.filteredProducts.filter((d) =>
-                    d.name.toLowerCase().includes(action.payload.toLowerCase())
-                );
-            } else if (location.pathname === "/home/Machines") {
-                state.dataByName.machines = state.machines.filter((d) =>
-                    d.name.toLowerCase().includes(action.payload.toLowerCase())
-                );
-                state.filteredMachines = state.filteredMachines.filter((d) =>
-                    d.name.toLowerCase().includes(action.payload.toLowerCase())
-                );
-            }
+                state.dataByName.products = state.filteredProducts;
+            } 
         },
         removeDataByName: (state) => {
             state.dataByName = {
@@ -186,6 +173,11 @@ const filterSlice = createSlice({
                 exercises: [],
                 trainings: [],
             };
+            state.filteredExercises = state.exercises;
+            state.filteredMachines = state.machines;
+            state.filteredProducts = state.products;
+            state.filteredTrainings = state.trainigns;
+            
             state.activeSearch = false;
         }
     },
