@@ -2,16 +2,20 @@ import React, { useEffect } from "react";
 import LineChart from "../../../../Atoms/DoughnutChart/LineChart";
 import DoughnutChart from "../../../../Atoms/DoughnutChart/DoughnutChart";
 import { useAppSelector, useAppDispatch } from "../../../../../App/Hooks/Hooks";
-import { getClients } from "../../../../../App/Action/Action";
+import { getClients, getEmployees } from "../../../../../App/Action/Action";
 
 function DashHome() {
     useEffect(() => {
         dispatch(getClients());
+        dispatch(getEmployees())
     }, []);
     const { data }: any = useAppSelector((state) => state);
     const dispatch = useAppDispatch();
 
     const totalClients = data.clients.length;
+    const totalSedes = data.locations.length;
+    const totaEemployees = data.employees.length;
+
     const clientsActive = data.clients.filter(
         (e: any) => e.active === true
     ).length;
@@ -85,11 +89,66 @@ function DashHome() {
                 data: [usJun, usJul, usAgo, usSet, usOct, usNov],
             },
         ],
+        
     };
+    console.log("data-->",data);
+    
+    const estados = [
+        {
+            nombre: "Sedes",
+            cantidad: totalSedes,
+            type: "Ubicaciones",
+            type2: "Activas..."
+        },
+        {
+            nombre: "Empleados",
+            cantidad: totaEemployees,
+            type: "Profesores",
+            type2: "Activos"
+        },
+        {
+            nombre: "Ganancias",
+            cantidad: "$ 15.634",
+            type: "Ingresos",
+            type2: "Totales"
+        },
+        {
+            nombre: "Clientes",
+            cantidad: totalClients,
+            type: "Usuarios",
+            type2: "Registrados"
+        },
+        {
+            nombre: "Entrenamientos",
+            cantidad: 15,
+            type: "Clases",
+            type2: "Ofresidas"
+        },
+    ]
     return (
         <div className="w-full p-10">
             <div className="px-6 pt-6">
-                <div className="grid gap-6 md:grid-cols-2  place-content-center">
+                {/* estadisticas */}
+                <div className="flex justify-around items-center mb-6" >
+                    {
+                        estados.map((e) => (
+                            <div className={e.nombre === "Ganancias" ? "flex flex-col justify-around items-center w-62 h-64 rounded-3xl bg-gray-100 border border-slate-200 px-4 py-2"
+                             : "flex flex-col justify-around items-center w-56 rounded-3xl bg-gray-50 border border-slate-200 px-4 py-2"}  >
+                                <div className="flex bg-redClare p-2 w-52 rounded-3xl justify-around items-center">
+                                    <h3 className="text-white" >{e.nombre}</h3>
+                                    <div className="text-white text-4xl " >...</div>
+                                </div>
+                                <div className="mt-2 flex flex-col items-center " >
+                                    <h1 className=" text-4xl font-medium font-poppins m-2">{e.cantidad}</h1>
+                                    <h1 className=" text-gray-500 text-xl m-2 ">{e.type}</h1>
+                                    <h1 className=" text-gray-500 text-xl m-2 ">{e.type2}</h1>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <div className="flex gap-6 md:grid-cols-2  place-content-center">
                     {/* Active chart */}
                     <div className="w-2/4 md:col-span-2 lg:col-span-1">
                         <div className="md:col-span-2 lg:col-span-1">
@@ -98,6 +157,17 @@ function DashHome() {
                                     Usuarios Conectados
                                 </h5>
                                 <DoughnutChart data={datosUsuariosActivos} />
+                            </div>
+                        </div>
+                    </div>  
+                    {/* new logins chart */}
+                    <div className="w-9/12 md:col-span-2 lg:col-span-1">
+                        <div className="md:col-span-2 lg:col-span-1">
+                            <div className="h-full py-8 px-6 space-y-6 rounded-xl border border-gray-200 bg-white">
+                                <h5 className="text-xl text-gray-600 text-center">
+                                    Historial de Nuevos Usuarios
+                                </h5>
+                                <LineChart data={dataSedes} />
                             </div>
                         </div>
                     </div>
@@ -109,17 +179,6 @@ function DashHome() {
                                     Suscripciones
                                 </h5>
                                 <DoughnutChart data={datosSuscripciones} />
-                            </div>
-                        </div>
-                    </div>
-                    {/* new logins chart */}
-                    <div className="w-9/12 md:col-span-2 lg:col-span-1">
-                        <div className="md:col-span-2 lg:col-span-1">
-                            <div className="h-full py-8 px-6 space-y-6 rounded-xl border border-gray-200 bg-white">
-                                <h5 className="text-xl text-gray-600 text-center">
-                                    Historial de Nuevos Usuarios
-                                </h5>
-                                <LineChart data={dataSedes} />
                             </div>
                         </div>
                     </div>
