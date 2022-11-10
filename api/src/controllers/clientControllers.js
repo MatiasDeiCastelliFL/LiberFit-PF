@@ -6,11 +6,13 @@ const {
     updatePassword,
     updateProfileImage,
     deleteClient,
-    getIdClientePayments: getPaymentsInfo,
+    getPaymentsInfo,
     getIdClienteSuscription
 } = require('../services/clientServices');
+
+const {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,MostrarDatorutinaConUser} = require("../Helpers/busqueda")
 const { validate } = require('../validation/validations');
-const { Clients, Payments } = require("../db");
+const { Clients, Payments,Locacions,Exercises } = require("../db");
 
 const getClientsRequest = async (req, res) => {
     try {
@@ -91,7 +93,7 @@ const putClientRequest = async (req, res) => {
             res.status(200).json(updatedClient);
         }
     } catch (error) {
-        console.log('fgdfgdfg',error);
+        
         res.status(500).send({error: error.message})
     }
 }
@@ -113,10 +115,113 @@ const deleteClientRequest = async (req, res) => {
     }
 };
 
+const FiltrarClienteActivo= async(req,res)=>{
+    const usuarioActive= await busquedaDatActive(Clients);
+
+    res.status(200).json({usuarioActive});
+}
+
+const FiltrarClienteInactivo= async(req,res)=>{
+    const usuarioInactive= await busquedaDatDesactive(Clients);
+
+    res.status(200).json({usuarioInactive});
+}
+
+const CantInacativo= async(req,res)=>{
+    const cantidadActivo= await contarDatoInactivo(Clients)
+
+    res.status(200).json({cantidadActivo});
+}
+
+
+const CantActivo= async(req,res)=>{
+    const cantidadActivo= await contarDatoActivo(Clients)
+
+    res.status(200).json({cantidadActivo});
+}
+
+
+/* Verifica que la cuenta este activa. si la cuenta esta activa le 
+permitira desactivar si no le indicara que la cuenta ya se enceuntra desactivada*/
+
+const inactivarCliente = async (req, res) => {
+
+
+    try {
+        const { id } = req.body;
+        const desactivarCuenta = await CuentaDesactivar(id, Clients);
+        if (desactivarCuenta === true) {
+            await inactivarCuenta(id);
+
+            res.status(200).json("La cuenta se desactivo correctamente");
+        } else {
+            res.status(400).json("La cuenta ya se encuentra desactivada");
+        }
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+};
+
+/* Verifica que la cuenta se encuentra desactivada, si esta la
+ cuenta desactivada le va a permitr activa su cuenta sino le va a decir que su cuenta ya se encuentra activada*/
+const activarCliente = async (req, res) => {
+    try {
+        const { id } = req.body;
+
+        const accountActive = await CuentaActiva(id, Clients);
+        if (accountActive === false) {
+            await activarCuenta(id);
+            res.status(200).json("La cuenta se activo correctamente");
+        } else {
+            res.status(400).json("La cuenta ya se encuentra activa");
+        }
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+};
+
+const FiltrarClienteActivoConSede= async(req,res)=>{
+    const usuarioInactive= await MostrarDatoMultipleActivo(Clients,Locacions);
+
+    res.status(200).json({usuarioInactive});
+}
+
+const FiltrarRutinaConcliente= async(req,res)=>{
+    const { id,idRutine } = req.body;
+
+    if(id && idRutine){
+
+        const usuarioInactive= await MostrarDatorutinaConUser(Rutines,Clients,Exercises,id,idRutine);
+        res.status(200).json({usuarioInactive});
+
+    }else{
+        res.status(400).json({error:"No se ingresaron todos los parametros"})
+    }
+
+}
+
+
+const FiltrarClienteInactivoConSede= async(req,res)=>{
+    
+    const usuarioInactive= await MostrarDatoMultipleInactivo(Clients,Locacions);
+
+    res.status(200).json({usuarioInactive});
+}
+//FiltrarClienteInactivo,FiltrarClienteActivo,activarCliente,inactivarCliente } = require("../controllers/clientControllers
+
 module.exports = { 
     getClientsRequest, 
     postClientsRequest, 
     putClientRequest,
     deleteClientRequest ,
-    getClientsPayments
+    getClientsPayments,
+    FiltrarClienteInactivo,
+    FiltrarClienteActivo,
+    activarCliente,
+    inactivarCliente,
+    FiltrarClienteInactivoConSede,
+    FiltrarClienteActivoConSede,
+    CantActivo,
+    CantInacativo,
+    FiltrarRutinaConcliente
 };

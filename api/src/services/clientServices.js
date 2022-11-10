@@ -202,7 +202,7 @@ module.exports = {
     findClientByNameAndOrEmail, 
     updateClient,
     updatePassword,
-    getIdClientePayments: getPaymentsInfo,
+     getPaymentsInfo,
     updateProfileImage,
     deleteClient,
     getIdClienteSuscription 
