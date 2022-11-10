@@ -50,7 +50,6 @@ function HomeTemplate({ handle, name }: Props) {
             </div>
           </div>
         </div>
-     
     </div>
   );
 }
