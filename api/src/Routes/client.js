@@ -12,14 +12,13 @@ routerClient.get("/clients/payments",isAuthenticated, getClientsPayments);
 routerClient.post("/clients",isAuthenticated,postClientsRequest);
 routerClient.put("/clients",upload ,isAuthenticated,putClientRequest) 
 routerClient.delete("/clients", isAuthenticated,deleteClientRequest);
-routerEmpleado.put("/clientsDesactivar",isAuthenticated,inactivarCliente);
-routerEmpleado.put("/anuncioActivar",isAuthenticated,activarCliente);
-routerEmpleado.get("/FiltrarclientsActivo",isAuthenticated,FiltrarClienteActivo)
-routerEmpleado.get("/FiltrarclientsInactivo",isAuthenticated,FiltrarClienteInactivo)
-routerEmpleado.get("/CantclientsInacativo",isAuthenticated,CantInacativo)
-routerEmpleado.get("/CantclientsActivo",isAuthenticated,CantActivo)
-routerEmpleado.get("/FiltrarClienteInactivoConSede",isAuthenticated,FiltrarClienteInactivoConSede)
-routerEmpleado.get("/FiltrarClienteActivoConSede",isAuthenticated,FiltrarClienteActivoConSede)
-routerEmpleado.get("/FiltrarRutinaConcliente",isAuthenticated,FiltrarRutinaConcliente)
+routerClient.put("/anuncioActivar",isAuthenticated,activarCliente);
+routerClient.get("/FiltrarclientsActivo",isAuthenticated,FiltrarClienteActivo)
+routerClient.get("/FiltrarclientsInactivo",isAuthenticated,FiltrarClienteInactivo)
+routerClient.get("/CantclientsInacativo",isAuthenticated,CantInacativo)
+routerClient.get("/CantclientsActivo",isAuthenticated,CantActivo)
+routerClient.get("/FiltrarClienteInactivoConSede",isAuthenticated,FiltrarClienteInactivoConSede)
+routerClient.get("/FiltrarClienteActivoConSede",isAuthenticated,FiltrarClienteActivoConSede)
+routerClient.get("/FiltrarRutinaConcliente",isAuthenticated,FiltrarRutinaConcliente)
 
 module.exports = routerClient;
