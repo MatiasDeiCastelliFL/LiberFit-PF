@@ -60,8 +60,13 @@ module.exports = {
                 lg_fit: '49rem',
                 table: '30rem',
                 aboutbar: '40rem',
+                xl_aboutbar: '30rem',
+                lg_aboutbar: '35rem',
                 slade: '78rem',
-                tec: '35rem'
+                xl2_slade: '45rem',
+                xl_slade: '48rem',
+                lg_slade: '20rem',
+                tec: '35rem',
             },
             height: {
                 max: "100vh",
@@ -131,6 +136,8 @@ module.exports = {
                 xl_l: '15rem'
             },
             fontSize: {
+                20: '14.5px',
+                10: '10px',
                 90: "90px",
                 51: "51px",
                 12: "12px",
