@@ -18,23 +18,22 @@ interface Props {
 function HomeTemplate({ handle, name }: Props) {
   const params = useParams();
   return (
-    <div className="flex flex-row select-none ">
-  
-        <div className="z-10">
+    <div className="grid grid-flow-row-dense grid-cols-12">
+        <div className="col-span-2">
           <Modal />
           <SideBar handle={handle} setName={name} dashboard={false} />
         </div>
-        <div className="flex w-custom_3 flex-col justify-center ml-sidebar 2xl:ml-sidebar xl:ml-xl lg:ml-lg_sidebar ">
-          <div className="flex flex-col justify-start ">
+        <div className="grid grid-cols-12 col-span-12 col-start-2  ">
+          <div className="col-start-2 col-span-12">
             <NavBar dashboard={false}/>
           </div>
-          <div className="z-0 p-4 xl:ml-10 2xl:ml-8 lg:ml-lg" >
-            <div className="border border-redGray h-52 xl:w-full lg:w-lg_fit mb-2 overflow-hidden">
+          <div className="mt-10 col-start-2 col-span-11  grid grid-cols-12" >
+            <div className="border border-redClare border-opacity-70 col-start-2 col-span-10 overflow-hidden">
               <Anuncio />
             </div>
-            <div className="">
+            <div className="mt-10 col-start-2 col-span-10">
               <BreadCrumbs />
-              <div className="mt-5 lg:w-mi">
+              <div className="mt-5 mb-5">
                 {params.category ? null: <SHom/>}
                 <Transition
                   show={params.category ? true : false}
