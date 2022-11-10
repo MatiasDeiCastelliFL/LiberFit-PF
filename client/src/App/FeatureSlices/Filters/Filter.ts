@@ -4,6 +4,7 @@ import arraySet from "../../utils/arraySet";
 export interface filterState {
     data: any[];
     dataByName: any;
+    activeSearch: boolean;
     dataByPrice: any[];
     dataLocation: any[];
     products: any[];
@@ -29,6 +30,7 @@ const initialState: filterState = {
         exercises: [],
         trainings: [],
     },
+    activeSearch: false,
     dataLocation: [],
     dataByPrice: [],
     products: [],
@@ -125,30 +127,23 @@ const filterSlice = createSlice({
         },
         filterDataName: (state, action: PayloadAction<any>) => {
             if (location.pathname === "/home") {
-                state.dataByName.products = state.products.filter((d) =>
+                state.filteredProducts = state.products.filter((d) =>
                     d.name.toLowerCase().includes(action.payload.toLowerCase())
                 );
-                state.filteredProducts = state.filteredProducts.filter((d) =>
-                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                state.filteredMachines = state.machines.filter((d) =>
+                d.name.toLowerCase().includes(action.payload.toLowerCase())
                 );
-                state.dataByName.machines = state.machines.filter((d) =>
-                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                state.filteredExercises = state.exercises.filter((d) =>
+                d.name.toLowerCase().includes(action.payload.toLowerCase())
                 );
-                state.filteredMachines = state.filteredMachines.filter((d) =>
-                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                state.filteredTrainings = state.trainigns.filter((d) =>
+                d.name.toLowerCase().includes(action.payload.toLowerCase())
                 );
-                state.dataByName.exercises = state.exercises.filter((d) =>
-                    d.name.toLowerCase().includes(action.payload.toLowerCase())
-                );
-                state.filteredExercises = state.filteredExercises.filter((d) =>
-                    d.name.toLowerCase().includes(action.payload.toLowerCase())
-                );
-                state.dataByName.trainings = state.trainigns.filter((d) =>
-                    d.name.toLowerCase().includes(action.payload.toLowerCase())
-                );
-                state.filteredTrainings = state.filteredTrainings.filter((d) =>
-                    d.name.toLowerCase().includes(action.payload.toLowerCase())
-                );
+                state.dataByName.products = state.filteredProducts;
+                state.dataByName.machines = state.filteredMachines;
+                state.dataByName.exercises = state.filteredExercises;
+                state.dataByName.trainings = state.filteredTrainings;
+                state.activeSearch = true;
             } else if (location.pathname === "/home/Exercises") {
                 state.dataByName.exercises = state.exercises.filter((d) =>
                     d.name.toLowerCase().includes(action.payload.toLowerCase())
@@ -184,9 +179,18 @@ const filterSlice = createSlice({
                 );
             }
         },
+        removeDataByName: (state) => {
+            state.dataByName = {
+                products: [],
+                machines: [],
+                exercises: [],
+                trainings: [],
+            };
+            state.activeSearch = false;
+        }
     },
 });
 
 export default filterSlice.reducer;
-export const { getData, filterDataName, filterDataPrice, openFilter, filterByMuscles, filterByBrands } =
+export const { getData, filterDataName, filterDataPrice, openFilter, filterByMuscles, filterByBrands, removeDataByName } =
     filterSlice.actions;
