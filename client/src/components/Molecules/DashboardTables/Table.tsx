@@ -1,93 +1,156 @@
 import React, { useEffect, useState } from "react";
-// line a 2 poner getEmployees
-import { getClients, getEmployees} from "../../../App/Action/Action";
+import { useTable, usePagination } from "react-table";
+import { getClients, getEmployees, getLocations } from "../../../App/Action/Action";
 import { useAppSelector, useAppDispatch } from "../../../App/Hooks/Hooks";
 import Avatar from "react-avatar";
-import EditIMG from "./lapiz.gif"
+import EditIMG from "./lapiz.gif";
 
-const headers: any = {
-    clients: [
-        { key: "image", label: "Avatar" },
-        { key: "name", label: "Cliente" },
-        { key: "phone", label: "Telefono" },
-        { key: "email", label: "Email" },
-        { key: "active", label: "Membresía" },
-        { key: "SubscriptionId", label: "Suscripción" },
-        { key: "Update", label: "Actualizar" }
-    ],
-    employees: [
-        { key: "image", label: "Avatar" },
-        { key: "name", label: "Empleados" },
-        { key: "phone", label: "Telefono" },
-        { key: "email", label: "Email" },
-        { key: "active", label: "Membresía" },
-        { key: "RolId", label: "Rol Empleado" },
-        { key: "Update", label: "Actualizar" }
-    ],
-};
+interface DATA {
+    columns: any;
+    data2: any;
+}
 
 export default function Table({ link }: any) {
-    const { data }: any = useAppSelector((state) => state);
-    console.log(data)
-    const [sortOrder, setSortOrder] = useState("");
+    const allData: any = useAppSelector((state) => state.data);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(getClients());
         dispatch(getEmployees());
+        dispatch(getLocations())
     }, []);
 
-    // console.log(data.clients) - BORRAR
-    // console.log(data.employees) - BORRAR
+    console.log(allData.locations.length)
+
+    const data = React.useMemo(
+        (): any =>
+            allData[link].map((e: any) => {
+                // console.log(e.active)
+                const membershipState = e.active == true ? "Abonada" : "No abonada"
+                const suscriptionName = 
+                e.SubscriptionId == 1 ? "No Suscripto" :
+                e.SubscriptionId == 2 ? "Anual Bonificado" : 
+                e.SubscriptionId == 3 ? "Trimestral Bonificado" : 
+                e.SubscriptionId == 4 ? "Mensual" : null
+
+                console.log("esto es e.suscrip: ", suscriptionName)
+
+                return {
+                    col1: (
+                        <Avatar
+                            className="mr-2"
+                            name={e.name}
+                            size="45"
+                            round={true}
+                        />
+                    ),
+
+                    col2: e.name,
+                    col3: e.phone,
+                    col4: e.email,
+                    col5: membershipState,
+                    col6: suscriptionName,
+                    col7: "Actualizar",
+                };
+            }),
+        []
+    );
+
+    const columns = React.useMemo(
+        (): any => [
+            {
+                Header: "Avatar",
+                accessor: "col1", // accessor is the "key" in the data
+            },
+            {
+                Header: "Nombre",
+                accessor: "col2",
+            },
+            {
+                Header: "Telefono",
+                accessor: "col3",
+            },
+            {
+                Header: "Email",
+                accessor: "col4",
+            },
+            {
+                Header: "Membresía",
+                accessor: "col5",
+            },
+            {
+                Header: "Suscripción",
+                accessor: "col6",
+            },
+            {
+                Header: "Actualizar",
+                accessor: "col7",
+            },
+        ],
+        []
+    );
+
+    const { 
+      getTableProps, 
+      getTableBodyProps, 
+      headerGroups, 
+      rows,
+    //   page, 
+    //   nextPage,
+    //   previousPage,
+    //   canNextPage,
+    //   canPreviousPage,
+      prepareRow,
+    } = useTable({ columns, data },
+      usePagination
+  );
 
     return (
         <div className="flex flex-col">
             <div className="overflow-x-hidden sm:-mx-6 lg:-mx-8">
                 <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                     <div className="overflow-x-auto">
-                        <table className="min-w-full">
-                            <thead className="bg-white border-b">
-                                <tr>
-                                    {headers[link]?.map((key: any) => {
-                                        return (
+                        <table {...getTableProps()} className="min-w-full">
+                            <thead className="border border-black">
+                                {headerGroups.map((headerGroup) => (
+                                    <tr {...headerGroup.getHeaderGroupProps()}>
+                                        {headerGroup.headers.map((column) => (
                                             <th
-                                                key={key.key}
-                                                className="text-sm font-medium text-gray-900 px-6 py-4 text-center"
-                                            >
-                                                {key.label}
+                                                className="text-sm font-medium font-bold text-gray-900 px-6 py-4 text-center"
+                                                {...column.getHeaderProps()}>
+                                                {column.render("Header")}
                                             </th>
-                                        );
-                                    })}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {data[link].map((person: any) => (
-                                    
-                                    <tr key={person.id} className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100 text-center">
-                                        <td className="flex justify-center m-2">
-                                        <Avatar
-                                            className="mr-2"
-                                            name={person.name}
-                                            size="45"
-                                            round={true}
-                                        /> 
-                                        </td>
-                                        <td>{person.name}</td>
-                                        <td>{person.phone}</td>
-                                        <td>{person.email}</td>
-                                        <td>{person.active == true ? "Abonada" : "No Abonada"}</td>
-                                        <td>{
-                                        person.RolId == "1" ? "Propietario" : 
-                                        person.RolId == "2" ? "Entrenador" :
-                                        person.RolId == "3" ? "Cliente" :
-                                        person.RolId == "4" ? "Recepcionista" : null }
-                                        </td>
-                                        <td><button><img src={EditIMG} alt="imagen edición" className="w-8"/>Editar</button></td>
+                                        ))}
                                     </tr>
-                                    
                                 ))}
-                            </tbody>    
+                            </thead>
+                            <tbody {...getTableBodyProps()}>
+                                {rows.map((row: any) => {
+                                    prepareRow(row);
+                                    return (
+                                        <tr
+                                            className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100 text-center"
+                                            {...row.getRowProps()}
+                                        >
+                                            {row.cells.map((cell: any) => {
+                                                return (
+                                                    <td
+                                                        className="py-2"
+                                                        {...cell.getCellProps()}
+                                                    >
+                                                        {cell.render("Cell")}
+                                                    </td>
+                                                );
+                                            })}
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
                         </table>
+                        <div>
+                          {/* <button onClick={() => previousPage()}>Anterior</button>
+                          <button onClick={() => nextPage()}>Siguiente</button> */}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,16 +158,3 @@ export default function Table({ link }: any) {
         
     );
 }
-
-
-
-{/* <tr
-    key={person.id}
-    className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
->
-    {headers[link].map((link: any) => (
-        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-            {person[link.key]}
-        </td>
-    ))}
-</tr> */}
