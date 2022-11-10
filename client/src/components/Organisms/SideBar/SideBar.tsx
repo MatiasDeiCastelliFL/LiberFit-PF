@@ -89,7 +89,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
             title: "Dashboard",
             active: location.pathname.includes("home") ? true : false,
             desplegable: false,
-            link: "/dashboard/admin/home",
+            link: "/dashboard/admin",
             icon: <GoDashboard/>
         },
         {
