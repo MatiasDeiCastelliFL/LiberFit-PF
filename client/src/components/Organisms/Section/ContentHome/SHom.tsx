@@ -11,7 +11,7 @@ function SHom() {
   return (
     <div className=''>
         {
-          filter.activeSearch ? <SearchedCards />
+          filter.activeSearch ? <SearchedCards category='all'/>
           : <CardsContent/>
         }
         <div className='mt-20' id='Membresias'>
