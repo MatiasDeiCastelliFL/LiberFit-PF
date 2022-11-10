@@ -6,6 +6,7 @@ const {isAuthenticated}= require('../Helpers/auth')
 const { upload } = require('../config/multer.config');
 
 
+
 routerClient.get("/clients",isAuthenticated ,getClientsRequest);
 routerClient.get("/clients/payments",isAuthenticated, getClientsPayments); 
 routerClient.post("/clients",isAuthenticated,postClientsRequest);
@@ -20,4 +21,5 @@ routerEmpleado.get("/CantclientsActivo",isAuthenticated,CantActivo)
 routerEmpleado.get("/FiltrarClienteInactivoConSede",isAuthenticated,FiltrarClienteInactivoConSede)
 routerEmpleado.get("/FiltrarClienteActivoConSede",isAuthenticated,FiltrarClienteActivoConSede)
 routerEmpleado.get("/FiltrarRutinaConcliente",isAuthenticated,FiltrarRutinaConcliente)
+
 module.exports = routerClient;

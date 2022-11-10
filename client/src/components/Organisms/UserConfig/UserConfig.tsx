@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
-import Perfil from '../../Atoms/Perfil/Perfil';
+import toast, { Toaster } from 'react-hot-toast';
 import { PencilSquareIcon } from "@heroicons/react/24/outline";
 import Cookies from "universal-cookie"
 import EditConfig from "../../Atoms/EditConfig/EditConfig";
@@ -12,32 +12,29 @@ const UserConfig = () => {
     
     const dispatch = useAppDispatch()
     const cookies = new Cookies()
-    const { data } = useAppSelector((state) => state);
-    const { user } = data
 
     useEffect( () => {
         dispatch(getUserInfo(cookies.get("id")))
     }, [])
 
-
-    useEffect(() => {
-    }, [user])
-
     const today = new Date();
     return(  
         <div className=" flex flex-col justify-center items-center p-10 gap-5 bg-gradient-to-br from-black via-emerald-900 to-green-900">
+            <Toaster
+                position="top-right"
+            />
             <h1 className=" text-4xl text-white font-black font-sans mt-10">Ajustes</h1>
                 <EditProfileImage />
             <div className="flex flex-col divide-y text-white rounded-lg items-start p-5 bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-40 gap-2 w-2/4 h-fit">
                 <h1 className="text-3xl font-black font-sans mb-5">Cuenta</h1>
-                <EditConfig type="text" field="name" title="Nombre" info={user} />
-                <PasswordConfig  field="password" title="Contraseña" info={user} />
-                <EditConfig type="text" field="email" title="Correo" info={user} />
-                <EditConfig type="text" field="phone" title="Teléfono" info={user} />
+                <EditConfig type="text" field="name" title="Nombre"  />
+                <PasswordConfig  title="Contraseña"/>
+                <EditConfig type="text" field="email" title="Correo"  />
+                <EditConfig type="text" field="phone" title="Teléfono" />
             </div>
             <div className="flex flex-col divide-y text-white rounded-lg items-start p-5 bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-40 gap-2 w-2/4 h-fit">
                 <h1 className="text-3xl font-black font-sans mb-5">Membrecía</h1>
-                <EditConfig type="text" field="membership" title="Plan Actual" info={user}/>
+                <EditConfig type="text" field="membership" title="Plan Actual" />
                 <div className="flex justify-between w-full p-4">
                     <div>
                         <h1 className="text-xl font-black font-sans">Facturación</h1>
