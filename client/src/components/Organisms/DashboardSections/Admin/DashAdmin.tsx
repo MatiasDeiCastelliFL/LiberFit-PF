@@ -7,6 +7,8 @@ import DashEmpleados from "./Content/DashEmpleados";
 import DashClientes from "./Content/DashClientes";
 import Ejercicios from "../Cliente/Content/Ejercicios";
 import DashProducts from "./Content/DashProducts";
+import DashTrainings from "./Content/DashTrainings";
+import DashLocations from "./Content/DashLocations";
 
 import { getFilterData } from "../../../../App/Action/FilterActions";
 import { getMainData } from "../../../../App/Action/Action";
@@ -49,6 +51,10 @@ function DashAdmin() {
                     <Ejercicios />
                 ) : location.pathname === "/dashboard/admin/clients" ? (
                     <DashClientes link={"clients"} />
+                ) : location.pathname === "/dashboard/admin/trainings" ? (
+                    <DashTrainings link={"trainings"} />
+                ) : location.pathname === "/dashboard/admin/locations" ? (
+                    <DashLocations link={"locations"} />
                 ) : null}
             </div>)}
         </div>
