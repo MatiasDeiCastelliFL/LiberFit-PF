@@ -3,6 +3,7 @@ import { Rating } from "react-simple-star-rating";
 import Cookies from "universal-cookie";
 import { postReview } from "../../../App/Action/Action";
 import { useAppDispatch } from "../../../App/Hooks/Hooks";
+import toast, { Toaster } from "react-hot-toast";
 
 function CardReview() {
     const cookies = new Cookies();
@@ -17,10 +18,17 @@ function CardReview() {
     const handleRating = (rate: number) => {
         setReview({ ...review, rate: rate });
     };
-
-    const handleButtonClick = () => {
-        dispatch(postReview(review, ""));
+    const handleButtonClick = async () => {
+        await dispatch(postReview(review, ""));
+        toast.success(`Calificacion recibida`, {
+            duration: 6000,
+            position: 'bottom-center',
+        });
     };
+    // toast(`Calificacion recibida`{
+    //     success: `Calificacion recibida`,
+    //     error:`error intentelo mas tarde`,
+    // });
 
     return (
         <div className="w-full p-10">
@@ -47,6 +55,7 @@ function CardReview() {
                 />
                 <button onClick={handleButtonClick}>Calificar</button>
             </div>
+            <Toaster/>
         </div>
     );
 }
