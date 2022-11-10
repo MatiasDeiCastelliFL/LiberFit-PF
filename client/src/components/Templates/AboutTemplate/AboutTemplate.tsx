@@ -29,7 +29,7 @@ function AboutTemplate() {
             portfolio: "",
         },
         {
-            name: "Marcelo Alejandro Barredo",
+            name: "Marcelo Alejandro B.",
             image: perfil1,
             description:
                 "Desarrollador Full Stack de SOY HENRY desempeñado en el back-end",
@@ -100,14 +100,14 @@ function AboutTemplate() {
         setOpen(!open);
     };
     return (
-        <div className="w-full h-max overflow-y-hidden select-none">
-            <div className="">
+        <div className="grid grid-flow-row-dense grid-cols-12 overflow-hidden select-none ">
+            <div className="col-start-1 col-span-12">
                 <NavBar dashboard={false} />
             </div>
-            <div className="flex">
-                <div className="">
-                    <div className="3xl:w-aboutbar xl2:w-aboutbar xl:w-xl_aboutbar lg:w-lg_aboutbar  h-max border-r border-redGray border-opacity-20 mr-2">
-                        <div className="h-max flex  content-center items-center flex-col xl:mt-60 lg:mt-52">
+            
+                <div className="col-start-1 col-span-4">
+                    <div className="w-max  h-max border-r border-redGray border-opacity-20 mr-2">
+                        <div className="h-max flex  content-center items-center flex-col 3xl:mt-60 xl2:mt-48 xl3:mt-24 xl:mt-52 lg:mt-9">
                             <div className="">
                                 <div className="h-20 flex justify-center items-center">
                                     <h1 className="text-center text-3xl font-poppins font-bold text-redClare">
@@ -115,7 +115,7 @@ function AboutTemplate() {
                                     </h1>
                                 </div>
                                 <div className=" flex justify-center items-center flex-col">
-                                    <p className="text-2xl text-center">
+                                    <p className="3xl:text-2xl text-center xl3:text-lg">
                                         De nuestra mayor consideración,
                                         presentamos Proyecto Liberfit, una
                                         aplicación WEB de administración y
@@ -133,7 +133,7 @@ function AboutTemplate() {
                                                 <ChevronDownIcon className="ml-1.5 h-5 w-5 flex-shrink-0 transition duration-300 group-open:-rotate-180" />
                                             </summary>
                                             <div className="p-4 ">
-                                                <p className=" font-poppins font-light text-center ">
+                                                <p className=" font-poppins font-light text-center">
                                                     Por parte de los
                                                     consumidores finales o
                                                     clientes, podrá visualizar
@@ -175,17 +175,17 @@ function AboutTemplate() {
                         </div>
                     </div>
                 </div>
-                <div className="flex  3xl:mt-60 xl:mt-60 xl2:mt-60 w-max xl:flex lg:hidden">
+                <div className="col-span-8  3xl:mt-60 xl:mt-52 xl2:mt-48 xl3:mt-28 w-max xl:flex lg:hidden ">
                     <Swiper
                         slidesPerView={3}
                         spaceBetween={100}
                         autoplay={{
                             delay: 3000,
-                            disableOnInteraction: true,
+                            disableOnInteraction: false,
                         }}
                         grabCursor={true}
                         modules={[Autoplay]}
-                        className="mySwiper 3xl:w-slade xl2:w-xl2_slade xl:w-xl_slade"
+                        className="mySwiper w-max "
                     >
                         {team.map((t) => (
                             <SwiperSlide>
@@ -201,17 +201,17 @@ function AboutTemplate() {
                         ))}
                     </Swiper>
                 </div>
-                <div className="flex xl:hidden w-max lg:mt-28">
+                <div className="col-span-5  xl:hidden  w-max lg:mt-9 ml-32">
                     <Swiper
                         slidesPerView={1}
                         spaceBetween={100}
                         autoplay={{
                             delay: 3000,
-                            disableOnInteraction: true,
+                            disableOnInteraction: false,
                         }}
                         grabCursor={true}
                         modules={[Autoplay]}
-                        className="mySwiper lg:w-lg_slade"
+                        className="mySwiper w-max "
                     >
                         {team.map((t) => (
                             <SwiperSlide>
@@ -227,8 +227,6 @@ function AboutTemplate() {
                         ))}
                     </Swiper>
                 </div>
-                
-            </div>
         </div>
     );
 }

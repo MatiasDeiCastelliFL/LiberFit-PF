@@ -18,7 +18,7 @@ interface Props {
 function HomeTemplate({ handle, name }: Props) {
   const params = useParams();
   return (
-    <div className="grid grid-flow-row-dense grid-cols-12">
+    <div className="grid grid-flow-row-dense grid-cols-12 select-none">
         <div className="col-span-2">
           <Modal />
           <SideBar handle={handle} setName={name} dashboard={false} />
