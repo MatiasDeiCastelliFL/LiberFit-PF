@@ -1,16 +1,25 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useRef} from "react"
+import emailjs from "emailjs-com"
+import toast,{ Toaster } from 'react-hot-toast';
 
 const PaymentComplet = () => {
 
+    useEffect(() => {
+        toast.success("Gracias por su confiar en LiberFit, su pago ha sido completado con exito",
+        {
+            duration: 3000,
+            position: "top-center",
+        })
+        setTimeout(() => {
+            window.close()
+        }, 5000);
+    }, [])
 
-    const conf = confirm("Payment Complet")
-    conf ? window.close() : window.history.back()
-    
     return (
         <div>
-        <h1>PaymentComplet</h1>
+            <Toaster />
         </div>
     );
-    };
+}
 
 export default PaymentComplet;

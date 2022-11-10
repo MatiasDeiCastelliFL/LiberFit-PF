@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import Json from "../../../assets/gym.json";
-import { BoltIcon } from "@heroicons/react/24/outline";
+import { BoltIcon, CurrencyDollarIcon } from "@heroicons/react/24/outline";
 import gold from "../../../assets/IMG/gold.svg";
 import silver from "../../../assets/IMG/silver.svg";
 import bronze from "../../../assets/IMG/bronze.svg";
@@ -18,7 +18,8 @@ const Plan = () => {
 
   const modalOpen = (e:any) => {
     e.preventDefault();
-    const amount = e.target.value.split(",")[0].split(" ")[1];
+    console.log(e.target.value)
+    const amount = e.target.value.split(",")[0];
     const description = e.target.value.split(",")[1];
     dispatch(getInitilizePayment({amount, description}))
     dispatch(openModal(true))
@@ -58,7 +59,7 @@ const Plan = () => {
                 )}
               </div>
               <div className="flex flex-col items-center justify-center">
-                <p className="text-2xl font-black ">{item.price}</p>
+                <p className="text-2xl font-black ">$ {item.price}</p>
               </div>
               <div className="flex flex-col items-center justify-center w-full">
                 <p className="text-xl font-bold">{item.description}</p>

@@ -7,6 +7,7 @@ import {
     filterDataPrice,
     openFilter,
     filterDataName,
+    removeDataByName,
     filterByMuscles,
     filterByBrands,
 } from "../FeatureSlices/Filters/Filter";
@@ -43,9 +44,12 @@ export const getFilterData = () => async (dispatch: any) => {
 };
 
 export const getDataByName = (name: any) => (dispatch: any) => {
-    const dataSet = arraySet(data.flat());
     // dispatch(filterDataName(dataSet.map(d => d).filter(d => d.toLowerCase().includes(name))))
     dispatch(filterDataName(name));
+};
+
+export const removeDataByNameFilter = () => (dispatch: any) => {
+    dispatch(removeDataByName());
 };
 
 export const getDataByPrice =
