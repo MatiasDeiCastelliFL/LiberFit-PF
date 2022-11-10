@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
       },
       rate: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
       },
       comment: {
         type: DataTypes.STRING,

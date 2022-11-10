@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import Rutinas from "./Content/Rutinas";
 import TimerExercise from "../../../Molecules/EjerciciosTimer/TimerExercise";
 import Payments from "../../../Molecules/Payments/Payments";
+import CardReview from '../../../Molecules/CardReview/CardReview';
 
 function Cliente() {
     const location = useLocation();
@@ -16,7 +17,9 @@ function Cliente() {
                 <Rutinas />
             ) : location.pathname.includes("pagos") ? (
                 <Payments />
-            ): null}
+                    ) : location.pathname.includes("") ? (
+                     <CardReview/>   )            :
+                null}
         </div>
     );
 }

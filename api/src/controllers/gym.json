@@ -2153,19 +2153,19 @@
             {
                 "locacionId": "08681955-a1f7-4e9b-ade9-9eff7250892e",
                 "clientId": "054493ba-cb0a-4156-bc3a-0079ada9eecc",
-                "rate": "4.8",
+                "rate": 4,
                 "comment":"Muy buena"
             },
             {
                 "locacionId": "aa46c783-b848-42be-922b-e269a231bbff",
                 "clientId": "3c99b53a-79c4-44b6-88c4-71d81b0a8cf5",
-                "rate": "4.8",
+                "rate": 4,
                 "comment":"Bastante cómoda"
             },
             {
                 "locacionId": "03bd955d-b68b-42a7-bc52-f7a9fb0d432f",
                 "clientId": "e8a43d7d-63df-4362-b9bb-534d63841131",
-                "rate": "4.8",
+                "rate": 5,
                 "comment":"Muy amables"
             }
         ]

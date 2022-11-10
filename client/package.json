@@ -32,6 +32,7 @@
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.2",
     "react-select": "^5.5.7",
+    "react-simple-star-rating": "^5.1.6",
     "react-table": "^7.8.0",
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
