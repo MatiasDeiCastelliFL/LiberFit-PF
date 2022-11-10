@@ -23,6 +23,10 @@ module.exports = (sequelize) => {
     duration:{
       type: DataTypes.INTEGER,
       defaultValue:1
+    },
+    active: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     }
   },
   {

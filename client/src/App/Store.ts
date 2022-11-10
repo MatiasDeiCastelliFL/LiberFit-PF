@@ -5,7 +5,7 @@ import usersReducer from "./FeatureSlices/Users/Users"
 import dataReducer from "./FeatureSlices/Data/Data"
 import loginReducer from './FeatureSlices/login/login'
 import payment from './FeatureSlices/Payments/payments'
-
+import paymentALL from "./FeatureSlices/Payments/payments"
 export const store = configureStore({
     reducer: {
         filter: filterReducer,
@@ -13,7 +13,8 @@ export const store = configureStore({
         users: usersReducer,
         data: dataReducer,
         login: loginReducer,
-        payment:payment
+        payment:payment,
+        paymentALL:paymentALL
     }
 })
 

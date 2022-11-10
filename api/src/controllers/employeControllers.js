@@ -10,7 +10,7 @@ const {
     activarCuenta,
     
 } = require("../services/employeServices");
-const {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo} = require("../Helpers/busqueda")
+const {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,MostrarDatorutinaConUser} = require("../Helpers/busqueda")
 
 const { Employees,Locacions } = require("../db");
 
@@ -56,7 +56,7 @@ const postEmpleado = async (req, res) => {
 const getEmpleado = async (req, res) => {
     const { name, email } = req.query;
     if (name && !email) {
-        const DatoEmpleadoNombre = await buscarEmpleadoPorName(name);
+        const DatoEmpaleadoNombre = await buscarEmpleadoPorName(name);
         if (DatoEmpleadoNombre) {
             res.status(200).json({ DatoEmpleadoNombre });
         } else {
@@ -128,9 +128,9 @@ const FiltrarUsuarioActivo= async(req,res)=>{
 }
 
 const FiltrarUsuarioInactivo= async(req,res)=>{
-    const usuarioInactive= await busquedaDatDesactive(Employees);
+    const DatoUser= await busquedaDatDesactive(Employees);
 
-    res.status(200).json({usuarioInactive});
+    res.status(200).json({DatoUser});
 }
 
 const CantInacativo= async(req,res)=>{
@@ -187,15 +187,29 @@ const activarEmployee = async (req, res) => {
 };
 
 const FiltrarUsuarioActivoConSede= async(req,res)=>{
-    const usuarioInactive= await MostrarDatoMultipleActivo(Employees,Locacions);
+    const DatoUser= await MostrarDatoMultipleActivo(Employees,Locacions);
 
-    res.status(200).json({usuarioInactive});
+    res.status(200).json({DatoUser});
 }
 
 const FiltrarUsuarioInactivoConSede= async(req,res)=>{
-    const usuarioInactive= await MostrarDatoMultipleInactivo(Employees,Locacions);
+    const DatoUser= await MostrarDatoMultipleInactivo(Employees,Locacions);
 
-    res.status(200).json({usuarioInactive});
+    res.status(200).json({DatoUser});
+}
+
+const FiltrarRutinaConUsuario= async(req,res)=>{
+    const { id,idRutine } = req.body;
+
+    if(id && idRutine){
+
+        const DatoUser= await MostrarDatorutinaConUser(Rutines,Employees,Exercises,id,idRutine);
+        res.status(200).json({DatoUser});
+
+    }else{
+        res.status(400).json({error:"No se ingresaron todos los parametros"})
+    }
+
 }
 
 module.exports = {
@@ -210,5 +224,6 @@ module.exports = {
     CantActivo,
     CantInacativo,
     FiltrarUsuarioInactivoConSede,
-    FiltrarUsuarioActivoConSede
+    FiltrarUsuarioActivoConSede,
+    FiltrarRutinaConUsuario
 };

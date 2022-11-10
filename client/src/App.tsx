@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import { Landing, Home, Dashboard, UserConfig, SingUp, Details, CardsCategory, LoginForm, PaymentComplet , PaymentCancel, About} from "./page/Index";
 import { useAuth0 } from "@auth0/auth0-react";
 import Cookies from "universal-cookie";
+import Payments from "./components/Molecules/Payments/Payments";
 function App() {
     const cookies = new Cookies();
     const { user } = useAuth0();
@@ -46,6 +47,7 @@ function App() {
                 {cookies.get("name") || user?.name ? null : (
                     <Route path="/signup" element={<SingUp />} />
                 )}
+                <Route path="/payments" element={<Payments/>}></Route>
                 {cookies.get("name") || user?.name ? (
                     <Route path="/dashboard" element={<Dashboard />}>
                         {cookies.get("RolId") === "3" && (
@@ -61,10 +63,13 @@ function App() {
                             </Route>
                         )}
                     </Route>
+                    
                 ) : null}
                 {cookies.get("name") || user?.name ? (
                     <Route path="/UserConfig" element={<UserConfig />} />
                     ) : null}
+
+                
             </Routes>
         </div>
     );

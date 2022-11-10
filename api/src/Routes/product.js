@@ -4,20 +4,23 @@ const {isAuthenticated}= require('../Helpers/auth')
 const {getProduct,postProduct,deleteProduct,activarProduc,inactivarProduct,CantActivo,
     CantInacativo,
     FiltrarProductoDesactivado,
-    FiltrarProductoActivo} = require("../controllers/productControllers");
+    FiltrarProductoActivo,
+    FiltrarProductoInactivoConSede,
+    FiltrarProductoActivoConSede} = require("../controllers/productControllers");
 
 const routerProduct= Router();
 
 routerProduct.post("/product",isAuthenticated,postProduct);
 routerProduct.get("/product",getProduct);
 routerProduct.delete('/product/:id',isAuthenticated,deleteProduct)
-routerProduct.put("/ProductoDesactivar",inactivarProduct);
-routerProduct.put("/ProductoActivar",activarProduc);
-routerProduct.get("/CantProductoInacativo",CantInacativo)
-routerProduct.get("/CantProductoActivo",CantActivo)
-routerProduct.get("/ProductoActivado",FiltrarProductoDesactivado)
-routerProduct.get("/ProductoDescativado",FiltrarProductoActivo)
-
+routerProduct.put("/ProductoDesactivar",isAuthenticated,inactivarProduct);
+routerProduct.put("/ProductoActivar",isAuthenticated,activarProduc);
+routerProduct.get("/CantProductoInacativo",isAuthenticated,CantInacativo)
+routerProduct.get("/CantProductoActivo",isAuthenticated,CantActivo)
+routerProduct.get("/ProductoActivado",isAuthenticated,FiltrarProductoDesactivado)
+routerProduct.get("/ProductoDescativado",isAuthenticated,FiltrarProductoActivo)
+routerProduct.get("/FiltrarProductoInactivoConSede",isAuthenticated,FiltrarProductoInactivoConSede)
+routerProduct.get("/FiltrarProductoActivoConSede",isAuthenticated,FiltrarProductoActivoConSede)
 
 
 module.exports=routerProduct ;
