@@ -214,7 +214,9 @@ function SideBar({ handle, setName, dashboard }: Props) {
                 >
                     {filter.open ? null : (
                         <div className="mt-5 ml-5">
-                            <Logo />
+                            <button onClick={()=>navigate("/home")}>
+                                <Logo />
+                            </button>
                         </div>
                     )}
                 </Transition>
