@@ -42,21 +42,29 @@ const findClients = async () => {
     return clients
 };
 
-const getIdClientePayments= async(idClient)=>{
-  
-    const TraerCuenta=await Payments.findAll({
-        include:Clients,
-        where:{
-            ClientId:idClient
-        }
-    })
 
-  
-    return TraerCuenta; 
-  }
 
-  const getIdClienteSuscription= async(SubscriptionId)=>{
-  
+const getPaymentsInfo= async(idClient)=>{
+    let dataClient
+    if (idClient) {
+        console.log(idClient)
+        dataClient = await Payments.findAll({
+            include: Clients,
+            where: {
+                ClientId: idClient
+            }
+        });
+    }else{
+        dataClient = await Payments.findAll({
+            include: Clients,
+            
+        });
+    } 
+    return dataClient;
+}
+
+const getIdClienteSuscription= async(SubscriptionId)=>{
+
     const TraerCuenta=await Clients.findAll({
         include: Subscriptions,
         where:{
@@ -64,7 +72,7 @@ const getIdClientePayments= async(idClient)=>{
         }
     })
     return TraerCuenta; 
-  }
+}
 
 const findClientByNameAndOrEmail = async (name, email, id) => {
     if (name && email && id) {
@@ -104,21 +112,22 @@ const findClientByNameAndOrEmail = async (name, email, id) => {
     }
 };
 
-const updateClient = async (id, name, phone, email, password, image) => {
+const updateClient = async (id, name, phone, email, password, image, RolId) => {
     const foundClient = await Clients.findOne({
         where: {
             id: id
         }
     })
 
-    const encryptedPassword = await bcrypt.hash(password,15)
+    // const encryptedPassword = await bcrypt.hash(password,15)
 
     if (foundClient) {
         if(name) await foundClient.update({name: name})
         if(phone) await foundClient.update({phone: phone})
         if(email) await foundClient.update({email: email})
-        if(password) await foundClient.update({password: encryptedPassword})
+        if(password) await foundClient.update({password: password})
         if(image) await foundClient.update({name: name})
+        if(RolId) await foundClient.update({RolId: RolId})
     }
     return foundClient;
 };
@@ -129,12 +138,12 @@ const updatePassword = async (id, password, oldPassword) => {
             id: id
         }
     })
-    const encryptedOldPassword = await bcrypt.hash(oldPassword,15)
-    const encryptedPassword = await bcrypt.hash(password,15)
+    // const encryptedOldPassword = await bcrypt.hash(oldPassword,15)
+    // const encryptedPassword = await bcrypt.hash(password,15)
 
     if (foundClient) {
-        if(encryptedOldPassword === foundClient.password) {
-            await foundClient.update({password: encryptedPassword})
+        if(oldPassword === foundClient.password) {
+            await foundClient.update({password: password})
         } else {
             return 'Contraseña incorrecta'
         }
@@ -193,7 +202,7 @@ module.exports = {
     findClientByNameAndOrEmail, 
     updateClient,
     updatePassword,
-    getIdClientePayments,
+    getIdClientePayments: getPaymentsInfo,
     updateProfileImage,
     deleteClient,
     getIdClienteSuscription 

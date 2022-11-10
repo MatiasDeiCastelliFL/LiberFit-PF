@@ -1,11 +1,14 @@
 const { Payments,Clients,Subscriptions } = require('../db')
-const crearPayment = async (name,active,amount,ClientId,SubscriptionId) => {
+const { monthName } = require("../Helpers/monthName.js");
+const crearPayment = async (amount, ClientId, description) => {
   
   let subscriptionInfo= await Subscriptions.findOne({where:{
-     id:SubscriptionId
+    id:2
   }})
 
-  console.log(subscriptionInfo);
+  let SubscriptionId=subscriptionInfo.id
+  let active=true
+
   let fechaActual=new Date()
 
   let day = fechaActual.getDate()
@@ -24,9 +27,10 @@ const crearPayment = async (name,active,amount,ClientId,SubscriptionId) => {
 
 
   const DatoGenerado=await Payments.create({
-    name,
-    active,
-    amount:subscriptionInfo.price,
+    name: monthName(month-subscriptionInfo.duration),
+    active:true,
+    description:description,
+    amount:amount,
     descripcion:subscriptionInfo.name,
     fechaFinalizacion:fechaFinalizacion,
     ClientId
@@ -45,8 +49,6 @@ const crearPayment = async (name,active,amount,ClientId,SubscriptionId) => {
     })
   }
 
-
- 
 }
 
 const buscarPaymentTotal= async ()=>{
@@ -71,15 +73,24 @@ const ModificarPayment=async(active,id)=>{
   }
 }
 
-const getIdClientePayments= async(id)=>{
-  console.log("llegue",id);
-  const TraerCuenta=await Clients.findAll({
-      include: Payments,
-      where:{
-        id:id
-      }
-  })
-  return TraerCuenta
+
+const getIdClientePayments= async(idClient)=>{
+  let dataClient
+  if (idClient) {
+      console.log(idClient)
+      dataClient = await Payments.findAll({
+          include: Clients,
+          where: {
+              ClientId: idClient
+          }
+      });
+  }else{
+      dataClient = await Payments.findAll({
+          include: Clients,
+          
+      });
+  } 
+  return dataClient;
 }
 
 

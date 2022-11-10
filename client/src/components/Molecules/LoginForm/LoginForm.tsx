@@ -150,7 +150,7 @@ const LoginForm = () => {
                     type={pass ? "text" : "password"}
                     {...register("password", {
                       required: true,
-                      maxLength: 10,
+                      // maxLength: 10,
                       pattern: /^[a-zA-Z0-9\_\-]+$/i,
                     })}
                     placeholder="password.."

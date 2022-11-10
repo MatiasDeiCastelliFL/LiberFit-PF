@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
 
 
 interface Props {
-    field: string;
+    field: any | string;
     type: string;
     title: string;
     info: any;
@@ -21,14 +21,23 @@ const EditConfig = ({field,type, title, info}:Props) => {
     
     const [disable, setDisable] = useState(true);
     
-    const inputRef = useRef<HTMLInputElement>(null);
+    const [error, setError] = useState(false);
     
     const { data } = useAppSelector((state) => state);
     const { user } = data
 
     const [value, setValue] = useState();
 
+    let RegExpresions : any = {
+    }
+
+    RegExpresions = {
+        name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+        email: /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
+        phone: /^\d{7,14}$/,
+    };
     
+
     const handleEdit = () => {
         if (disable===true) {
             setDisable(false)
@@ -38,21 +47,28 @@ const EditConfig = ({field,type, title, info}:Props) => {
     }
 
     const handleChage = (e:any) => {
+        setError(false)
         setValue(e.target.value)
     }
 
-    const handleSubmit = (e:any) => {
+    const onSubmit = (e:any) => {
         e.preventDefault()
-        setDisable(true)
-        dispatch(
-            editUser(
-                {
-                    ...user,
-                    [field]: value
-                }
+        console.log(RegExpresions[field])
+        if (RegExpresions[field].test(value)) {
+            setError(false)
+            setDisable(true)
+            dispatch(
+                editUser(
+                    {
+                        ...user,
+                        [field]: value
+                    }
+                )
             )
-        )
-        alert("Your changes have been saved")
+            alert("Your changes have been saved")
+        } else {
+            setError(true)
+        }
     }
 
 
@@ -68,14 +84,24 @@ const EditConfig = ({field,type, title, info}:Props) => {
         <div className="flex justify-between w-full p-4">
             <div>
                 <h1 className="text-xl">{title}</h1>
-                <form onSubmit={handleSubmit} className='text-md flex gap-2'>
+                <form onSubmit={onSubmit} className='text-md flex gap-2'>
                     {
                         disable ? <p className="text-white bg-transparent h-full" >{data.user[field]}</p> 
                         : 
-                        <div className = "flex gap-3">
-                            <input ref={inputRef} autoFocus placeholder={`Ingresa tu nuevo ${title}`}  onChange={handleChage}  type={type} className="text-white w-fit bg-transparent h-full" value={value}/>
-                            <input type="submit" name="confirmat" id={title} value="Confirmar" className="bg-redClare px-2 rounded-lg" />
-                        </div>  
+                        <div className="flex flex-col">
+                            <div className = "flex gap-3">
+                                <input  autoFocus 
+                                        placeholder={`Ingresa tu nuevo ${title}`}  
+                                        onChange={handleChage}  
+                                        type={type} 
+                                        className="text-white w-fit bg-transparent h-full" 
+                                        value={value}/>
+                                <input type="submit" name="confirmat" id={title} value="Confirmar" className="bg-redClare px-2 rounded-lg" />
+                            </div>  
+                            {
+                                error ? <p className="text-red-500">El formato no es correcto</p> : null
+                            }
+                        </div>
                     }
                 </form>
             </div>

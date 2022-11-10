@@ -9,6 +9,9 @@ export interface filterState {
     clients: any;
     employees: any;
     payment: any;
+    paymentinfo: any;
+    subscriptions: any;
+
 }
 
 const initialState: filterState = {
@@ -18,6 +21,8 @@ const initialState: filterState = {
     payment: [],
     clients: [],
     employees: [],
+    paymentinfo: [],
+    subscriptions: [],
 };
 
 const dataSlice = createSlice({
@@ -31,6 +36,7 @@ const dataSlice = createSlice({
             state.locations = action.payload;
         },
         getUser: (state, action: PayloadAction<any>) => {
+            console.log('data linea 37',action.payload);
             state.user = action.payload;
         },
         getClientsReducer: (state, action: PayloadAction<any>) => {
@@ -39,12 +45,22 @@ const dataSlice = createSlice({
         getEmployeesReducer: (state, action: PayloadAction<any>) => {
             state.employees = action.payload.datoEmpleadoTot
         },
+        initilizePayment: (state, action: PayloadAction<any>) => {
+                console.log(action.payload)
+                state.paymentinfo = {
+                    amount : action.payload.amount,
+                    description : action.payload.description,
+                }
+        },
         postPayment: (state, action: PayloadAction<any>) => {
             state.payment = action.payload;
         },
+        getSubscriptions: (state, action: PayloadAction<any>) => {
+            state.subscriptions = action.payload;
+        }
     },
 });
 
 export default dataSlice.reducer;
-export const { getData, getLocationsReducer, getUser, getClientsReducer,getEmployeesReducer,postPayment } = dataSlice.actions;
+export const { getData, getLocationsReducer, getUser, getClientsReducer,getEmployeesReducer,postPayment, initilizePayment, getSubscriptions } = dataSlice.actions;
       
