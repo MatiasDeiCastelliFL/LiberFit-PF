@@ -19,8 +19,8 @@ routerProduct.get("/CantProductoInacativo",isAuthenticated,CantInacativo)
 routerProduct.get("/CantProductoActivo",isAuthenticated,CantActivo)
 routerProduct.get("/ProductoActivado",isAuthenticated,FiltrarProductoDesactivado)
 routerProduct.get("/ProductoDescativado",isAuthenticated,FiltrarProductoActivo)
-routerEmpleado.get("/FiltrarProductoInactivoConSede",isAuthenticated,FiltrarProductoInactivoConSede)
-routerEmpleado.get("/FiltrarProductoActivoConSede",isAuthenticated,FiltrarProductoActivoConSede)
+routerProduct.get("/FiltrarProductoInactivoConSede",isAuthenticated,FiltrarProductoInactivoConSede)
+routerProduct.get("/FiltrarProductoActivoConSede",isAuthenticated,FiltrarProductoActivoConSede)
 
 
 module.exports=routerProduct ;
