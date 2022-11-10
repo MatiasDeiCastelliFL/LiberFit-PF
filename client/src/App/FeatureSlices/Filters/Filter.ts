@@ -3,7 +3,7 @@ import arraySet from "../../utils/arraySet";
 
 export interface filterState {
     data: any[];
-    dataByName: any[];
+    dataByName: any;
     dataByPrice: any[];
     dataLocation: any[];
     products: any[];
@@ -23,7 +23,12 @@ export interface filterState {
 
 const initialState: filterState = {
     data: [],
-    dataByName: [],
+    dataByName: {
+        products: [],
+        machines: [],
+        exercises: [],
+        trainings: [],
+    },
     dataLocation: [],
     dataByPrice: [],
     products: [],
@@ -62,12 +67,6 @@ const filterSlice = createSlice({
             state.filteredExercises = state.exercises;
             state.filteredTrainings = state.trainigns;
 
-            state.data = [
-                ...state.exercises,
-                ...state.products,
-                ...state.machines,
-                ...state.trainigns,
-            ];
         },
         openFilter: (state, action: PayloadAction<any>) => {
             state.open = action.payload;
@@ -126,44 +125,62 @@ const filterSlice = createSlice({
         },
         filterDataName: (state, action: PayloadAction<any>) => {
             if (location.pathname === "/home") {
-                state.dataByName = arraySet(
-                    [...state.data]
-                        .filter((d) =>
-                            d.name.toLowerCase().includes(action.payload)
-                        )
-                        .flat()
+                state.dataByName.products = state.products.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+                state.filteredProducts = state.filteredProducts.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+                state.dataByName.machines = state.machines.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+                state.filteredMachines = state.filteredMachines.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+                state.dataByName.exercises = state.exercises.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+                state.filteredExercises = state.filteredExercises.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+                state.dataByName.trainings = state.trainigns.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+                state.filteredTrainings = state.filteredTrainings.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
                 );
             } else if (location.pathname === "/home/Exercises") {
-                state.exercises = arraySet(
-                    [...state.exercises]
-                        .filter((d) =>
-                            d.name.toLowerCase().includes(action.payload)
-                        )
-                        .flat()
+                state.dataByName.exercises = state.exercises.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+
+                state.filteredExercises = state.filteredExercises.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
                 );
             } else if (location.pathname === "/home/Trainings") {
-                state.trainigns = arraySet(
-                    [...state.trainigns]
-                        .filter((d) =>
-                            d.name.toLowerCase().includes(action.payload)
-                        )
-                        .flat()
-                );
-            } else if (location.pathname === "/home/Products") {
-                state.products = arraySet(
-                    [...state.products]
-                        .filter((d) =>
-                            d.name.toLowerCase().includes(action.payload)
-                        )
-                        .flat()
+                state.dataByName.trainings = state.trainigns.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
                 );
             } else if (location.pathname === "/home/Machines") {
-                state.machines = arraySet(
-                    [...state.machines]
-                        .filter((d) =>
-                            d.name.toLowerCase().includes(action.payload)
-                        )
-                        .flat()
+                state.dataByName.machines = state.machines.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+                state.filteredMachines = state.filteredMachines.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+            } else if (location.pathname === "/home/Products") {
+                state.dataByName.products = state.products.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+                state.filteredProducts = state.filteredProducts.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+            } else if (location.pathname === "/home/Machines") {
+                state.dataByName.machines = state.machines.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+                state.filteredMachines = state.filteredMachines.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
                 );
             }
         },

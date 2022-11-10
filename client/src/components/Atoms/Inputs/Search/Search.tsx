@@ -1,4 +1,6 @@
 import React from "react";
+import { useAppDispatch } from "../../../../App/Hooks/Hooks";
+import { getDataByName } from "../../../../App/Action/FilterActions";
 
 interface Props {
   Placeholder: any;
@@ -7,9 +9,17 @@ interface Props {
 }
 
 function Search({ Placeholder,setName, style }: Props) {
+
+  const dispatch = useAppDispatch();
+
   const handleInputChange = (e:any) => {
     e.preventDefault();
     setName(e.target.value);
+  }
+
+  const handleSearch = (e:any) => {
+    e.preventDefault();
+    dispatch(getDataByName(e.target.value));
   }
 
   return (
@@ -18,6 +28,7 @@ function Search({ Placeholder,setName, style }: Props) {
       type="text"
       placeholder={Placeholder}
       onChange={handleInputChange}
+      onSubmit={handleSearch}
       style={style}
     />
   );

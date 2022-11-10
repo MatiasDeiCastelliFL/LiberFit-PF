@@ -43,7 +43,6 @@ export const getFilterData = () => async (dispatch: any) => {
 };
 
 export const getDataByName = (name: any) => (dispatch: any) => {
-    const dataSet = arraySet(data.flat());
     // dispatch(filterDataName(dataSet.map(d => d).filter(d => d.toLowerCase().includes(name))))
     dispatch(filterDataName(name));
 };
