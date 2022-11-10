@@ -12,6 +12,7 @@ import {
     filterByBrands,
 } from "../FeatureSlices/Filters/Filter";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users";
+import { payment,paymentALL } from "../FeatureSlices/Payments/payments";
 
 const data = Json[0].sedes.map((d) => d.products.map((d) => d.name));
 const exercises = Json[0].exercises.map((d) => d);
@@ -110,3 +111,26 @@ export const postElement = (payload:any, element:string) =>  (dispatch: any) => 
         console.log(error)
     } 
 }
+
+export const getPaymentInfo = (payload: any,token:any) => async (dispatch: any) => {
+    try {
+       
+        let InforpagoClient = await axios.get(`clients/payments?token=${token}&id=${payload}` ) // {email, password}
+        
+        dispatch(payment(InforpagoClient.data))
+        return InforpagoClient // {}
+    } catch (error) {
+        console.log("-->", error);
+    }
+};
+
+export const getPaymentAllInfo = (token:any) => async (dispatch: any) => {
+    try {
+        let InforpagoClient = await axios.get(`clients/payments?token=${token}`) // {email, password}
+        
+        dispatch(paymentALL(InforpagoClient.data))
+        return InforpagoClient // {}
+    } catch (error) {
+        console.log("-->", error);
+    }
+};

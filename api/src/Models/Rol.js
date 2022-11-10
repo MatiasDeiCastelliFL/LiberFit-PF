@@ -15,6 +15,10 @@ module.exports = (sequelize) => {
                 defaultValue: "Cliente",
                 allowNull: false,
             },
+            active: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: true,
+              }
         },
         {
             freezeTableName: true,

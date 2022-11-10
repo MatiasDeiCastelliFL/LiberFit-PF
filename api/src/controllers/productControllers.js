@@ -123,6 +123,19 @@ const CantActivo = async (req, res) => {
     res.status(200).json({ cantidadActivo });
 };
 
+const FiltrarProductoActivoConSede= async(req,res)=>{
+    const usuarioInactive= await MostrarDatoMultipleActivo(products,Locacions);
+
+    res.status(200).json({usuarioInactive});
+}
+
+const FiltrarProductoInactivoConSede= async(req,res)=>{
+    
+    const usuarioInactive= await MostrarDatoMultipleInactivo(products,Locacions);
+
+    res.status(200).json({usuarioInactive});
+}
+
 module.exports = {
     getProduct,
     postProduct,
@@ -132,5 +145,7 @@ module.exports = {
     CantActivo,
     CantInacativo,
     FiltrarProductoDesactivado,
-    FiltrarProductoActivo
+    FiltrarProductoActivo,
+    FiltrarProductoInactivoConSede,
+    FiltrarProductoActivoConSede
 };

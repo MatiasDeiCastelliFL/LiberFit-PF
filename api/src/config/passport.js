@@ -15,16 +15,17 @@ passport.use(new LocalStrategy(
     const user = await Clients.findOne({ where: { email: email } });
 
     if (!user) {
-      const { email, password, picture, name } = req.body
+
+      const { email, picture, name } = req.body
 
       const create = await createClient(name, phone = "12345", email, password, active = false, picture)
 
       return done(null, create);
 
+    } 
 
-    } else {
-      return done(null, user);
-    }
+    else { return done(null, user)}
+
   }
 )
 );
@@ -39,29 +40,16 @@ passport.use('login', new LocalStrategy(
     const user = await Clients.findOne({ where: { email: email } });
 
     if (dueño && !user) {
-      const contraseñad = await Owners.findOne({ where: { password: password } })
-      if (contraseñad) {
-        return done(null, contraseñad);
-      } else {
-        return done(null, false);
-      }
+      if (dueño.password === password) { return done(null, dueño) }
+      else { return done(new Error(`password incorrect`)) }
     }
-
 
     if (!dueño && user) {
-      const contraseñau = await Clients.findOne({ where: { password: password } })
-      if (contraseñau) {
-        return done(null, contraseñau);
-      } else {
-        return done(null, false);
-      }
+      if (user.password === password) { return done(null, user) }
+      else { return done(new Error(`password incorrect`)) }
     }
 
-    
-    if (!dueño && !user) {
-      return done(null, false);
-    }
-
+    if (!dueño && !user) { return done(new Error(`User not exist`)) }
 
   }
 
@@ -73,6 +61,16 @@ passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
-passport.deserializeUser((user, done) => {
-  done(null, { user: user });
-}); 
+passport.deserializeUser((id, done) => {
+  id.toString().length > 3 ? Clients.findByPk(id).then((user) => {
+    done(null, user);
+  })
+    .catch((err) => {
+      done(new Error(`User with the id ${id} does not exist`));
+    }) : Owners.findByPk(id).then((user) => {
+      done(null, user);
+    })
+      .catch((err) => {
+        done(new Error(`User with the id ${id} does not exist`));
+      })
+});

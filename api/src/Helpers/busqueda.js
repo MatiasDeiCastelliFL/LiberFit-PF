@@ -51,7 +51,7 @@ const contarDatoInactivo= async(modelo)=>{
 
 //Estas 2 funciones seria para usar para cliente o empleado
 const MostrarDatoMultipleActivo = async(modelo1, modelo2)=>{
-     const UserLocal= modelo1.findAll({
+     const UserLocal= await  modelo1.findAll({
         include: modelo2,
         where:{
             active:true
@@ -60,7 +60,7 @@ const MostrarDatoMultipleActivo = async(modelo1, modelo2)=>{
      return UserLocal
 }
 const MostrarDatoMultipleInactivo = async(modelo1, modelo2)=>{
-    const UserLocal= modelo1.findAll({
+    const UserLocal= await  modelo1.findAll({
        include: modelo2,
        where:{
            active:false
@@ -68,6 +68,52 @@ const MostrarDatoMultipleInactivo = async(modelo1, modelo2)=>{
     })
     
     return UserLocal
+}
+
+const MostrarDatorutinaConUser = async(modelo1, modelo2, modelo3,id,idRutine)=>{
+
+
+    if(modelo2 === "Employees"){
+        const UserRutine= await modelo1.findAll({
+            include: modelo2,
+            where:{
+                EmployeeId:id
+            }
+         })
+
+         const RutineEjercio= await modelo1.findAll({
+            include: modelo3,
+            where:{
+                RutineId:idRutine
+            }
+         })
+
+         const resultadoFInal = UserRutine.concat(RutineEjercio);
+
+         return resultadoFInal
+    }else{
+        if(modelo2=="Cliente"){
+            const UserLocal= await modelo1.findAll({
+                include: modelo2,
+                where:{
+                    ClientId:id
+                }
+             })
+             const RutineEjercio= await modelo1.findAll({
+                include: modelo3,
+                where:{
+                    RutineId:idRutine
+                }
+             })
+             const resultadoFInal = UserRutine.concat(RutineEjercio);
+    
+             return resultadoFInal
+        }
+  
+    }
+   
+    
+    
 }
 
 const pagosActivo = async()=>{
@@ -79,7 +125,7 @@ const pagosActivo = async()=>{
 
 
 
-module.exports = {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,pagosActivo};
+module.exports = {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,pagosActivo,MostrarDatorutinaConUser};
 
 
 

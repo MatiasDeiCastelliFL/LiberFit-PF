@@ -77,15 +77,24 @@ const ModificarPayment=async(active,id)=>{
   }
 }
 
-const getIdClientePayments= async(id)=>{
-  console.log("llegue",id);
-  const TraerCuenta=await Clients.findAll({
-      include: Payments,
-      where:{
-        id:id
-      }
-  })
-  return TraerCuenta
+
+const getIdClientePayments= async(idClient)=>{
+  let dataClient
+  if (idClient) {
+      console.log(idClient)
+      dataClient = await Payments.findAll({
+          include: Clients,
+          where: {
+              ClientId: idClient
+          }
+      });
+  }else{
+      dataClient = await Payments.findAll({
+          include: Clients,
+          
+      });
+  } 
+  return dataClient;
 }
 
 
