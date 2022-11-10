@@ -1,42 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useTable, usePagination } from "react-table";
-import { getClients, getEmployees, getLocations } from "../../../App/Action/Action";
+import { getLocations } from "../../../App/Action/Action";
 import { useAppSelector, useAppDispatch } from "../../../App/Hooks/Hooks";
 import Avatar from "react-avatar";
-import EditIMG from "./lapiz.gif";
 
-interface DATA {
-    columns: any;
-    data2: any;
-}
-
-export default function Table({ link }: any) {
+export default function LocationsTable({ link }: any) {
     const allData: any = useAppSelector((state) => state.data);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(getClients());
-        dispatch(getEmployees());
         dispatch(getLocations())
     }, []);
-
-    console.log(allData.locations.length)
 
     const data = React.useMemo(
         (): any =>
             allData[link].map((e: any) => {
-                // console.log(e.active)
-                const membershipState = e.active == true ? "Abonada" : "No abonada"
-                const suscriptionName = 
-                e.SubscriptionId == 1 ? "No Suscripto" :
-                e.SubscriptionId == 2 ? "Anual Bonificado" : 
-                e.SubscriptionId == 3 ? "Trimestral Bonificado" : 
-                e.SubscriptionId == 4 ? "Mensual" : null
-
-                console.log("esto es e.suscrip: ", suscriptionName)
 
                 return {
-                    col1: (
+                    col1: e.id,
+                    col2: (
                         <Avatar
                             className="mr-2"
                             name={e.name}
@@ -44,13 +26,10 @@ export default function Table({ link }: any) {
                             round={true}
                         />
                     ),
-
-                    col2: e.name,
-                    col3: e.phone,
-                    col4: e.email,
-                    col5: membershipState,
-                    col6: suscriptionName,
-                    col7: "Actualizar",
+                    col3: e.name,
+                    col4: e.timeSlot,
+                    col5: e.createdAt,
+                    col6: "Actualizar",
                 };
             }),
         []
@@ -59,32 +38,28 @@ export default function Table({ link }: any) {
     const columns = React.useMemo(
         (): any => [
             {
-                Header: "Avatar",
+                Header: "ID",
                 accessor: "col1", // accessor is the "key" in the data
             },
             {
-                Header: "Nombre",
+                Header: "Avatar",
                 accessor: "col2",
             },
             {
-                Header: "Telefono",
+                Header: "Nombre",
                 accessor: "col3",
             },
             {
-                Header: "Email",
+                Header: "Franja Horaria",
                 accessor: "col4",
             },
             {
-                Header: "Membresía",
+                Header: "Fecha Apertura",
                 accessor: "col5",
             },
             {
-                Header: "Suscripción",
-                accessor: "col6",
-            },
-            {
                 Header: "Actualizar",
-                accessor: "col7",
+                accessor: "col6",
             },
         ],
         []
