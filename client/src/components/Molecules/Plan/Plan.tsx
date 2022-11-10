@@ -18,7 +18,8 @@ const Plan = () => {
 
   const modalOpen = (e:any) => {
     e.preventDefault();
-    const amount = e.target.value.split(",")[0].split(" ")[1];
+    console.log(e.target.value)
+    const amount = e.target.value.split(",")[0];
     const description = e.target.value.split(",")[1];
     dispatch(getInitilizePayment({amount, description}))
     dispatch(openModal(true))

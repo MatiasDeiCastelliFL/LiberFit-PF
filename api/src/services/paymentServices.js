@@ -1,5 +1,9 @@
 const { Payments,Clients,Subscriptions } = require('../db')
 const { monthName } = require("../Helpers/monthName.js");
+const emailjs = require('emailjs-com');
+const axios = require('axios');
+const { SERVICE_ID, TEMPLATE_ID, USER_ID, ACCESS_TOKEN} = process.env;
+
 const crearPayment = async (amount, ClientId, description) => {
   
   let subscriptionInfo= await Subscriptions.findOne({where:{
@@ -85,4 +89,28 @@ const getIdClientePayments= async(id)=>{
 }
 
 
-module.exports = {crearPayment,buscarPaymentTotal, ModificarPayment,getIdClientePayments}
+
+const sendEmail = async (name, email) => {
+
+  const data = {
+    service_id: SERVICE_ID,
+    template_id: TEMPLATE_ID,
+    user_id: USER_ID,
+    accessToken:ACCESS_TOKEN,
+    template_params:{
+      reply_to:email,
+      message: 'Pago realizado',
+      to_name: name,
+    }
+
+  }
+
+  await axios.post(`https://api.emailjs.com/api/v1.0/email/send`,data)
+  .then (res => {
+    console.log(res);
+  }
+  )
+
+};
+
+module.exports = {crearPayment,buscarPaymentTotal, ModificarPayment,getIdClientePayments, sendEmail}

@@ -27,20 +27,20 @@
             {
                 "id": 2,
                 "name": "Oro",
-                "price": 32640,
+                "price": 32,
                 "description": "Anual Bonificado",
                 "duration": 4
             },
             {
                 "id": 3,
                 "name": "Plata",
-                "price": 9180,
+                "price": 28,
                 "description": "Trimestral Bonificado"
             },
             {
                 "id": 4,
                 "name": "Bronce",
-                "price": 3400,
+                "price": 10,
                 "description": "Mensual",
                 "duration": 12
             }

@@ -12,7 +12,8 @@ const {
     crearPayment,
     buscarPaymentTotal,
     ModificarPayment,
-    getIdClientePayments
+    getIdClientePayments,
+    sendEmail
 } = require("../services/paymentServices");
 
 const {pagosActivo} = require("../Helpers/busqueda")
@@ -135,20 +136,18 @@ const getCaptureOrder = async (req, res) => {
                 },
             } 
         );
-        console.log(response.data);
     
         const { amount } = response.data.purchase_units[0].payments.captures[0];
         const description= response.data.purchase_units[0].shipping;
         const payments = response.data.purchase_units[0].payments
-    
-        console.log(amount);
-        console.log(description);
-        console.log(payments);
+        const email = response.data.payer.email_address
+        const name = response.data.payer.name.given_name
     
         const datoPayment = await crearPayment(amount.value,idCliente,descripcion_plan);
+        
+        sendEmail(name, email)
         res.redirect('http://127.0.0.1:5173/paymentComplet');
     }catch (error) {
-        console.log(error);
         res.status(500).send("Algo salio mal");
     }
 
