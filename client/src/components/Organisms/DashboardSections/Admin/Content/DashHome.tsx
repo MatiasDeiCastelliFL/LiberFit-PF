@@ -2,12 +2,13 @@ import React, { useEffect } from "react";
 import LineChart from "../../../../Atoms/DoughnutChart/LineChart";
 import DoughnutChart from "../../../../Atoms/DoughnutChart/DoughnutChart";
 import { useAppSelector, useAppDispatch } from "../../../../../App/Hooks/Hooks";
-import { getClients, getEmployees } from "../../../../../App/Action/Action";
+import { getClients, getEmployees, getTrainings } from "../../../../../App/Action/Action";
 
 function DashHome() {
     useEffect(() => {
         dispatch(getClients());
         dispatch(getEmployees())
+        dispatch(getTrainings())
     }, []);
     const { data }: any = useAppSelector((state) => state);
     const dispatch = useAppDispatch();
@@ -15,6 +16,7 @@ function DashHome() {
     const totalClients = data.clients.length;
     const totalSedes = data.locations.length;
     const totaEemployees = data.employees.length;
+    const totaTrainings = data.trainings.length;
 
     const clientsActive = data.clients.filter(
         (e: any) => e.active === true
@@ -91,7 +93,13 @@ function DashHome() {
         ],
         
     };
-    console.log("data-->",data);
+    // console.log("data-->",data);
+
+    const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
+
+    const d = new Date();
     
     const estados = [
         {
@@ -103,14 +111,14 @@ function DashHome() {
         {
             nombre: "Empleados",
             cantidad: totaEemployees,
-            type: "Profesores",
-            type2: "Activos"
+            type: "Usuarios",
+            type2: "Registrados"
         },
         {
             nombre: "Ganancias",
             cantidad: "$ 15.634",
-            type: "Ingresos",
-            type2: "Totales"
+            type: "Ingresos Totales",
+            type2: `Mes: ${monthNames[d.getMonth()]} `
         },
         {
             nombre: "Clientes",
@@ -120,9 +128,9 @@ function DashHome() {
         },
         {
             nombre: "Entrenamientos",
-            cantidad: 15,
+            cantidad: totaTrainings,
             type: "Clases",
-            type2: "Ofresidas"
+            type2: "Ofrecidas"
         },
     ]
     return (
@@ -132,11 +140,11 @@ function DashHome() {
                 <div className="flex justify-around items-center mb-6" >
                     {
                         estados.map((e) => (
-                            <div className={e.nombre === "Ganancias" ? "flex flex-col justify-around items-center w-62 h-64 rounded-3xl bg-gray-100 border border-slate-200 px-4 py-2"
+                            <div className={e.nombre === "Ganancias" ? "flex flex-col justify-around items-center w-64 h-64 rounded-3xl bg-gray-200 border border-slate-200 px-4 py-2"
                              : "flex flex-col justify-around items-center w-56 rounded-3xl bg-gray-50 border border-slate-200 px-4 py-2"}  >
                                 <div className="flex bg-redClare p-2 w-52 rounded-3xl justify-around items-center">
-                                    <h3 className="text-white" >{e.nombre}</h3>
-                                    <div className="text-white text-4xl " >...</div>
+                                    <h3 className="text-white text-xl"  >{e.nombre}</h3>
+                                    <div className="text-white text-4xl">...</div>
                                 </div>
                                 <div className="mt-2 flex flex-col items-center " >
                                     <h1 className=" text-4xl font-medium font-poppins m-2">{e.cantidad}</h1>
