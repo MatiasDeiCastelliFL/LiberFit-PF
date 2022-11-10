@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect } from "react";
 import { PencilSquareIcon, EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
-import { useStateManager } from "react-select";
+import toast from 'react-hot-toast';
 import { editUser, changePassword } from "../../../App/Action/Action";
 import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
 
@@ -62,6 +62,8 @@ const PasswordConfig = ({title}:Props) => {
                 }  
             )
         )
+        toast.success('Contraseña cambiada con exito')
+        
         if (oldPassword2 === user.password) {
             setOldError(true)  
         } else {
@@ -82,10 +84,10 @@ const PasswordConfig = ({title}:Props) => {
     return (
         <div className="flex justify-between w-full p-4">
             <div>
-                <h1 className="text-xl font-black font-sans">{title}</h1>
+                <h1 className="text-xl font-extrabold">{title}</h1>
                 <form onSubmit={handleSubmit} className='flex text-md flex-col gap-2'>
                     {
-                        (disable)? <input type={showPassword? "text" : "password"} className="text-white bg-transparent h-full" value='........' disabled/>
+                        (disable)? <input type={showPassword? "text" : "password"} className=" text-neutral-500 bg-transparent h-full" value='........' disabled/>
                         : <div>
                             <button className="bg-transparent" onClick={e => setShowPassword(!showPassword)}>
                                 {
@@ -95,18 +97,18 @@ const PasswordConfig = ({title}:Props) => {
                             </button>
                             <div className="flex gap-5 items-center justify-between">
                                 <label htmlFor="oldPassword">Contraseña Antigua</label>
-                                <input type={showPassword? "text" : "password"} placeholder="Ingresa tu antigua contraseña" name="oldPassword" className="text-white w-fit bg-transparent h-full" value={oldPassword} onChange={handleChageOld}/>
+                                <input type={showPassword? "text" : "password"} placeholder="Ingresa tu antigua contraseña" name="oldPassword" className=" text-neutral-500 w-fit bg-transparent h-full" value={oldPassword} onChange={handleChageOld}/>
                             </div>
                             {
                                 oldError && <p className="text-red-500">Contraseña incorrecta</p>
                             }
                             <div className="flex gap-5 items-center justify-between">
                                 <label htmlFor="newPassword">Nueva Contraseña</label>
-                                <input type={showPassword? "text" : "password"} placeholder="Ingresa tu nueva contraseña" name="newPassword" className="text-white w-fit bg-transparent  h-full" value={newPassword} onChange={handleChageNew}/>
+                                <input type={showPassword? "text" : "password"} placeholder="Ingresa tu nueva contraseña" name="newPassword" className=" text-neutral-500 w-fit bg-transparent  h-full" value={newPassword} onChange={handleChageNew}/>
                             </div>
                             <div className="flex gap-5 items-center justify-between">
                                 <label htmlFor="confirmPassword">Confirmar Contraseña</label>
-                                <input type={showPassword? "text" : "password"} placeholder="Ingresa tu antigua contraseña" name="confirmPassword" className="text-white w-fit bg-transparent  h-full" value={confirmPassword} onChange={handleChageConfirm}/>
+                                <input type={showPassword? "text" : "password"} placeholder="Ingresa tu antigua contraseña" name="confirmPassword" className=" text-neutral-500 w-fit bg-transparent  h-full" value={confirmPassword} onChange={handleChageConfirm}/>
                             </div>
                             {
                                 confirmError? <p className="text-red-500">Las contraseñas no coinciden</p> : null
@@ -117,7 +119,7 @@ const PasswordConfig = ({title}:Props) => {
                 </form>
             </div>
             <button className="bg-transparent" onClick={handleEdit}>
-                <PencilSquareIcon className="h-8 w-8 text-white hover:text-redClare"/>
+                <PencilSquareIcon className="h-8 w-8  text-neutral-900 hover:text-redClare"/>
             </button>
         </div>
     );

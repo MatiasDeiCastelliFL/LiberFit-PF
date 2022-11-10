@@ -39,7 +39,7 @@ function DashAdmin() {
         <div className="">
             {cookies.get("RolId") === "1" && (
             <div>
-                {location.pathname === "/dashboard/admin/home" ? (
+                {location.pathname === "/dashboard/admin" ? (
                     <DashHome />
                 ) : location.pathname === "/dashboard/admin/employees" ? (
                     <DashEmpleados link={"employees"} />
