@@ -7,9 +7,10 @@ interface Props {
   Placeholder: any;
   setName : any
   style : React.CSSProperties
+  dashboard: boolean;
 }
 
-function Search({ Placeholder,setName, style }: Props) {
+function Search({ Placeholder,setName, style, dashboard }: Props) {
 
   const { activeSearch } = useAppSelector((state) => state.filter);
 
@@ -34,7 +35,7 @@ function Search({ Placeholder,setName, style }: Props) {
   }
 
   return (
-    <div className="flex bg-redClare justify-around items-center pr-2">
+    <div className={`flex ${dashboard ? null : 'bg-redClare'} justify-around items-center pr-2`}>
       <input
         className="bg-redClare p-2 rounded-lg outline-none w-input px-6"
         type="text"

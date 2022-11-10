@@ -37,7 +37,7 @@ const Rutinas = () => {
         <div className="w-full p-10">
             <div className="w-full flex flex-wrap gap-10">
                 {HardoceRutinas.map((d) => (
-                    <div className="w-96">
+                    <div className="xl:w-96 m-5  lg:w-full">
                         <CardRutinas
                             title={d.title}
                             descripcion={d.descripcion}
