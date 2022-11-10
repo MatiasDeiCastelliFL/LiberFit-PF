@@ -122,7 +122,7 @@ const SingUp = () => {
                     type={pass ? "text" : "password"}
                     {...register("password", {
                       required: true,
-                      pattern: /^[a-zA-Z0-9\_\-]+$/i,
+                      pattern: /^[a-zA-Z0-9\_\-\+]+$/i,
                     })}
                     placeholder="password"
                     className="bg-transparent text-sm focus:outline-none w-full border-b border-red-400 tracking-wider"
