@@ -69,8 +69,9 @@ const LoginForm = () => {
       cookies.set("token",respuesta,{path:"/"})
 
       alert(`Bienvenido ${decode.user.name}`)
-      if (cookies.get("RolId") === "3") navigate("/home")
-      if (cookies.get("RolId") === "1") navigate("/dashboard/admin") //url del rol id 1
+      // if (cookies.get("RolId")) navigate("/home")
+      if (cookies.get("RolId")) window.location.href="/home"
+      // if (cookies.get("RolId") === "1") navigate("/dashboard/admin") //url del rol id 1
       
     })
     .catch(error => {
@@ -151,7 +152,7 @@ const LoginForm = () => {
                     {...register("password", {
                       required: true,
                       // maxLength: 10,
-                      pattern: /^[a-zA-Z0-9\_\-]+$/i,
+                      pattern: /^[a-zA-Z0-9\_\-\+]+$/i,
                     })}
                     placeholder="password.."
                     className="bg-redGray outline-none text-sm flex-1"
