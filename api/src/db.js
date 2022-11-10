@@ -1,8 +1,6 @@
 const { Sequelize } = require("sequelize");
 const path = require("path");
 const fs = require("fs");
- 
-
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB } = process.env;
 const sequelize = new Sequelize(
@@ -10,8 +8,8 @@ const sequelize = new Sequelize(
     {
         logging: false,
     }
-); 
- 
+);
+
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -52,21 +50,21 @@ const {
     Subscriptions,
     Trainings,
     Payments,
+    LocacionReviews,
 } = sequelize.models;
 
 // Declaramos las relaciones:
 Gyms.hasMany(Owners);
 Owners.belongsTo(Gyms);
 
+Locacions.hasMany(LocacionReviews);
+LocacionReviews.belongsTo(Locacions);
+
 Locacions.belongsTo(Gyms);
 Gyms.hasMany(Locacions);
 
-
-
 Locacions.belongsToMany(Machines, { through: "LocacionsMachine" });
 Machines.belongsToMany(Locacions, { through: "LocacionsMachine" });
-
-
 
 Locacions.belongsToMany(Products, { through: "LocacionsProducts" });
 Products.belongsToMany(Locacions, { through: "LocacionsProducts" });
@@ -83,8 +81,6 @@ Employees.belongsToMany(Locacions, { through: "LocacionsEmployees" });
 Locacions.belongsToMany(Subscriptions, { through: "LocacionsSubscription" });
 Subscriptions.belongsToMany(Locacions, { through: "LocacionsSubscription" });
 
-
-
 Trainings.belongsToMany(Rutines, { through: "TrainingsRutines" });
 Rutines.belongsToMany(Trainings, { through: "TrainingsRutines" });
 
@@ -97,7 +93,7 @@ Payments.belongsTo(Clients);
 Clients.belongsTo(Subscriptions);
 Subscriptions.hasMany(Clients);
 
-Clients.hasMany(Rutines); 
+Clients.hasMany(Rutines);
 Rutines.belongsTo(Clients);
 
 Rutines.belongsToMany(Exercises, { through: "RutinesExercises" });
@@ -115,10 +111,7 @@ Clients.belongsTo(Rols);
 Rols.hasMany(Owners);
 Owners.belongsTo(Rols);
 
-
-
 module.exports = {
     ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
     conn: sequelize, // para importart la conexión { conn } = require('./db.js');
 };
- 
