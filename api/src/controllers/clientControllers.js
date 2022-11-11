@@ -148,10 +148,13 @@ const putClientRequest = async (req, res) => {
 
 const deleteClientRequest = async (req, res) => {
     try {
-        const { id, name, email } = req.body;
+        // const { id, name, email } = req.body;
+        const {id} = req.params
 
-        if (id || name || email) {
-            const deletedClient = await deleteClient(id, name, email);
+        if (id) {
+            // console.log("IDDD", id);
+            // console.log("NAMEEE", name);
+            const deletedClient = await deleteClient(id);
             if (deletedClient) {
                 res.status(200).json(`El cliente fue eliminado`);
             } else {
