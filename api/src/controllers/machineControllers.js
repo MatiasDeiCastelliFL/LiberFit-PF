@@ -17,7 +17,8 @@ const postMachine = async (req, res) => {
         )
         res.status(200).json({msg:"Machine guardada"})
     } catch (error) {
-        res.status(404).json({msg:"Machine no guardada"})
+        res.status(500).json(error)
+        console.log(error)
     }
 }
 
@@ -37,7 +38,7 @@ const putMachine = async (req, res) => {
    await  actualizarMachine(name,image,muscle,id)
    res.status(201).json({msg:'machine actaulizada'})
    } catch (error) {
-    res.status(404).json({msg:'machine no se actaulizo'})
+    res.status(500).json({msg:'machine no se actualizo'})
    }
    
  }
