@@ -3,8 +3,12 @@ const { crearRol, enviarRol, borrarRol,actualizarRol } = require('../services/ro
 const postRol = async (req, res) => {
     try {
         const { name } = req.body
-        await crearRol(name)
-        res.status(200).json({ msg: "Rol creado" })
+        const createdRole = await crearRol(name)
+        if (createdRole) {
+            res.status(200).json({ msg: "El Rol fue creado con éxito." })
+        } else {
+            res.status(404).json({ msg: "El rol ya existe, debe elegir otro nombre." })
+        }
     } catch (error) {
         console.log(error)
         res.status(404).json({ msg: "Rol no creado" })
