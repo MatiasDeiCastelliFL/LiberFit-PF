@@ -16,7 +16,8 @@ import {
     initilizePayment,
     getEmployeesReducer,
     getSubscriptionsReducer,
-    getTrainingsReducer
+    getTrainingsReducer,
+    deleteClientsReducer
 } from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users";
 import { login } from "../FeatureSlices/login/login";
@@ -60,6 +61,21 @@ export const getClients = () => async (dispatch: any) => {
         console.log(error);
     }
 };
+
+export const deleteClient = (payload:any) => async (dispatch: any) => {
+    console.log(payload)
+    try {
+        // console.log("Estoy en delete")
+        // console.log("-->",await axios.delete(`http://localhost:3004/clients/${payload}`) );
+        
+        let json = await axios.delete(`http://localhost:3004/clients/${payload}`)
+        console.log("delate-->",json)
+        dispatch(getClientsReducer(payload))
+        return json
+    } catch (error) {
+        console.log("-->", error);
+    }
+}
 
 export const getEmployees = () => async (dispatch: any) => {
     try {
