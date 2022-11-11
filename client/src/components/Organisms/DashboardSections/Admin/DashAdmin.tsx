@@ -9,6 +9,7 @@ import Ejercicios from "../Cliente/Content/Ejercicios";
 import DashProducts from "./Content/DashProducts";
 import DashTrainings from "./Content/DashTrainings";
 import DashLocations from "./Content/DashLocations";
+import DashSuscriptions from "./Content/DashSuscriptions";
 
 import { getFilterData } from "../../../../App/Action/FilterActions";
 import { getMainData } from "../../../../App/Action/Action";
@@ -39,7 +40,7 @@ function DashAdmin() {
 
     return (
             
-        <div className="">
+        <div className="mt-10">
             {cookies.get("RolId") === "1" && (
             <div>
                 { location.pathname === "/dashboard/admin" ? (
@@ -56,6 +57,8 @@ function DashAdmin() {
                     <DashTrainings link={"trainings"} />
                 ) : location.pathname === "/dashboard/admin/locations" ? (
                     <DashLocations link={"locations"} />
+                ) : location.pathname === "/dashboard/admin/suscriptions" ? (
+                    <DashSuscriptions link={"suscriptions"} />
                 ) : null }
             </div>)}
         </div>

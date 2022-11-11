@@ -90,7 +90,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
     const admin = [
         {
             title: "Dashboard",
-            active: location.pathname.includes("home") ? true : false,
+            active: location.pathname === "/dashboard/admin" ? true : false,
             desplegable: false,
             link: "/dashboard/admin",
             icon: <GoDashboard/>
@@ -258,7 +258,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                     `/dashboard/${params.cliente}`
                                 )
                                     ? client.map((d) => (
-                                        <div className="">
+                                        <div className="w-full">
                                             {d.desplegable ? (
                                                 <Link to={d.link}>
                                                     <Item
@@ -267,7 +267,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                                     />
                                                 </Link>
                                             ) : (
-                                                <Link to={d.link} className="">
+                                                <Link to={d.link} className="w-max">
                                                     <Item2
                                                         active={d.active}
                                                         icon={d.icon}
