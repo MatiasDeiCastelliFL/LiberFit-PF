@@ -1783,7 +1783,7 @@
         "roles": [
             {
                 "id": 1,
-                "name": "Recepcionista"
+                "name": "Owner"
             },
             {
                 "id": 2,
@@ -1794,7 +1794,7 @@
                 "name": "Cliente"
             },{
                 "id": 4,
-                "name": "Owner"
+                "name": "Recepcionista"
             }
         ],
         "rutines": [

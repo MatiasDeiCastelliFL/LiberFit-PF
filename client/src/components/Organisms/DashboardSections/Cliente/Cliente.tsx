@@ -10,13 +10,15 @@ function Cliente() {
     console.log(location.pathname);
     return (
         <div>
-            {location.pathname.includes('ejercicios') ? (
+            {
+            location.pathname.includes('ejercicios') ? (
                 <Ejercicios />
             ) : location.pathname.includes("rutinas") ? (
                 <Rutinas />
             ) : location.pathname.includes("pagos") ? (
                 <Payments  />
-            ): <DashHomeClient/>}
+            ): (<DashHomeClient/>)
+            }
         </div>
     );
 }
