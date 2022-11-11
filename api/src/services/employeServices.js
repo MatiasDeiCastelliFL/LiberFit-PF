@@ -3,27 +3,27 @@ const bcrypt= require("bcrypt")
 const {Op}= require("sequelize");
 const {cloudinary} = require("../config/cloudinary.config"); 
 const crearEmpleado = async (
-    name,
-    email,
-    phone,
-    password,
-    active,
-    path,
-    RolId
+  name,
+  email,
+  phone,
+  password,
+  active,
+  image,
+  RolId
 ) => {
-  const image= await cloudinary.v2.uploader.upload(path)
- 
-  
-  await Employees.create({
-    name,
-    email,
-    phone,
-    password,
-    active,
-    image:image.secure_url,
-    RolId
-  })
-  return "Empleado creado con éxito";
+// const image= await cloudinary.v2.uploader.upload(path)
+
+
+await Employees.create({
+  name,
+  email,
+  phone,
+  password,
+  active,
+  image:image,
+  RolId
+})
+return "Empleado creado con éxito";
 }
 
 const buscarEmpleadoTotal= async ()=>{

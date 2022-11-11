@@ -4,13 +4,13 @@ const { getAnuncios, postAnuncios, deleteAnuncios, putAnuncios,FiltrarAnuncioIna
 const routerAnuncio = Router();
 const {isAuthenticated}= require('../Helpers/auth')
 routerAnuncio.get("/anuncios",getAnuncios);
-routerAnuncio.post("/anuncios",isAuthenticated, upload, postAnuncios);
-routerAnuncio.delete("/anuncios/:id",isAuthenticated, deleteAnuncios);
-routerAnuncio.put("/anuncios/:id",isAuthenticated,upload, putAnuncios);
-routerAnuncio.put("/anuncioDesactivar",isAuthenticated,inactivarAnuncio);
-routerAnuncio.put("/anuncioActivar",isAuthenticated,activarAnuncio);
-routerAnuncio.get("/FiltrarAnuncioActivo",isAuthenticated,FiltrarAnuncioActivo)
-routerAnuncio.get("/FiltrarAnuncioInactivo",isAuthenticated,FiltrarAnuncioInactivo)
-routerAnuncio.get("/CantanuncioInacativo",isAuthenticated,CantInacativo)
-routerAnuncio.get("/CantAnuncioActivo",isAuthenticated,CantActivo)
+routerAnuncio.post("/anuncios", upload, postAnuncios);
+routerAnuncio.delete("/anuncios/:id", deleteAnuncios);
+routerAnuncio.put("/anuncios/:id",upload, putAnuncios);
+routerAnuncio.put("/anuncioDesactivar/:id",inactivarAnuncio);
+routerAnuncio.put("/anuncioActivar/:id",activarAnuncio);
+routerAnuncio.get("/FiltrarAnuncioActivo",FiltrarAnuncioActivo)
+routerAnuncio.get("/FiltrarAnuncioInactivo",FiltrarAnuncioInactivo)
+routerAnuncio.get("/CantanuncioInacativo",CantInacativo)
+routerAnuncio.get("/CantAnuncioActivo",CantActivo)
 module.exports = routerAnuncio;

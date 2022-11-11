@@ -5,7 +5,7 @@ const {postRol,getRol,putRol,deleteRol} = require("../controllers/rolControllers
 const routerRol= Router();
 
 routerRol.post("/rol",isAuthenticated,postRol);
-routerRol.get("/rol",isAuthenticated,getRol);
+routerRol.get("/rol",getRol);
 routerRol.put("/rol/:id",isAuthenticated,putRol);
 routerRol.delete("/rol/:id",isAuthenticated,deleteRol);
 

@@ -196,6 +196,32 @@ const deleteClient = async (id, name, email) => {
     }
 };
 
+const inactivarCuenta=async(id)=>{
+
+    await Clients.update({
+      active:false,
+    },{
+      where:{
+        id:id
+      }
+    })
+  
+    return "La cuenta se desactivo correctamente"
+  }
+  
+  const activarCuenta=async(id)=>{
+  
+    Clients.update({
+      active:true,
+    },{
+      where:{
+        id:id
+      }
+    })
+  
+    return "La cuenta se activo correctamente"
+  }
+
 module.exports = {
     createClient, 
     findClients, 
@@ -205,6 +231,8 @@ module.exports = {
      getPaymentsInfo,
     updateProfileImage,
     deleteClient,
-    getIdClienteSuscription 
+    getIdClienteSuscription,
+    inactivarCuenta,
+    activarCuenta
 };
 

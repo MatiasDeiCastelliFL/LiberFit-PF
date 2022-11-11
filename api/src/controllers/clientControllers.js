@@ -8,11 +8,13 @@ const {
     deleteClient,
     getPaymentsInfo,
     getIdClienteSuscription
+    ,inactivarCuenta,
+    activarCuenta
 } = require('../services/clientServices');
 
 const {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,MostrarDatorutinaConUser} = require("../Helpers/busqueda")
 const { validate } = require('../validation/validations');
-const { Clients, Payments,Locacions,Exercises } = require("../db");
+const { Rutines,Clients, Payments,Locacions,Exercises,Employees } = require("../db");
 
 const getClientsRequest = async (req, res) => {
     try {
@@ -187,11 +189,14 @@ const FiltrarClienteActivoConSede= async(req,res)=>{
 }
 
 const FiltrarRutinaConcliente= async(req,res)=>{
-    const { id,idRutine } = req.body;
-
+    console.log("llegue")
+    const {id,idRutine} = req.body;
+   
     if(id && idRutine){
 
         const usuarioInactive= await MostrarDatorutinaConUser(Rutines,Clients,Exercises,id,idRutine);
+
+        console.log(usuarioInactive)
         res.status(200).json({usuarioInactive});
 
     }else{

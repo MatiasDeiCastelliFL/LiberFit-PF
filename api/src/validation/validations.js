@@ -135,34 +135,17 @@ async function validate(input, model) {
         }
     }
 
-    //Verificacion para lo que se trata de model roles
+    //Verificamos que si se manda RolId por Body y este no es vacio, al crear un empleado no puede tener un RolId de Cliente o Propietario.
 
     if (input.RolId && input.RolId !== "") {
-        const dato = await Rols.findOne({
-            where: {
-                id: input.RolId,
-            },
-        });     
 
-        const { name } = await dato;
         if(model==="Employees"){
-            if (name === "Cliente") {
+            if (input.RolId == 1 || input.RolId == 3 ) {
                 errors.push(
-                    "El empleado debe tener un rol, puede ser secretario/a o Profesor/a"
-                );
-            }
-        }else{
-            if (name !== "Cliente") {
-                errors.push(
-                    "El rol a seleccionar tiene que ser cliente debido a que se esta creando"
+                    "El empleado a crear debe tener un Rol distinto a 'Propietario' o 'Cliente'."
                 );
             }
         }
-   
-
-        
-
-      
     }
     return errors;
 }

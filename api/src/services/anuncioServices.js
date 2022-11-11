@@ -52,4 +52,31 @@ const actualizarAnuncio = async (nombre, descripcion, path,id) => {
     return "anuncio actualizado"
 }
 
-module.exports = { createAnuncio, enviarAnuncio, eliminarAnuncio, actualizarAnuncio }
+
+const inactivarCuenta=async(id)=>{
+
+    await Anuncios.update({
+      active:false,
+    },{
+      where:{
+        id:id
+      }
+    })
+  
+    return "La cuenta se desactivo correctamente"
+  }
+  
+  const activarCuenta=async(id)=>{
+  
+    Anuncios.update({
+      active:true,
+    },{
+      where:{
+        id:id
+      }
+    })
+  
+    return "La cuenta se activo correctamente"
+  }
+
+module.exports = { createAnuncio, enviarAnuncio, eliminarAnuncio, actualizarAnuncio,inactivarCuenta,activarCuenta }

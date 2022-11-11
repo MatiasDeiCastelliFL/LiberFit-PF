@@ -33,6 +33,7 @@ const contarDatoActivo= async(modelo)=>{
         where: { active: true },
 
       })
+      
       return CantTotal; 
 }
 
@@ -71,46 +72,57 @@ const MostrarDatoMultipleInactivo = async(modelo1, modelo2)=>{
 }
 
 const MostrarDatorutinaConUser = async(modelo1, modelo2, modelo3,id,idRutine)=>{
+    console.log(modelo1)
 
 
-    if(modelo2 === "Employees"){
-        const UserRutine= await modelo1.findAll({
-            include: modelo2,
-            where:{
-                EmployeeId:id
-            }
-         })
-
-         const RutineEjercio= await modelo1.findAll({
-            include: modelo3,
-            where:{
-                RutineId:idRutine
-            }
-         })
-
-         const resultadoFInal = UserRutine.concat(RutineEjercio);
-
-         return resultadoFInal
-    }else{
-        if(modelo2=="Cliente"){
-            const UserLocal= await modelo1.findAll({
-                include: modelo2,
-                where:{
-                    ClientId:id
-                }
-             })
-             const RutineEjercio= await modelo1.findAll({
-                include: modelo3,
-                where:{
-                    RutineId:idRutine
-                }
-             })
-             const resultadoFInal = UserRutine.concat(RutineEjercio);
-    
-             return resultadoFInal
+    //Modelo 1 == Rutine
+    //Modelo 2 == Clients
+    //Modelo 3 == Exercises
+    const datos= await modelo2.findAll({
+        include:{
+            model:modelo1
+        },
+        where: {
+            id:id
         }
-  
-    }
+    });
+
+    const datosEjercio= await modelo1.findAll({
+        include:{
+            model:modelo3
+        },
+        where:{
+            id:idRutine
+        }
+    })
+
+    return datos + datosEjercio
+    // console.log(modelo1, modelo2, modelo3,id,idRutine);
+    //     console.log("llegue2")
+    //     if(modelo2==="Clients"){
+           
+    //         const UserLocal= await modelo2.findAll({
+    //             include: modelo1,
+    //             where:{
+    //                 id:id
+    //             }
+    //          })
+
+    //          console.log(UserLocal);
+
+    //          console.log(UserLocal)
+
+    //          console.log(UserLocal)
+    //          const RutineEjercio= await modelo1.findAll({
+    //             include: modelo3,
+    //             where:{
+    //                 RutineId:idRutine
+    //             }
+    //          })
+    //          const resultadoFInal = await UserLocal.concat(RutineEjercio);
+    
+    //         return resultadoFInal
+    //     }
    
     
     
