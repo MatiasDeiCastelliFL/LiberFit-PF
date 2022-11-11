@@ -17,7 +17,7 @@ function Home() {
         console.log("params", params);
         dispatch(getFilterData());
         dispatch(getSubscriptionsInfo());
-        cookies.get("id") && dispatch(getUserInfo(cookies.get("id")));
+        cookies.get("id") && dispatch(getUserInfo({id:cookies.get("id"), token:cookies.get("token")}));
         dispatch(getMainData());
     }, [dispatch]);
 

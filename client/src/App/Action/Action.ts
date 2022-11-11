@@ -220,7 +220,7 @@ export const cerrarLogin = () => async (dispatch: any) => {
 
 export const getUserInfo = (payload: any) => async (dispatch: any) => {
     try {
-        let json = await axios.get(`${BASE_URL || Route}/clients`,  {params: {id: payload}}) // {email, password}
+        let json = await axios.get(`${BASE_URL || Route}/clients`,  {params: {id: payload.id, token:payload.token}}) // {email, password}
         dispatch(getUser(json.data[0]))
         return json // {}
     } catch (error) {

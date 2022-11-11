@@ -3,9 +3,8 @@ import Ejercicios from "./Content/Ejercicios";
 import { useLocation } from "react-router-dom";
 import Rutinas from "./Content/Rutinas";
 import TimerExercise from "../../../Molecules/EjerciciosTimer/TimerExercise";
-import Payments from "../../../Molecules/Payments/Payments";
-import CardReview from '../../../Molecules/CardReview/CardReview';
-
+import Payments from "./Content/Payments";
+import DashHomeClient from "./Content/DashHomeClient";
 function Cliente() {
     const location = useLocation();
     console.log(location.pathname);
@@ -16,10 +15,8 @@ function Cliente() {
             ) : location.pathname.includes("rutinas") ? (
                 <Rutinas />
             ) : location.pathname.includes("pagos") ? (
-                <Payments />
-                    ) : location.pathname.includes("") ? (
-                     <CardReview/>   )            :
-                null}
+                <Payments  />
+            ): <DashHomeClient/>}
         </div>
     );
 }

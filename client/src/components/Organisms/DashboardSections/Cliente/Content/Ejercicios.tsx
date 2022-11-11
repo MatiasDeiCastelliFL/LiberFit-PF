@@ -63,7 +63,7 @@ function Ejercicios() {
         },
         {
             minutos: "5 min",
-            ejercicio: "Ejercicios de Cuerpo Completo",
+            ejercicio: "Ejercicios full body",
             descripcion: "",
             icon: <FullBIcon props={{ width: "100%", height: "100%" }} />,
         },
@@ -79,6 +79,8 @@ function Ejercicios() {
                             to={`/dashboard/${user}/ejercicios/${d.ejercicio
                                 .split(" ")
                                 .slice(-1)}`}
+
+                            className="m-5 xl:w-96 lg:w-max"
                         >
                             <CardExercises
                                 minutos={d.minutos}
