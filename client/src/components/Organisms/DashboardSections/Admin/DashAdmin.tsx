@@ -14,6 +14,7 @@ import { getFilterData } from "../../../../App/Action/FilterActions";
 import { getMainData } from "../../../../App/Action/Action";
 import TrainingsForm from "../../../Molecules/CreateInputsContainer/trainingsForm/trainingsForm";
 import Cookies from "universal-cookie";
+
 function DashAdmin() {
     const cookies = new Cookies();
     // TODO botones de modificacion de cada item
@@ -41,21 +42,21 @@ function DashAdmin() {
         <div className="">
             {cookies.get("RolId") === "1" && (
             <div>
-                {location.pathname === "/dashboard/admin" ? (
+                { location.pathname === "/dashboard/admin" ? (
                     <DashHome />
                 ) : location.pathname === "/dashboard/admin/employees" ? (
                     <DashEmpleados link={"employees"} />
-                ) : location.pathname === "/dashboard/admin/Products" ? (
-                    <DashProducts />
+                ) : location.pathname === "/dashboard/admin/products" ? (
+                    <DashProducts link={"products"} />
                 ) : location.pathname === "/dashboard/admin/ejercicios" ? (
-                    <Ejercicios />
+                    <Ejercicios link={"ejercicios"} />
                 ) : location.pathname === "/dashboard/admin/clients" ? (
                     <DashClientes link={"clients"} />
                 ) : location.pathname === "/dashboard/admin/trainings" ? (
                     <DashTrainings link={"trainings"} />
                 ) : location.pathname === "/dashboard/admin/locations" ? (
                     <DashLocations link={"locations"} />
-                ) : null}
+                ) : null }
             </div>)}
         </div>
     );
