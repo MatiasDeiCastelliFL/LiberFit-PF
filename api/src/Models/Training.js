@@ -30,7 +30,6 @@ module.exports = (sequelize) => {
                 type: DataTypes.STRING,
                 defaultValue: "Lunes a Viernes de 08:00 a 21:00hs",
             }
-            // TODO // franja horaria agregar date en string
         },
         {
             freezeTableName: true,

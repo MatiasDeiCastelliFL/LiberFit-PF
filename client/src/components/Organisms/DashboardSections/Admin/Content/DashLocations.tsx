@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LocationsTable from "../../../../Molecules/DashboardTables/LocationsTable"
 
-export default function DashClientes({ link }: any) {
+export default function DashLocations({ link }: any) {
     // const [addItem, setAddItem] = useState(false);
     // const handleAddItem = () => setAddItem(!addItem);
 
