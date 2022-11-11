@@ -16,7 +16,7 @@ export default function Table({ link }: any) {
     const data = React.useMemo(
         (): any =>
             allData[link].map((e: any) => {
-                // console.log(e.active)
+
                 const membershipState = e.active == true ? "Abonada" : "No abonada"
                 const suscriptionName = 
                 e.SubscriptionId == 1 ? "No Suscripto" :
@@ -38,8 +38,7 @@ export default function Table({ link }: any) {
                     col3: e.phone,
                     col4: e.email,
                     col5: membershipState,
-                    // link == "employees" ? (col6: suscriptionName),
-                    col6: link == "employees" ? null : suscriptionName,
+                    col6: suscriptionName,
                     col7: "Actualizar",
                 };
             }),
@@ -69,7 +68,7 @@ export default function Table({ link }: any) {
                 accessor: "col5",
             },
             {
-                Header: "1",
+                Header: "Suscripción",
                 accessor: "col6",
             },
             {
