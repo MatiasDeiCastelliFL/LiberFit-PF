@@ -12,7 +12,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import CardCreation from '../../../../Atoms/Card/CardCreation';
 
-function Ejercicios() {
+export default function Ejercicios({ link }: any) {
     let location = useLocation();
     const user = location.pathname.split('/').slice(2,3)
     console.log('file: Ejercicios.tsx ~ line 17 ~ Ejercicios ~ user', user)
@@ -63,7 +63,7 @@ function Ejercicios() {
         },
         {
             minutos: "5 min",
-            ejercicio: "Ejercicios de Cuerpo Completo",
+            ejercicio: "Ejercicios full body",
             descripcion: "",
             icon: <FullBIcon props={{ width: "100%", height: "100%" }} />,
         },
@@ -79,6 +79,8 @@ function Ejercicios() {
                             to={`/dashboard/${user}/ejercicios/${d.ejercicio
                                 .split(" ")
                                 .slice(-1)}`}
+
+                            className="m-5 xl:w-96 lg:w-max"
                         >
                             <CardExercises
                                 minutos={d.minutos}
@@ -95,5 +97,3 @@ function Ejercicios() {
         </div>
     );
 }
-
-export default Ejercicios;

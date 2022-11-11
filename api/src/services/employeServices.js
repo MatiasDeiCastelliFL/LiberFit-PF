@@ -2,6 +2,7 @@ const { Employees } = require('../db')
 const bcrypt= require("bcrypt")
 const {Op}= require("sequelize");
 const {cloudinary} = require("../config/cloudinary.config"); 
+
 const crearEmpleado = async (
   name,
   email,

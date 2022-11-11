@@ -20,6 +20,7 @@ import { FaUserTie, FaUserFriends, FaRegCreditCard, FaDumbbell, FaClipboardList 
 import { MdOutlineProductionQuantityLimits } from 'react-icons/md';
 import { GiMuscleUp } from 'react-icons/gi';
 import { GoDashboard } from 'react-icons/go';
+import { BsCurrencyDollar } from 'react-icons/bs';
 
 
 interface Props {
@@ -82,20 +83,14 @@ function SideBar({ handle, setName, dashboard }: Props) {
             active: location.pathname.includes("pagos") ? true : false,
             desplegable: false,
             link: `/dashboard/${params.cliente}/pagos`,
-        },
-        {
-            title: "Membresia",
-            active: false,
-            desplegable: true,
-            link: "",
-            icon: <FaRegCreditCard/>
+            icon: <BsCurrencyDollar/>
         },
     ];
 
     const admin = [
         {
             title: "Dashboard",
-            active: location.pathname.includes("home") ? true : false,
+            active: location.pathname === "/dashboard/admin" ? true : false,
             desplegable: false,
             link: "/dashboard/admin",
             icon: <GoDashboard/>
@@ -203,7 +198,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
     // console.log("ibra-->",user)
 
     return (
-        <div className=" flex  h-full  flex-col justify-between fixed border-r border-redGray bg-white select-none overflow-y-auto">
+        <div className={`flex ${dashboard? "w-sidebar" : null} h-full  flex-col justify-between fixed border-r bg-white border-redGray overflow-y-auto`}>
             <div className="">
                 <Transition
                     show={filter.open === false ? true : false}
@@ -230,7 +225,8 @@ function SideBar({ handle, setName, dashboard }: Props) {
                     {!dashboard && (
                         <div className="mb-10">
                             <form onSubmit={handle}>
-                                <Search
+                                <Search 
+                                    dashboard={false}
                                     Placeholder="Search"
                                     setName={setName}
                                     style={{}}
@@ -262,7 +258,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                     `/dashboard/${params.cliente}`
                                 )
                                     ? client.map((d) => (
-                                        <div className="">
+                                        <div className="w-full">
                                             {d.desplegable ? (
                                                 <Link to={d.link}>
                                                     <Item
@@ -271,7 +267,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                                     />
                                                 </Link>
                                             ) : (
-                                                <Link to={d.link}>
+                                                <Link to={d.link} className="w-max">
                                                     <Item2
                                                         active={d.active}
                                                         icon={d.icon}
@@ -319,7 +315,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                     leaveTo="opacity-0 scale-95 "
                 >
                     <div className="border-t border-redGray w-max h-73 flex">
-                        <div className="w-max flex flex-row gaP-20">
+                        <div className="w-max flex flex-row gap-20">
                             <Link to={cookies.get("name") ? "" : "/login"}>
                                 <Perfil
                                     width={

@@ -4,6 +4,7 @@ const { getAnuncios, postAnuncios, deleteAnuncios, putAnuncios,FiltrarAnuncioIna
 const routerAnuncio = Router();
 const {isAuthenticated}= require('../Helpers/auth')
 routerAnuncio.get("/anuncios",getAnuncios);
+
 routerAnuncio.post("/anuncios", upload, postAnuncios);
 routerAnuncio.delete("/anuncios/:id", deleteAnuncios);
 routerAnuncio.put("/anuncios/:id",upload, putAnuncios);
@@ -13,4 +14,5 @@ routerAnuncio.get("/FiltrarAnuncioActivo",FiltrarAnuncioActivo)
 routerAnuncio.get("/FiltrarAnuncioInactivo",FiltrarAnuncioInactivo)
 routerAnuncio.get("/CantanuncioInacativo",CantInacativo)
 routerAnuncio.get("/CantAnuncioActivo",CantActivo)
+
 module.exports = routerAnuncio;

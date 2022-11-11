@@ -15,12 +15,5 @@ const enviarRol= async()=>{
 
 const borrarRol= async(id)=>{
   await Rols.destroy({ where: { id:id }})
-};
-
-const actualizarRol=async (name,id)=>{
-  const Rol = await Rols.findByPk(id)
-  Rol.name= name;
-  Rol.save()
-};
 
 module.exports={crearRol,enviarRol,borrarRol,actualizarRol}

@@ -138,7 +138,7 @@ async function validate(input, model) {
     //Verificamos que si se manda RolId por Body y este no es vacio, al crear un empleado no puede tener un RolId de Cliente o Propietario.
 
     if (input.RolId && input.RolId !== "") {
-
+        
         if(model==="Employees"){
             if (input.RolId == 1 || input.RolId == 3 ) {
                 errors.push(
@@ -147,6 +147,7 @@ async function validate(input, model) {
             }
         }
     }
+    
     return errors;
 }
 

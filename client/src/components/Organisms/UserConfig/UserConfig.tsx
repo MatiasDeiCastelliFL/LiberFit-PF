@@ -20,7 +20,7 @@ const UserConfig = () => {
     }
 
     useEffect( () => {
-        dispatch(getUserInfo(cookies.get("id")))
+        dispatch(getUserInfo({id:cookies.get("id"), token:cookies.get("token")}))
     }, [])
     //bg-gradient-to-bl from-gray-700 via-gray-900 to-black
     const today = new Date();

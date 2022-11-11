@@ -26,7 +26,6 @@ const postEmpleado = async (req, res) => {
     try {
 
         const datoValidacion = await validate(req.body,Employees);
-
         if (datoValidacion.length > 0) {
             res.status(404).json(datoValidacion);
 

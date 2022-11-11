@@ -114,7 +114,6 @@ export const postElement = (payload:any, element:string) =>  (dispatch: any) => 
 
 export const getPaymentInfo = (payload: any,token:any) => async (dispatch: any) => {
     try {
-       
         let InforpagoClient = await axios.get(`clients/payments?token=${token}&id=${payload}` ) // {email, password}
         
         dispatch(payment(InforpagoClient.data))
