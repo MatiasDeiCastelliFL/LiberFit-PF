@@ -163,6 +163,18 @@ export const changeProfileImage = (payload: any) => async (dispatch: any) => {
     }
 };
 
+export const postReview =
+    (payload: any, element: string) => async (dispatch: any) => {
+        try {
+            let json = await axios.post(`${Route || BASE_URL}/clients/review`, payload);
+            console.log("Action");
+            console.log(payload);
+            return {msg:'Tu calificación fue recibida'}
+        } catch (error) {
+            console.log(error);
+            return {error}
+        }
+    };
 export const postElement =
     (payload: any, element: string) => (dispatch: any) => {
         try {

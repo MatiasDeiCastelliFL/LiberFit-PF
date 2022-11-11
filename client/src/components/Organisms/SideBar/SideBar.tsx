@@ -20,6 +20,7 @@ import { FaUserTie, FaUserFriends, FaRegCreditCard, FaDumbbell, FaClipboardList 
 import { MdOutlineProductionQuantityLimits } from 'react-icons/md';
 import { GiMuscleUp } from 'react-icons/gi';
 import { GoDashboard } from 'react-icons/go';
+import { BsCurrencyDollar } from 'react-icons/bs';
 
 
 interface Props {
@@ -82,13 +83,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
             active: location.pathname.includes("pagos") ? true : false,
             desplegable: false,
             link: `/dashboard/${params.cliente}/pagos`,
-        },
-        {
-            title: "Membresia",
-            active: false,
-            desplegable: true,
-            link: "",
-            icon: <FaRegCreditCard/>
+            icon: <BsCurrencyDollar/>
         },
     ];
 
