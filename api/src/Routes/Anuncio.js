@@ -7,10 +7,10 @@ routerAnuncio.get("/anuncios",getAnuncios);
 routerAnuncio.post("/anuncios",isAuthenticated, upload, postAnuncios);
 routerAnuncio.delete("/anuncios/:id",isAuthenticated, deleteAnuncios);
 routerAnuncio.put("/anuncios/:id",isAuthenticated,upload, putAnuncios);
-routerAnuncio.put("/anuncioDesactivar",isAuthenticated,inactivarAnuncio);
-routerAnuncio.put("/anuncioActivar",isAuthenticated,activarAnuncio);
-routerAnuncio.get("/FiltrarAnuncioActivo",isAuthenticated,FiltrarAnuncioActivo)
-routerAnuncio.get("/FiltrarAnuncioInactivo",isAuthenticated,FiltrarAnuncioInactivo)
-routerAnuncio.get("/CantanuncioInacativo",isAuthenticated,CantInacativo)
-routerAnuncio.get("/CantAnuncioActivo",isAuthenticated,CantActivo)
+routerAnuncio.put("/anuncioDesactivar",isAuthenticated, inactivarAnuncio);
+routerAnuncio.put("/anuncioActivar",isAuthenticated, activarAnuncio);
+routerAnuncio.get("/FiltrarAnuncioActivo",isAuthenticated, FiltrarAnuncioActivo)
+routerAnuncio.get("/FiltrarAnuncioInactivo",isAuthenticated, FiltrarAnuncioInactivo)
+routerAnuncio.get("/CantanuncioInacativo",isAuthenticated, CantInacativo)
+routerAnuncio.get("/CantAnuncioActivo",isAuthenticated, CantActivo)
 module.exports = routerAnuncio;
