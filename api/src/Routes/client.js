@@ -7,12 +7,12 @@ const { upload } = require('../config/multer.config');
 
 
 
-routerClient.get("/clients",isAuthenticated ,getClientsRequest);
+routerClient.get("/clients",getClientsRequest);
 routerClient.get("/clients/payments",isAuthenticated, getClientsPayments); 
-routerClient.post("/clients",isAuthenticated,postClientsRequest);
+routerClient.post("/clients",postClientsRequest);
 routerClient.post("/clients/review",isAuthenticated,postReview); 
 routerClient.put("/clients", upload, isAuthenticated, putClientRequest) 
-routerClient.delete("/clients", isAuthenticated,deleteClientRequest);
+routerClient.delete("/clients/:id", deleteClientRequest);
 routerClient.put("/anuncioActivar",isAuthenticated,activarCliente);
 routerClient.get("/FiltrarclientsActivo",isAuthenticated,FiltrarClienteActivo)
 routerClient.get("/FiltrarclientsInactivo",isAuthenticated,FiltrarClienteInactivo)
