@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import TrainingsTable from "../../../../Molecules/DashboardTables/TrainingsTable";
 
-export default function DashClientes({ link }: any) {
-    // const [addItem, setAddItem] = useState(false);
-    // const handleAddItem = () => setAddItem(!addItem);
+export default function DashClientes({ link }: any ) {
 
     const background = {
         background:

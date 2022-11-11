@@ -108,7 +108,7 @@ const crearDesdeJsonATrainingsDb = async () => {
             return {
                 name: train.name,
                 image: train.image,
-                timeSlot: "hoy",
+                timeSlot: train.timeSlot,
             };
         });
     await Trainings.bulkCreate(trainings, {
