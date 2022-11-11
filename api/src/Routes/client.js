@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { getClientsRequest, postClientsRequest, deleteClientRequest, putClientRequest, getClientsPayments,FiltrarClienteInactivoConSede,FiltrarClienteActivoConSede,CantActivo,CantInacativo,FiltrarClienteInactivo,FiltrarClienteActivo,activarCliente,inactivarCliente,FiltrarRutinaConcliente } = require("../controllers/clientControllers");
+const { getClientsRequest, postClientsRequest, deleteClientRequest, putClientRequest, getClientsPayments,postReview,FiltrarClienteInactivoConSede,FiltrarClienteActivoConSede,CantActivo,CantInacativo,FiltrarClienteInactivo,FiltrarClienteActivo,activarCliente,inactivarCliente,FiltrarRutinaConcliente } = require("../controllers/clientControllers");
 const auth = require("../Helpers/auth");
 const routerClient= Router();
 const {isAuthenticated}= require('../Helpers/auth')
@@ -10,7 +10,8 @@ const { upload } = require('../config/multer.config');
 routerClient.get("/clients",isAuthenticated ,getClientsRequest);
 routerClient.get("/clients/payments",isAuthenticated, getClientsPayments); 
 routerClient.post("/clients",isAuthenticated,postClientsRequest);
-routerClient.put("/clients",upload ,isAuthenticated,putClientRequest) 
+routerClient.post("/clients/review",isAuthenticated,postReview); 
+routerClient.put("/clients", upload, isAuthenticated, putClientRequest) 
 routerClient.delete("/clients", isAuthenticated,deleteClientRequest);
 routerClient.put("/anuncioActivar",isAuthenticated,activarCliente);
 routerClient.get("/FiltrarclientsActivo",isAuthenticated,FiltrarClienteActivo)
