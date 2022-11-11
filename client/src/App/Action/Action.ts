@@ -15,7 +15,7 @@ import {
     postPayment,
     initilizePayment,
     getEmployeesReducer,
-    getSubscriptions,
+    getSubscriptionsReducer,
     getTrainingsReducer
 } from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users";
@@ -72,8 +72,17 @@ export const getEmployees = () => async (dispatch: any) => {
 
 export const getTrainings = () => async (dispatch: any) => {
     try {
-        const training = await axios.get(`${BASE_URL || Route}/training`);
-        dispatch(getTrainingsReducer(training.data));
+        const trainings = await axios.get(`${BASE_URL || Route}/training`);
+        dispatch(getTrainingsReducer(trainings.data));
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getSuscriptions = () => async (dispatch: any) => {
+    try {
+        const suscriptions = await axios.get(`${BASE_URL || Route}/suscription`);
+        dispatch(getSubscriptionsReducer(suscriptions.data));
     } catch (error) {
         console.log(error);
     }
@@ -250,15 +259,4 @@ export const postPaymentPaypal = (payload: any) => async (dispatch: any) => {
 export const getInitilizePayment = (payload: any) => async (dispatch: any) => {
     console.log("payload",payload)
     dispatch(initilizePayment(payload))
-}
-
-export const getSubscriptionsInfo = () => async (dispatch: any) => {
-    try {
-        let json = await axios.get(`${BASE_URL || Route}/suscription`)
-        console.log("getSubscriptionsInfo -->",json.data)
-        dispatch(getSubscriptions(json.data.allSuscription))
-        return json
-    } catch (error) {
-        console.log("-->", error);
-    }
 }

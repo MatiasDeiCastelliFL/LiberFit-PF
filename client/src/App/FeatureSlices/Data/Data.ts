@@ -56,7 +56,7 @@ const dataSlice = createSlice({
         postPayment: (state, action: PayloadAction<any>) => {
             state.payment = action.payload;
         },
-        getSubscriptions: (state, action: PayloadAction<any>) => {
+        getSubscriptionsReducer: (state, action: PayloadAction<any>) => {
             state.subscriptions = action.payload;
         },
         getTrainingsReducer: (state, action: PayloadAction<any>) => {
@@ -74,7 +74,7 @@ export const {
     getEmployeesReducer,
     postPayment, 
     initilizePayment, 
-    getSubscriptions,
+    getSubscriptionsReducer,
     getTrainingsReducer 
 } = dataSlice.actions;
       
