@@ -17,6 +17,11 @@ const borrarRol= async(id)=>{
   await Rols.destroy({ where: { id:id }})
 }
 
+const actualizarRol= async(name,id)=>{
+  await Rols
+  .update({ name:name }, { where: { id:id } })
+}
 
 
-module.exports={crearRol,enviarRol,borrarRol}//,actualizarRol}
+
+module.exports={crearRol,enviarRol,borrarRol, actualizarRol}

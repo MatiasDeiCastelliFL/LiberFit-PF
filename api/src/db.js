@@ -110,6 +110,7 @@ Clients.belongsTo(Rols);
 
 Rols.hasMany(Owners);
 Owners.belongsTo(Rols);
+// console.log(sequelize.models);
 
 module.exports = {
     ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

@@ -1,6 +1,6 @@
 //TODO busqueda de dato Cliente y empleado payments
 
-const {paymentSuscription} = require("../db");
+// const {paymentSuscription} = require("../db");
 
 
 /** Funcion para traer todas las cuenta de usuario, cliente , payments o otro modelo que tienen el atribute active */

@@ -4,7 +4,7 @@ const {postSuscription, getAllSuscription}= require("../controllers/suscriptionC
 
 const routerSuscription= Router();
 
-routerSuscription.post("/suscription",isAuthenticated,postSuscription);
+routerSuscription.post("/suscription",isAuthenticated ,postSuscription);
 routerSuscription.get("/suscription",getAllSuscription);
 
 module.exports=routerSuscription ;
