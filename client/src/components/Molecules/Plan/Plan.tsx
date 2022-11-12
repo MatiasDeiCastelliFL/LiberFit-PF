@@ -21,7 +21,9 @@ const Plan = () => {
     console.log(e.target.value)
     const amount = e.target.value.split(",")[0];
     const description = e.target.value.split(",")[1];
-    dispatch(getInitilizePayment({amount, description}))
+    const id = e.target.value.split(",")[2];
+    console.log(amount, description, id)
+    dispatch(getInitilizePayment({amount, description, id}))
     dispatch(openModal(true))
   }
 
@@ -39,7 +41,7 @@ const Plan = () => {
         </p>
       </div>
       <div className="flex gap-24">
-        {subscriptions.map((item: { name: string | any; price: string | number | any ; description: string | number | any },i: React.Key | null | undefined) => {
+        {subscriptions.map((item: { name: string | any; price: string | number | any ; description: string | number | any ; id: any },i: React.Key | null | undefined) => {
           return (
             item.name === 'No Suscripto' ? null:
             <div
@@ -65,7 +67,7 @@ const Plan = () => {
                 <p className="text-xl font-bold">{item.description}</p>
               </div>
               <div>
-                <button className="bg-white text-redClare p-5 rounded-lg" value={[item.price, item.description]} onClick={modalOpen}>
+                <button className="bg-white text-redClare p-5 rounded-lg" value={[item.price, item.description, item.id]} onClick={modalOpen}>
                   Subscribirse
                 </button >
               </div>

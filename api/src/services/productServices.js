@@ -1,4 +1,5 @@
-const { Products,Locacions } = require('../db')
+const {Products}  = require('../db') 
+
 const {cloudinary}=require('../config/cloudinary.config')
 const fs = require ('fs-extra')
 
@@ -20,6 +21,8 @@ const crearProduct = async (
     image,
     LocacionId
     ) => {
+    console.log(Products)
+
   // const data = await cloudinary.v2.uploader.upload(path)
  const producto= await Products.create({
     name,

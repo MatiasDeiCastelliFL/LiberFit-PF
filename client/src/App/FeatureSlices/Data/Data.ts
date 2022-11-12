@@ -51,6 +51,7 @@ const dataSlice = createSlice({
                 state.paymentinfo = {
                     amount : action.payload.amount,
                     description : action.payload.description,
+                    subscriptionId : action.payload.id,
                 }
         },
         postPayment: (state, action: PayloadAction<any>) => {
