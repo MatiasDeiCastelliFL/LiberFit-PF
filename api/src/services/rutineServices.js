@@ -39,8 +39,8 @@ const crearRutine = async (body) => {
 	    });
 	
 	    
-	    // await rutine.addExercise(exercise);
-	    // await rutine.addTraining(training);
+	    await rutine.addExercises(exercise);
+	    await rutine.addTraining(training);
 	
 } catch (error) {
 	console.error(error);

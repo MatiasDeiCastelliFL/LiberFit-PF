@@ -3,7 +3,7 @@ const {getLocacion,postLocacion,putLocacion,deleteLocacion,getLocacionById }= re
 const {isAuthenticated}= require('../Helpers/auth')
 const routerLocacion= Router();
 
-routerLocacion.post("/locacion",isAuthenticated,postLocacion);
+routerLocacion.post("/locacion",postLocacion);
 routerLocacion.get("/locacion",getLocacion);
 routerLocacion.get("/locacion/:id",isAuthenticated,getLocacionById);
 routerLocacion.get("/locacion/",isAuthenticated,getLocacionById);
