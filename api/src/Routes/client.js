@@ -7,20 +7,21 @@ const { upload } = require('../config/multer.config');
 
 
 
-routerClient.get("/clients", getClientsRequest);
-
+routerClient.get("/clients",getClientsRequest);
+routerClient.get("/clients/payments",isAuthenticated, getClientsPayments); 
 routerClient.post("/clients",postClientsRequest);
-routerClient.put("/clients",upload ,putClientRequest) 
-routerClient.delete("/clients",deleteClientRequest);
-routerClient.put("/clientesActivar",activarCliente);
-routerClient.put("/clientesInactivar",inactivarCliente);
-routerClient.get("/FiltrarclientsActivo",FiltrarClienteActivo)
-routerClient.get("/FiltrarclientsInactivo",FiltrarClienteInactivo)
-routerClient.get("/CantclientsInacativo",CantInacativo)
-routerClient.get("/CantclientsActivo",CantActivo)
-routerClient.get("/FiltrarClienteInactivoConSede",FiltrarClienteInactivoConSede)
-routerClient.get("/FiltrarClienteInactivoConSede",FiltrarClienteActivoConSede)
-routerClient.get("/FiltrarRutinaConcliente",FiltrarRutinaConcliente)
-routerClient.get("/clients/payments",getClientsPayments); 
+routerClient.post("/clients/review",isAuthenticated,postReview); 
+routerClient.put("/clients", upload, isAuthenticated, putClientRequest) 
+routerClient.delete("/clients/:id", deleteClientRequest);
+routerClient.put("/anuncioActivar",isAuthenticated,activarCliente);
+routerClient.get("/FiltrarclientsActivo",isAuthenticated,FiltrarClienteActivo)
+routerClient.get("/FiltrarclientsInactivo",isAuthenticated,FiltrarClienteInactivo)
+routerClient.get("/CantclientsInacativo",isAuthenticated,CantInacativo)
+routerClient.get("/CantclientsActivo",isAuthenticated,CantActivo)
+routerClient.get("/FiltrarClienteInactivoConSede",isAuthenticated,FiltrarClienteInactivoConSede)
+routerClient.get("/FiltrarClienteActivoConSede",isAuthenticated,FiltrarClienteActivoConSede)
+routerClient.get("/FiltrarRutinaConcliente",isAuthenticated,FiltrarRutinaConcliente)
+
+
  
 module.exports = routerClient;

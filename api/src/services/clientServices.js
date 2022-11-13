@@ -262,5 +262,6 @@ module.exports = {
     deleteClient,
     getIdClienteSuscription,
     inactivarCuenta,
-    activarCuenta
+    activarCuenta,
+    createReview
 };
