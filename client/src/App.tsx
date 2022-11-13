@@ -5,6 +5,7 @@ import { Landing, Home, Dashboard, UserConfig, SingUp, Details, CardsCategory, L
 import { useAuth0 } from "@auth0/auth0-react";
 import Cookies from "universal-cookie";
 import Payments from "./components/Molecules/Payments/Payments";
+import Timer from "./components/Organisms/Timer/Timer";
 function App() {
     const cookies = new Cookies();
     const { user } = useAuth0();
@@ -53,7 +54,7 @@ function App() {
                         {cookies.get("RolId") === "3" && (
                             <Route path="/dashboard/:cliente">
                                 <Route path="/dashboard/:cliente/:item" />
-                                <Route path="/dashboard/:cliente/:item/:ejercicio" />
+                                <Route path="/dashboard/:cliente/:item/:ejercicio"/>
                             </Route>
                         )}
                         {cookies.get("RolId") === "1" && (
