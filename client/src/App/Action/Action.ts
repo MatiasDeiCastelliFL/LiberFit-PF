@@ -15,8 +15,9 @@ import {
     postPayment,
     initilizePayment,
     getEmployeesReducer,
-    getSubscriptions,
-    getTrainingsReducer
+    getSubscriptionsReducer,
+    getTrainingsReducer,
+    deleteClientsReducer
 } from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users";
 import { login } from "../FeatureSlices/login/login";
@@ -61,6 +62,21 @@ export const getClients = () => async (dispatch: any) => {
     }
 };
 
+export const deleteClient = (payload:any) => async (dispatch: any) => {
+    console.log(payload)
+    try {
+        // console.log("Estoy en delete")
+        // console.log("-->",await axios.delete(`http://localhost:3004/clients/${payload}`) );
+        
+        let json = await axios.delete(`http://localhost:3004/clients/${payload}`)
+        console.log("delate-->",json)
+        dispatch(getClientsReducer(payload))
+        return json
+    } catch (error) {
+        console.log("-->", error);
+    }
+}
+
 export const getEmployees = () => async (dispatch: any) => {
     try {
         const employee = await axios.get(`${BASE_URL || Route}/empleado`);
@@ -72,8 +88,17 @@ export const getEmployees = () => async (dispatch: any) => {
 
 export const getTrainings = () => async (dispatch: any) => {
     try {
-        const training = await axios.get(`${BASE_URL || Route}/training`);
-        dispatch(getTrainingsReducer(training.data));
+        const trainings = await axios.get(`${BASE_URL || Route}/training`);
+        dispatch(getTrainingsReducer(trainings.data));
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getSuscriptions = () => async (dispatch: any) => {
+    try {
+        const suscriptions = await axios.get(`${BASE_URL || Route}/suscription`);
+        dispatch(getSubscriptionsReducer(suscriptions.data));
     } catch (error) {
         console.log(error);
     }
@@ -163,6 +188,18 @@ export const changeProfileImage = (payload: any) => async (dispatch: any) => {
     }
 };
 
+export const postReview =
+    (payload: any, element: string) => async (dispatch: any) => {
+        try {
+            let json = await axios.post(`${Route || BASE_URL}/clients/review`, payload);
+            console.log("Action");
+            console.log(payload);
+            return {msg:'Tu calificación fue recibida'}
+        } catch (error) {
+            console.log(error);
+            return {error}
+        }
+    };
 export const postElement =
     (payload: any, element: string) => (dispatch: any) => {
         try {
@@ -208,7 +245,7 @@ export const cerrarLogin = () => async (dispatch: any) => {
 
 export const getUserInfo = (payload: any) => async (dispatch: any) => {
     try {
-        let json = await axios.get(`${BASE_URL || Route}/clients`,  {params: {id: payload}}) // {email, password}
+        let json = await axios.get(`${BASE_URL || Route}/clients`,  {params: {id: payload.id, token:payload.token}}) // {email, password}
         dispatch(getUser(json.data[0]))
         return json // {}
     } catch (error) {
@@ -238,15 +275,4 @@ export const postPaymentPaypal = (payload: any) => async (dispatch: any) => {
 export const getInitilizePayment = (payload: any) => async (dispatch: any) => {
     console.log("payload",payload)
     dispatch(initilizePayment(payload))
-}
-
-export const getSubscriptionsInfo = () => async (dispatch: any) => {
-    try {
-        let json = await axios.get(`${BASE_URL || Route}/suscription`)
-        console.log("getSubscriptionsInfo -->",json.data)
-        dispatch(getSubscriptions(json.data.allSuscription))
-        return json
-    } catch (error) {
-        console.log("-->", error);
-    }
 }

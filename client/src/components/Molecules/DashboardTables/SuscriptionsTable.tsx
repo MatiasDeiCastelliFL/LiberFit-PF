@@ -1,38 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useTable, usePagination } from "react-table";
-import { getClients, getEmployees, getLocations, getTrainings, deleteClient } from "../../../App/Action/Action";
+import { getSuscriptions } from "../../../App/Action/Action";
 import { useAppSelector, useAppDispatch } from "../../../App/Hooks/Hooks";
 import Avatar from "react-avatar";
 
-export default function Table({ link }: any) {
+export default function SubscriptionTable({ link }: any) {
     const allData: any = useAppSelector((state) => state.data);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(getClients())
-        dispatch(getEmployees())
+        dispatch(getSuscriptions())
     }, []);
 
-    const handleDeleteUser = (e: any, id :any) => {
-        console.log("e -->",e)
-        console.log("id -->",id)
-        dispatch(deleteClient(id))
-    }
+    console.log("---> ", allData)
 
     const data = React.useMemo(
         (): any =>
             allData[link].map((e: any) => {
 
-                const membershipState = e.active == true ? "Abonada" : "No abonada"
-                const suscriptionName = 
-                e.SubscriptionId == 1 ? "No Suscripto" :
-                e.SubscriptionId == 2 ? "Anual Bonificado" : 
-                e.SubscriptionId == 3 ? "Trimestral Bonificado" : 
-                e.SubscriptionId == 4 ? "Mensual" : null
-                const id = e.id
-
                 return {
-                    col1: (
+                    col1: e.id,
+                    col2: (
                         <Avatar
                             className="mr-2"
                             name={e.name}
@@ -40,13 +28,9 @@ export default function Table({ link }: any) {
                             round={true}
                         />
                     ),
-
-                    col2: e.name,
-                    col3: e.phone,
-                    col4: e.email,
-                    col5: membershipState,
-                    col6: suscriptionName,
-                    col7: <button className="bg-red-500 p-2" onClick={(e) => handleDeleteUser(e,id) }>Delete</button>,
+                    col3: e.name,
+                    col4: e.timeSlot,
+                    col5: "Actualizar",
                 };
             }),
         []
@@ -55,32 +39,24 @@ export default function Table({ link }: any) {
     const columns = React.useMemo(
         (): any => [
             {
-                Header: "Avatar",
+                Header: "ID",
                 accessor: "col1", // accessor is the "key" in the data
             },
             {
-                Header: "Nombre",
+                Header: "Avatar",
                 accessor: "col2",
             },
             {
-                Header: "Telefono",
+                Header: "Nombre",
                 accessor: "col3",
             },
             {
-                Header: "Email",
+                Header: "Franja Horaria",
                 accessor: "col4",
             },
             {
-                Header: "Membresía",
+                Header: "Actualizar",
                 accessor: "col5",
-            },
-            {
-                Header: "Suscripción",
-                accessor: "col6",
-            },
-            {
-                Header: "Delete",
-                accessor: "col7",
             },
         ],
         []
@@ -112,7 +88,7 @@ export default function Table({ link }: any) {
                                     <tr {...headerGroup.getHeaderGroupProps()}>
                                         {headerGroup.headers.map((column) => (
                                             <th
-                                                className="text-sm font-medium text-gray-900 px-6 py-4 text-center"
+                                                className="text-sm font-medium font-bold text-gray-900 px-6 py-4 text-center"
                                                 {...column.getHeaderProps()}>
                                                 {column.render("Header")}
                                             </th>

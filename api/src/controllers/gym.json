@@ -193,43 +193,43 @@
                         "id": 1,
                         "name": "Funcional",
                         "image": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 2,
                         "name": "Boxeo",
                         "image": "https://images.unsplash.com/photo-1606335543042-57c525922933?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1ODk2MTIwNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 3,
                         "name": "Spinning",
                         "image": "https://i.blogs.es/a82e3b/istock-1134717663-1-/500_333.jpeg",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 4,
                         "name": "Yoga",
                         "image": "https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/temas/yoga.jpg",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 5,
                         "name": "Crossfit",
                         "image": "https://images.unsplash.com/photo-1434596922112-19c563067271?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 6,
                         "name": "Gap",
                         "image": "https://images.unsplash.com/photo-1536922246289-88c42f957773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIyNzY5Mjk4&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 7,
                         "name": "Body Combat",
                         "image": "https://images.unsplash.com/photo-1602827113876-839bcf3ccb3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2NjcxNDUzMw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     }
                 ]
             },
@@ -379,31 +379,31 @@
                         "id": 1,
                         "name": "Funcional",
                         "image": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 4,
                         "name": "Yoga",
                         "image": "https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/temas/yoga.jpg",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 5,
                         "name": "Crossfit",
                         "image": "https://images.unsplash.com/photo-1434596922112-19c563067271?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 6,
                         "name": "Gap",
                         "image": "https://images.unsplash.com/photo-1536922246289-88c42f957773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIyNzY5Mjk4&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 7,
                         "name": "Body Combat",
                         "image": "https://images.unsplash.com/photo-1602827113876-839bcf3ccb3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2NjcxNDUzMw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     }
                 ]
             },
@@ -532,43 +532,43 @@
                         "id": 1,
                         "name": "Funcional",
                         "image": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 2,
                         "name": "Boxeo",
                         "image": "https://images.unsplash.com/photo-1606335543042-57c525922933?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1ODk2MTIwNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 3,
                         "name": "Spinning",
                         "image": "https://i.blogs.es/a82e3b/istock-1134717663-1-/500_333.jpeg",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 4,
                         "name": "Yoga",
                         "image": "https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/temas/yoga.jpg",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 5,
                         "name": "Crossfit",
                         "image": "https://images.unsplash.com/photo-1434596922112-19c563067271?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 6,
                         "name": "Gap",
                         "image": "https://images.unsplash.com/photo-1536922246289-88c42f957773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIyNzY5Mjk4&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 7,
                         "name": "Body Combat",
                         "image": "https://images.unsplash.com/photo-1602827113876-839bcf3ccb3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2NjcxNDUzMw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     }
                 ]
             },
@@ -704,37 +704,37 @@
                         "id": 1,
                         "name": "Funcional",
                         "image": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 2,
                         "name": "Boxeo",
                         "image": "https://images.unsplash.com/photo-1606335543042-57c525922933?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1ODk2MTIwNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 4,
                         "name": "Yoga",
                         "image": "https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/temas/yoga.jpg",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 5,
                         "name": "Crossfit",
                         "image": "https://images.unsplash.com/photo-1434596922112-19c563067271?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 6,
                         "name": "Gap",
                         "image": "https://images.unsplash.com/photo-1536922246289-88c42f957773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIyNzY5Mjk4&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 7,
                         "name": "Body Combat",
                         "image": "https://images.unsplash.com/photo-1602827113876-839bcf3ccb3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2NjcxNDUzMw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     }
                 ]
             },
@@ -863,37 +863,37 @@
                         "id": 1,
                         "name": "Funcional",
                         "image": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 2,
                         "name": "Boxeo",
                         "image": "https://images.unsplash.com/photo-1606335543042-57c525922933?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1ODk2MTIwNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 3,
                         "name": "Spinning",
                         "image": "https://i.blogs.es/a82e3b/istock-1134717663-1-/500_333.jpeg",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 4,
                         "name": "Yoga",
                         "image": "https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/temas/yoga.jpg",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 6,
                         "name": "Gap",
                         "image": "https://images.unsplash.com/photo-1536922246289-88c42f957773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIyNzY5Mjk4&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 7,
                         "name": "Body Combat",
                         "image": "https://images.unsplash.com/photo-1602827113876-839bcf3ccb3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2NjcxNDUzMw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     }
                 ]
             },
@@ -1015,19 +1015,19 @@
                         "id": 1,
                         "name": "Funcional",
                         "image": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 6,
                         "name": "Gap",
                         "image": "https://images.unsplash.com/photo-1536922246289-88c42f957773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIyNzY5Mjk4&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 7,
                         "name": "Body Combat",
                         "image": "https://images.unsplash.com/photo-1602827113876-839bcf3ccb3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2NjcxNDUzMw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     }
                 ]
             },
@@ -1135,31 +1135,31 @@
                         "id": 3,
                         "name": "Spinning",
                         "image": "https://i.blogs.es/a82e3b/istock-1134717663-1-/500_333.jpeg",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 4,
                         "name": "Yoga",
                         "image": "https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/temas/yoga.jpg",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 5,
                         "name": "Crossfit",
                         "image": "https://images.unsplash.com/photo-1434596922112-19c563067271?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 6,
                         "name": "Gap",
                         "image": "https://images.unsplash.com/photo-1536922246289-88c42f957773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxhbGx8fHx8fHx8fHwxNjIyNzY5Mjk4&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 7,
                         "name": "Body Combat",
                         "image": "https://images.unsplash.com/photo-1602827113876-839bcf3ccb3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2NjcxNDUzMw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     }
                 ]
             },
@@ -1302,31 +1302,31 @@
                         "id": 1,
                         "name": "Funcional",
                         "image": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 2,
                         "name": "Boxeo",
                         "image": "https://images.unsplash.com/photo-1606335543042-57c525922933?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1ODk2MTIwNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 3,
                         "name": "Spinning",
                         "image": "https://i.blogs.es/a82e3b/istock-1134717663-1-/500_333.jpeg",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 4,
                         "name": "Yoga",
                         "image": "https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/temas/yoga.jpg",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 5,
                         "name": "Crossfit",
                         "image": "https://images.unsplash.com/photo-1434596922112-19c563067271?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     }
                 ]
             },
@@ -1476,31 +1476,31 @@
                         "id": 1,
                         "name": "Funcional",
                         "image": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 2,
                         "name": "Boxeo",
                         "image": "https://images.unsplash.com/photo-1606335543042-57c525922933?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1ODk2MTIwNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 3,
                         "name": "Spinning",
                         "image": "https://i.blogs.es/a82e3b/istock-1134717663-1-/500_333.jpeg",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 4,
                         "name": "Yoga",
                         "image": "https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/temas/yoga.jpg",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     },
                     {
                         "id": 5,
                         "name": "Crossfit",
                         "image": "https://images.unsplash.com/photo-1434596922112-19c563067271?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-                        "timeSlot": "hoy"
+                        "timeSlot": "Lunes a Viernes de 08:00 a 21:00hs"
                     }
                 ]
             }
@@ -1783,7 +1783,7 @@
         "roles": [
             {
                 "id": 1,
-                "name": "Recepcionista"
+                "name": "Owner"
             },
             {
                 "id": 2,
@@ -1794,7 +1794,7 @@
                 "name": "Cliente"
             },{
                 "id": 4,
-                "name": "Owner"
+                "name": "Recepcionista"
             }
         ],
         "rutines": [
@@ -2151,22 +2151,22 @@
         ],
         "reviews": [
             {
-                "id": 1,
-                "idEmployee": 1,
-                "idClient": 2,
-                "value": 4.8
+                "locacionId": "08681955-a1f7-4e9b-ade9-9eff7250892e",
+                "clientId": "054493ba-cb0a-4156-bc3a-0079ada9eecc",
+                "rate": 4,
+                "comment":"Muy buena"
             },
             {
-                "id": 2,
-                "idEmployee": 2,
-                "idClient": 2,
-                "value": 5
+                "locacionId": "aa46c783-b848-42be-922b-e269a231bbff",
+                "clientId": "3c99b53a-79c4-44b6-88c4-71d81b0a8cf5",
+                "rate": 4,
+                "comment":"Bastante cómoda"
             },
             {
-                "id": 3,
-                "idEmployee": 1,
-                "idClient": 2,
-                "value": 4.5
+                "locacionId": "03bd955d-b68b-42a7-bc52-f7a9fb0d432f",
+                "clientId": "e8a43d7d-63df-4362-b9bb-534d63841131",
+                "rate": 5,
+                "comment":"Muy amables"
             }
         ]
     }

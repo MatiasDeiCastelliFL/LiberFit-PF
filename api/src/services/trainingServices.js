@@ -69,6 +69,7 @@ const buscarTrainings = async () => {
         res.status(400).json(error);
     }
 };
+
 module.exports = {
     crearTraining,
     borrarTraining,

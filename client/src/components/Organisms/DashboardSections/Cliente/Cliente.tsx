@@ -3,9 +3,9 @@ import Ejercicios from "./Content/Ejercicios";
 import { useLocation, useParams } from "react-router-dom";
 import Rutinas from "./Content/Rutinas";
 import TimerExercise from "../../../Molecules/EjerciciosTimer/TimerExercise";
-import Payments from "../../../Molecules/Payments/Payments";
 import Timer from "../../Timer/Timer";
-
+import Payments from "./Content/Payments";
+import DashHomeClient from "./Content/DashHomeClient";
 function Cliente() {
     const location = useLocation();
     const params = useParams()
@@ -21,7 +21,7 @@ function Cliente() {
                 <Payments />
             ): location.pathname === `/dashboard/${user}/ejercicios/${params.ejercicio}` ? (
                 <Timer/>
-            ) : null}
+            ) : (<DashHomeClient/>)}
         </div>
     );
 }

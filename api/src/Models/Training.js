@@ -25,8 +25,11 @@ module.exports = (sequelize) => {
             active: {
                 type: DataTypes.BOOLEAN,
                 defaultValue: true,
-              }
-            // TODO // franja horaria agregar date en string
+              },
+            timeSlot: {
+                type: DataTypes.STRING,
+                defaultValue: "Lunes a Viernes de 08:00 a 21:00hs",
+            }
         },
         {
             freezeTableName: true,

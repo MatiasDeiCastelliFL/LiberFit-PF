@@ -6,6 +6,7 @@ export interface filterState {
     data: any;
     locations: [];
     user: any;
+    allClients: any,
     clients: any;
     employees: any;
     payment: any;
@@ -20,6 +21,7 @@ const initialState: filterState = {
     locations: [],
     user: [],
     payment: [],
+    allClients: [],
     clients: [],
     employees: [],
     paymentinfo: [],
@@ -41,6 +43,7 @@ const dataSlice = createSlice({
             state.user = action.payload;
         },
         getClientsReducer: (state, action: PayloadAction<any>) => {
+            state.allClients = action.payload;
             state.clients = action.payload;
         },
         getEmployeesReducer: (state, action: PayloadAction<any>) => {
@@ -56,11 +59,15 @@ const dataSlice = createSlice({
         postPayment: (state, action: PayloadAction<any>) => {
             state.payment = action.payload;
         },
-        getSubscriptions: (state, action: PayloadAction<any>) => {
+        getSubscriptionsReducer: (state, action: PayloadAction<any>) => {
             state.subscriptions = action.payload;
         },
         getTrainingsReducer: (state, action: PayloadAction<any>) => {
             state.trainings = action.payload;
+        },
+        deleteClientsReducer: (state, action: PayloadAction<any>) => {
+            // let filtrado = state.allClients.map((e: any) => e.id !== action.payload )
+            state.clients = state.clients.filter((e: any) => e.id !== action.payload )
         }
     },
 });
@@ -74,7 +81,8 @@ export const {
     getEmployeesReducer,
     postPayment, 
     initilizePayment, 
-    getSubscriptions,
-    getTrainingsReducer 
+    getSubscriptionsReducer,
+    getTrainingsReducer,
+    deleteClientsReducer
 } = dataSlice.actions;
       

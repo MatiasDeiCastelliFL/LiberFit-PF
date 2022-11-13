@@ -12,5 +12,15 @@ Content-Type: application/json
   "password":"ertertre",
   "image":"https://ui-avatars.com/api/?name=ric+obs"
 }
+### un cliente crea una review
+POST http://localhost:3004/clients/review
+Content-Type: application/json
+
+{ 
+  "email":"jeevanrojas@gmail.com",
+  "comment":"Muy buena",
+  "rate":5, 
+  "location":"AbsoluteFit - Sede Bernal"
+}
 ###
 GET http://localhost:3004/clients

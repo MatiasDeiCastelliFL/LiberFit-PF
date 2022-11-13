@@ -12,7 +12,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import CardCreation from '../../../../Atoms/Card/CardCreation';
 
-function Ejercicios() {
+export default function Ejercicios({ link }: any) {
     let location = useLocation();
     const user = location.pathname.split('/').slice(2,3)
     console.log('file: Ejercicios.tsx ~ line 17 ~ Ejercicios ~ user', user)
@@ -97,5 +97,3 @@ function Ejercicios() {
         </div>
     );
 }
-
-export default Ejercicios;

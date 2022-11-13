@@ -4,8 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import { Landing, Home, Dashboard, UserConfig, SingUp, Details, CardsCategory, LoginForm, PaymentComplet , PaymentCancel, About} from "./page/Index";
 import { useAuth0 } from "@auth0/auth0-react";
 import Cookies from "universal-cookie";
-import Payments from "./components/Molecules/Payments/Payments";
-import Timer from "./components/Organisms/Timer/Timer";
+import Payments from "./components/Organisms/DashboardSections/Cliente/Content/Payments";
 function App() {
     const cookies = new Cookies();
     const { user } = useAuth0();
