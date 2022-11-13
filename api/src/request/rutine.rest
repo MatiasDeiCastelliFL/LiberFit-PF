@@ -8,7 +8,8 @@ Content-Type: application/json
   "name":"aumento de masa muscular avanzado",
   "nameExcersise":[1,2],
   "nameTraining":[1,3],
- 
+  "ClientId":"0ce09b08-fcbd-447e-ac89-70328d301ffb",
+  "EmployeeId":"23884f32-3e44-4652-a9e5-602b96bf2afb"
 } 
 
 ###

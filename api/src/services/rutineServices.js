@@ -1,4 +1,4 @@
-const { Rutines, Exercises, Trainings, Clients } = require("../db");
+const { Rutines, Exercises, Trainings, Clients,Employee } = require("../db");
 
 const api = require("../controllers/gym.json");
 const {
@@ -22,73 +22,25 @@ const crearRutine = async (body) => {
         const rutine = await Rutines.create({
             name: name,
             ClientId: ClientId,
-            EmployeeId,
-            EmployeeId,
+            EmployeeId:EmployeeId,
         });
-
-        
-	    const exercise = await Exercises.findOne({
-	        where: {
-	            name: nameExcersise,
-	        },
-	    });
-	    const training = await Trainings.findOne({
-	        where: {
-	            name:nameTraining,
-	        },
-	    });
-	
-	    
-	    await rutine.addExercises(exercise);
-	    await rutine.addTraining(training);
-	
+	   
+	    await rutine.addExercises(nameExcersise);
+	    await rutine.addTraining(nameTraining);
 } catch (error) {
 	console.error(error);
 }
 };
 
 const updateRutine = async (id, body) => {
-    const { nameExcersise,ClientName,EmployeeName} = body;
+    const { name,EmployeeName} = body;
     try {
         let rutineToUpdate = await Rutines.findOne({ where: { id } });
         rutineToUpdate.update({
-            nameExcersise,
-            ClientName,
-            EmployeeName,
-            repetition,
-            series,
-            video,
-            image,
-            muscle,
-        });
-        const exercise = await Exercises.findOrCreate({
-            where: {
-                name: nameExcersise,
-            },
-        });
-        const training = await Trainings.findOrCreate({
-            where: {
-                name: nameTraining,
-            },
-        });
-        // Traer por nombre el cliente
-        const cliente = await Clients.findOne({
-            where: {
-                id: ClientName,
-            },
-        });
-        const empleado = await EMployees.findOne({
-            where: {
-                id: EmployeeName,
-            },
+            name,
+            EmployeeId:EmployeeName
         });
 
-        await rutine.addEmployee(empleado);
-
-        // await cliente.addRutine(rutine);
-
-        await rutine.addExercise(exercise);
-        await rutine.addTraining(training);
         return rutineToUpdate;
     } catch (error) {
         return error.errors.map((e) => e.message);
