@@ -53,9 +53,9 @@ export const getLocations = () => async (dispatch: any) => {
     }
 };
 
-export const getClients = () => async (dispatch: any) => {
+export const getClients = (payload:any) => async (dispatch: any) => {
     try {
-        const clients = await axios.get(`${BASE_URL || Route}/clients`);
+        const clients = await axios.get(`${BASE_URL || Route}/clients`,{params: {token:payload.token}});
         dispatch(getClientsReducer(clients.data));
     } catch (error) {
         console.log(error);
@@ -74,6 +74,7 @@ export const deleteClient = (payload:any) => async (dispatch: any) => {
         console.log("-->", error);
     }
 }
+
 
 export const deleteEmployee = (payload:any) => async (dispatch: any) => {
     // console.log(payload)
@@ -108,10 +109,9 @@ export const postLocacion = (payload: any) => async (dispatch: any) => {
         console.log("--->", error);
     }
 };
-
-export const getEmployees = () => async (dispatch: any) => {
+export const getEmployees = (payload:any) => async (dispatch: any) => {
     try {
-        const employee = await axios.get(`${BASE_URL || Route}/empleado`);
+        const employee = await axios.get(`${BASE_URL || Route}/empleado`, {params: {token:payload.token}});
         dispatch(getEmployeesReducer(employee.data));
     } catch (error) {
         console.log(error);
