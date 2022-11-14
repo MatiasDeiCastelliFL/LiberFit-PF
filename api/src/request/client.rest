@@ -6,10 +6,10 @@ POST http://localhost:3004/clients
 Content-Type: application/json
 
 {
-  "name":"Carlos ",
-  "phone":"4234455",
-  "email":"carlod31@gamil.com",
-  "password":"ertertre",
+  "name":"Carlos ramos",
+  "phone":"3146491024",
+  "email":"carlosrgonzales88@gmail.com",
+  "password":"1234567",
   "image":"https://ui-avatars.com/api/?name=ric+obs"
 }
 ### un cliente crea una review
