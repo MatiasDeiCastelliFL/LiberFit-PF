@@ -1,6 +1,12 @@
-const { createAnuncio, enviarAnuncio, eliminarAnuncio, actualizarAnuncio } = require('../services/anuncioServices');
+const { createAnuncio, enviarAnuncio, eliminarAnuncio, actualizarAnuncio,inactivarCuenta,activarCuenta } = require('../services/anuncioServices');
 const { Anuncios } = require('../db')
 const {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo} = require("../Helpers/busqueda")
+
+const {
+    validate,
+    CuentaActiva,
+    CuentaDesactivar
+} = require("../validation/validations");
 const getAnuncios =async (req, res) => {
     try {
         const anuncio = await enviarAnuncio();
@@ -46,23 +52,40 @@ try {
 }
 
 const FiltrarAnuncioActivo= async(req,res)=>{
-    const usuarioActive= await busquedaDatActive(Anuncios);
 
-    res.status(200).json({usuarioActive});
+    try {
+        const usuarioActive= await busquedaDatActive(Anuncios);
+
+        res.status(200).json({usuarioActive});     
+    } catch (error) {
+
+        console.log(error.message)
+        
+    }
+   
 }
 
 const FiltrarAnuncioInactivo= async(req,res)=>{
-    const usuarioInactive= await busquedaDatDesactive(Anuncios);
+    try {
+        
+        const usuarioInactive= await busquedaDatDesactive(Anuncios);
+        
+        res.status(200).json({usuarioInactive});
+    } catch (error) {
+        
+        console.log(error.message)
+    }
 
-    res.status(200).json({usuarioInactive});
 }
 
 const inactivarAnuncio = async (req, res) => {
 
 
     try {
-        const { id } = req.body;
+        const { id } = req.params;
+        
         const desactivarCuenta = await CuentaDesactivar(id, Anuncios);
+        console.log(desactivarCuenta);
         if (desactivarCuenta === true) {
             await inactivarCuenta(id);
 
@@ -79,7 +102,7 @@ const inactivarAnuncio = async (req, res) => {
  cuenta desactivada le va a permitr activa su cuenta sino le va a decir que su cuenta ya se encuentra activada*/
 const activarAnuncio = async (req, res) => {
     try {
-        const { id } = req.body;
+        const { id } = req.params;
 
         const accountActive = await CuentaActiva(id, Anuncios);
         if (accountActive === false) {

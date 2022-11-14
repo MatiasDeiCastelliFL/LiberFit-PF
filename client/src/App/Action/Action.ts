@@ -266,6 +266,7 @@ export const postPaymentPaypal = (payload: any) => async (dispatch: any) => {
                 amount: payload.amount , 
                 description: payload.description,
                 ClientId: payload.ClientId,
+                subscriptionId : payload.subscriptionId,
             }
         });
         const href =  res.data.links[1].href
