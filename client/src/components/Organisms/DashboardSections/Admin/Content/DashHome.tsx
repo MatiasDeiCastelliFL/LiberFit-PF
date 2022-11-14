@@ -3,15 +3,18 @@ import LineChart from "../../../../Atoms/DoughnutChart/LineChart";
 import DoughnutChart from "../../../../Atoms/DoughnutChart/DoughnutChart";
 import { useAppSelector, useAppDispatch } from "../../../../../App/Hooks/Hooks";
 import { getClients, getEmployees, getTrainings } from "../../../../../App/Action/Action";
-
+import Cookies from "universal-cookie";
 function DashHome() {
+
+    const dispatch = useAppDispatch();
+    const cookies = new Cookies();
+
     useEffect(() => {
-        dispatch(getClients());
-        dispatch(getEmployees())
+        dispatch(getClients({token: cookies.get("token")}));
+        dispatch(getEmployees({token: cookies.get("token")}));
         dispatch(getTrainings())
     }, []);
     const { data }: any = useAppSelector((state) => state);
-    const dispatch = useAppDispatch();
 
     const totalClients = data.clients.length;
     const totalSedes = data.locations.length;

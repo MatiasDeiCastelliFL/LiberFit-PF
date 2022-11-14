@@ -17,7 +17,7 @@ passport.use(new LocalStrategy(
     return done(null, user)
   }
      
-   if (!user) {
+   else {
 
       const { email, picture, name } = req.body
 
