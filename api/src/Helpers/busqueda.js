@@ -103,10 +103,25 @@ const pagosActivo = async()=>{
     return UserLocal
 }
 
+const busquedaDeMoviento = async (modelo,id)=>{
+    const PagoRealizado = await modelo.findAll({
+        where:{
+            ClientId:id
+        }
+    })
+
+    console.log(PagoRealizado)
+
+    if(PagoRealizado.length>0){
+        return true
+    }else{
+        return false
+    }
+}
 
 
 
-module.exports = {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,pagosActivo,MostrarDatorutinaConUser};
+module.exports = {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,pagosActivo,MostrarDatorutinaConUser,busquedaDeMoviento};
 
 
 

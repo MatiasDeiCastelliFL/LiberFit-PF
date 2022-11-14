@@ -14,7 +14,7 @@ const {
 } = require('../services/clientServices');
 const {transporter}= require('../config/nodemailer')
 const { DOMINIO} = process.env;
-const {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,MostrarDatorutinaConUser} = require("../Helpers/busqueda")
+const {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,MostrarDatorutinaConUser,busquedaDeMoviento} = require("../Helpers/busqueda")
 const { validate,CuentaActiva,CuentaDesactivar} = require('../validation/validations');
 
 
@@ -170,14 +170,22 @@ const deleteClientRequest = async (req, res) => {
         if (id) {
             // console.log("IDDD", id);
             // console.log("NAMEEE", name);
-            const deletedClient = await deleteClient(id);
-            if (deletedClient) {
-                res.status(200).json(`El cliente fue eliminado`);
-            } else {
-                res.status(400).json(
-                    "El cliente a eliminar no existe o ya fue eliminado"
-                );
+
+            const verificacionDato = await busquedaDeMoviento(Payments,id);
+            console.log(verificacionDato);
+            if(verificacionDato===false){
+                const deletedClient = await deleteClient(id);
+                if (deletedClient) {
+                    res.status(200).json(`El cliente fue eliminado`);
+                } else {
+                    res.status(400).json(
+                        "El cliente a eliminar no existe o ya fue eliminado"
+                    );
+                }
+            }else{
+                res.status(400).json("No se puede elminar el cliente. Debido que posee pagos concretados, Recomendacion inactive su cuenta")
             }
+           
         }
     } catch (error) {
         res.status(500).json({ error: error.message });
