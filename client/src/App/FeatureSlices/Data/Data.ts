@@ -68,6 +68,8 @@ const dataSlice = createSlice({
         },
         deleteClientsReducer: (state, action: PayloadAction<any>) => {
             // let filtrado = state.allClients.map((e: any) => e.id !== action.payload )
+            // console.log(state.clients.filter((e: any) => e.id !== action.payload ));
+            // const filtrado = state.allClients
             state.clients = state.clients.filter((e: any) => e.id !== action.payload )
         }
     },

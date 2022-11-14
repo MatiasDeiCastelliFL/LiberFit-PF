@@ -3,6 +3,7 @@ import { useTable, usePagination } from "react-table";
 import { getClients, getEmployees, getLocations, getTrainings, deleteClient } from "../../../App/Action/Action";
 import { useAppSelector, useAppDispatch } from "../../../App/Hooks/Hooks";
 import Avatar from "react-avatar";
+import { useNavigate } from "react-router-dom";
 
 export default function Table({ link }: any) {
     const allData: any = useAppSelector((state) => state.data);
@@ -14,8 +15,8 @@ export default function Table({ link }: any) {
     }, []);
 
     const handleDeleteUser = (e: any, id :any) => {
-        console.log("e -->",e)
-        console.log("id -->",id)
+        // console.log("e -->",e)
+        // console.log("id -->",id)
         dispatch(deleteClient(id))
     }
 
@@ -46,7 +47,8 @@ export default function Table({ link }: any) {
                     col4: e.email,
                     col5: membershipState,
                     col6: suscriptionName,
-                    col7: <button className="bg-red-500 p-2" onClick={(e) => handleDeleteUser(e,id) }>Delete</button>,
+                    col7: <button className="bg-redClare px-4 py-2 rounded-xl" onClick={(e) => handleDeleteUser(e,id) }>Suspender</button>,
+                    col8: <button className="bg-redClare px-4 py-2 rounded-xl" onClick={(e) => handleDeleteUser(e,id) }>Borrar</button>,
                 };
             }),
         []
@@ -79,8 +81,12 @@ export default function Table({ link }: any) {
                 accessor: "col6",
             },
             {
-                Header: "Delete",
+                Header: "Suspender",
                 accessor: "col7",
+            },
+            {
+                Header: "Delete",
+                accessor: "col8",
             },
         ],
         []

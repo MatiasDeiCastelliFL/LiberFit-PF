@@ -70,7 +70,8 @@ export const deleteClient = (payload:any) => async (dispatch: any) => {
         
         let json = await axios.delete(`http://localhost:3004/clients/${payload}`)
         console.log("delate-->",json)
-        dispatch(getClientsReducer(payload))
+        dispatch(deleteClientsReducer(payload))
+        // dispatch(getClients())
         return json
     } catch (error) {
         console.log("-->", error);
