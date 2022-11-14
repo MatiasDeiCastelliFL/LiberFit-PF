@@ -13,8 +13,11 @@ passport.use(new LocalStrategy(
   async (req, email, password, done) => {
 
     const user = await Clients.findOne({ where: { email: email } });
-
-    if (!user) {
+  if(user){
+    return done(null, user)
+  }
+     
+   if (!user) {
 
       const { email, picture, name } = req.body
 
@@ -24,7 +27,7 @@ passport.use(new LocalStrategy(
 
     } 
 
-    else { return done(null, user)}
+
 
   }
 )
