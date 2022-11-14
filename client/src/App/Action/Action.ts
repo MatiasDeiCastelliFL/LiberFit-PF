@@ -153,7 +153,7 @@ export const postUser = (payload: any) => async (dispatch: any) => {
 
 export const editUser = (payload: any) => async (dispatch: any) => {
     try {
-        let json = await axios.put(`${BASE_URL || Route}/clients`,payload) // enpoint de post user
+        let json = await axios.put(`${BASE_URL || Route}/clients`,payload, {params: {token:payload.token}}) // enpoint de post user
         console.log(json)
         return json
     } catch (error) {
@@ -163,7 +163,7 @@ export const editUser = (payload: any) => async (dispatch: any) => {
 
 export const changePassword = (payload: any) => async (dispatch: any) => {
     try {
-        let json = await axios.put(`${BASE_URL || Route}/clients?changePassword=true`, payload ) // enpoint de post user
+        let json = await axios.put(`${BASE_URL || Route}/clients?changePassword=true`, payload, {params: {token:payload.token}} ) // enpoint de post user
         console.log(json)
         return json.data
     } catch (error:any) {
@@ -191,7 +191,7 @@ export const changeProfileImage = (payload: any) => async (dispatch: any) => {
 export const postReview =
     (payload: any, element: string) => async (dispatch: any) => {
         try {
-            let json = await axios.post(`${Route || BASE_URL}/clients/review`, payload);
+            let json = await axios.post(`${Route || BASE_URL}/clients/review`, payload.review, {params: {token:payload.token}});
             console.log("Action");
             console.log(payload);
             return {msg:'Tu calificación fue recibida'}
@@ -246,7 +246,12 @@ export const cerrarLogin = () => async (dispatch: any) => {
 export const getUserInfo = (payload: any) => async (dispatch: any) => {
     try {
         let json = await axios.get(`${BASE_URL || Route}/clients`,  {params: {id: payload.id, token:payload.token}}) // {email, password}
-        dispatch(getUser(json.data[0]))
+        console.log("carlos-->",json.data[0]);
+        const info = {
+            ...json.data[0],
+            token: payload.token
+        }
+        dispatch(getUser(info))
         return json // {}
     } catch (error) {
         console.log("-->", error);
