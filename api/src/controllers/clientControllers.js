@@ -12,7 +12,8 @@ const {
     inactivarCuenta,
     activarCuenta
 } = require('../services/clientServices');
-
+const {transporter}= require('../config/nodemailer')
+const { DOMINIO} = process.env;
 const {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,MostrarDatorutinaConUser} = require("../Helpers/busqueda")
 const { validate,CuentaActiva,CuentaDesactivar} = require('../validation/validations');
 
@@ -99,6 +100,12 @@ const postClientsRequest = async (req, res) => {
                 locacion,
             } = req.body;
 
+           await transporter.sendMail({
+            from: '"Verificación de correo 👻" <liberfit.xyz@gmail.com>', 
+            to: email, 
+            subject: "Verificación de cuenta liberfit ✔", 
+            html:  `<div><h1>verifica tu correo</h1><p> <a href=${DOMINIO}/verify?correo=${email}&active=true>Click aqui</a></p><div/>` 
+          }); 
 
             const newClient = await createClient(
                 name,
