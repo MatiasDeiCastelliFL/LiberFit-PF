@@ -4,6 +4,7 @@ const auth = require("../Helpers/auth");
 const routerClient= Router();
 const {}= require('../Helpers/auth')
 const { upload } = require('../config/multer.config');
+const {isAuthenticated}= require('../Helpers/auth')
 
 
 routerClient.get("/clients",getClientsRequest);
