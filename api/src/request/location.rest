@@ -9,8 +9,9 @@ Content-Type: application/json
 
 { 
   "name":"Ricardo",
-  "address":"rusia",
-  "phone":"123412"
+  "address":"Brasil",
+  "phone":"123412",
+  "GymId":"ffbb3e69-b62d-425b-87fe-3866a310a970"
 } 
 
 ###

@@ -1,17 +1,24 @@
 const {Rols}= require('../db')
 
-const crearRol = async (name) => {
-  const [rol, created] = await Rols.findOrCreate({
-    where: { name:name }
-  })
-
-  return created ? true : false
-};
-
+const crearRol = async (
+    name,
+    ) => {
+  const Rol = await Rols.create({
+    name,
+    })
+}
 const enviarRol= async()=>{
-  const rols = await Rols.findAll();
-  return rols
-};
+
+  const arreglo=["Owner","Entrenador","Cliente","Recepcionista"];
+
+  
+  for (let index = 0; index < arreglo.length; index++) {
+   await Rols.findOrCreate({where:{name:arreglo[index]}});
+  }
+
+  const Rol = await Rols.findAll()
+return Rol
+}
 
 const borrarRol= async(id)=>{
   await Rols.destroy({ where: { id:id }})

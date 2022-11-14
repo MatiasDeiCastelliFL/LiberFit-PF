@@ -6,10 +6,10 @@ Content-Type: application/json
 
 { 
   "name":"aumento de masa muscular avanzado",
-  "nameExcersise":"Banco Plano",
-  "nameTraining":"Boxeo",
-  "ClientId":"e5ba0ea9-4612-416b-9076-3f84dcfd4e4c",
-  "EmployeeId":"0234ad20-ba77-4441-9921-37137cf35395"
+  "nameExcersise":[1,2],
+  "nameTraining":[1,3],
+  "ClientId":"0ce09b08-fcbd-447e-ac89-70328d301ffb",
+  "EmployeeId":"23884f32-3e44-4652-a9e5-602b96bf2afb"
 } 
 
 ###

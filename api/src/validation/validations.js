@@ -16,6 +16,8 @@ async function validate(input, model) {
 
     //valida que el campo no este repetido
     async function repetition(model,dato,mensaje,key){
+
+        console.log(model)
         const existingDato = await model.findOne({
             where: {
                 [key]: dato,

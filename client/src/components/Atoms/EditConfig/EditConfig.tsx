@@ -4,6 +4,7 @@ import Cookies from "universal-cookie";
 import { editUser, getUserInfo } from "../../../App/Action/Action";
 import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
 import toast, { Toaster } from 'react-hot-toast';
+import { User } from "@auth0/auth0-react";
 
 
 
@@ -59,7 +60,8 @@ const EditConfig = ({field,type, title}:Props) => {
                 editUser(
                     {
                         ...data.user,
-                        [field]: value
+                        [field]: value,
+                        token: data.user.token
                     }
                 )
             )
@@ -81,7 +83,7 @@ const EditConfig = ({field,type, title}:Props) => {
     }, [data.user, value, data])
 
     useEffect(() => {
-        dispatch(getUserInfo(cookies.get("id")))
+        //dispatch(getUserInfo(cookies.get("id")))
     }, [])
 
     return (

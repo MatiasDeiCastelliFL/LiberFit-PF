@@ -7,13 +7,16 @@ const {
     updateProfileImage,
     deleteClient,
     getPaymentsInfo,
-    getIdClienteSuscription
-    ,inactivarCuenta,
+    getIdClienteSuscription,
+    createReview,
+    inactivarCuenta,
     activarCuenta
 } = require('../services/clientServices');
 
 const {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,MostrarDatorutinaConUser} = require("../Helpers/busqueda")
-const { validate } = require('../validation/validations');
+const { validate,CuentaActiva,CuentaDesactivar} = require('../validation/validations');
+
+
 const { Rutines,Clients, Payments,Locacions,Exercises,Employees } = require("../db");
 
 const getClientsRequest = async (req, res) => {
@@ -81,6 +84,9 @@ const postClientsRequest = async (req, res) => {
         if (clientValidationErrors.length > 0) {
             res.status(400).json(clientValidationErrors);
         } else {
+            
+        
+            
             const {
                 name,
                 phone,
@@ -92,6 +98,8 @@ const postClientsRequest = async (req, res) => {
                 RolId,
                 locacion,
             } = req.body;
+
+
             const newClient = await createClient(
                 name,
                 phone,

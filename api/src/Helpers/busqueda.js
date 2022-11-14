@@ -72,12 +72,7 @@ const MostrarDatoMultipleInactivo = async(modelo1, modelo2)=>{
 }
 
 const MostrarDatorutinaConUser = async(modelo1, modelo2, modelo3,id,idRutine)=>{
-    console.log(modelo1)
 
-
-    //Modelo 1 == Rutine
-    //Modelo 2 == Clients
-    //Modelo 3 == Exercises
     const datos= await modelo2.findAll({
         include:{
             model:modelo1
@@ -86,46 +81,20 @@ const MostrarDatorutinaConUser = async(modelo1, modelo2, modelo3,id,idRutine)=>{
             id:id
         }
     });
-
     const datosEjercio= await modelo1.findAll({
-        include:{
-            model:modelo3
-        },
-        where:{
-            id:idRutine
+       include:{
+        model:modelo3,
+        attributes:["name","repetition","series","video","image","muscle"],
+        trough:{
+            attributes:[]
         }
+       },
+       where:{
+          id:idRutine
+       }
     })
-
-    return datos + datosEjercio
-    // console.log(modelo1, modelo2, modelo3,id,idRutine);
-    //     console.log("llegue2")
-    //     if(modelo2==="Clients"){
-           
-    //         const UserLocal= await modelo2.findAll({
-    //             include: modelo1,
-    //             where:{
-    //                 id:id
-    //             }
-    //          })
-
-    //          console.log(UserLocal);
-
-    //          console.log(UserLocal)
-
-    //          console.log(UserLocal)
-    //          const RutineEjercio= await modelo1.findAll({
-    //             include: modelo3,
-    //             where:{
-    //                 RutineId:idRutine
-    //             }
-    //          })
-    //          const resultadoFInal = await UserLocal.concat(RutineEjercio);
-    
-    //         return resultadoFInal
-    //     }
-   
-    
-    
+    const variable= datos.concat(datosEjercio)
+    return variable 
 }
 
 const pagosActivo = async()=>{

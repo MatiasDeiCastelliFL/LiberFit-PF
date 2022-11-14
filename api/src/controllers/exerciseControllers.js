@@ -115,7 +115,6 @@ module.exports = {
     putExercise,
     deleteExercise,
     FiltrarExecirseActivo,
-
     activarExecirse: activarExecirse,
     inactivarExecirse,
     FiltrarExecirseInactivo,

@@ -6,22 +6,6 @@ const {}= require('../Helpers/auth')
 const { upload } = require('../config/multer.config');
 
 
-
-<<<<<<< HEAD
-routerClient.get("/clients", getClientsRequest);
-routerClient.get("/clients/payments",getClientsPayments); 
-routerClient.post("/clients",postClientsRequest);
-routerClient.put("/clients",upload ,putClientRequest) 
-routerClient.delete("/clients",deleteClientRequest);
-routerClient.put("/anuncioActivar",activarCliente);
-routerClient.get("/FiltrarclientsActivo",FiltrarClienteActivo)
-routerClient.get("/FiltrarclientsInactivo",FiltrarClienteInactivo)
-routerClient.get("/CantclientsInacativo",CantInacativo)
-routerClient.get("/CantclientsActivo",CantActivo)
-routerClient.get("/FiltrarClienteInactivoConSede",FiltrarClienteInactivoConSede)
-routerClient.get("/FiltrarClienteActivoConSede",FiltrarClienteActivoConSede)
-routerClient.get("/FiltrarRutinaConcliente",FiltrarRutinaConcliente)
-=======
 routerClient.get("/clients",getClientsRequest);
 routerClient.get("/clients/payments",isAuthenticated, getClientsPayments); 
 routerClient.post("/clients",postClientsRequest);
@@ -36,6 +20,7 @@ routerClient.get("/CantclientsActivo",isAuthenticated,CantActivo)
 routerClient.get("/FiltrarClienteInactivoConSede",isAuthenticated,FiltrarClienteInactivoConSede)
 routerClient.get("/FiltrarClienteActivoConSede",isAuthenticated,FiltrarClienteActivoConSede)
 routerClient.get("/FiltrarRutinaConcliente",isAuthenticated,FiltrarRutinaConcliente)
->>>>>>> 5b7929002725ba8dbaf6471fba98bcb090cbea74
 
+
+ 
 module.exports = routerClient;

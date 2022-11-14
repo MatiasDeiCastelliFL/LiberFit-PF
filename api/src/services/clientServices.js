@@ -30,12 +30,16 @@ const createClient = async (
             SubscriptionId,
             RolId,
         });
-        const data = await Locacions.findOne({
+
+        console.log(locacion)
+        const data = await Locacions.findAll({
             where: {
-                name: `${locacion}`,
+                name: locacion
             },
         });
-        await cli.addLocacions(data, { review: "5" });
+
+        // console.log(data)
+        await cli.addLocacions(data);
 
         return cli;
     } else {
@@ -258,5 +262,6 @@ module.exports = {
     deleteClient,
     getIdClienteSuscription,
     inactivarCuenta,
-    activarCuenta
+    activarCuenta,
+    createReview
 };

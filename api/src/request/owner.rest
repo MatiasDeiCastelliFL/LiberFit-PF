@@ -9,7 +9,8 @@ Content-Type: application/json
   "email":"carlosOwner@liberfit.com",
   "password":"1234567",
   "phone":"123123123",
-  "avatar":"https://ui-avatars.com/api/?name=Elon+Musk"
+  "avatar":"https://ui-avatars.com/api/?name=Elon+Musk",
+  "GymId":"80d7bb93-f67a-4d65-a39b-a3cf9336ed76"
 } 
 
 

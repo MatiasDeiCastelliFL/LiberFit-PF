@@ -30,7 +30,7 @@ const postEmpleado = async (req, res) => {
             res.status(404).json(datoValidacion);
 
         } else {
-            const { name, email, phone, password, image, active, RolId } = req.body;
+            const { name, email, phone, password, image, active, RolId,LocacionId } = req.body;
             // const {path} = req.file;
             const passwordEncript = await bcrypt.hash(password, 15);
 
@@ -41,8 +41,13 @@ const postEmpleado = async (req, res) => {
                 passwordEncript,
                 active,
                 image,
-                RolId
+                RolId,
+                LocacionId
+
             );
+
+            
+
             res.status(200).json(datoEmpleado);
         }
     } catch (error) {
