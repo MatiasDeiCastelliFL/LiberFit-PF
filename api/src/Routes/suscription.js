@@ -5,6 +5,6 @@ const {postSuscription, getAllSuscription}= require("../controllers/suscriptionC
 const routerSuscription= Router();
 
 routerSuscription.post("/suscription",isAuthenticated,postSuscription);
-routerSuscription.get("/suscription",isAuthenticated,getAllSuscription);
+routerSuscription.get("/suscription",getAllSuscription);
 
 module.exports=routerSuscription ;
