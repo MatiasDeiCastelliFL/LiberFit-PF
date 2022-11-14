@@ -1,7 +1,7 @@
 const { Owners,Gyms } = require('../db')
 
 const crearOwner = async (name, email, password, phone, avatar) => {
-  var RolId=4
+  var RolId=1
   const owner = await Owners.create({
     name,
     email,

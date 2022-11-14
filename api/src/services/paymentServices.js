@@ -1,13 +1,14 @@
 const { Payments,Clients,Subscriptions } = require('../db')
+
 const { monthName } = require("../Helpers/monthName.js");
 const emailjs = require('emailjs-com');
 const axios = require('axios');
 const { SERVICE_ID, TEMPLATE_ID, USER_ID, ACCESS_TOKEN} = process.env;
 
-const crearPayment = async (amount, ClientId, description) => {
+const crearPayment = async (amount, ClientId, description, subscriptionId) => {
   
   let subscriptionInfo= await Subscriptions.findOne({where:{
-    id:2
+    id: subscriptionId
   }})
 
   let SubscriptionId=subscriptionInfo.id

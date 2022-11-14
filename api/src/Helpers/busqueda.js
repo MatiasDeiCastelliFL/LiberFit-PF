@@ -1,6 +1,6 @@
 //TODO busqueda de dato Cliente y empleado payments
 
-const {paymentSuscription} = require("../db");
+// const {paymentSuscription} = require("../db");
 
 
 /** Funcion para traer todas las cuenta de usuario, cliente , payments o otro modelo que tienen el atribute active */
@@ -33,6 +33,7 @@ const contarDatoActivo= async(modelo)=>{
         where: { active: true },
 
       })
+      
       return CantTotal; 
 }
 
@@ -72,48 +73,28 @@ const MostrarDatoMultipleInactivo = async(modelo1, modelo2)=>{
 
 const MostrarDatorutinaConUser = async(modelo1, modelo2, modelo3,id,idRutine)=>{
 
-
-    if(modelo2 === "Employees"){
-        const UserRutine= await modelo1.findAll({
-            include: modelo2,
-            where:{
-                EmployeeId:id
-            }
-         })
-
-         const RutineEjercio= await modelo1.findAll({
-            include: modelo3,
-            where:{
-                RutineId:idRutine
-            }
-         })
-
-         const resultadoFInal = UserRutine.concat(RutineEjercio);
-
-         return resultadoFInal
-    }else{
-        if(modelo2=="Cliente"){
-            const UserLocal= await modelo1.findAll({
-                include: modelo2,
-                where:{
-                    ClientId:id
-                }
-             })
-             const RutineEjercio= await modelo1.findAll({
-                include: modelo3,
-                where:{
-                    RutineId:idRutine
-                }
-             })
-             const resultadoFInal = UserRutine.concat(RutineEjercio);
-    
-             return resultadoFInal
+    const datos= await modelo2.findAll({
+        include:{
+            model:modelo1
+        },
+        where: {
+            id:id
         }
-  
-    }
-   
-    
-    
+    });
+    const datosEjercio= await modelo1.findAll({
+       include:{
+        model:modelo3,
+        attributes:["name","repetition","series","video","image","muscle"],
+        trough:{
+            attributes:[]
+        }
+       },
+       where:{
+          id:idRutine
+       }
+    })
+    const variable= datos.concat(datosEjercio)
+    return variable 
 }
 
 const pagosActivo = async()=>{

@@ -2,7 +2,7 @@ const { Router } = require("express");
 const { getClientsRequest, postClientsRequest, deleteClientRequest, putClientRequest, getClientsPayments,postReview,FiltrarClienteInactivoConSede,FiltrarClienteActivoConSede,CantActivo,CantInacativo,FiltrarClienteInactivo,FiltrarClienteActivo,activarCliente,inactivarCliente,FiltrarRutinaConcliente } = require("../controllers/clientControllers");
 const auth = require("../Helpers/auth");
 const routerClient= Router();
-const {isAuthenticated}= require('../Helpers/auth')
+const {}= require('../Helpers/auth')
 const { upload } = require('../config/multer.config');
 
 
@@ -22,4 +22,6 @@ routerClient.get("/FiltrarClienteInactivoConSede",isAuthenticated,FiltrarCliente
 routerClient.get("/FiltrarClienteActivoConSede",isAuthenticated,FiltrarClienteActivoConSede)
 routerClient.get("/FiltrarRutinaConcliente",isAuthenticated,FiltrarRutinaConcliente)
 
+
+ 
 module.exports = routerClient;
