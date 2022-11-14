@@ -1,13 +1,12 @@
 const { Router } = require("express");
 const { getClientsRequest, postClientsRequest, deleteClientRequest, putClientRequest, getClientsPayments,postReview,FiltrarClienteInactivoConSede,FiltrarClienteActivoConSede,CantActivo,CantInacativo,FiltrarClienteInactivo,FiltrarClienteActivo,activarCliente,inactivarCliente,FiltrarRutinaConcliente } = require("../controllers/clientControllers");
- 
-const routerClient= Router();
 const {isAuthenticated}= require('../Helpers/auth')
+const routerClient= Router();
 const { upload } = require('../config/multer.config');
 
 
 
-routerClient.get("/clients",getClientsRequest);
+routerClient.get("/clients",isAuthenticated,getClientsRequest);
 routerClient.get("/clients/payments",isAuthenticated, getClientsPayments); 
 routerClient.post("/clients",postClientsRequest);
 routerClient.post("/clients/review",isAuthenticated,postReview); 
