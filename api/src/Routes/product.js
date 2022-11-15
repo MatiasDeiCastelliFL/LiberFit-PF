@@ -10,7 +10,7 @@ const {getProduct,postProduct,deleteProduct,activarProduc,inactivarProduct,CantA
 
 const routerProduct= Router();
 
-routerProduct.get("/product",isAuthenticated,getProduct);
+routerProduct.get("/product",getProduct);
 routerProduct.post("/product",isAuthenticated,postProduct);
 routerProduct.delete('/product/:id',isAuthenticated,deleteProduct)
 routerProduct.put("/ProductoDesactivar",isAuthenticated,inactivarProduct);

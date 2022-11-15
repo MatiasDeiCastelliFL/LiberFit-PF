@@ -36,7 +36,6 @@ function Home() {
         dispatch(openFilters(false));
     }
    
-
     return <HomeTemplate handle={handleSubmit} name={setName} />;
 }
 

@@ -4,7 +4,7 @@ const {postRutine,getRutine,putRutine,deleteRutine} =require("../controllers/rut
 
 const routerRutine= Router();
 
-routerRutine.get("/rutine",isAuthenticated,getRutine);
+routerRutine.get("/rutine",getRutine);
 routerRutine.post("/rutine",isAuthenticated,postRutine);
 routerRutine.put("/rutine/:id",isAuthenticated,putRutine);
 routerRutine.delete("/rutine/:id",isAuthenticated,deleteRutine);

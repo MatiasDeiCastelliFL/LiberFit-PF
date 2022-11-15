@@ -53,9 +53,9 @@ export const getLocations = () => async (dispatch: any) => {
     }
 };
 
-export const getClients = () => async (dispatch: any) => {
+export const getClients = (payload:any) => async (dispatch: any) => {
     try {
-        const clients = await axios.get(`${BASE_URL || Route}/clients`);
+        const clients = await axios.get(`${BASE_URL || Route}/clients`,{params: {token:payload.token}});
         dispatch(getClientsReducer(clients.data));
     } catch (error) {
         console.log(error);
@@ -64,11 +64,8 @@ export const getClients = () => async (dispatch: any) => {
 
 export const deleteClient = (payload:any) => async (dispatch: any) => {
     console.log(payload)
-    try {
-        // console.log("Estoy en delete")
-        // console.log("-->",await axios.delete(`http://localhost:3004/clients/${payload}`) );
-        
-        let json = await axios.delete(`http://localhost:3004/clients/${payload}`)
+    try { 
+        let json = await axios.delete(`${BASE_URL || Route}/clients/${payload}`)
         console.log("delate-->",json)
         dispatch(deleteClientsReducer(payload))
         // dispatch(getClients())
@@ -78,9 +75,43 @@ export const deleteClient = (payload:any) => async (dispatch: any) => {
     }
 }
 
-export const getEmployees = () => async (dispatch: any) => {
+
+export const deleteEmployee = (payload:any) => async (dispatch: any) => {
+    // console.log(payload)
     try {
-        const employee = await axios.get(`${BASE_URL || Route}/empleado`);
+        let json = await axios.delete(`${BASE_URL || Route}/empleado/${payload}`)
+        console.log("delate-->",json)
+        // dispatch(deleteClientsReducer(payload))
+        return json
+    } catch (error) {
+        console.log("-->", error);
+    }
+}
+
+export const deleteLocacion = (payload:any) => async (dispatch: any) => {
+    // console.log(payload)
+    try {
+        let json = await axios.delete(`${BASE_URL || Route}/locacion/${payload}`)
+        console.log("delate-->",json)
+        // dispatch(deleteClientsReducer(payload))
+        return json
+    } catch (error) {
+        console.log("-->", error);
+    }
+}
+
+export const postLocacion = (payload: any) => async (dispatch: any) => {
+    try {
+        let json = await axios.post(`${BASE_URL || Route}/locacion`,payload) // enpoint de post user
+        console.log(json)
+        return json
+    } catch (error) {
+        console.log("--->", error);
+    }
+};
+export const getEmployees = (payload:any) => async (dispatch: any) => {
+    try {
+        const employee = await axios.get(`${BASE_URL || Route}/empleado`, {params: {token:payload.token}});
         dispatch(getEmployeesReducer(employee.data));
     } catch (error) {
         console.log(error);

@@ -5,7 +5,6 @@ const routerClient= Router();
 const { upload } = require('../config/multer.config');
 
 
-
 routerClient.get("/clients",isAuthenticated,getClientsRequest);
 routerClient.get("/clients/payments",isAuthenticated, getClientsPayments); 
 routerClient.post("/clients",postClientsRequest);
