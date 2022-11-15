@@ -5,21 +5,45 @@ import { useAppSelector, useAppDispatch } from "../../../App/Hooks/Hooks";
 import Avatar from "react-avatar";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
+import Swal from "sweetalert2"
 
 export default function Table({ link }: any) {
     const allData: any = useAppSelector((state) => state.data);
     const dispatch = useAppDispatch();
     const cookies = new Cookies();
+    const navigate = useNavigate();
+    const [change, setChange] = useState(allData[link].length)
 
+    console.log(allData[link].length);
+    
     useEffect(() => {
         dispatch(getClients({token: cookies.get("token")}))
         dispatch(getEmployees({token: cookies.get("token")}))
-    }, []);
+    }, [change]);
 
-    const handleDeleteEvent = async (id: any) => {
-        link == "clients"
-            ? dispatch(deleteClient(id))
-            : dispatch(deleteEmployee(id));
+    const handleDeleteEvent = async (e: any, id: any, name: any) => {
+
+        Swal.fire({
+            title: `¿Esta seguro que desea eliminar a ${name} ? `,
+            text: "No podrás revertir los cambios!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminarlo!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                link == "clients"
+          ?  dispatch(deleteClient(id))
+          :  dispatch(deleteEmployee(id));
+              Swal.fire(
+                'Eliminado!',
+                'El registro fue eliminado',
+                'success'
+              )
+              window.location.href=("/dashboard/admin")
+            }
+          })
     };
 
     const handleUpdateEvent = (id: any) => {};
@@ -39,6 +63,9 @@ export default function Table({ link }: any) {
                 e.SubscriptionId == 4 ? "Mensual" : 
                 !e.SubscriptionId ? "Empleado Bonificado" : null
 
+                const id = e.id
+                const name = e.name
+
                 return {
                     col1: (
                         <Avatar
@@ -54,6 +81,22 @@ export default function Table({ link }: any) {
                     col4: e.email,
                     col5: membershipState,
                     col6: suscriptionName,
+                    col7: <div>
+                    {/* <button
+                        className="bg-redClare px-4 py-2 rounded-xl mx-1"
+                        title="Eliminar"
+                        onClick={(e) => handleUpdateEvent(e)}
+                    >
+                        Editar
+                    </button> */}
+                    <button
+                        className="bg-redClare px-4 py-2 rounded-xl mx-1"
+                        title="Eliminar"
+                        onClick={(e) => handleDeleteEvent(e, id, name)}
+                    >
+                        Eliminar
+                    </button>
+                </div>
                 }
             }),
         []
@@ -88,25 +131,6 @@ export default function Table({ link }: any) {
             {
                 Header: "Gestión de Registros",
                 accessor: "col7",
-                Cell: () => (
-                    <div>
-                        <button></button>
-                        <button
-                            className="bg-redClare px-4 py-2 rounded-xl mx-1"
-                            title="Eliminar"
-                            onClick={(e) => handleUpdateEvent(e)}
-                        >
-                            Editar
-                        </button>
-                        <button
-                            className="bg-redClare px-4 py-2 rounded-xl mx-1"
-                            title="Eliminar"
-                            onClick={(e) => handleDeleteEvent(e)}
-                        >
-                            Eliminar
-                        </button>
-                    </div>
-                ),
             },
         ],
         []
