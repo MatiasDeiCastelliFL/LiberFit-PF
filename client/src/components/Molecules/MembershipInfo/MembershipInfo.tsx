@@ -15,24 +15,27 @@ const MembershipInfo = () => {
     const [cssPercentage, setCssPercentage] = React.useState<any>();
     const [membership, setMembership] = React.useState(subscriptions[0]);
 
-    if (lastPayment) {
-        setMembership(subscriptions.filter((sub:any) => sub.id === user.SubscriptionId)[0]);
-        const today = new Date();
+    React.useEffect(() => {
+        if (lastPayment) {
+            setMembership(subscriptions.filter((sub:any) => sub.id === user.SubscriptionId)[0]);
+            const today = new Date();
+            console.log(today);
+            setDaysLeft(Math.floor((new Date(lastPayment.fechaFinalizacion).getTime() - today.getTime()) / (1000 * 60 * 60 * 24)));
+            const datLeftPercent = Math.floor((daysLeft * 100) / (membership.duration*30));
+            setCssPercentage({
+                width: `${datLeftPercent}%`
+            })
+        }
 
-        setDaysLeft(Math.floor((new Date(lastPayment.fechaFinalizacion).getTime() - today.getTime()) / (1000 * 60 * 60 * 24)));
-        const datLeftPercent = Math.floor((daysLeft * 100) / (membership.duration*30));
-        setCssPercentage({
-            width: `${datLeftPercent}%`
-        })
-    }
-    
+    }, [])
+        
 
     return (
-        <div className="w-custom_6 p-5 gap-6 rounded-xl text-white mt-10 justify-between items-start flex flex-col bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] from-rose-100 via-yellow-400 to-rose-600">
+        <div className="w-custom_6">
             {
                 (lastPayment && daysLeft && cssPercentage) 
                 ? 
-                    <div>
+                    <div className="p-5 gap-6 rounded-xl text-white justify-between items-start flex flex-col bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] from-rose-100 via-yellow-400 to-rose-600">
                         <div className="flex justify-between w-full items-center">
                             <h1 className=" text-lg font-semibold">Plan Actual: {membership.name}</h1>
                             <p>$ {lastPayment.amount}</p>
