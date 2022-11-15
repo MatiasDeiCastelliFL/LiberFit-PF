@@ -18,7 +18,7 @@ routerPayment.put("/payment", isAuthenticated, modificarPayment);
 
 //Rutas para la pasarela de pago con Paypal
 routerPayment.get("/create-order",isAuthenticated ,postCreateOrder);
-routerPayment.get("/capture-order",isAuthenticated ,getCaptureOrder);
-routerPayment.get("/cancel-order", isAuthenticated,getCancelOrder);
+routerPayment.get("/capture-order" ,getCaptureOrder);
+routerPayment.get("/cancel-order",getCancelOrder);
 
 module.exports = routerPayment;

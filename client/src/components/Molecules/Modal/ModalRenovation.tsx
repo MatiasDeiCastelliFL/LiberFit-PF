@@ -21,6 +21,10 @@ function Modal() {
     const { modal } = useAppSelector((state) => state);
     const { subscriptions }  = useAppSelector((state) => state.data);
     const { user } = useAppSelector((state) => state.data);
+    const { paymentState } = useAppSelector((state) => state.payment);
+    const [old_LastDate, setOld_LastDate] = useState(new Date());
+
+    
 
     const initialState = {
         documento: "",
@@ -71,14 +75,35 @@ function Modal() {
 
     const pay = (e: any) => {
         e.preventDefault();
+        console.log(old_LastDate);
         console.log(e.target.value);
-        const payload = {
-            amount : e.target.value.split(',')[0],
-            description: e.target.value.split(',')[1],
-            ClientId: user.id,
+        try {
+            const payload = {
+                amount : subscriptions[e.target.value].price,
+                description: subscriptions[e.target.value].description,
+                ClientId: user.id,
+                subscriptionId: subscriptions[e.target.value].id,
+                old_LastDate: old_LastDate,
+                token: user.token,
+            }
+            dispatch(postPaymentPaypal(payload));
+        } catch (error) {
+            console.log(error);
+            alert("Error al iniciar pasarela de pagos intentelo de nuevo");
         }
-        dispatch(postPaymentPaypal(payload));
+        dispatch(openModal(false));
     }
+
+    useEffect(() => {
+        if (paymentState){
+            const lastPayment:any = paymentState[paymentState.length - 1];
+            if (lastPayment){
+                setOld_LastDate(new Date(lastPayment.fechaFinalizacion));
+            }
+        }
+    }, [])
+
+    console.log(subscriptions);
 
     return (
         <>
@@ -107,8 +132,9 @@ function Modal() {
                                     {
                                         subscriptions.map((item:any, index:any) => (
                                             index !== 0 ? (
+                                                console.log(item),
                                         
-                                                <button onClick={pay} value={[item.price, item.description]} className={`w-ful flex justify-between text-gray-100 font-semibold p-3 rounded-xl ${(item.name === 'Oro')? ' bg-yellow_custom': (item.name=== 'Plata')? 'bg-blue_custom': 'bg-red_custom'} hover:cursor-pointer hover:scale-105`}>
+                                                <button onClick={pay} value={index} className={`w-ful flex justify-between text-gray-100 font-semibold p-3 rounded-xl ${(item.name === 'Oro')? ' bg-yellow_custom': (item.name=== 'Plata')? 'bg-blue_custom': 'bg-red_custom'} hover:cursor-pointer hover:scale-105`}>
                                                     <div className="flex flex-col">
                                                         <img src={(item.name === 'Oro')?Gold:(item.name==='Plata')?Silver:Bronze} alt="logoPlan" className="h-10 w-10"/>
                                                         <span className="text-sm">{item.name}</span>
