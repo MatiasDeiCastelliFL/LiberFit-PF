@@ -12,7 +12,7 @@ const {
 } = require("../services/employeServices");
 const {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,MostrarDatorutinaConUser} = require("../Helpers/busqueda")
 
-const { Employees,Locacions } = require("../db");
+const { Employees,Locacions,Rutines } = require("../db");
 
 const {
     validate,
@@ -58,7 +58,7 @@ const postEmpleado = async (req, res) => {
 const getEmpleado = async (req, res) => {
     const { name, email } = req.query;
     if (name && !email) {
-        const DatoEmpaleadoNombre = await buscarEmpleadoPorName(name);
+        const DatoEmpleadoNombre = await buscarEmpleadoPorName(name);
         if (DatoEmpleadoNombre) {
             res.status(200).json({ DatoEmpleadoNombre });
         } else {
@@ -112,12 +112,19 @@ const modificarEmpleado = async (req, res) => {
 const deleteEmployee = async (req, res) => {
     try {
         const { id } = req.body;
-        const employeeDelete = await datoEliminado(id);
-        if (employeeDelete) {
-            res.status(200).json("El usuario fue eliminado");
-        } else {
-            res.status(400).json("El usuario a eliminar no existe");
+        const verificacionDato = await busquedaDeMoviento(Rutines,id);
+
+        if(verificacionDato===false){
+            const employeeDelete = await datoEliminado(id);
+            if (employeeDelete) {
+                res.status(200).json("El usuario fue eliminado");
+            } else {
+                res.status(400).json("El usuario a eliminar no existe");
+            }
+        }else{
+            res.status(400).json("No se puede elminar el cliente. Debido que posee rutina creada, Recomendacion inactive su cuenta")
         }
+        
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
