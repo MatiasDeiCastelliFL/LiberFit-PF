@@ -148,7 +148,42 @@ async function validate(input, model) {
                 );
             }
         }
+    }else{
+        errors.push("Ingrese un rol")
     }
+
+    // if(input.SubscriptionId && input.clientId ===""){
+    //     errors.push("Ingrese un cliente")
+    // }
+
+    // if(input.LocacionId && input.LocacionId ===""){
+    //     errors.push("Ingrese una locacion")
+    // }
+
+    // if(input.GymId && input.GymId ===""){
+    //     errors.push("Ingrese un gimnacio")
+    // }
+    // if(input.EmployeeId && input.EmployeeId===""){
+    //     errors.push("Ingrese seleccione un empleado")
+    // }
+
+    // if(input.MachineId && input.MachineId===""){
+    //     errors.push("Ingrese seleccione una maquina")
+    // }
+
+    // if(input.ProductId && input.ProductId===""){
+    //     errors.push("Ingrese seleccione uno o mas producto")
+    // }
+
+    // if(input.TrainingId && input.TrainingId===""){
+    //     errors.push("Ingrese seleccione uno o mas entrenamiento")
+    // }
+
+    // if(input.ExerciseId && input.ExerciseId ===""){
+    //     errors.push("Ingrese seleccione uno o mas ejercicio")
+    // }
+
+
     
     return errors;
 }
