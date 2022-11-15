@@ -321,7 +321,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                     leaveTo="opacity-0 scale-95 "
                 >
                     <div className="border-t border-redGray w-max h-73 flex">
-                        <div className="w-max flex flex-row gap-20">
+                        <div className="w-max flex flex-row">
                             <Link to={cookies.get("name") ? "" : "/login"}>
                                 <Perfil
                                     width={
@@ -335,16 +335,6 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                 <Items />
                             </div>
                         </div>
-                        {cookies.get("name") || user?.name ? (
-                            <div
-                                className="flex justify-end w-min"
-                                onClick={() => {
-                                    cerrarSesion();
-                                }}
-                            >
-                                <ArrowLeftOnRectangleIcon className="w-8 mr-5 cursor-pointer text-redClare justify-end" />
-                            </div>
-                        ) : null}
                     </div>
                 </Transition>
             )}

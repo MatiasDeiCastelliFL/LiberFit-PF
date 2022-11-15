@@ -164,12 +164,11 @@ const putClientRequest = async (req, res) => {
 
 const deleteClientRequest = async (req, res) => {
     try {
-        // const { id, name, email } = req.body;
+        
         const {id} = req.params
 
         if (id) {
-            // console.log("IDDD", id);
-            // console.log("NAMEEE", name);
+        
 
             const verificacionDato = await busquedaDeMoviento(Payments,id);
             console.log(verificacionDato);
