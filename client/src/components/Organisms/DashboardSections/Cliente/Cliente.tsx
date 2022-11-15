@@ -16,7 +16,7 @@ function Cliente() {
     const user = location.pathname.split('/').slice(2,3)
     console.log(location.pathname === `/dashboard/${user}/ejercicios/${params.ejercicio}` ? true : false);
     return (
-        <div>
+        <div className="select-none">
             {location.pathname === `/dashboard/${user}/ejercicios` ? (
                 <Ejercicios />
             ) : location.pathname.includes("rutinas") ? (

@@ -1,11 +1,8 @@
 import React, { Fragment, useEffect } from "react";
 import { useParams, useLocation, Link, useNavigate } from "react-router-dom";
 import style from "./NavBar.module.css";
-import {
-    ChatBubbleBottomCenterTextIcon,
-    BanknotesIcon,
-    Squares2X2Icon,
-} from "@heroicons/react/24/outline";
+import { Squares2X2Icon } from "@heroicons/react/24/outline";
+import { BsFillPersonFill } from "react-icons/bs";
 import Perfil from "../../Atoms/Perfil/Perfil";
 import Items from "../../Atoms/Perfil/ItemsPefil/Items";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
@@ -32,35 +29,6 @@ const NavForm = ({ dashboard }: Props) => {
         { name: "about", link: "/about" },
     ];
 
-    const linkDash = [
-        { name: "opcion1", link: "/home" },
-        { name: "opcion2", link: "/home" },
-    ];
-    const link2 = [
-        {
-            name:
-                cookies.get("name") || user?.name ? "Dashboard" : "Dashboard",
-            link:
-                cookies.get("RolId") === "1"
-                    ? "/dashboard/admin"
-                    : cookies.get("RolId") === "3"
-                    ? `/dashboard/${normalize(
-                          cookies.get("name").replace(/\s+/g, "")
-                      )}`
-                    : "/home",
-            icon: cookies.get("name") ? (
-                <Squares2X2Icon className="w-4" />
-            ) : (
-                <BanknotesIcon className="w-4" />
-            ),
-        },
-        {
-            name: "Chat",
-            link: "/",
-            icon: <ChatBubbleBottomCenterTextIcon className="w-4" />,
-        },
-    ];
-
     const cerrarSesion = () => {
         cookies.remove("id", { path: "/" });
         cookies.remove("email", { path: "/" });
@@ -77,32 +45,55 @@ const NavForm = ({ dashboard }: Props) => {
         cookies.remove("loginWith", { path: "/" });
     };
 
+    const linkDash = [
+        { name: "opcion1", link: "/home" },
+        { name: "opcion2", link: "/home" },
+    ];
+    const link2 = [
+        {
+            name: cookies.get("name") || user?.name ? "Dashboard" : "",
+            link:
+                cookies.get("RolId") === "1"
+                    ? "/dashboard/admin"
+                    : cookies.get("RolId") === "3"
+                    ? `/dashboard/${normalize(
+                          cookies.get("name").replace(/\s+/g, "")
+                      )}`
+                    : "/home",
+            icon: cookies.get("name") ? <Squares2X2Icon className="w-4" /> : "",
+            click: () => {},
+        },
+        {
+            name: cookies.get("name") || user?.name ? "Logout" : "Login",
+            link: cookies.get("name") || user?.name ? '' : "/login",
+            icon: <BsFillPersonFill className="w-4" />,
+            click: cookies.get("name") || user?.name ? cerrarSesion : () => {},
+        },
+    ];
+
     const userConfig = () => {
         console.log("userConfig");
         navigate("/userConfig");
     };
 
-
     const solutions = [
         {
             name: "Configuración",
-            href: userConfig
+            href: userConfig,
         },
         {
             name: "Cerrar sesion",
-            href: cerrarSesion
+            href: cerrarSesion,
         },
     ];
-
 
     const params = useLocation();
 
     const name = params.pathname.split("/").map((e, i) => e);
 
-    useEffect(() => {
-    }, [cookies.get("RolId")]);
+    useEffect(() => {}, [cookies.get("RolId")]);
 
-    console.log('user-->',cookies.get("RolId"));
+    console.log("user-->", cookies.get("RolId"));
     return (
         <div
             className={`${
@@ -145,7 +136,7 @@ const NavForm = ({ dashboard }: Props) => {
             </div>
             {dashboard && (
                 <div className="mb-3 ">
-                    <Search 
+                    <Search
                         Placeholder="search..."
                         setName={false}
                         dashboard={dashboard}
@@ -170,6 +161,7 @@ const NavForm = ({ dashboard }: Props) => {
                             <Link
                                 to={elem.link}
                                 className="text-black hover:text-gray duration-500 flex flex-row"
+                                onClick={elem.click}
                             >
                                 <div className="flex">
                                     {elem.name}
@@ -226,7 +218,9 @@ const NavForm = ({ dashboard }: Props) => {
                                                             (item) => (
                                                                 <div
                                                                     className="-m-3 flex items-center rounded-lg transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50 cursor-pointer"
-                                                                    onClick={item.href}
+                                                                    onClick={
+                                                                        item.href
+                                                                    }
                                                                 >
                                                                     <div className="flex h-10 w-10 shrink-0 items-center justify-center text-white sm:h-12 sm:w-12"></div>
                                                                     <div className="">
