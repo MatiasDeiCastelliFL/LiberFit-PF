@@ -14,6 +14,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useAppDispatch, useAppSelector } from "./../../../App/Hooks/Hooks";
 import { cerrarLogin, loginGoogle } from "../../../App/Action/Action";
 import { normalize } from "./../../../App/utils/NormalText";
+import Swal from "sweetalert2"
 
 interface Props {
     dashboard: boolean;
@@ -30,20 +31,37 @@ const NavForm = ({ dashboard }: Props) => {
     ];
 
     const cerrarSesion = () => {
-        cookies.remove("id", { path: "/" });
-        cookies.remove("email", { path: "/" });
-        cookies.remove("name", { path: "/" });
-        cookies.remove("phone", { path: "/" });
-        cookies.remove("image", { path: "/" });
-        cookies.remove("RolId", { path: "/" });
-        cookies.remove("token", { path: "/" });
-
-        if (cookies.get("loginWith") === "local") {
-            dispatch(cerrarLogin());
-            navigate("/login");
-        } else logout();
-        cookies.remove("loginWith", { path: "/" });
-    };
+        Swal.fire({
+            title: 'Seguro quieres cerrar sesion?',
+            text: "¡No podrás revertir esto!",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonColor: '#d33',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'cerrar sesion!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                cookies.remove("id", { path: "/" });
+                cookies.remove("email", { path: "/" });
+                cookies.remove("name", { path: "/" });
+                cookies.remove("phone", { path: "/" });
+                cookies.remove("image", { path: "/" });
+                cookies.remove("RolId", { path: "/" });
+                cookies.remove("token",{path:"/"})
+                
+                if (cookies.get("loginWith") === "local") {
+                    dispatch(cerrarLogin());
+                    navigate("/home");
+                } else logout();
+                cookies.remove("loginWith", { path: "/" });
+                Swal.fire(
+                    'Usuario cerrado correctamente!',
+                    'Lo esperamos nuevamente!',
+                    'success'
+                  )
+            }
+          })
+    }
 
     const linkDash = [
         { name: "opcion1", link: "/home" },
