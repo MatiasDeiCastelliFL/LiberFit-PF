@@ -36,10 +36,9 @@ const postProduct = async (req, res) => {
             size,
             brand,
             active,
-            image,
             LocacionId,
         } = req.body;
-        // const { path } = req.file
+        const { path } = req.file
         const datoProduct = await crearProduct(
             name,
             price,
@@ -49,8 +48,8 @@ const postProduct = async (req, res) => {
             size,
             brand,
             active,
-            image,
-            LocacionId
+            LocacionId,
+            path
         );
 
         await res.status(200).json(datoProduct);

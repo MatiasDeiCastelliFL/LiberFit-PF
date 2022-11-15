@@ -18,19 +18,19 @@ const crearProduct = async (
     size,
     brand,
     active,
-    image,
-    LocacionId
+    LocacionId,
+    path
     ) => {
-    console.log(Products)
 
-  // const data = await cloudinary.v2.uploader.upload(path)
+
+  const data = await cloudinary.v2.uploader.upload(path)
  const producto= await Products.create({
     name,
     price,
     stock,
     code,
     active,
-    image,
+    image:data.secure_url,
     description,
     size,
     brand
@@ -39,7 +39,7 @@ const crearProduct = async (
     await producto.addLocacions(LocacionId);
     return "prducto creado"
 
-    // await fs.unlink(path)
+     await fs.unlink(path)
 
 }
 
