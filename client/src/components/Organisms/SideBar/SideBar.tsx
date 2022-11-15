@@ -21,6 +21,7 @@ import { MdOutlineProductionQuantityLimits } from 'react-icons/md';
 import { GiMuscleUp } from 'react-icons/gi';
 import { GoDashboard } from 'react-icons/go';
 import { BsCurrencyDollar } from 'react-icons/bs';
+import Swal from "sweetalert2"
 
 
 interface Props {
@@ -39,21 +40,51 @@ function SideBar({ handle, setName, dashboard }: Props) {
     const { user, logout } = useAuth0();
     const navigate = useNavigate();
     const cerrarSesion = () => {
-        if (confirm("Seguro que quieres cerrar sesion?")) {
-            cookies.remove("id", { path: "/" });
-            cookies.remove("email", { path: "/" });
-            cookies.remove("name", { path: "/" });
-            cookies.remove("phone", { path: "/" });
-            cookies.remove("image", { path: "/" });
-            cookies.remove("RolId", { path: "/" });
-            cookies.remove("token",{path:"/"})
+        Swal.fire({
+            title: 'Seguro quieres cerrar sesion?',
+            text: "¡No podrás revertir esto!",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonColor: '#d33',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'cerrar sesion!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                cookies.remove("id", { path: "/" });
+                cookies.remove("email", { path: "/" });
+                cookies.remove("name", { path: "/" });
+                cookies.remove("phone", { path: "/" });
+                cookies.remove("image", { path: "/" });
+                cookies.remove("RolId", { path: "/" });
+                cookies.remove("token",{path:"/"})
+                
+                if (cookies.get("loginWith") === "local") {
+                    dispatch(cerrarLogin());
+                    navigate("/home");
+                } else logout();
+                cookies.remove("loginWith", { path: "/" });
+                Swal.fire(
+                    'Usuario cerrado correctamente!',
+                    'Lo esperamos nuevamente!',
+                    'success'
+                  )
+            }
+          })
+        // if (confirm("Seguro que quieres cerrar sesion?")) {
+        //     cookies.remove("id", { path: "/" });
+        //     cookies.remove("email", { path: "/" });
+        //     cookies.remove("name", { path: "/" });
+        //     cookies.remove("phone", { path: "/" });
+        //     cookies.remove("image", { path: "/" });
+        //     cookies.remove("RolId", { path: "/" });
+        //     cookies.remove("token",{path:"/"})
             
-            if (cookies.get("loginWith") === "local") {
-                dispatch(cerrarLogin());
-                navigate("/home");
-            } else logout();
-            cookies.remove("loginWith", { path: "/" });
-        };
+        //     if (cookies.get("loginWith") === "local") {
+        //         dispatch(cerrarLogin());
+        //         navigate("/home");
+        //     } else logout();
+        //     cookies.remove("loginWith", { path: "/" });
+        // };
     }
 
     const client = [
