@@ -4,14 +4,13 @@ const postMachine = async (req, res) => {
     try {
         const { 
             name,
-            image,
             muscle,
             LocacionId
         } = req.body
-
+        const {path}=req.file
         await crearMachine(
             name,
-            image,
+            path,
             muscle,
             LocacionId
         )
@@ -33,9 +32,11 @@ const getMachine = async (req, res) => {
 }
 const putMachine = async (req, res) => {
    try {
+    const {path}=req.file
     const {id}= req.params
-   const { name,image,muscle,} = req.body
-   await  actualizarMachine(name,image,muscle,id)
+   const { name,muscle,} = req.body
+
+   await  actualizarMachine(name,path,muscle,id)
    res.status(201).json({msg:'machine actaulizada'})
    } catch (error) {
     res.status(500).json({msg:'machine no se actualizo'})
