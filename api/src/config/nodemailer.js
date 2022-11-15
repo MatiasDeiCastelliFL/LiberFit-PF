@@ -11,7 +11,10 @@ const transporter = nodemailer.createTransport({
       user: correo_origen, 
       pass: password_origen, 
     },
-  });
+    tls: {
+      rejectUnauthorized: false
+  }
+});
 
   transporter.verify().then(()=>{
     console.log("listo para enviar emails");
