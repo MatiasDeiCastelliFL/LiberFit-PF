@@ -7,6 +7,7 @@ import { openModal } from "../../../../../App/Action/Action";
 import Cookies from 'universal-cookie';
 import { getPaymentInfo } from "../../../../../App/Action/FilterActions";
 import ModalRenovation from '../../../../Molecules/Modal/ModalRenovation';
+import WelcomeCard from '../../../../Atoms/WelcomeCard/WelcomeCard';
 
 import { FcCurrencyExchange } from 'react-icons/fc'
 import { BsPaypal } from 'react-icons/bs'
@@ -78,14 +79,7 @@ const Payments = () => {
     return (
       <div className="flex w-full justify-center items-center  flex-col mt-10">
 
-        <div className='flex flex-col gap-2 w-payment_table font-sans px-8'>
-            <h1 className='font-black text-2xl'>
-                {`Hola, ${cookies.get("name")}!`}
-            </h1>
-            <h2 className=' text-gray-400 font-bold text-xl'>
-                {`Gracias por confiar en nosotros, aquí puedes ver tu historial de compras`}
-            </h2>
-        </div>
+        <WelcomeCard message='Gracias por confiar en nosotros, aquí puedes ver tu historial de compras' />
         {/* <div className={`fix bg-redClare top-12 bottom-10 left-10 right-10 ${!modal? 'hidden': null}`}>
             <p>Hola abriendo modal</p> 
         </div> */}
