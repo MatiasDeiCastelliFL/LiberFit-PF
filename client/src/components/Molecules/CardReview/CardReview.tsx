@@ -16,6 +16,7 @@ function CardReview() {
     });
     const {locations} = useAppSelector((state) => state.data);
     const dispatch = useAppDispatch();
+    const [confirm , setConfirm] = useState(false);
 
 
     const handleRating = (rate: number) => {
@@ -23,6 +24,7 @@ function CardReview() {
             ...review, 
             rate: rate,
         });
+        setConfirm(true);
     };
     const handleButtonClick = async (e:any) => {
         e.preventDefault();
@@ -32,10 +34,12 @@ function CardReview() {
             location: e.target.value,
         });
         await dispatch(postReview({review:review, token: cookies.get("token")}, ""));
+        setConfirm(false);
         toast.success(`Calificacion recibida`, {
             duration: 6000,
             position: 'bottom-center',
         });
+
     };
 
     const dataReviews = [3,5,7,9,11]
@@ -44,15 +48,15 @@ function CardReview() {
     
 
     return (
-        <div className="w-custom_7 p-10 flex flex-col gap-10">
+        <div className="p-10 flex gap-10 flex-wrap">
             {
     
             locations.map((location:any) => (
-                <div className="flex bg-semiBlack text-white rounded-xl justify-between p-6">
+                <div className="flex bg-semiBlack text-white rounded-xl justify-between p-6 gap-2 " key={Math.random()}>
                         <div className="flex flex-col gap-3 justify-start items-center">
-                            <h2>Califica la Sede {location.name}</h2>
+                            <h2 className="w-96">Califica la Sede {location.name}</h2>
 
-                            <button value={location.name} onClick={handleButtonClick}>
+                            <div className='flex gap-2 items-center'>
                                 <Rating
                                     transition
                                     tooltipArray={[
@@ -65,7 +69,8 @@ function CardReview() {
                                     onClick={handleRating}
                                     SVGclassName="inline-block"
                                 />
-                            </button>
+                                <button onClick={handleButtonClick} value={location.name} className={`bg-gray-400 rounded-lg px-1 ${confirm? null: 'hidden'}`}>Confirmar</button>
+                            </div>
                             <div className="flex flex-col gap-3 w-full">
                                 {
                                     dataReviews.map((review:any, index) => (
