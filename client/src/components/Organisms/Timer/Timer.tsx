@@ -47,7 +47,7 @@ function Timer() {
 
        
         
-        setSeconds(10);
+        setSeconds(59);
         setPorcentaje(0);
         setActivo(false);
     }
