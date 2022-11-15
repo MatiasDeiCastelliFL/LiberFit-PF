@@ -48,13 +48,13 @@ function CardReview() {
     
 
     return (
-        <div className="w-custom_7 p-10 flex flex-col gap-10">
+        <div className="p-10 flex gap-10 flex-wrap">
             {
     
             locations.map((location:any) => (
                 <div className="flex bg-semiBlack text-white rounded-xl justify-between p-6 gap-2 " key={Math.random()}>
                         <div className="flex flex-col gap-3 justify-start items-center">
-                            <h2>Califica la Sede {location.name}</h2>
+                            <h2 className="w-96">Califica la Sede {location.name}</h2>
 
                             <div className='flex gap-2 items-center'>
                                 <Rating
