@@ -19,7 +19,7 @@ interface Props {
 //     RolId: string,
 // }
 
-const EmployeeForm = ({background}:Props) => {
+const ClientsForm = ({background}:Props) => {
 
     const dispatch = useAppDispatch()
     const { data } =  useAppSelector((state) => state)
@@ -44,7 +44,7 @@ const EmployeeForm = ({background}:Props) => {
             RolId: data.RolId,
         }
 
-        dispatch(postElement(body, "empleado"))
+        dispatch(postElement(body, "clients"))
     }
 
     useEffect(() => {
@@ -107,4 +107,4 @@ const EmployeeForm = ({background}:Props) => {
 }
 
 
-export default EmployeeForm;
+export default ClientsForm;

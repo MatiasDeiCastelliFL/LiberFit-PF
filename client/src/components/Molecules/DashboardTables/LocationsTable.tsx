@@ -12,12 +12,18 @@ export default function LocationsTable({ link }: any) {
         dispatch(getLocations())
     }, []);
 
+    const handleDeleteEvent = async (id: any) => {
+        // dispatch(deleteClient(id))
+    };
+
+    const handleUpdateEvent = (id: any) => {};
+
     const data = React.useMemo(
         (): any =>
             allData[link].map((e: any) => {
 
                 return {
-                    col1: e.id,
+                    col1: e.name,
                     col2: (
                         <Avatar
                             className="mr-2"
@@ -26,10 +32,10 @@ export default function LocationsTable({ link }: any) {
                             round={true}
                         />
                     ),
-                    col3: e.name,
-                    col4: e.timeSlot,
-                    col5: e.createdAt,
-                    col6: "Actualizar",
+                    col3: e.phone,
+                    col4: e.address,
+                    col5: e.timeSlot,
+                    col6: e.createdAt.substr(0,10),
                 };
             }),
         []
@@ -38,7 +44,7 @@ export default function LocationsTable({ link }: any) {
     const columns = React.useMemo(
         (): any => [
             {
-                Header: "ID",
+                Header: "Nombre",
                 accessor: "col1", // accessor is the "key" in the data
             },
             {
@@ -46,20 +52,43 @@ export default function LocationsTable({ link }: any) {
                 accessor: "col2",
             },
             {
-                Header: "Nombre",
+                Header: "Teléfono",
                 accessor: "col3",
             },
             {
-                Header: "Franja Horaria",
+                Header: "Dirección",
                 accessor: "col4",
             },
             {
-                Header: "Fecha Apertura",
+                Header: "Horarios de Atención",
                 accessor: "col5",
             },
             {
-                Header: "Actualizar",
+                Header: "Fecha Apertura Sede",
                 accessor: "col6",
+            },
+            {
+                Header: "Gestión de Registros",
+                accessor: "col7",
+                Cell: () => (
+                    <div>
+                        <button></button>
+                        <button
+                            className="bg-redClare px-4 py-2 rounded-xl mx-1"
+                            title="Eliminar"
+                            onClick={(e) => handleUpdateEvent(e)}
+                        >
+                            Editar
+                        </button>
+                        <button
+                            className="bg-redClare px-4 py-2 rounded-xl mx-1"
+                            title="Eliminar"
+                            onClick={(e) => handleDeleteEvent(e)}
+                        >
+                            Eliminar
+                        </button>
+                    </div>
+                ),
             },
         ],
         []

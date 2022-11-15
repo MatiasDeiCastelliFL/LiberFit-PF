@@ -1,36 +1,43 @@
 import React, { useEffect, useState } from "react";
 import { useTable, usePagination } from "react-table";
-import { getClients, getEmployees, getLocations, getTrainings, deleteClient } from "../../../App/Action/Action";
+import { getClients, getEmployees, deleteClient, deleteEmployee } from "../../../App/Action/Action";
 import { useAppSelector, useAppDispatch } from "../../../App/Hooks/Hooks";
 import Avatar from "react-avatar";
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 export default function Table({ link }: any) {
     const allData: any = useAppSelector((state) => state.data);
     const dispatch = useAppDispatch();
+    const cookies = new Cookies();
 
     useEffect(() => {
-        dispatch(getClients())
-        dispatch(getEmployees())
+        dispatch(getClients({token: cookies.get("token")}))
+        dispatch(getEmployees({token: cookies.get("token")}))
     }, []);
 
-    const handleDeleteUser = (e: any, id :any) => {
-        // console.log("e -->",e)
-        // console.log("id -->",id)
-        dispatch(deleteClient(id))
-    }
+    const handleDeleteEvent = async (id: any) => {
+        link == "clients"
+            ? dispatch(deleteClient(id))
+            : dispatch(deleteEmployee(id));
+    };
+
+    const handleUpdateEvent = (id: any) => {};
 
     const data = React.useMemo(
         (): any =>
             allData[link].map((e: any) => {
 
-                const membershipState = e.active == true ? "Abonada" : "No abonada"
-                const suscriptionName = 
-                e.SubscriptionId == 1 ? "No Suscripto" :
+                const membershipState = e.active == true 
+                ? <span className="bg-green-600 px-3 py-1 rounded-xl text-white font-medium">Abonada</span> 
+                : <span className="bg-red-600 px-3 py-1 rounded-xl text-white font-medium">No Abonada</span>
+
+                const suscriptionName =
+                e.SubscriptionId == 1 ? "No Suscripto" : 
                 e.SubscriptionId == 2 ? "Anual Bonificado" : 
                 e.SubscriptionId == 3 ? "Trimestral Bonificado" : 
-                e.SubscriptionId == 4 ? "Mensual" : null
-                const id = e.id
+                e.SubscriptionId == 4 ? "Mensual" : 
+                !e.SubscriptionId ? "Empleado Bonificado" : null
 
                 return {
                     col1: (
@@ -47,9 +54,7 @@ export default function Table({ link }: any) {
                     col4: e.email,
                     col5: membershipState,
                     col6: suscriptionName,
-                    col7: <button className="bg-redClare px-4 py-2 rounded-xl" onClick={(e) => handleDeleteUser(e,id) }>Suspender</button>,
-                    col8: <button className="bg-redClare px-4 py-2 rounded-xl" onClick={(e) => handleDeleteUser(e,id) }>Borrar</button>,
-                };
+                }
             }),
         []
     );
@@ -81,31 +86,50 @@ export default function Table({ link }: any) {
                 accessor: "col6",
             },
             {
-                Header: "Suspender",
+                Header: "Gestión de Registros",
                 accessor: "col7",
-            },
-            {
-                Header: "Delete",
-                accessor: "col8",
+                Cell: () => (
+                    <div>
+                        <button></button>
+                        <button
+                            className="bg-redClare px-4 py-2 rounded-xl mx-1"
+                            title="Eliminar"
+                            onClick={(e) => handleUpdateEvent(e)}
+                        >
+                            Editar
+                        </button>
+                        <button
+                            className="bg-redClare px-4 py-2 rounded-xl mx-1"
+                            title="Eliminar"
+                            onClick={(e) => handleDeleteEvent(e)}
+                        >
+                            Eliminar
+                        </button>
+                    </div>
+                ),
             },
         ],
         []
     );
 
     const { 
-      getTableProps, 
-      getTableBodyProps, 
-      headerGroups, 
-      rows,
-    //   page, 
-    //   nextPage,
-    //   previousPage,
-    //   canNextPage,
-    //   canPreviousPage,
-      prepareRow,
+        getTableProps,
+        getTableBodyProps,
+        headerGroups,
+        rows,
+        // page,
+        // nextPage,
+        // previousPage,
+        // canNextPage,
+        // canPreviousPage,
+        // pageOptions,
+        state,
+        prepareRow,
     } = useTable({ columns, data },
       usePagination
   );
+
+    // const { pageIndex } = state
 
     return (
         <div className="flex flex-col">
@@ -149,10 +173,28 @@ export default function Table({ link }: any) {
                                 })}
                             </tbody>
                         </table>
-                        <div>
-                          {/* <button onClick={() => previousPage()}>Anterior</button>
-                          <button onClick={() => nextPage()}>Siguiente</button> */}
-                        </div>
+                        {/* <div className="flex flex-row justify-center mt-3">
+                            Page{' '} */}
+                            {/* <span>
+                                <strong>
+                                    {pageIndex + 1} of {pageOptions.length}
+                                </strong>
+                            </span> */}
+                            {/* <button
+                                className="bg-redClare px-4 py-2 rounded-xl mx-1"
+                                onClick={() => previousPage()}
+                                disabled={!canPreviousPage}
+                            >
+                                Anterior
+                            </button>
+                            <button
+                                className="bg-redClare px-4 py-2 rounded-xl mx-1"
+                                onClick={() => nextPage()}
+                                disabled={!canNextPage}
+                            >
+                                Siguiente
+                            </button>
+                        </div> */}
                     </div>
                 </div>
             </div>
