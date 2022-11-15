@@ -69,14 +69,11 @@ function Modal() {
     };
 
     const onSubmit = (data: any) => {
-        console.log(data);
     };
 
 
     const pay = (e: any) => {
         e.preventDefault();
-        console.log(old_LastDate);
-        console.log(e.target.value);
         try {
             const payload = {
                 amount : subscriptions[e.target.value].price,
@@ -103,7 +100,6 @@ function Modal() {
         }
     }, [])
 
-    console.log(subscriptions);
 
     return (
         <>
@@ -132,7 +128,6 @@ function Modal() {
                                     {
                                         subscriptions.map((item:any, index:any) => (
                                             index !== 0 ? (
-                                                console.log(item),
                                         
                                                 <button onClick={pay} value={index} className={`w-ful flex justify-between text-gray-100 font-semibold p-3 rounded-xl ${(item.name === 'Oro')? ' bg-yellow_custom': (item.name=== 'Plata')? 'bg-blue_custom': 'bg-red_custom'} hover:cursor-pointer scale-95 hover:scale-100 transition-all ease-in-out`}>
                                                     <div className="flex flex-col">

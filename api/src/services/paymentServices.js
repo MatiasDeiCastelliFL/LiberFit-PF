@@ -124,6 +124,7 @@ const sendEmail = async (name, email) => {
     template_id: TEMPLATE_ID,
     user_id: USER_ID,
     accessToken:ACCESS_TOKEN,
+    
     template_params:{
       reply_to:email,
       message: 'Pago realizado',

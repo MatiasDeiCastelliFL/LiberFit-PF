@@ -50,7 +50,7 @@ const MembershipInfo = () => {
                     </div>
                 : 
                     <div>
-                        <div className="flex justify-between w-full items-center">
+                        <div className="flex justify-between w-full items-center ">
                             <h1 className=" text-lg font-semibold">Plan Actual: {membership.name}</h1>
                         </div>
                     </div>
