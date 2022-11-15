@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks"
 import { postUser } from "../../../App/Action/Action"
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
+import Swal from "sweetalert2"
 
 interface Inputs {
   name: string;
@@ -27,8 +28,29 @@ const SingUp = () => {
   const onSubmit = handleSubmit((data) => {
     console.log(data);
     dispatch(postUser(data))
-    alert("usuario creado correctamente!")
-    navigate("/login")
+    .then(response => {
+      console.log(response)
+      Swal.fire({
+        icon: "success",
+        title: 'Usuario creado correctamente',
+        text: "Confirme su cuenta en su correo electronico",
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      })
+      navigate("/login")
+    })
+    .catch(error => {
+      console.log(error)
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '¡Algo salió mal!',
+      })
+    })
   });
 
   return (
