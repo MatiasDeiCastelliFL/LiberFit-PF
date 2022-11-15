@@ -134,7 +134,7 @@ function Modal() {
                                             index !== 0 ? (
                                                 console.log(item),
                                         
-                                                <button onClick={pay} value={index} className={`w-ful flex justify-between text-gray-100 font-semibold p-3 rounded-xl ${(item.name === 'Oro')? ' bg-yellow_custom': (item.name=== 'Plata')? 'bg-blue_custom': 'bg-red_custom'} hover:cursor-pointer hover:scale-105`}>
+                                                <button onClick={pay} value={index} className={`w-ful flex justify-between text-gray-100 font-semibold p-3 rounded-xl ${(item.name === 'Oro')? ' bg-yellow_custom': (item.name=== 'Plata')? 'bg-blue_custom': 'bg-red_custom'} hover:cursor-pointer scale-95 hover:scale-100 transition-all ease-in-out`}>
                                                     <div className="flex flex-col">
                                                         <img src={(item.name === 'Oro')?Gold:(item.name==='Plata')?Silver:Bronze} alt="logoPlan" className="h-10 w-10"/>
                                                         <span className="text-sm">{item.name}</span>

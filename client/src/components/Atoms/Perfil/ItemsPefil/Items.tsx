@@ -16,10 +16,10 @@ function Items() {
                             {cookies.get("name") || user?.name}
                         </p>
                         {
-                            cookies.get("RolId") === "3" ? <p className={`${style.textI} text-gray`}>Cliente</p> : null
+                            cookies.get("RolId") === "3" ? <p className={`${style.text2} text-semiRed`}>Cliente</p> : null
                         }
                         {
-                            cookies.get("RolId") === "1" ? <p className={`${style.textI} text-gray`}>Admin</p> : null
+                            cookies.get("RolId") === "1" ? <p className={`${style.text2} text-semiRed`}>Admin</p> : null
                         }
                     </div>
                 ) : (
