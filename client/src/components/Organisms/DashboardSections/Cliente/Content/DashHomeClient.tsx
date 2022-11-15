@@ -12,7 +12,7 @@ function DashHomeClient () {
                 <MembershipInfo />
                 <Calendar />
             </div>
-            {/* <CardReview/> */}
+            <CardReview/>
         </div>
     )
 }
