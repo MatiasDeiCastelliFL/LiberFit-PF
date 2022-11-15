@@ -27,15 +27,15 @@ const MembershipInfo = () => {
             })
         }
 
-    }, [lastPayment, user.SubscriptionId, subscriptions, membership.duration])
+    }, [])
         
 
     return (
-        <div className="w-custom_6 p-5 gap-6 rounded-xl text-white mt-10 justify-between items-start flex flex-col bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] from-rose-100 via-yellow-400 to-rose-600">
+        <div className="w-custom_6">
             {
                 (lastPayment && daysLeft && cssPercentage) 
                 ? 
-                    <div>
+                    <div className="p-5 gap-6 rounded-xl text-white justify-between items-start flex flex-col bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] from-rose-100 via-yellow-400 to-rose-600">
                         <div className="flex justify-between w-full items-center">
                             <h1 className=" text-lg font-semibold">Plan Actual: {membership.name}</h1>
                             <p>$ {lastPayment.amount}</p>
