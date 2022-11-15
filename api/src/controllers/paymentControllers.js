@@ -150,8 +150,11 @@ const getCaptureOrder = async (req, res) => {
         const name = response.data.payer.name.given_name
         console.log('Crear payment',oldLastDate)
         const datoPayment = await crearPayment(amount.value,idCliente,descripcion_plan, subscription_Id, oldLastDate);
-        
-        sendEmail(name, email)
+        try {
+            sendEmail(name, email)
+        } catch (error) {
+            console.log(error)
+        }
         res.redirect('http://127.0.0.1:5173/paymentComplet');
     }catch (error) {
         res.status(500).send("Algo salio mal");
