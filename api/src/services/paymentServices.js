@@ -5,8 +5,8 @@ const emailjs = require('emailjs-com');
 const axios = require('axios');
 const { SERVICE_ID, TEMPLATE_ID, USER_ID, ACCESS_TOKEN} = process.env;
 
-const crearPayment = async (amount, ClientId, description, subscriptionId) => {
-  
+const crearPayment = async (amount, ClientId, description, subscriptionId, oldLastDate) => {
+  oldLastDate=new Date(oldLastDate)
   let subscriptionInfo= await Subscriptions.findOne({where:{
     id: subscriptionId
   }})
@@ -15,11 +15,23 @@ const crearPayment = async (amount, ClientId, description, subscriptionId) => {
   let active=true
 
   let fechaActual=new Date()
+  let day = 0
+  let month = 0 
+  let year = 0
+  console.log('fechaActual',fechaActual)
+  
+  if (!oldLastDate || oldLastDate < fechaActual) {
 
-  let day = fechaActual.getDate()
-  let month = fechaActual.getMonth()
-  let year = fechaActual.getFullYear()
-
+      day = fechaActual.getDate()
+      month = fechaActual.getMonth()
+      year = fechaActual.getFullYear()
+  }else{
+      console.log('oldLastDate',oldLastDate)
+      day = oldLastDate.getDate()+1
+      month = oldLastDate.getMonth()+1
+      year = oldLastDate.getFullYear()
+      console.log(day,month,year)
+  }
   if ( (month + subscriptionInfo.duration) > 11){
     year = year+1
     month = month + subscriptionInfo.duration-12
@@ -27,8 +39,13 @@ const crearPayment = async (amount, ClientId, description, subscriptionId) => {
     month = month + subscriptionInfo.duration
   }
 
-  
-  let fechaFinalizacion = new Date(year,month,day)
+  let fechaFinalizacion = 0
+
+  try {
+    fechaFinalizacion = new Date(year,month,day)
+  } catch (error) {
+    console.log('Algo anda mal',error)
+  }
 
 
   const DatoGenerado=await Payments.create({
