@@ -5,6 +5,7 @@ import { getDataByName, getMainData, getUserInfo, getSuscriptions } from "./../.
 import { getFilterData } from "./../../App/Action/FilterActions";
 import { openFilters } from "./../../App/Action/Action";
 import { useLocation, useParams } from "react-router-dom";
+import { getPaymentInfo } from "./../../App/Action/FilterActions";
 import Cookies from "universal-cookie";
 function Home() {
     const dispatch = useAppDispatch();
@@ -19,6 +20,7 @@ function Home() {
         dispatch(getSuscriptions());
         cookies.get("id") && dispatch(getUserInfo({id:cookies.get("id"), token:cookies.get("token")}));
         dispatch(getMainData());
+        dispatch(getPaymentInfo(cookies.get("id"), cookies.get("token")));
     }, [dispatch]);
 
     const handleSubmit = (e: any) => {
@@ -27,13 +29,13 @@ function Home() {
             dispatch(getDataByName(name));
             setName("");
         }
+
     };
 
     if (location.pathname === "/home" || params.name) {
         dispatch(openFilters(false));
     }
    
-
     return <HomeTemplate handle={handleSubmit} name={setName} />;
 }
 

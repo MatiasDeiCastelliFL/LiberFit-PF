@@ -1,14 +1,24 @@
-import React from "react";
+import React, {useEffect } from "react";
 import NavBar from "../../Organisms/Navbar/NavBar";
+import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
 import SideBar from "./../../Organisms/SideBar/SideBar";
 import CreateForm from "../../Organisms/CreateForm/CreateForm";
 import { useParams, useLocation } from "react-router-dom";
 import Cliente from "./../../Organisms/DashboardSections/Cliente/Cliente";
 import DashAdmin from "../../Organisms/DashboardSections/Admin/DashAdmin";
+import { getPaymentInfo } from "../../../App/Action/FilterActions";
 
 function DashboardTemplate() {
     const { cliente } = useParams<{ cliente: string }>();
     const isAdmin = useLocation().pathname.includes("/dashboard/admin");
+    const dispatch = useAppDispatch();
+    const { user } = useAppSelector((state) => state.data);
+    
+    useEffect(() => {
+        console.log("Entra al use effect");
+        dispatch(getPaymentInfo(user.id, user.token));
+
+    }, []);
 
     return (
         <div className="grid grid-flow-row-dense grid-cols-12">

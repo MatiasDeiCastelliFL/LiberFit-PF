@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useParams, useLocation, Link, useNavigate } from "react-router-dom";
 import style from "./NavBar.module.css";
 import {
@@ -36,11 +36,10 @@ const NavForm = ({ dashboard }: Props) => {
         { name: "opcion1", link: "/home" },
         { name: "opcion2", link: "/home" },
     ];
-
     const link2 = [
         {
             name:
-                cookies.get("name") || user?.name ? "Dashboard" : "Membresias",
+                cookies.get("name") || user?.name ? "Dashboard" : "Dashboard",
             link:
                 cookies.get("RolId") === "1"
                     ? "/dashboard/admin"
@@ -48,7 +47,7 @@ const NavForm = ({ dashboard }: Props) => {
                     ? `/dashboard/${normalize(
                           cookies.get("name").replace(/\s+/g, "")
                       )}`
-                    : "/",
+                    : "/home",
             icon: cookies.get("name") ? (
                 <Squares2X2Icon className="w-4" />
             ) : (
@@ -95,10 +94,15 @@ const NavForm = ({ dashboard }: Props) => {
         },
     ];
 
+
     const params = useLocation();
 
     const name = params.pathname.split("/").map((e, i) => e);
 
+    useEffect(() => {
+    }, [cookies.get("RolId")]);
+
+    console.log('user-->',cookies.get("RolId"));
     return (
         <div
             className={`${

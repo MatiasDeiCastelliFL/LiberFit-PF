@@ -10,9 +10,9 @@ const {
 
 const routerTraining = Router();
 
-routerTraining.get("/training", getTraining);
-routerTraining.post("/training", upload,isAuthenticated,postTraining);
+routerTraining.get("/training" ,getTraining);
+routerTraining.post("/training",isAuthenticated ,upload,postTraining);
 routerTraining.put("/training/:id",upload,isAuthenticated, putTraining);
 routerTraining.delete("/training/:id",isAuthenticated, deleteTraining);
-
+// routerTraining.delete("/training/:id",isAuthenticated, deleteTraining);
 module.exports = routerTraining;

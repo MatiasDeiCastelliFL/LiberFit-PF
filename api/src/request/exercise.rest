@@ -6,9 +6,9 @@ POST http://localhost:3004/exercises
 Content-Type: application/json
 
 {
-  "name":"pesas",
-  "repetition":2,
-  "series":4,
+  "name":"Abdominales",
+  "repetition":30,
+  "series":2,
   "video":"https://www.youtube.com/watch?v=XpPf0HJSEo4",
   "image":"https://ui-avatars.com/api/?name=ric+ob",
   "muscle":"brazo"

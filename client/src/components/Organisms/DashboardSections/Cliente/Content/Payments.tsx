@@ -3,8 +3,11 @@ import { useAppDispatch, useAppSelector } from "../../../../../App/Hooks/Hooks"
 import { useMemo } from "react";
 import { useTable, usePagination } from "react-table";
 import Table from '../../../../Molecules/DashboardTables/UsersTable';
+import { openModal } from "../../../../../App/Action/Action";
 import Cookies from 'universal-cookie';
 import { getPaymentInfo } from "../../../../../App/Action/FilterActions";
+import ModalRenovation from '../../../../Molecules/Modal/ModalRenovation';
+import WelcomeCard from '../../../../Atoms/WelcomeCard/WelcomeCard';
 
 import { FcCurrencyExchange } from 'react-icons/fc'
 import { BsPaypal } from 'react-icons/bs'
@@ -14,7 +17,7 @@ const Payments = () => {
   const dispatch = useAppDispatch();
   const cookies = new Cookies();
   const { paymentState } = useAppSelector((state) => state.payment);
-
+  const {modal} = useAppSelector((state) => state);
 
   useEffect(() => {
     dispatch(getPaymentInfo(cookies.get("id"), cookies.get("token")));
@@ -39,6 +42,9 @@ const Payments = () => {
     [paymentState]
 );
 
+  const abrirModal = () => {
+    dispatch(openModal(true));
+};
 
   const columns = React.useMemo(
     (): any => [
@@ -65,11 +71,6 @@ const Payments = () => {
     getTableBodyProps, 
     headerGroups, 
     rows,
-  //   page, 
-  //   nextPage,
-  //   previousPage,
-  //   canNextPage,
-  //   canPreviousPage,
     prepareRow,
   } = useTable({ columns, data },
     usePagination
@@ -78,15 +79,12 @@ const Payments = () => {
     return (
       <div className="flex w-full justify-center items-center  flex-col mt-10">
 
-        <div className='flex flex-col gap-2 w-payment_table font-sans px-8'>
-            <h1 className='font-black text-2xl'>
-                {`Hola, ${cookies.get("name")}!`}
-            </h1>
-            <h2 className=' text-gray-400 font-bold text-xl'>
-                {`Gracias por confiar en nosotros, aquí puedes ver tu historial de compras`}
-            </h2>
-        </div>
-        <button className='w-payment_table px-8  flex justify-end'>
+        <WelcomeCard message='Gracias por confiar en nosotros, aquí puedes ver tu historial de compras' />
+        {/* <div className={`fix bg-redClare top-12 bottom-10 left-10 right-10 ${!modal? 'hidden': null}`}>
+            <p>Hola abriendo modal</p> 
+        </div> */}
+        <ModalRenovation />
+        <button className='w-payment_table px-8  flex justify-end '  onClick={abrirModal}>
             <div className='bg-blue-600 p-2 flex gap-2 rounded-2xl'>
                 <BsPaypal className='text-2xl text-white'/>
                 <p className='text-white'>Renová tu membresía</p>

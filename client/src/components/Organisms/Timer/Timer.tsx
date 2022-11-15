@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import {FiPlay} from 'react-icons/fi'
@@ -10,7 +10,10 @@ const redGray = '#FF0055'
 function Timer() {
     const [paused , setPaused] = useState(false)
     const [mode , setMode] = useState('pushups')
-    const [seconLeft , setSecondLeft] = useState(0)
+    const [secondLeft , setSecondLeft] = useState(0)
+    const setSecondLeftRef = useRef(secondLeft)
+    const pausedRef = useRef(paused)
+    const modeRef = useRef(mode)
 
     const exercise = ['pushups, sentadilla , diamante']
 
@@ -22,19 +25,20 @@ function Timer() {
         const nextExercise = exercise.map(d => d).toString() === 'pushups' ? 'break' : 'pushups'
         const nextSeconds = (nextExercise === 'pushups' ? 1 : 0.1) * 60
         setMode(nextExercise)
-        setSecondLeft( nextSeconds)
+        setSecondLeftRef.current =  nextSeconds
     }
 
     const tick = () => {
-        setSecondLeft( seconLeft - 1)
+        setSecondLeftRef.current --
+        setSecondLeft( setSecondLeftRef.current)
     }
 
     useEffect(() => {
         initTimer()
 
         setInterval(() => {
-            if(paused) return
-            if(seconLeft === 0) return switchMode()
+            if(pausedRef.current) return
+            if(setSecondLeftRef.current === 0) return switchMode()
 
             tick()
         },1000)

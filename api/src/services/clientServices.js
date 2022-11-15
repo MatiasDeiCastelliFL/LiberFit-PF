@@ -30,12 +30,16 @@ const createClient = async (
             SubscriptionId,
             RolId,
         });
-        const data = await Locacions.findOne({
+
+        console.log(locacion)
+        const data = await Locacions.findAll({
             where: {
-                name: `${locacion}`,
+                name: locacion
             },
         });
-        await cli.addLocacions(data, { review: "5" });
+
+        // console.log(data)
+        await cli.addLocacions(data);
 
         return cli;
     } else {
@@ -221,6 +225,32 @@ const deleteClient = async (id, name, email) => {
     }
 };
 
+const inactivarCuenta=async(id)=>{
+
+    await Clients.update({
+      active:false,
+    },{
+      where:{
+        id:id
+      }
+    })
+  
+    return "La cuenta se desactivo correctamente"
+  }
+  
+  const activarCuenta=async(id)=>{
+  
+    Clients.update({
+      active:true,
+    },{
+      where:{
+        id:id
+      }
+    })
+  
+    return "La cuenta se activo correctamente"
+  }
+
 module.exports = {
     createClient,
     findClients,
@@ -231,5 +261,7 @@ module.exports = {
     updateProfileImage,
     deleteClient,
     getIdClienteSuscription,
-    createReview,
+    inactivarCuenta,
+    activarCuenta,
+    createReview
 };

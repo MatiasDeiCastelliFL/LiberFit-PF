@@ -21,12 +21,14 @@ const { validate } = require("../validation/validations");
 
 var idCliente = ''
 var descripcion_plan = ''
+var subscription_Id = ''
+var oldLastDate = ''
 
 const postPayment = async (req, res) => {
     try {
-        const { name, active, amount,ClientId,SubscriptionId} = req.body;
+        const { name,amount,ClientId,subscriptionId} = req.body;
 
-        const datoPayment = await crearPayment(name, active, amount,ClientId,SubscriptionId);
+        const datoPayment = await crearPayment(amount,ClientId,name,subscriptionId);
         res.status(200).json(datoPayment);
     } catch (error) {
         console.log(error);
@@ -63,9 +65,11 @@ const modificarPayment = async (req, res) => {
 const postCreateOrder = async (req, res) => {
 
 
-    const { amount, description, ClientId} = req.query;
+    const { amount, description, ClientId, subscriptionId, old_LastDate} = req.query;
     idCliente = ClientId
     descripcion_plan = description
+    subscription_Id = subscriptionId
+    oldLastDate = old_LastDate
     const value = parseFloat(amount);
     try {
         const order = {
@@ -123,6 +127,8 @@ const postCreateOrder = async (req, res) => {
         return res.status(500).send("Algo salio mal");
     }
 };
+
+
 const getCaptureOrder = async (req, res) => {
     try {
         const { token } = req.query;
@@ -142,8 +148,8 @@ const getCaptureOrder = async (req, res) => {
         const payments = response.data.purchase_units[0].payments
         const email = response.data.payer.email_address
         const name = response.data.payer.name.given_name
-    
-        const datoPayment = await crearPayment(amount.value,idCliente,descripcion_plan);
+        console.log('Crear payment',oldLastDate)
+        const datoPayment = await crearPayment(amount.value,idCliente,descripcion_plan, subscription_Id, oldLastDate);
         
         sendEmail(name, email)
         res.redirect('http://127.0.0.1:5173/paymentComplet');

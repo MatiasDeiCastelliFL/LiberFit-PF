@@ -10,17 +10,17 @@ const {getProduct,postProduct,deleteProduct,activarProduc,inactivarProduct,CantA
 
 const routerProduct= Router();
 
-routerProduct.post("/product",isAuthenticated,postProduct);
 routerProduct.get("/product",getProduct);
+routerProduct.post("/product",isAuthenticated,postProduct);
 routerProduct.delete('/product/:id',isAuthenticated,deleteProduct)
 routerProduct.put("/ProductoDesactivar",isAuthenticated,inactivarProduct);
-routerProduct.put("/ProductoActivar",isAuthenticated,activarProduc);
-routerProduct.get("/CantProductoInacativo",isAuthenticated,CantInacativo)
-routerProduct.get("/CantProductoActivo",isAuthenticated,CantActivo)
-routerProduct.get("/ProductoActivado",isAuthenticated,FiltrarProductoDesactivado)
-routerProduct.get("/ProductoDescativado",isAuthenticated,FiltrarProductoActivo)
-routerProduct.get("/FiltrarProductoInactivoConSede",isAuthenticated,FiltrarProductoInactivoConSede)
-routerProduct.get("/FiltrarProductoActivoConSede",isAuthenticated,FiltrarProductoActivoConSede)
+routerProduct.put("/ProductoActivar",isAuthenticated ,activarProduc);
+routerProduct.get("/CantProductoInacativo", isAuthenticated,CantInacativo)
+routerProduct.get("/CantProductoActivo",isAuthenticated ,CantActivo)
+routerProduct.get("/ProductoDescativado",isAuthenticated ,FiltrarProductoDesactivado)
+routerProduct.get("/ProductoActivado",isAuthenticated ,FiltrarProductoActivo)
+routerProduct.get("/FiltrarProductoInactivoConSede",isAuthenticated ,FiltrarProductoInactivoConSede)
+routerProduct.get("/FiltrarProductoActivoConSede",isAuthenticated ,FiltrarProductoActivoConSede)
 
 
 module.exports=routerProduct ;

@@ -11,10 +11,12 @@ function Content() {
         amount: data.paymentinfo.amount,
         description: data.paymentinfo.description,
         ClientId : data.user.id,
-        
+        subscriptionId: data.paymentinfo.subscriptionId,
+        token: data.user.token,
     }
     const dispatchAction = () => {
         console.log(payload)
+        console.log(data.paymentinfo)
         dispatch(postPaymentPaypal(payload))
     }
     return (

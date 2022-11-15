@@ -5,7 +5,7 @@ POST http://localhost:3004/suscription
 Content-Type: application/json
 
 { 
-  "name":"oro",
-  "price":"$40404",
+  "name":"Plata",
+  "price":"3000",
   "description":"estpo es un suscripcion"
 } 

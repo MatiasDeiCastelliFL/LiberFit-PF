@@ -32,7 +32,11 @@ module.exports = {
                 redClare: "#F87171",
                 white: "#FFF",
                 gray_custom: "#9B9B9B",
-                dark: '#212529'
+                dark: '#212529',
+                yellow_custom: "#fec101",
+                blue_custom: "#1d71ba",
+                red_custom: "#00af72",
+                semiBlack: '#252525',
             },
             spacing: {
                 sidebar: "16vw",
@@ -51,6 +55,7 @@ module.exports = {
                 custom_5: "80vw",
                 custom_6: "40vw",
                 custom_4: "30%",
+                custom_7: "60%",
                 payment_table: "75vw",
                 '2xl': '14.8125rem',
                 sidebar: "18vw",
@@ -149,6 +154,9 @@ module.exports = {
             },
             borderRadius: {
                 custom_1: "50px",
+            },
+            backgroundColor: {
+                
             },
         },
     },

@@ -9,11 +9,16 @@ const {
     getPaymentsInfo,
     getIdClienteSuscription,
     createReview,
-} = require("../services/clientServices");
-
+    inactivarCuenta,
+    activarCuenta
+} = require('../services/clientServices');
+const {transporter}= require('../config/nodemailer')
+const { DOMINIO} = process.env;
 const {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,MostrarDatorutinaConUser} = require("../Helpers/busqueda")
-const { validate } = require("../validation/validations");
-const { Clients, Payments,Locacions,Exercises } = require("../db");
+const { validate,CuentaActiva,CuentaDesactivar} = require('../validation/validations');
+
+
+const { Rutines,Clients, Payments,Locacions,Exercises,Employees } = require("../db");
 
 const getClientsRequest = async (req, res) => {
     try {
@@ -80,6 +85,9 @@ const postClientsRequest = async (req, res) => {
         if (clientValidationErrors.length > 0) {
             res.status(400).json(clientValidationErrors);
         } else {
+            
+        
+            
             const {
                 name,
                 phone,
@@ -91,6 +99,14 @@ const postClientsRequest = async (req, res) => {
                 RolId,
                 locacion,
             } = req.body;
+
+           await transporter.sendMail({
+            from: '"Verificación de correo 👻" <liberfit.xyz@gmail.com>', 
+            to: email, 
+            subject: "Verificación de cuenta liberfit ✔", 
+            html:  `<div><h1>verifica tu correo</h1><p> <a href=${DOMINIO}/verify?correo=${email}&active=true>Click aqui</a></p><div/>` 
+          }); 
+
             const newClient = await createClient(
                 name,
                 phone,
@@ -240,11 +256,14 @@ const FiltrarClienteActivoConSede= async(req,res)=>{
 }
 
 const FiltrarRutinaConcliente= async(req,res)=>{
-    const { id,idRutine } = req.body;
-
+    console.log("llegue")
+    const {id,idRutine} = req.body;
+   
     if(id && idRutine){
 
         const usuarioInactive= await MostrarDatorutinaConUser(Rutines,Clients,Exercises,id,idRutine);
+
+        console.log(usuarioInactive)
         res.status(200).json({usuarioInactive});
 
     }else{

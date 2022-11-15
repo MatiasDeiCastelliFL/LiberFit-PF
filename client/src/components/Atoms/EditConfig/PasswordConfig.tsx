@@ -58,7 +58,8 @@ const PasswordConfig = ({title}:Props) => {
                 {
                     id: user.id,
                     oldPassword: oldPassword,
-                    password: newPassword
+                    password: newPassword,
+                    token: user.token
                 }  
             )
         )
