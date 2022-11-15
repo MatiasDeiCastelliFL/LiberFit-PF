@@ -48,7 +48,7 @@
         "locations": [
             {
                 "id": "08681955-a1f7-4e9b-ade9-9eff7250892e",
-                "name": "AbsoluteFit - Sede Bernal",
+                "name": "Sede Bernal",
                 "phone": "+23 17485278",
                 "adress": "Primera Junta 512",
                 "products": [
@@ -234,7 +234,7 @@
                 ]
             },
             {
-                "name": "AbsoluteFit - Sede Caseros",
+                "name": "Sede Caseros",
                 "phone": "+23 17485289",
                 "adress": "12 de Octubre 3452",
                 "products": [
@@ -408,7 +408,7 @@
                 ]
             },
             {
-                "name": "AbsoluteFit - Sede Quilmes",
+                "name": "Sede Quilmes",
                 "phone": "+23 17485299",
                 "adress": "Laprida 2312",
                 "products": [
@@ -573,7 +573,7 @@
                 ]
             },
             {
-                "name": "AbsoluteFit - Sede Florencio Varela",
+                "name": "Sede Florencio Varela",
                 "phone": "+23 27485278",
                 "adress": "Guido 2312",
                 "products": [
@@ -739,7 +739,7 @@
                 ]
             },
             {
-                "name": "AbsoluteFit - Sede Ezpeleta",
+                "name": "Sede Ezpeleta",
                 "phone": "+23 37485278",
                 "adress": "Marmol 7843",
                 "products": [
@@ -898,7 +898,7 @@
                 ]
             },
             {
-                "name": "AbsoluteFit - Sede Moron",
+                "name": "Sede Moron",
                 "phone": "+23 47485278",
                 "adress": "Matienzo 2891",
                 "products": [
@@ -1032,7 +1032,7 @@
                 ]
             },
             {
-                "name": "AbsoluteFit - Sede Castelar",
+                "name": "Sede Castelar",
                 "phone": "+23 57485278",
                 "adress": "San Martin 9843",
                 "products": [
@@ -1164,7 +1164,7 @@
                 ]
             },
             {
-                "name": "AbsoluteFit - Sede Avellanera",
+                "name": "Sede Avellanera",
                 "phone": "+23 17495278",
                 "adress": "Sarmiento 6732",
                 "products": [
@@ -1331,7 +1331,7 @@
                 ]
             },
             {
-                "name": "AbsoluteFit - Sede Ranelagh",
+                "name": "Sede Ranelagh",
                 "phone": "+23 17485271",
                 "adress": "Conesa 9821",
                 "products": [
