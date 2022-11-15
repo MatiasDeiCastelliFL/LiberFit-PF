@@ -20,7 +20,9 @@ export default function DashEmpleados({ link }: any) {
                     </div>
                 </div>
             ) : (
-                <EmployeeForm background={background} />
+                <EmployeeForm 
+                // background={background} 
+                />
             )}
             <button
                 className={`${
