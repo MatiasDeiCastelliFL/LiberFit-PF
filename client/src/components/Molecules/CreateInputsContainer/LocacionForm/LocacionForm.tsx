@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../../../assets/IMG/LIBERFIT_2.png";
-import { getLocations, postElement, postEmployee } from "../../../../App/Action/Action"
+import { postLocacion, getGym } from "../../../../App/Action/Action"
 import { useAppDispatch, useAppSelector } from "../../../../App/Hooks/Hooks";
 import { useForm, Controller } from "react-hook-form";
 import Select  from  "react-select";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom"
+import Cookies from "universal-cookie";
 
 interface Props {
     background: React.CSSProperties
@@ -13,21 +14,18 @@ interface Props {
 
 interface form {
     name: string,
+    address: string,
     phone: number,
-    email: string,
-    password: string,
-    active: boolean,
-    image: string,
-    RolId: string,
-    Location: any
+    GymId: string
 }
 
-const EmployeeForm = ({background}:Props) => {
+const LocacionForm = ({background}:Props) => {
 
     const dispatch = useAppDispatch()
-    const sedes =  useAppSelector((state) => state.data.locations)
+    const gym =  useAppSelector((state) => state.data.gym)
     // console.log("esto es --->",sedes);
     const navigate = useNavigate()
+    const cookies = new Cookies()
     
     const { register, handleSubmit, formState: { errors }, control } = useForm();
     const [image, setImage] = useState("")
@@ -40,13 +38,13 @@ const EmployeeForm = ({background}:Props) => {
         }
     }
     const onSubmit =  handleSubmit((data) => {
-      console.log("employee--->",data);
-      dispatch(postEmployee(data))
+      console.log("sedes--->",data);
+      dispatch(postLocacion(data))
       .then(response => {
         console.log(response)
         Swal.fire({
           icon: "success",
-          title: 'Usuario creado correctamente',
+          title: 'Sede creada correctamente',
           // text: "Confirme su cuenta en su correo electronico",
           showClass: {
             popup: 'animate__animated animate__fadeInDown'
@@ -58,7 +56,8 @@ const EmployeeForm = ({background}:Props) => {
           timer: 2700
         })
         .then(response => {
-          navigate("/dashboard/admin")
+          // navigate("/dashboard/admin")
+          window.location.href=("/dashboard/admin")
         }) 
       })
       .catch(error => {
@@ -72,7 +71,7 @@ const EmployeeForm = ({background}:Props) => {
     });
 
     useEffect(() => {
-        getLocations()
+      dispatch(getGym({token: cookies.get("token")}))
     }, [])
 
     return (
@@ -86,51 +85,26 @@ const EmployeeForm = ({background}:Props) => {
             />
             {errors.name?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
             
-            <input  type="number" 
-                    {...register('phone', {required:true})} 
-                    placeholder='Teléfono' 
+            <input  type="text" 
+                    {...register('address', {required:true})} 
+                    placeholder='Direccion' 
                     className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"
             />
             {errors.phone?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
 
-            <input  type="text" 
-                    {...register('email', {required:true,
-                      pattern: /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,})} 
-                    placeholder='Email' 
-                    className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"
-            />
-            {errors.email?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
-            {errors.email?.type === 'pattern' && <p className="text-red-500">Este campo no es un email</p>}
-
-            <input  type="password"
-                    {...register('password', {required:true})}
-                    placeholder='Contraseña'
+            <input  type="text"
+                    {...register('phone', {required:true})}
+                    placeholder='Telefono...'
                     className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"
             />
             {errors.password?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
 
-            <input  type="hidden"
-                    {...register('active', {required:true})}
-                    placeholder='active'
-                    value="true"
-                    className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"
-            />
-            {errors.active?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
-
-
-            <select {...register('RolId', {required:true})} className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500">
-              {/* <option value="1">Dueño</option> */}
-              <option value="2">Entrenador</option>
-              {/* <option value="3">Cliente</option> */}
-              <option value="4">Recepcionista</option>
-            </select>
-              {errors.RolId?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
 
             <select {
               ...register("LocationId")
             } className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500">
               {
-                sedes?.map((elem: any,i) =>(
+                gym?.map((elem: any,i:any) =>(
                   <option key={i} value={elem.id} >
                     {elem.name}
                   </option>
@@ -138,7 +112,7 @@ const EmployeeForm = ({background}:Props) => {
               }
             </select>
 
-            <input type="submit" value='Crear Empleado' className="flex justify-center items-center font-black rounded-full py-1 px-3 text-white font-sans text-xl w-fit ml-15 mt-10" style={background}/>
+            <input type="submit" value='Crear Sede' className="flex justify-center items-center font-black rounded-full py-1 px-3 text-white font-sans text-xl w-fit ml-15 mt-10" style={background}/>
         </form>
 
         
@@ -146,4 +120,4 @@ const EmployeeForm = ({background}:Props) => {
 }
 
 
-export default EmployeeForm;
+export default LocacionForm;

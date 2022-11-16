@@ -1,23 +1,59 @@
 import React, { useEffect, useState } from "react";
 import { useTable, usePagination } from "react-table";
-import { getLocations } from "../../../App/Action/Action";
+import { deleteLocacion, getLocations } from "../../../App/Action/Action";
 import { useAppSelector, useAppDispatch } from "../../../App/Hooks/Hooks";
 import Avatar from "react-avatar";
+import Swal from "sweetalert2"
+import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 export default function LocationsTable({ link }: any) {
     const allData: any = useAppSelector((state) => state.data);
     const dispatch = useAppDispatch();
+    const navigate = useNavigate()
+    const cookies = new Cookies()
 
     useEffect(() => {
         dispatch(getLocations())
     }, []);
 
+    const handleDeleteEvent = async (e: any, id: any, name: any) => {
+
+        Swal.fire({
+            title: `¿Esta seguro que desea eliminar`,
+            text: `la sede ${name} ?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminarlo!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(deleteLocacion({
+                    id,token: cookies.get("token")
+                  }))
+              Swal.fire(
+                'Eliminado!',
+                'El registro fue eliminado',
+                'success'
+              ).then(resposne => {
+                // navigate("/dashboard/admin")
+                  window.location.href=("/dashboard/admin")
+              })
+            }
+          })
+    };
+
+    // const handleUpdateEvent = (id: any) => {};
+
     const data = React.useMemo(
         (): any =>
             allData[link].map((e: any) => {
+                const id = e.id
+                const name = e.name
 
                 return {
-                    col1: e.id,
+                    col1: e.name,
                     col2: (
                         <Avatar
                             className="mr-2"
@@ -26,10 +62,17 @@ export default function LocationsTable({ link }: any) {
                             round={true}
                         />
                     ),
-                    col3: e.name,
-                    col4: e.timeSlot,
-                    col5: e.createdAt,
-                    col6: "Actualizar",
+                    col3: e.phone,
+                    col4: e.address,
+                    col5: e.timeSlot,
+                    col6: e.createdAt.substr(0,10),
+                    col7: <button
+                    className="bg-redClare px-4 py-2 rounded-xl mx-1"
+                    title="Eliminar"
+                    onClick={(e) => handleDeleteEvent(e, id, name)}
+                >
+                    Eliminar
+                </button>
                 };
             }),
         []
@@ -38,7 +81,7 @@ export default function LocationsTable({ link }: any) {
     const columns = React.useMemo(
         (): any => [
             {
-                Header: "ID",
+                Header: "Nombre",
                 accessor: "col1", // accessor is the "key" in the data
             },
             {
@@ -46,20 +89,24 @@ export default function LocationsTable({ link }: any) {
                 accessor: "col2",
             },
             {
-                Header: "Nombre",
+                Header: "Teléfono",
                 accessor: "col3",
             },
             {
-                Header: "Franja Horaria",
+                Header: "Dirección",
                 accessor: "col4",
             },
             {
-                Header: "Fecha Apertura",
+                Header: "Horarios de Atención",
                 accessor: "col5",
             },
             {
-                Header: "Actualizar",
+                Header: "Fecha Apertura Sede",
                 accessor: "col6",
+            },
+            {
+                Header: "Gestión de Registros",
+                accessor: "col7",
             },
         ],
         []
@@ -91,7 +138,7 @@ export default function LocationsTable({ link }: any) {
                                     <tr {...headerGroup.getHeaderGroupProps()}>
                                         {headerGroup.headers.map((column) => (
                                             <th
-                                                className="text-sm font-bold text-gray-900 px-6 py-4 text-center"
+                                                className="text-sm font-medium text-gray-900 px-6 py-4 text-center"
                                                 {...column.getHeaderProps()}>
                                                 {column.render("Header")}
                                             </th>

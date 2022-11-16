@@ -5,11 +5,11 @@ const {isAuthenticated}= require('../Helpers/auth')
 const {postEmpleado,getEmpleado,modificarEmpleado,deleteEmployee,inactivarEmployee,activarEmployee,FiltrarUsuarioActivo,FiltrarUsuarioInactivo,CantInacativo,CantActivo,FiltrarUsuarioActivoConSede,FiltrarUsuarioInactivoConSede,FiltrarRutinaConUsuario} = require("../controllers/employeControllers");
 const routerEmpleado = Router();
 
-routerEmpleado.post("/empleado",isAuthenticated ,upload ,postEmpleado);
+routerEmpleado.post("/empleado" ,postEmpleado);
 // routerEmpleado.get("/empleado",isAuthenticated,getEmpleado);
 routerEmpleado.get("/empleado",isAuthenticated,getEmpleado);
 routerEmpleado.put("/empleado",isAuthenticated,modificarEmpleado);
-routerEmpleado.delete("/empleado",isAuthenticated,deleteEmployee);
+routerEmpleado.delete("/empleado/:id",isAuthenticated,deleteEmployee);
 routerEmpleado.put("/empleadoDesactivar",isAuthenticated,inactivarEmployee);
 routerEmpleado.put("/empleadoActivar",isAuthenticated,activarEmployee);
 routerEmpleado.get("/FiltrarEmpleadoActivo",isAuthenticated,FiltrarUsuarioActivo)

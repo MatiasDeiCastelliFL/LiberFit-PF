@@ -9,7 +9,7 @@ const crearEmpleado = async (
   phone,
   password,
   active,
-  image,
+  // image,
   RolId,
   LocacionId
 ) => {
@@ -23,7 +23,7 @@ const Empleado= await Employees.create({
   phone,
   password,
   active,
-  image:image,
+  // image:image,
   RolId
 })
 

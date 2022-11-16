@@ -1,71 +1,55 @@
 import React, { useEffect, useState } from "react";
 import { useTable, usePagination } from "react-table";
-import { getTrainings, deleteTraining } from "../../../App/Action/Action";
+import { getPayments } from "../../../App/Action/Action";
 import { useAppSelector, useAppDispatch } from "../../../App/Hooks/Hooks";
 import Avatar from "react-avatar";
-import Swal from "sweetalert2"
 import Cookies from "universal-cookie";
 
-export default function TrainingsTable({ link }: any) {
+export default function LocationsTable({ link }: any) {
     const allData: any = useAppSelector((state) => state.data);
     const dispatch = useAppDispatch();
-    const cookies = new Cookies()
+    const cookies = new Cookies();
 
     useEffect(() => {
-        dispatch(getTrainings())
+        dispatch(getPayments({token: cookies.get("token")}))
     }, []);
 
-    const handleDeleteEvent = async (e: any, id: any, name: any) => {
-
-        Swal.fire({
-            title: `¿Esta seguro que desea eliminar`,
-            text: `El entrenamiento ${name} ?`,
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, eliminarlo!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-                dispatch(deleteTraining({
-                    id,token: cookies.get("token")
-                  }))
-              Swal.fire(
-                'Eliminado!',
-                'El registro fue eliminado',
-                'success'
-              ).then(resposne => {
-                // navigate("/dashboard/admin")
-                  window.location.href=("/dashboard/admin")
-              })
-            }
-          })
+    const handleDeleteEvent = async (id: any) => {
+        // dispatch(deleteClient(id))
     };
+
+    const handleUpdateEvent = (id: any) => {};
 
     const data = React.useMemo(
         (): any =>
             allData[link].map((e: any) => {
-                const id = e.id
-                const name = e.name
+
                 return {
                     col1: e.id,
-                    col2: (
-                        <Avatar
-                            className="mr-2"
-                            name={e.name}
-                            size="45"
-                            round={true}
-                        />
-                    ),
-                    col3: e.name,
-                    col4: e.timeSlot,
-                    col5: <button
-                    className="bg-redClare px-4 py-2 rounded-xl mx-1"
-                    title="Eliminar"
-                    onClick={(e) => handleDeleteEvent(e, id, name)}
-                >
-                    Eliminar
-                </button>,
+                    col2: e.ClientId,
+                    col3: e.descripcion,
+                    col4: `$ ${e.amount}`,
+                    col5: e.createdAt.substr(0,10),
+                    col6: e.active == true 
+                    ? <span className="bg-green-600 px-3 py-1 rounded-xl text-white font-medium">Activa</span> 
+                    : <span className="bg-red-600 px-3 py-1 rounded-xl text-white font-medium">Inactiva</span>,
+                    col7: e.fechaFinalizacion,
+                    col8: <div>
+                    <button
+                        className="bg-redClare px-4 py-2 rounded-xl mx-1"
+                        title="Eliminar"
+                        onClick={(e) => handleUpdateEvent(e)}
+                    >
+                        Editar
+                    </button>
+                    <button
+                        className="bg-redClare px-4 py-2 rounded-xl mx-1"
+                        title="Eliminar"
+                        onClick={(e) => handleDeleteEvent(e)}
+                    >
+                        Eliminar
+                    </button>
+                </div>
                 };
             }),
         []
@@ -78,20 +62,51 @@ export default function TrainingsTable({ link }: any) {
                 accessor: "col1", // accessor is the "key" in the data
             },
             {
-                Header: "Avatar",
+                Header: "Cliente",
                 accessor: "col2",
             },
             {
-                Header: "Nombre",
+                Header: "Descripción",
                 accessor: "col3",
             },
             {
-                Header: "Franja Horaria",
+                Header: "Monto",
                 accessor: "col4",
             },
             {
-                Header: "Eliminar",
+                Header: "Fecha de Pago",
                 accessor: "col5",
+            },
+            {
+                Header: "Estado de Membresía",
+                accessor: "col6",
+            },
+            {
+                Header: "Finalización Membresía",
+                accessor: "col7",
+            },
+            {
+                Header: "Gestión de Registros",
+                accessor: "col8",
+                Cell: () => (
+                    <div>
+                        <button></button>
+                        <button
+                            className="bg-redClare px-4 py-2 rounded-xl mx-1"
+                            title="Eliminar"
+                            onClick={(e) => handleUpdateEvent(e)}
+                        >
+                            Editar
+                        </button>
+                        <button
+                            className="bg-redClare px-4 py-2 rounded-xl mx-1"
+                            title="Eliminar"
+                            onClick={(e) => handleDeleteEvent(e)}
+                        >
+                            Eliminar
+                        </button>
+                    </div>
+                ),
             },
         ],
         []

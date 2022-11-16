@@ -10,7 +10,7 @@ const {
     activarCuenta,
     
 } = require("../services/employeServices");
-const {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,MostrarDatorutinaConUser} = require("../Helpers/busqueda")
+const {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,MostrarDatorutinaConUser,busquedaDeMoviento} = require("../Helpers/busqueda")
 
 const { Employees,Locacions,Rutines } = require("../db");
 
@@ -30,7 +30,7 @@ const postEmpleado = async (req, res) => {
             res.status(404).json(datoValidacion);
 
         } else {
-            const { name, email, phone, password, image, active, RolId,LocacionId } = req.body;
+            const { name, email, phone, password,  active, RolId,LocacionId } = req.body;
             // const {path} = req.file;
             const passwordEncript = await bcrypt.hash(password, 15);
 
@@ -40,7 +40,7 @@ const postEmpleado = async (req, res) => {
                 phone,
                 passwordEncript,
                 active,
-                image,
+                // image,
                 RolId,
                 LocacionId
 
@@ -111,10 +111,11 @@ const modificarEmpleado = async (req, res) => {
 
 const deleteEmployee = async (req, res) => {
     try {
-        const { id } = req.body;
+        const { id } = req.params;
         const verificacionDato = await busquedaDeMoviento(Rutines,id);
 
         if(verificacionDato===false){
+            console.log("llegue")
             const employeeDelete = await datoEliminado(id);
             if (employeeDelete) {
                 res.status(200).json("El usuario fue eliminado");

@@ -8,6 +8,7 @@ import Payments from "./components/Organisms/DashboardSections/Cliente/Content/P
 import { loginGoogle } from "./App/Action/Action";
 import { useAppDispatch } from "./App/Hooks/Hooks";
 import jwt_decode from "jwt-decode";
+import Constrase from "./components/Molecules/Contrase/Contrase";
 
 function App() {
     const cookies = new Cookies();
@@ -105,6 +106,7 @@ function App() {
                 {cookies.get("name") || user?.name ? null : (
                     <Route path="/signup" element={<SingUp />} />
                 )}
+                <Route path="/recuperacion" element={<Constrase />} />
                 <Route path="/payments" element={<Payments/>}></Route>
                 {cookies.get("name") || user?.name ? (
                     <Route path="/dashboard" element={<Dashboard />}>
