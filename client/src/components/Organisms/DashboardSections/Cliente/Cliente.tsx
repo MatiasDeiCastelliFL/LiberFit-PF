@@ -9,7 +9,7 @@ import TimerExercise from "../../../Molecules/EjerciciosTimer/TimerExercise";
 import Timer from "../../Timer/Timer";
 import Payments from "./Content/Payments";
 import DashHomeClient from "./Content/DashHomeClient";
-import { getMainData, getSuscriptions, getUserInfo } from "../../../../App/Action/Action";
+import { getMainData, getReviews, getSuscriptions, getUserInfo } from "../../../../App/Action/Action";
 import Cookies from "universal-cookie";
 
 function Cliente() {
@@ -26,7 +26,12 @@ function Cliente() {
         cookies.get("id") && dispatch(getUserInfo({id:cookies.get("id"), token:cookies.get("token")}));
         dispatch(getMainData());
         dispatch(getPaymentInfo(cookies.get("id"), cookies.get("token")));
+        dispatch(getReviews({id:undefined}));
     }, [dispatch]);
+
+    useEffect(() => {
+        dispatch(getReviews({id:undefined}));
+    }, [])
 
     return (
         <div className="select-none">

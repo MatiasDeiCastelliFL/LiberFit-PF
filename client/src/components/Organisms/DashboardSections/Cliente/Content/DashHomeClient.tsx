@@ -3,6 +3,7 @@ import CardReview from "../../../../Molecules/CardReview/CardReview";
 import MembershipInfo from "../../../../Molecules/MembershipInfo/MembershipInfo";
 import Calendar from "../../../../Molecules/Calendar/Calendar";
 import WelcomeCard from "../../../../Atoms/WelcomeCard/WelcomeCard";
+import ContainerReviews from "../../../../Molecules/CardReview/containerReviews";
 
 function DashHomeClient() {
     return (
@@ -12,7 +13,8 @@ function DashHomeClient() {
                 <MembershipInfo />
                 <Calendar />
             </div>
-            <CardReview />
+            {/* <CardReview /> */}
+            <ContainerReviews />
         </div>
     );
 }

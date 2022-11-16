@@ -14,7 +14,7 @@ export interface filterState {
     paymentinfo: any;
     subscriptions: any;
     trainings: any;
-
+    reviews: any;
 }
 
 const initialState: filterState = {
@@ -29,6 +29,7 @@ const initialState: filterState = {
     paymentinfo: [],
     subscriptions: [],
     trainings: [],
+    reviews: [],
 };
 
 const dataSlice = createSlice({
@@ -77,6 +78,9 @@ const dataSlice = createSlice({
         getPaymentsReducer: (state, action: PayloadAction<any>) => {
             state.payments = action.payload;
         },
+        getReviewsReducer: (state, action: PayloadAction<any>) => {
+            state.reviews = action.payload;
+        }
     },
 });
 
@@ -92,6 +96,7 @@ export const {
     initilizePayment, 
     getSubscriptionsReducer,
     getTrainingsReducer,
-    deleteClientsReducer
+    deleteClientsReducer,
+    getReviewsReducer
 } = dataSlice.actions;
       

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { getPaymentInfo } from "../../../App/Action/FilterActions";
 import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
 import Cookies from "universal-cookie";
+import { getSuscriptions } from "../../../App/Action/Action";
 
 
 const MembershipInfo = () => {
@@ -13,10 +14,11 @@ const MembershipInfo = () => {
     const { subscriptions } = useAppSelector((state) => state.data);
     const { paymentState } = useAppSelector((state) => state.payment);
 
-    const lastPayment:any = paymentState[paymentState.length - 1];
+    const [lastPayment, setLastPyment] =  React.useState<any>(paymentState[paymentState.length - 1]);
     const [daysLeft, setDaysLeft] = React.useState<any>();
     const [cssPercentage, setCssPercentage] = React.useState<any>();
     const [membership, setMembership] = React.useState(subscriptions[0]);
+    const [rerender, setRerender] = React.useState(false);
 
     React.useEffect(() => {
         dispatch(getPaymentInfo(cookies.get("id"), cookies.get("token")));
@@ -29,10 +31,28 @@ const MembershipInfo = () => {
             setCssPercentage({
                 width: `${datLeftPercent}%`
             })
+        }else{
+            console.log("no hay pagos");
+            setLastPyment(paymentState[paymentState.length - 1]);
+            setRerender(!rerender)
         }
 
     }, [])
-        
+    
+
+    useEffect(() => {
+        console.log("useEffect");
+        if (lastPayment) {
+            setMembership(subscriptions.filter((sub:any) => sub.id === user.SubscriptionId)[0]);
+            const today = new Date();
+            console.log(today);
+            setDaysLeft(Math.floor((new Date(lastPayment.fechaFinalizacion).getTime() - today.getTime()) / (1000 * 60 * 60 * 24)));
+            const datLeftPercent = Math.floor((daysLeft * 100) / (membership.duration*30));
+            setCssPercentage({
+                width: `${datLeftPercent}%`
+            })
+        }
+    }, [lastPayment])
 
     return (
         <div className="w-custom_6">
