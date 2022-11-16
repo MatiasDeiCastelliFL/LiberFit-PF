@@ -17,7 +17,8 @@ import {
     getEmployeesReducer,
     getSubscriptionsReducer,
     getTrainingsReducer,
-    deleteClientsReducer
+    deleteClientsReducer,
+    getGymReducer
 } from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users";
 import { login } from "../FeatureSlices/login/login";
@@ -99,6 +100,16 @@ export const deleteLocacion = (payload:any) => async (dispatch: any) => {
         console.log("-->", error);
     }
 }
+
+export const getGym = () => async (dispatch: any) => {
+    try {
+        const gym = await axios.get(`${BASE_URL || Route}/gym`);
+        console.log("gym------->",gym);
+        dispatch(getGymReducer(gym.data));
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 export const postLocacion = (payload: any) => async (dispatch: any) => {
     try {

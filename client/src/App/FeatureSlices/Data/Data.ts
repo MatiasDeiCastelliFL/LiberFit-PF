@@ -13,6 +13,7 @@ export interface filterState {
     paymentinfo: any;
     subscriptions: any;
     trainings: any;
+    gym: any
 
 }
 
@@ -27,6 +28,7 @@ const initialState: filterState = {
     paymentinfo: [],
     subscriptions: [],
     trainings: [],
+    gym: []
 };
 
 const dataSlice = createSlice({
@@ -71,6 +73,9 @@ const dataSlice = createSlice({
             // console.log(state.clients.filter((e: any) => e.id !== action.payload ));
             // const filtrado = state.allClients
             state.clients = state.clients.filter((e: any) => e.id !== action.payload )
+        },
+        getGymReducer: (state, action: PayloadAction<any>) => {
+            state.gym = action.payload
         }
     },
 });
@@ -86,6 +91,7 @@ export const {
     initilizePayment, 
     getSubscriptionsReducer,
     getTrainingsReducer,
-    deleteClientsReducer
+    deleteClientsReducer,
+    getGymReducer
 } = dataSlice.actions;
       
