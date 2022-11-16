@@ -13,6 +13,14 @@ export default function DashEmpleados({ link }: any) {
 
     return (
         <div>
+            <button
+                className={`${
+                  employee ? "hidden" : null
+                } bg-redClare px-4 py-2 rounded-xl mx-1`}
+                onClick={employeeForm}
+            >
+                Crear Empleado
+            </button>
             {!employee ? (
                 <div className="w-100">
                     <div className="w-tables overflow-hidden ">
@@ -24,14 +32,7 @@ export default function DashEmpleados({ link }: any) {
                 background={background} 
                 />
             )}
-            <button
-                className={`${
-                  employee ? "hidden" : null
-                } bg-redClare px-4 py-2 rounded-xl mx-1`}
-                onClick={employeeForm}
-            >
-                Crear Empleado
-            </button>
+            
         </div>
     );
 }

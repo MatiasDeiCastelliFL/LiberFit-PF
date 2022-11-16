@@ -34,8 +34,12 @@ export default function Table({ link }: any) {
           }).then((result) => {
             if (result.isConfirmed) {
                 link == "clients"
-          ?  dispatch(deleteClient(id))
-          :  dispatch(deleteEmployee(id));
+          ?  dispatch(deleteClient({
+            id,token: cookies.get("token")
+          }))
+          :  dispatch(deleteEmployee({
+            id,token: cookies.get("token")
+          }));
               Swal.fire(
                 'Eliminado!',
                 'El registro fue eliminado',

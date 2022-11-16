@@ -1,21 +1,52 @@
 import React, { useEffect, useState } from "react";
 import { useTable, usePagination } from "react-table";
-import { getTrainings } from "../../../App/Action/Action";
+import { getTrainings, deleteTraining } from "../../../App/Action/Action";
 import { useAppSelector, useAppDispatch } from "../../../App/Hooks/Hooks";
 import Avatar from "react-avatar";
+import Swal from "sweetalert2"
+import Cookies from "universal-cookie";
 
 export default function TrainingsTable({ link }: any) {
     const allData: any = useAppSelector((state) => state.data);
     const dispatch = useAppDispatch();
+    const cookies = new Cookies()
 
     useEffect(() => {
         dispatch(getTrainings())
     }, []);
 
+    const handleDeleteEvent = async (e: any, id: any, name: any) => {
+
+        Swal.fire({
+            title: `¿Esta seguro que desea eliminar`,
+            text: `El entrenamiento ${name} ?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminarlo!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(deleteTraining({
+                    id,token: cookies.get("token")
+                  }))
+              Swal.fire(
+                'Eliminado!',
+                'El registro fue eliminado',
+                'success'
+              ).then(resposne => {
+                // navigate("/dashboard/admin")
+                  window.location.href=("/dashboard/admin")
+              })
+            }
+          })
+    };
+
     const data = React.useMemo(
         (): any =>
             allData[link].map((e: any) => {
-
+                const id = e.id
+                const name = e.name
                 return {
                     col1: e.id,
                     col2: (
@@ -28,7 +59,13 @@ export default function TrainingsTable({ link }: any) {
                     ),
                     col3: e.name,
                     col4: e.timeSlot,
-                    col5: "Actualizar",
+                    col5: <button
+                    className="bg-redClare px-4 py-2 rounded-xl mx-1"
+                    title="Eliminar"
+                    onClick={(e) => handleDeleteEvent(e, id, name)}
+                >
+                    Eliminar
+                </button>,
                 };
             }),
         []
@@ -53,7 +90,7 @@ export default function TrainingsTable({ link }: any) {
                 accessor: "col4",
             },
             {
-                Header: "Actualizar",
+                Header: "Eliminar",
                 accessor: "col5",
             },
         ],

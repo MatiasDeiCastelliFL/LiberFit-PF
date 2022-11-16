@@ -205,7 +205,7 @@ const LoginForm = () => {
                     <p>tu password no puede tener espacio</p>
                   )}
                 </div>
-                  <Link to="" className="text-xs p-2">
+                  <Link to="/recuperacion" className="text-xs p-2">
                     ¿Se te olvido tu contraseña?
                   </Link>
                 <div className="flex">

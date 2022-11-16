@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import LocacionForm from "../../../../Molecules/CreateInputsContainer/LocacionForm/LocacionForm";
 import LocationsTable from "../../../../Molecules/DashboardTables/LocationsTable"
 
 export default function DashLocations({ link }: any) {
-    // const [addItem, setAddItem] = useState(false);
-    // const handleAddItem = () => setAddItem(!addItem);
+
+    const [location, setLocation] = useState(false);
+    const locationForm = () => setLocation(!location);
 
     const background = {
         background:
@@ -11,7 +13,25 @@ export default function DashLocations({ link }: any) {
     };
     return (
         <div>
-            <LocationsTable link={link} />
+            <button
+                className={`${
+                  location ? "hidden" : null
+                } bg-redClare px-4 py-2 rounded-xl mx-1`}
+                onClick={locationForm}
+            >
+                Crear Sede
+            </button>
+            {!location ? (
+                <div className="w-100">
+                    <div className="w-tables overflow-hidden ">
+                        <LocationsTable link={link} />
+                    </div>
+                </div>
+            ) : (
+                <LocacionForm
+                background={background} 
+                />
+            )}
         </div>
     );
 }
