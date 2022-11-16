@@ -21,7 +21,7 @@ export default function DashEmpleados({ link }: any) {
                 </div>
             ) : (
                 <EmployeeForm 
-                // background={background} 
+                background={background} 
                 />
             )}
             <button

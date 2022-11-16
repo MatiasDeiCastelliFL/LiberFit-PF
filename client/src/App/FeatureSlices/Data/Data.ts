@@ -10,6 +10,7 @@ export interface filterState {
     clients: any;
     employees: any;
     payment: any;
+    payments: any;
     paymentinfo: any;
     subscriptions: any;
     trainings: any;
@@ -24,6 +25,7 @@ const initialState: filterState = {
     allClients: [],
     clients: [],
     employees: [],
+    payments: [],
     paymentinfo: [],
     subscriptions: [],
     trainings: [],
@@ -71,7 +73,10 @@ const dataSlice = createSlice({
             // console.log(state.clients.filter((e: any) => e.id !== action.payload ));
             // const filtrado = state.allClients
             state.clients = state.clients.filter((e: any) => e.id !== action.payload )
-        }
+        },
+        getPaymentsReducer: (state, action: PayloadAction<any>) => {
+            state.payments = action.payload;
+        },
     },
 });
 
@@ -83,6 +88,7 @@ export const {
     getClientsReducer,
     getEmployeesReducer,
     postPayment, 
+    getPaymentsReducer,
     initilizePayment, 
     getSubscriptionsReducer,
     getTrainingsReducer,

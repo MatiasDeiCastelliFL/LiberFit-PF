@@ -48,7 +48,7 @@ function CardReview() {
     
 
     return (
-        <div className="p-10 flex gap-10 flex-wrap">
+        <div className="flex gap-10m overflow-x-scroll w-custom_5 gap-5">
             {
     
             locations.map((location:any) => (

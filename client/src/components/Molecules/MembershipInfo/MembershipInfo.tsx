@@ -1,11 +1,14 @@
 import React from "react";
+import { getPaymentInfo } from "../../../App/Action/FilterActions";
 import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
+import Cookies from "universal-cookie";
+
 
 const MembershipInfo = () => {
 
 
     const dispatch = useAppDispatch();
-
+    const cookies = new Cookies();
     const { user } = useAppSelector((state) => state.data);
     const { subscriptions } = useAppSelector((state) => state.data);
     const { paymentState } = useAppSelector((state) => state.payment);
@@ -16,6 +19,7 @@ const MembershipInfo = () => {
     const [membership, setMembership] = React.useState(subscriptions[0]);
 
     React.useEffect(() => {
+        dispatch(getPaymentInfo(cookies.get("id"), cookies.get("token")));
         if (lastPayment) {
             setMembership(subscriptions.filter((sub:any) => sub.id === user.SubscriptionId)[0]);
             const today = new Date();
@@ -33,27 +37,29 @@ const MembershipInfo = () => {
     return (
         <div className="w-custom_6">
             {
-                (lastPayment && daysLeft && cssPercentage) 
-                ? 
-                    <div className="p-5 gap-6 rounded-xl text-white justify-between items-start flex flex-col bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] from-rose-100 via-yellow-400 to-rose-600">
-                        <div className="flex justify-between w-full items-center">
-                            <h1 className=" text-lg font-semibold">Plan Actual: {membership.name}</h1>
-                            <p>$ {lastPayment.amount}</p>
-                        </div>
-                        <div className="flex flex-col gap-2 w-full">
-                            <h2 className="text-sm font-medium">Días restantes: {daysLeft}</h2>
-                            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                                <div className={`bg-blue-600 h-2.5 rounded-full`} style={cssPercentage}> 
+                membership && (
+                        (lastPayment && daysLeft && cssPercentage) 
+                        ? 
+                            <div className="p-5 gap-6 rounded-xl text-white justify-between items-start flex flex-col bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] from-rose-100 via-yellow-400 to-rose-600">
+                                <div className="flex justify-between w-full items-center">
+                                    <h1 className=" text-lg font-semibold">Plan Actual: {membership.name}</h1>
+                                    <p>$ {lastPayment.amount}</p>
+                                </div>
+                                <div className="flex flex-col gap-2 w-full">
+                                    <h2 className="text-sm font-medium">Días restantes: {daysLeft}</h2>
+                                    <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                                        <div className={`bg-blue-600 h-2.5 rounded-full`} style={cssPercentage}> 
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                : 
-                    <div>
-                        <div className="flex justify-between w-full items-center ">
-                            <h1 className=" text-lg font-semibold">Plan Actual: {membership.name}</h1>
-                        </div>
-                    </div>
+                        :
+                            <div>
+                                <div className="flex justify-between w-full items-center ">
+                                    <h1 className=" text-lg font-semibold">Plan Actual: {membership.name}</h1>
+                                </div>
+                            </div>
+                )
             }
         </div>
     )
