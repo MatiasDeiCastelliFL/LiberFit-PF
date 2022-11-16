@@ -34,7 +34,7 @@ const MachineDetails = () => {
     }, []);
     
     return (
-        <div className="w-custom_3 p-4 mb-5  bg-gray-100">
+        <div className="w-full p-4 mb-5  bg-gray-100">
             <div className="mb-5 gap-5 items-center flex flex-row w-max ">
                 <div className="w-2/5">
                     <img src={details.image} alt={details.name} />

@@ -67,7 +67,8 @@ const Plan = () => {
                 <p className="text-xl font-bold">{item.description}</p>
               </div>
               <div>
-                <button className="bg-white text-redClare p-5 rounded-lg" value={[item.price, item.description, item.id]} onClick={modalOpen}>
+                <button 
+                className={`${data.user.token ? null : "hidden"} bg-white text-redClare p-5 rounded-lg`} value={[item.price, item.description, item.id]} onClick={modalOpen}>
                   Subscribirse
                 </button >
               </div>

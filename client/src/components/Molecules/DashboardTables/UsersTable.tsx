@@ -14,7 +14,7 @@ export default function Table({ link }: any) {
     const cookies = new Cookies();
     const navigate = useNavigate();
     const [change, setChange] = useState(allData[link].length)
-
+    
     // console.log(allData[link].length);
     
     useEffect(() => {
@@ -33,6 +33,7 @@ export default function Table({ link }: any) {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Si, eliminarlo!'
           }).then((result) => {
+            // const user = allData.clients.filter((user: any) => user.id === id) TODO para terminar de construir validacion antes de eliminar un cliente que abono una membresia.
             if (result.isConfirmed) {
                 link == "clients"
           ?  dispatch(deleteClient({
@@ -59,7 +60,9 @@ export default function Table({ link }: any) {
         (): any =>
             allData[link].map((e: any) => {
 
-                const membershipState = e.active == true 
+                const membershipState = 
+                // link == "employee" ? <span className="bg-green-600 px-3 py-1 rounded-xl text-white font-medium">Empleado</span> :
+                e.active == true 
                 ? <span className="bg-green-600 px-3 py-1 rounded-xl text-white font-medium">Abonada</span> 
                 : <span className="bg-red-600 px-3 py-1 rounded-xl text-white font-medium">No Abonada</span>
 

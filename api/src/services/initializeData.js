@@ -150,6 +150,7 @@ const crearDesdeJsonASubscriptionsDb = async () => {
             id: sub.id,
             name: sub.name,
             price: sub.price || "$0.00",
+            duration: sub.duration || 1,
             description: sub.description || "No Suscripto",
         };
     });
