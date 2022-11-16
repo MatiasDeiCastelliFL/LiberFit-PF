@@ -83,6 +83,7 @@ const dataSlice = createSlice({
         getReviewsReducer: (state, action: PayloadAction<any>) => {
             state.reviews = action.payload;
         }
+
     },
 });
 
