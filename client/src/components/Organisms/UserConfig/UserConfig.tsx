@@ -8,6 +8,8 @@ import EditConfig from "../../Atoms/EditConfig/EditConfig";
 import PasswordConfig from "../../Atoms/EditConfig/PasswordConfig";
 import EditProfileImage from "../../Atoms/EditConfig/EditProfileImage";
 import { getUserInfo } from "../../../App/Action/Action";
+import EditMembership from "../../Atoms/EditConfig/EditMembership";
+import ModalRenovation from '../../Molecules/Modal/ModalRenovation';
 
 const UserConfig = () => {
     
@@ -22,6 +24,9 @@ const UserConfig = () => {
     useEffect( () => {
         dispatch(getUserInfo({id:cookies.get("id"), token:cookies.get("token")}))
     }, [])
+
+
+
     //bg-gradient-to-bl from-gray-700 via-gray-900 to-black
     const today = new Date();
     return(  
@@ -29,6 +34,7 @@ const UserConfig = () => {
             <Toaster
                 position="top-right"
             />
+            <ModalRenovation />
             <button onClick={handleReturn} className='fixed left-5 top-5 text-neutral-900 flex p-2 gap-2 justify-center items-center bg-redClare rounded-xl'>
                 <HomeModernIcon className="h-10 w-10"/>
                 <p>Volver a Liberfit</p>
@@ -44,7 +50,7 @@ const UserConfig = () => {
             </div>
             <div className="flex flex-col divide-y text-neutral-900 rounded-lg items-start p-5 border shadow-xl backdrop-filter backdrop-blur-sm bg-opacity-40 gap-2 w-2/4 h-fit">
                 <h1 className="text-3xl font-black font-sans mb-5">Membrecía</h1>
-                <EditConfig type="text" field="membership" title="Plan Actual" />
+                <EditMembership type="text" field="membership" title="Plan Actual" />
                 <div className="flex justify-between w-full p-4">
                     <div>
                         <h1 className="text-xl font-black font-sans">Facturación</h1>

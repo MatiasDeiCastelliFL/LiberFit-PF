@@ -118,6 +118,16 @@ export const getEmployees = (payload:any) => async (dispatch: any) => {
     }
 };
 
+export const postEmployee = (payload: any) => async (dispatch: any) => {
+    try {
+        let json = await axios.post(`${BASE_URL || Route}/empleado`,payload) // enpoint de post user
+        console.log(json)
+        return json
+    } catch (error) {
+        console.log("--->", error);
+    }
+};
+
 export const getTrainings = () => async (dispatch: any) => {
     try {
         const trainings = await axios.get(`${BASE_URL || Route}/training`);

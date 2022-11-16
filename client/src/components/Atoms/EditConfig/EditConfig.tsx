@@ -4,7 +4,7 @@ import Cookies from "universal-cookie";
 import { editUser, getUserInfo } from "../../../App/Action/Action";
 import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
 import toast, { Toaster } from 'react-hot-toast';
-import { User } from "@auth0/auth0-react";
+
 
 
 
