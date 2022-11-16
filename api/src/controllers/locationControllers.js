@@ -65,7 +65,7 @@ const getLocationReviewController = async (req, res) => {
 
 const deleteLocacion= async(req, res)=>{
   try {
-    const {id}= req.query
+    const {id}= req.params
     await  borrarlocacion(id)
     res.status(201).json({msg:'locacion eliminada'})
   } catch (error) {

@@ -14,7 +14,7 @@ export default function Table({ link }: any) {
     const navigate = useNavigate();
     const [change, setChange] = useState(allData[link].length)
 
-    console.log(allData[link].length);
+    // console.log(allData[link].length);
     
     useEffect(() => {
         dispatch(getClients({token: cookies.get("token")}))
