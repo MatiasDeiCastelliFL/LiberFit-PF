@@ -17,7 +17,8 @@ import {
     getEmployeesReducer,
     getSubscriptionsReducer,
     getTrainingsReducer,
-    deleteClientsReducer
+    deleteClientsReducer,
+    getExercisesReducer
 } from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users";
 import { login } from "../FeatureSlices/login/login";

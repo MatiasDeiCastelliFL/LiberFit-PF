@@ -148,8 +148,6 @@ async function validate(input, model) {
                 );
             }
         }
-    }else{
-        errors.push("Ingrese un rol")
     }
 
     // if(input.SubscriptionId && input.clientId ===""){

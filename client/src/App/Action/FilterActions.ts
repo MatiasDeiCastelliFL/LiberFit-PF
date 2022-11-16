@@ -30,12 +30,6 @@ export const getFilterData = () => async (dispatch: any) => {
         const exercises = await axios.get(`${BASE_URL || Route}/exercises`);
         const trainings = await axios.get(`${BASE_URL || Route}/training`);
 
-        console.log(data.data);
-        console.log(products.data);
-        console.log(machines.data);
-        console.log(exercises.data);
-        console.log(trainings.data);
-
         const response = {
             data: data.data,
             products: products.data,

@@ -91,7 +91,7 @@ export default function LocationsTable({ link }: any) {
                                     <tr {...headerGroup.getHeaderGroupProps()}>
                                         {headerGroup.headers.map((column) => (
                                             <th
-                                                className="text-sm font-medium font-bold text-gray-900 px-6 py-4 text-center"
+                                                className="text-sm font-bold text-gray-900 px-6 py-4 text-center"
                                                 {...column.getHeaderProps()}>
                                                 {column.render("Header")}
                                             </th>
