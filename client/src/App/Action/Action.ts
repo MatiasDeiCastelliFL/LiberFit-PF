@@ -19,6 +19,7 @@ import {
     getTrainingsReducer,
     deleteClientsReducer,
     getPaymentsReducer,
+    getReviewsReducer,
 } from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users";
 import { login } from "../FeatureSlices/login/login";
@@ -336,3 +337,21 @@ export const getInitilizePayment = (payload: any) => async (dispatch: any) => {
     console.log("payload",payload)
     dispatch(initilizePayment(payload))
 }
+
+export const getReviews = (payload: any) => async (dispatch: any) => {
+
+    console.log("payload",payload)
+    try {
+        if (payload.id){
+
+            var json = await axios.get(`${BASE_URL || Route}/review`, {params: {id: payload.id}}) 
+        }else{
+            var json = await axios.get(`${BASE_URL || Route}/review`)
+        }
+        dispatch(getReviewsReducer(json.data))
+        console.log("reviews",json)
+        return json
+    } catch (error) {
+        console.log("-->", error);
+    }
+};
