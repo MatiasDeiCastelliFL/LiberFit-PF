@@ -353,7 +353,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                 >
                     <div className="border-t border-redGray w-max h-73 flex">
                         <div className="w-max flex flex-row">
-                            <Link to={cookies.get("name") ? "" : "/login"}>
+                            <Link to={cookies.get("name") ? "/userConfig" : ""}>
                                 <Perfil
                                     width={
                                         cookies.get("name") || user?.name

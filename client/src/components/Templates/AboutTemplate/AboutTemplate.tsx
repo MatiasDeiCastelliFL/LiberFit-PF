@@ -5,6 +5,7 @@ import CardAbout from "../../Atoms/Card/CardAbout";
 import perfil1 from "../../../assets/IMG/yo.png";
 import perfil2 from "../../../assets/IMG/Matias.png";
 import perfil3 from "../../../assets/IMG/Sirhan.png";
+import perfil4 from "../../../assets/IMG/Ibra.png";
 import { Transition } from "@headlessui/react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -85,7 +86,7 @@ function AboutTemplate() {
         },
         {
             name: "Xavier Ibrahim Cardozo",
-            image: perfil1,
+            image: perfil4,
             description:
                 "Desarrollador Full Stack de SOY HENRY desempeñado en el front-end",
             git: "",
