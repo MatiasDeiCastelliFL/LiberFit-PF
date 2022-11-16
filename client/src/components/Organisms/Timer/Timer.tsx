@@ -5,22 +5,20 @@ import { FiPlay } from "react-icons/fi";
 import { AiOutlinePause } from "react-icons/ai";
 import Sactive from "../../../assets/Sound/Active.mp3";
 import Sinactive from "../../../assets/Sound/Inactive.mp3";
+import { useAppDispatch, useAppSelector } from "../../../App/Hooks/Hooks";
+import { getFilterData } from "../../../App/Action/FilterActions";  
 
 const colorLogo = "#FCA5A5";
 const redGray = "#FF0055";
 
 function Timer() {
 
-    const exercises = [
-        { exercise: "Push Ups", reps: 10 },
-        { exercise: "lateral", reps: 10 },
-        { exercise: "diamante", reps: 10 },
-    ];
+    const dispatch = useAppDispatch()
+    const { filter } = useAppSelector((state) => state)
+    
 
     const [minutes, setMinutes] = useState(0);
     const [seconds, setSeconds] = useState(0);
-    const [exercise , setExercise] = useState(exercises);
-    const [count , setCount] = useState(exercises.length);
     const [activo, setActivo] = useState(false);
     const [porcentaje, setPorcentaje] = useState(0);
 
@@ -28,6 +26,7 @@ function Timer() {
     let sound2 = new Audio();
     sound.src = Sactive;
     sound2.src = Sinactive;
+
     
 
     function toggle() {
@@ -39,8 +38,8 @@ function Timer() {
     function reset() {
 
         if(count !== 0){
-            if(count != exercises.length){
-                setExercise(exercise.slice(1));
+            if(count != filter.exercises.length){
+               filter.exercises.slice(1);
             }
             setCount(count - 1);
         }
@@ -56,7 +55,7 @@ function Timer() {
     useEffect(() => {
         let intervalo: any;
         let secondIntervalo: any;
-       
+        dispatch(getFilterData())
 
         if (activo) {
             intervalo = setInterval(() => {
@@ -76,17 +75,20 @@ function Timer() {
             clearInterval(intervalo);
             clearInterval(secondIntervalo);
         };
-    }, [activo, seconds, minutes, exercise]);
+    }, [activo, seconds, minutes,dispatch]);
+    const [count , setCount] = useState(filter.exercises.length);
 
     let second = seconds < 10 ? "0" + seconds : seconds
 
+    console.log(filter.exercises[count]?.name)
     console.log(count)
+    
 
     return (
         <div className="w-full mt-20 select-none grid grid-flow-row-dense grid-cols-12">
             <div className="col-start-5 col-span-3 mb-10">
                 <h2 className="text-5xl text-rose-700 text-center">
-                    {exercise[0].exercise}
+                    {filter.exercises[count]?.name}
                 </h2>
             </div>
             <div className="col-start-5 col-span-3">
