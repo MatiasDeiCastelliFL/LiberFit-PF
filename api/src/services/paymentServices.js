@@ -65,6 +65,10 @@ const crearPayment = async (amount, ClientId, description, subscriptionId, oldLa
     }
   })
 
+  cliente.update({
+    active:true,
+  })
+
   if(cliente.SubscriptionId !== SubscriptionId && active===true){
     await cliente.update({
       SubscriptionId:SubscriptionId,
