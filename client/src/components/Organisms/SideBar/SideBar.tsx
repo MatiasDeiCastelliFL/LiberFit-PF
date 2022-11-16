@@ -271,7 +271,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                             <form onSubmit={handle}>
                                 <Search 
                                     dashboard={false}
-                                    Placeholder="Search"
+                                    Placeholder="Buscar"
                                     setName={setName}
                                     style={{}}
                                 />
