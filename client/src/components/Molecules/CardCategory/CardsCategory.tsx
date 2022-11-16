@@ -29,7 +29,7 @@ function CardsCategory() {
                                             id="locationSelector"
                                             onChange={(e) => setLocation(e.target.value)}
                                         >
-                                            <option value="0">Todas las cedes</option>
+                                            <option value="0">Todas las sedes</option>
                                             {filter.dataLocation.map((d) => (
                                                 <option value={d.name}>{d.name}</option>
                                             ))}
