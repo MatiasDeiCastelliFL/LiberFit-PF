@@ -22,27 +22,29 @@
                 "id": 1,
                 "name": "No Suscripto",
                 "price": 0,
-                "description": "No Suscripto"
+                "description": "No Suscripto",
+                "duration": 0
             },
             {
                 "id": 2,
                 "name": "Oro",
                 "price": 32,
                 "description": "Anual Bonificado",
-                "duration": 4
+                "duration": 12
             },
             {
                 "id": 3,
                 "name": "Plata",
                 "price": 28,
-                "description": "Trimestral Bonificado"
+                "description": "Trimestral Bonificado",
+                "duration": 3
             },
             {
                 "id": 4,
                 "name": "Bronce",
                 "price": 10,
                 "description": "Mensual",
-                "duration": 12
+                "duration": 1
             }
         ],
         "locations": [

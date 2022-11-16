@@ -19,7 +19,7 @@ function CardsCategory() {
                 filter.activeSearch ?
                     <SearchedCards category={category} />
                 :
-                    <div className=" overflow-y-auto overflow-x-hidden xl3:h-xl3_limit_Card xl:h-xl_limit_Card xl2:h-xl2_limit_Card lg:h-lg_limit_Card 3xl:h-limit_Card">
+                    <div className="flex flex-wrap overflow-y-auto overflow-x-hidden xl3:h-xl3_limit_Card xl:h-xl_limit_Card xl2:h-xl2_limit_Card lg:h-lg_limit_Card 3xl:h-limit_Card">
                         <div>
                             {filter.dataLocation.length ? (
                                 category !== "Exercises" ? (
@@ -173,7 +173,7 @@ function CardsCategory() {
                                     </div>
                                 ) : (
                                     <div
-                                        className={`${style.cardsDiv} flex w-swiper gap-10 justify-start mt-5`}
+                                        className={`${style.cardsDiv} flex w-full gap-20 justify-start mt-5`}
                                     >
                                         {filter.filteredExercises.map((e) => (
                                             <Link to={`/home/Exercises/${e.name}`}>

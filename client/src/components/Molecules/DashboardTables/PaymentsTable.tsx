@@ -24,9 +24,12 @@ export default function LocationsTable({ link }: any) {
         (): any =>
             allData[link].map((e: any) => {
 
+                const paymentUser = allData.clients.filter((user: any) => user.id === e.ClientId)
+                console.log(paymentUser);
+                
                 return {
                     col1: e.id,
-                    col2: e.ClientId,
+                    col2: paymentUser[0].name,
                     col3: e.descripcion,
                     col4: `$ ${e.amount}`,
                     col5: e.createdAt.substr(0,10),
