@@ -18,7 +18,8 @@ const UserConfig = () => {
     const navigate = useNavigate()
 
     const handleReturn = () => {
-        navigate('/home')
+        // navigate(`/Dashboard/${cookies.get("name")}`)
+        window.history.back()
     }
 
     useEffect( () => {

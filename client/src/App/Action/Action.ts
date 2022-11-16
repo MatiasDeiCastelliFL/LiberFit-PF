@@ -18,7 +18,9 @@ import {
     getSubscriptionsReducer,
     getTrainingsReducer,
     deleteClientsReducer,
-    getGymReducer
+    getGymReducer,
+    getPaymentsReducer,
+    getReviewsReducer,
 } from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users";
 import { login } from "../FeatureSlices/login/login";
@@ -54,10 +56,19 @@ export const getLocations = () => async (dispatch: any) => {
     }
 };
 
-export const getClients = (payload:any) => async (dispatch: any) => {
+export const getClients = (payload: any) => async (dispatch: any) => {
     try {
         const clients = await axios.get(`${BASE_URL || Route}/clients`,{params: {token:payload.token}});
         dispatch(getClientsReducer(clients.data));
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getPayments = (payload: any) => async (dispatch: any) => {
+    try {
+        const payments = await axios.get(`${BASE_URL || Route}/payment`,{params: {token:payload.token}});
+        dispatch(getPaymentsReducer(payments.data));
     } catch (error) {
         console.log(error);
     }
@@ -371,3 +382,20 @@ export const CambiarContraseña = (payload: any) => async (dispatch: any) => {
         console.log("-->",error);   
     }
 }
+export const getReviews = (payload: any) => async (dispatch: any) => {
+
+    console.log("payload",payload)
+    try {
+        if (payload.id){
+
+            var json = await axios.get(`${BASE_URL || Route}/review`, {params: {id: payload.id}}) 
+        }else{
+            var json = await axios.get(`${BASE_URL || Route}/review`)
+        }
+        dispatch(getReviewsReducer(json.data))
+        console.log("reviews",json)
+        return json
+    } catch (error) {
+        console.log("-->", error);
+    }
+};

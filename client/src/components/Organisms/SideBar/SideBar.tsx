@@ -175,6 +175,13 @@ function SideBar({ handle, setName, dashboard }: Props) {
             link: "/dashboard/admin/trainings",
             icon: <FaDumbbell/>
         },
+        {
+            title: "Cobranzas",
+            active: location.pathname.includes("payments") ? true : false,
+            desplegable: false,
+            link: `/dashboard/admin/payments`,
+            icon: <BsCurrencyDollar/>
+        },
     ];
 
     // console.log(cookies.get("id"));
@@ -247,7 +254,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                     leaveTo="opacity-0 scale-95 "
                 >
                     {filter.open ? null : (
-                        <div className="mt-5 ml-5">
+                        <div className="flex justify-center w-full mt-5">
                             <button onClick={()=>navigate("/home")}>
                                 <Logo />
                             </button>
@@ -264,7 +271,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                             <form onSubmit={handle}>
                                 <Search 
                                     dashboard={false}
-                                    Placeholder="Search"
+                                    Placeholder="Buscar"
                                     setName={setName}
                                     style={{}}
                                 />
@@ -316,7 +323,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                     ))
                                    : location.pathname.includes("/dashboard/admin")
                                     ? admin.map((d) => (
-                                        <div className="flex justify-flex-start items-center">
+                                        <div className="flex overflow-y-auto py-1 px-3 rounded dark:bg-gray-800">
                                             {d.desplegable ? (
                                                 <Link to={d.link}>
                                                     <Item
@@ -325,7 +332,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                                     />
                                                 </Link>
                                             ) : (
-                                                <Link to={d.link}>
+                                                <Link className="w-full" to={d.link}>
                                                     <Item2
                                                         active={d.active}
                                                         icon={d.icon}

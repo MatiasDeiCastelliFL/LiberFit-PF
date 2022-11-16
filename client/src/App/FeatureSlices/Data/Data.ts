@@ -10,11 +10,12 @@ export interface filterState {
     clients: any;
     employees: any;
     payment: any;
+    payments: any;
     paymentinfo: any;
     subscriptions: any;
     trainings: any;
-    gym: any
-
+    gym: any;
+    reviews: any;
 }
 
 const initialState: filterState = {
@@ -25,10 +26,12 @@ const initialState: filterState = {
     allClients: [],
     clients: [],
     employees: [],
+    payments: [],
     paymentinfo: [],
     subscriptions: [],
     trainings: [],
-    gym: []
+    gym: [],
+    reviews: [],
 };
 
 const dataSlice = createSlice({
@@ -76,6 +79,12 @@ const dataSlice = createSlice({
         },
         getGymReducer: (state, action: PayloadAction<any>) => {
             state.gym = action.payload
+        },
+        getPaymentsReducer: (state, action: PayloadAction<any>) => {
+            state.payments = action.payload;
+        },
+        getReviewsReducer: (state, action: PayloadAction<any>) => {
+            state.reviews = action.payload;
         }
     },
 });
@@ -88,10 +97,12 @@ export const {
     getClientsReducer,
     getEmployeesReducer,
     postPayment, 
+    getPaymentsReducer,
     initilizePayment, 
     getSubscriptionsReducer,
     getTrainingsReducer,
     deleteClientsReducer,
-    getGymReducer
+    getGymReducer,
+    getReviewsReducer
 } = dataSlice.actions;
       

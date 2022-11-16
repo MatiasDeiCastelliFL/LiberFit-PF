@@ -27,7 +27,7 @@ function Items() {
                         <p className={`${style.text} text-gray`}>Guest</p>
                         <Link to="/signup">
                             <p className={`${style.text2} text-semiRed`}>
-                                Register
+                                Registrarse
                             </p>
                         </Link>
                     </div>
