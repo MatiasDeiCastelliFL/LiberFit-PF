@@ -337,3 +337,14 @@ export const getInitilizePayment = (payload: any) => async (dispatch: any) => {
     console.log("payload",payload)
     dispatch(initilizePayment(payload))
 }
+
+export const CambiarContraseña = (payload: any) => async (dispatch: any) => {
+    console.log(payload)
+    try {
+        const json = await axios.post(`${BASE_URL || Route}/recuperacion`,payload)
+        console.log("-->>>",json);
+        return json
+    } catch (error) {
+        console.log("-->",error);   
+    }
+}
