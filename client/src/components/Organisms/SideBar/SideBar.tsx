@@ -232,7 +232,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
     //     }, 3000);
     //     loginGoog(user);
     // }, [user]);
-    console.log('user', cookies.get("RolId"));
+    // console.log('user', cookies.get("RolId"));
     // console.log({
     //     password: user?.nickname,
     //     email: user?.email,

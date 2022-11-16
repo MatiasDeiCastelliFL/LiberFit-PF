@@ -111,7 +111,7 @@ const NavForm = ({ dashboard }: Props) => {
 
     useEffect(() => {}, [cookies.get("RolId")]);
 
-    console.log("user-->", cookies.get("RolId"));
+    // console.log("user-->", cookies.get("RolId"));
     return (
         <div
             className={`${
