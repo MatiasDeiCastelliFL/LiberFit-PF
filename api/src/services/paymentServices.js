@@ -1,7 +1,7 @@
 const { Payments,Clients,Subscriptions } = require('../db')
 
 const { monthName } = require("../Helpers/monthName.js");
-const emailjs = require('emailjs-com');
+const  emailjs =  '@emailjs/browser'
 const axios = require('axios');
 const { SERVICE_ID, TEMPLATE_ID, USER_ID, ACCESS_TOKEN} = process.env;
 
