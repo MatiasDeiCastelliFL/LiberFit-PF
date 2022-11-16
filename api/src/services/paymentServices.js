@@ -6,7 +6,7 @@ const axios = require('axios');
 const { SERVICE_ID, TEMPLATE_ID, USER_ID, ACCESS_TOKEN} = process.env;
 
 const crearPayment = async (amount, ClientId, description, subscriptionId, oldLastDate) => {
-  oldLastDate=new Date(oldLastDate)
+  oldLastDate? oldLastDate=new Date(oldLastDate): null
   let subscriptionInfo= await Subscriptions.findOne({where:{
     id: subscriptionId
   }})
@@ -26,7 +26,6 @@ const crearPayment = async (amount, ClientId, description, subscriptionId, oldLa
       month = fechaActual.getMonth()
       year = fechaActual.getFullYear()
   }else{
-      console.log('oldLastDate',oldLastDate)
       day = oldLastDate.getDate()+1
       month = oldLastDate.getMonth()+1
       year = oldLastDate.getFullYear()
