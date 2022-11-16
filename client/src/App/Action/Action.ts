@@ -17,7 +17,8 @@ import {
     getEmployeesReducer,
     getSubscriptionsReducer,
     getTrainingsReducer,
-    deleteClientsReducer
+    deleteClientsReducer,
+    getPaymentsReducer,
 } from "../FeatureSlices/Data/Data";
 import { getAllUsers, postUsers } from "../FeatureSlices/Users/Users";
 import { login } from "../FeatureSlices/login/login";
@@ -53,10 +54,19 @@ export const getLocations = () => async (dispatch: any) => {
     }
 };
 
-export const getClients = (payload:any) => async (dispatch: any) => {
+export const getClients = (payload: any) => async (dispatch: any) => {
     try {
         const clients = await axios.get(`${BASE_URL || Route}/clients`,{params: {token:payload.token}});
         dispatch(getClientsReducer(clients.data));
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getPayments = (payload: any) => async (dispatch: any) => {
+    try {
+        const payments = await axios.get(`${BASE_URL || Route}/payment`,{params: {token:payload.token}});
+        dispatch(getPaymentsReducer(payments.data));
     } catch (error) {
         console.log(error);
     }

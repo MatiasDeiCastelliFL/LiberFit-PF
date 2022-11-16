@@ -10,6 +10,7 @@ import DashProducts from "./Content/DashProducts";
 import DashTrainings from "./Content/DashTrainings";
 import DashLocations from "./Content/DashLocations";
 import DashSuscriptions from "./Content/DashSuscriptions";
+import DashPayments from "./Content/DashPayments";
 
 import { getFilterData } from "../../../../App/Action/FilterActions";
 import { getMainData } from "../../../../App/Action/Action";
@@ -59,6 +60,8 @@ function DashAdmin() {
                     <DashLocations link={"locations"} />
                 ) : location.pathname === "/dashboard/admin/suscriptions" ? (
                     <DashSuscriptions link={"suscriptions"} />
+                ) : location.pathname === "/dashboard/admin/payments" ? (
+                    <DashPayments link={"payments"} />
                 ) : null }
             </div>)}
         </div>
