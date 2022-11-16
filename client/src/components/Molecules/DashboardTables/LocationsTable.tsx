@@ -113,19 +113,27 @@ export default function LocationsTable({ link }: any) {
     );
 
     const { 
-      getTableProps, 
-      getTableBodyProps, 
-      headerGroups, 
-      rows,
-    //   page, 
-    //   nextPage,
-    //   previousPage,
-    //   canNextPage,
-    //   canPreviousPage,
-      prepareRow,
-    } = useTable({ columns, data },
-      usePagination
-  );
+        getTableProps,
+        getTableBodyProps,
+        headerGroups,
+        rows,
+        page,
+        nextPage,
+        previousPage,
+        canNextPage,
+        canPreviousPage,
+        pageOptions,
+        state,
+        prepareRow,
+    } = useTable({ 
+        columns, 
+        data, 
+    },
+      usePagination,
+    //   useSortBy,
+  )
+
+    const { pageIndex } = state
 
     return (
         <div className="flex flex-col">
@@ -169,9 +177,28 @@ export default function LocationsTable({ link }: any) {
                                 })}
                             </tbody>
                         </table>
-                        <div>
-                          {/* <button onClick={() => previousPage()}>Anterior</button>
-                          <button onClick={() => nextPage()}>Siguiente</button> */}
+                        <div className="flex flex-row justify-center mt-3">
+                            <button
+                                className="bg-redClare px-4 py-2 rounded-xl mx-1"
+                                onClick={() => previousPage()}
+                                disabled={!canPreviousPage}
+                            >
+                                Anterior
+                            </button>
+                            <div className="flex items-center">
+                                <span>
+                                    <strong>
+                                    Page{' '}{pageIndex + 1} of {pageOptions.length}
+                                    </strong>
+                                </span>
+                            </div>
+                            <button
+                                className="bg-redClare px-4 py-2 rounded-xl mx-1"
+                                onClick={() => nextPage()}
+                                disabled={!canNextPage}
+                            >
+                                Siguiente
+                            </button>
                         </div>
                     </div>
                 </div>

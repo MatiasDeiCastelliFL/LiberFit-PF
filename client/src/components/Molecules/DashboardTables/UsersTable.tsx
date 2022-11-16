@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useTable, usePagination } from "react-table";
+import { useTable, usePagination, useSortBy } from "react-table";
 import { getClients, getEmployees, deleteClient, deleteEmployee } from "../../../App/Action/Action";
 import { useAppSelector, useAppDispatch } from "../../../App/Hooks/Hooks";
 import Avatar from "react-avatar";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import Swal from "sweetalert2"
+import { ImSortAlphaAsc, ImSortAlphaDesc } from 'react-icons/im';
 
 export default function Table({ link }: any) {
     const allData: any = useAppSelector((state) => state.data);
@@ -44,7 +45,7 @@ export default function Table({ link }: any) {
                 'Eliminado!',
                 'El registro fue eliminado',
                 'success'
-              ).then(resposne => {
+              ).then(response => {
                 navigate("/dashboard/admin")
               })
             //   window.location.href=("/dashboard/admin")
@@ -147,19 +148,26 @@ export default function Table({ link }: any) {
         getTableBodyProps,
         headerGroups,
         rows,
-        // page,
-        // nextPage,
-        // previousPage,
-        // canNextPage,
-        // canPreviousPage,
-        // pageOptions,
+        page,
+        nextPage,
+        previousPage,
+        canNextPage,
+        canPreviousPage,
+        pageOptions,
+        gotoPage,
+        setPageSize,
         state,
         prepareRow,
-    } = useTable({ columns, data },
-      usePagination
-  );
+    } = useTable({ 
+        columns, 
+        data,
+        initialState: { pageIndex : 1 } 
+    },
+      usePagination,
+    //   useSortBy,
+  )
 
-    // const { pageIndex } = state
+    const { pageIndex, pageSize } = state
 
     return (
         <div className="flex flex-col">
@@ -175,13 +183,16 @@ export default function Table({ link }: any) {
                                                 className="text-sm font-medium text-gray-900 px-6 py-4 text-center"
                                                 {...column.getHeaderProps()}>
                                                 {column.render("Header")}
+                                                {/* <span>
+                                                    {column.isSorted ? (column.isSortedDesc ? <ImSortAlphaAsc/> : ' ') : ''}
+                                                </span> */}
                                             </th>
                                         ))}
                                     </tr>
                                 ))}
                             </thead>
                             <tbody {...getTableBodyProps()}>
-                                {rows.map((row: any) => {
+                                {page.map((row: any) => {
                                     prepareRow(row);
                                     return (
                                         <tr
@@ -203,20 +214,21 @@ export default function Table({ link }: any) {
                                 })}
                             </tbody>
                         </table>
-                        {/* <div className="flex flex-row justify-center mt-3">
-                            Page{' '} */}
-                            {/* <span>
-                                <strong>
-                                    {pageIndex + 1} of {pageOptions.length}
-                                </strong>
-                            </span> */}
-                            {/* <button
+                        <div className="flex flex-row justify-center mt-3">
+                            <button
                                 className="bg-redClare px-4 py-2 rounded-xl mx-1"
                                 onClick={() => previousPage()}
                                 disabled={!canPreviousPage}
                             >
                                 Anterior
                             </button>
+                            <div className="flex items-center">
+                                <span>
+                                    <strong>
+                                    Page{' '}{pageIndex + 1} of {pageOptions.length}
+                                    </strong>
+                                </span>
+                            </div>
                             <button
                                 className="bg-redClare px-4 py-2 rounded-xl mx-1"
                                 onClick={() => nextPage()}
@@ -224,7 +236,7 @@ export default function Table({ link }: any) {
                             >
                                 Siguiente
                             </button>
-                        </div> */}
+                        </div>
                     </div>
                 </div>
             </div>
