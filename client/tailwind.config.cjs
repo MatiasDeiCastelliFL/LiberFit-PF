@@ -16,9 +16,14 @@ module.exports = {
                 xl: "1280px",
                 // => @media (min-width: 1280px) { ... }
 
+                xl3: '1366px',
+
+                xl2: '1440px',
+                // => @media (min-width: 1440px) { ... }
+
                 "2xl": "1536px",
                 // => @media (min-width: 1536px) { ... }
-                "3xl": "1600px",
+                "3xl": '1900px',
             },
             colors: {
                 redGray: "#FEE2E2",
@@ -27,9 +32,17 @@ module.exports = {
                 redClare: "#F87171",
                 white: "#FFF",
                 gray_custom: "#9B9B9B",
+                dark: '#212529',
+                yellow_custom: "#fec101",
+                blue_custom: "#1d71ba",
+                red_custom: "#00af72",
+                semiBlack: '#252525',
             },
             spacing: {
-                sidebar: "18vw",
+                sidebar: "16vw",
+                xl: '15vw',
+                lg: '5vw',
+                lg_sidebar: '13.5vw'
             },
             fontFamily: {
                 poppins: "Poppins",
@@ -39,7 +52,12 @@ module.exports = {
                 custom_1: "30.25rem",
                 custom_2: "21.4rem",
                 custom_3: "84vw",
+                custom_5: "80vw",
+                custom_6: "40vw",
                 custom_4: "30%",
+                custom_7: "60%",
+                payment_table: "75vw",
+                '2xl': '14.8125rem',
                 sidebar: "18vw",
                 input: "16vw",
                 swiper: "80vw",
@@ -47,6 +65,16 @@ module.exports = {
                 cards_1: "14vw",
                 user: "6.5rem",
                 perfil: "1px",
+                lg_fit: '49rem',
+                table: '30rem',
+                aboutbar: '40rem',
+                xl_aboutbar: '30rem',
+                lg_aboutbar: '35rem',
+                slade: '9rem',
+                xl2_slade: '45rem',
+                xl_slade: '48rem',
+                lg_slade: '20rem',
+                tec: '35rem',
             },
             height: {
                 max: "100vh",
@@ -56,6 +84,13 @@ module.exports = {
                 custom_3: "31.25rem",
                 custom_4: "34rem",
                 user: "6.5rem",
+                limit_Card: '38rem',
+                lg_limit_Card: '25rem',
+                xl_limit_Card: '34rem',
+                xl2_limit_Card: '31rem',
+                xl3_limit_Card: '22.2rem',
+                card: '40rem'
+                
             },
             blur: {
                 default: "30px",
@@ -69,14 +104,21 @@ module.exports = {
                 custom_6: "45rem",
                 custom_7: "-0.375rem",
                 mobile_1: "19rem",
-                mobile_2: "33rem",
+                lg_mobile_1: "26rem",
+                mobile_2: "31.5rem",
                 mobile_3: "29rem",
+                lg_mobile_3: "37rem",
                 mobile_4: "33.1rem",
-                mobile_5: "39rem",
+                lg_mobile_4: "41rem",
+                mobile_5: "36rem",
                 mobile_6: "27rem",
+                lg_mobile_6: "35rem",
                 mobile_7: "24rem",
                 mobile_8: "28.1rem",
                 pop: "-0.800rem",
+                xl: '9rem',
+                xxl: '-3.5rem',
+                xxl2: '2rem'
             },
             inset: {
                 custom: "41rem",
@@ -98,8 +140,12 @@ module.exports = {
                 mobile_11: "39rem",
                 mobile_12: "23.4rem",
                 mobile_13: "22rem",
+                xl: '10rem',
+                xl_l: '15rem'
             },
             fontSize: {
+                20: '14.5px',
+                10: '10px',
                 90: "90px",
                 51: "51px",
                 12: "12px",
@@ -108,6 +154,9 @@ module.exports = {
             },
             borderRadius: {
                 custom_1: "50px",
+            },
+            backgroundColor: {
+                
             },
         },
     },

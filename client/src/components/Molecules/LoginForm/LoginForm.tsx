@@ -15,6 +15,7 @@ import { useAppDispatch } from "../../../App/Hooks/Hooks";
 import Cookies from "universal-cookie";
 import jwt_decode from "jwt-decode";
 import { useAuth0 } from "@auth0/auth0-react";
+import Swal from "sweetalert2"
 
 interface Inp {
     email: string;
@@ -58,22 +59,52 @@ const LoginForm = () => {
       console.log(decode)
 
                 // console.log("<--->",decode.user.email)
-
+      if (decode.user.active === false) {
+        return (
+          Swal.fire({
+            // position: 'top-end',
+            icon: "warning",
+            title: 'Necesita activar su cuenta',
+            text: "en su correo electronico",
+            showConfirmButton: false,
+            timer: 2700
+          })
+        )
+      }
+                
       cookies.set("id", decode.user.id,{path: "/"})
       cookies.set("email", decode.user.email,{path: "/"})
       cookies.set("name", decode.user.name,{path: "/"})
       cookies.set("phone", decode.user.phone,{path: "/"})
       cookies.set("image", decode.user.image,{path: "/"})
       cookies.set("RolId", decode.user.RolId,{path: "/"})
+      // cookies.set("active", decode.user.active,{path: "/"})
       cookies.set("loginWith","local",{path:"/"})
       cookies.set("token",respuesta,{path:"/"})
-
-      alert(`Bienvenido ${decode.user.name}`)
-      navigate("/home")
+      
+      // alert(`Bienvenido ${decode.user.name}`)
+      Swal.fire({
+        // position: 'top-end',
+        icon: 'success',
+        title: `Bienvenido ${decode.user.name}`,
+        showConfirmButton: false,
+        timer: 3000,
+        footer: 'Welcome to Liberfit - gym 2022!'
+      }).then( response => {
+        if (cookies.get("RolId")) window.location.href="/home"
+      })
+      // if (cookies.get("RolId")) navigate("/home")
+      // if (cookies.get("RolId") === "1") navigate("/dashboard/admin") //url del rol id 1
+      
     })
     .catch(error => {
       console.log(error)
-      alert("correo o cantraseña incorrecta")
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Correo o contraseña incorrecto!',
+        footer: 'Intente nuevamente'
+      })
     })
   });
 
@@ -148,8 +179,8 @@ const LoginForm = () => {
                     type={pass ? "text" : "password"}
                     {...register("password", {
                       required: true,
-                      maxLength: 10,
-                      pattern: /^[a-zA-Z0-9\_\-]+$/i,
+                      // maxLength: 10,
+                      pattern: /^[a-zA-Z0-9\_\-\+]+$/i,
                     })}
                     placeholder="password.."
                     className="bg-redGray outline-none text-sm flex-1"
@@ -174,7 +205,7 @@ const LoginForm = () => {
                     <p>tu password no puede tener espacio</p>
                   )}
                 </div>
-                  <Link to="" className="text-xs p-2">
+                  <Link to="/recuperacion" className="text-xs p-2">
                     ¿Se te olvido tu contraseña?
                   </Link>
                 <div className="flex">

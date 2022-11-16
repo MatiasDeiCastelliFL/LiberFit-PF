@@ -1,11 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useParams, useLocation, Link, useNavigate } from "react-router-dom";
 import style from "./NavBar.module.css";
-import {
-    ChatBubbleBottomCenterTextIcon,
-    BanknotesIcon,
-    Squares2X2Icon,
-} from "@heroicons/react/24/outline";
+import { Squares2X2Icon } from "@heroicons/react/24/outline";
+import { BsFillPersonFill } from "react-icons/bs";
 import Perfil from "../../Atoms/Perfil/Perfil";
 import Items from "../../Atoms/Perfil/ItemsPefil/Items";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
@@ -17,6 +14,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useAppDispatch, useAppSelector } from "./../../../App/Hooks/Hooks";
 import { cerrarLogin, loginGoogle } from "../../../App/Action/Action";
 import { normalize } from "./../../../App/utils/NormalText";
+import Swal from "sweetalert2"
 
 interface Props {
     dashboard: boolean;
@@ -32,15 +30,46 @@ const NavForm = ({ dashboard }: Props) => {
         { name: "about", link: "/about" },
     ];
 
+    const cerrarSesion = () => {
+        Swal.fire({
+            title: 'Seguro quieres cerrar sesion?',
+            text: "¡No podrás revertir esto!",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonColor: '#d33',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'cerrar sesion!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                cookies.remove("id", { path: "/" });
+                cookies.remove("email", { path: "/" });
+                cookies.remove("name", { path: "/" });
+                cookies.remove("phone", { path: "/" });
+                cookies.remove("image", { path: "/" });
+                cookies.remove("RolId", { path: "/" });
+                cookies.remove("token",{path:"/"})
+                
+                if (cookies.get("loginWith") === "local") {
+                    dispatch(cerrarLogin());
+                    navigate("/home");
+                } else logout();
+                cookies.remove("loginWith", { path: "/" });
+                Swal.fire(
+                    'Usuario cerrado correctamente!',
+                    'Lo esperamos nuevamente!',
+                    'success'
+                  )
+            }
+          })
+    }
+
     const linkDash = [
         { name: "opcion1", link: "/home" },
         { name: "opcion2", link: "/home" },
     ];
-
     const link2 = [
         {
-            name:
-                cookies.get("name") || user?.name ? "Dashboard" : "Membresias",
+            name: cookies.get("name") || user?.name ? "Dashboard" : "",
             link:
                 cookies.get("RolId") === "1"
                     ? "/dashboard/admin"
@@ -48,49 +77,45 @@ const NavForm = ({ dashboard }: Props) => {
                     ? `/dashboard/${normalize(
                           cookies.get("name").replace(/\s+/g, "")
                       )}`
-                    : "/",
-            icon: cookies.get("name") ? (
-                <Squares2X2Icon className="w-4" />
-            ) : (
-                <BanknotesIcon className="w-4" />
-            ),
+                    : "/home",
+            icon: cookies.get("name") ? <Squares2X2Icon className="w-4" /> : "",
+            click: () => {},
         },
         {
-            name: "Chat",
-            link: "/",
-            icon: <ChatBubbleBottomCenterTextIcon className="w-4" />,
+            name: cookies.get("name") || user?.name ? "Logout" : "Login",
+            link: cookies.get("name") || user?.name ? '' : "/login",
+            icon: <BsFillPersonFill className="w-4" />,
+            click: cookies.get("name") || user?.name ? cerrarSesion : () => {},
         },
     ];
 
-    const cerrarSesion = () => {
-        cookies.remove("id", { path: "/" });
-        cookies.remove("email", { path: "/" });
-        cookies.remove("name", { path: "/" });
-        cookies.remove("phone", { path: "/" });
-        cookies.remove("image", { path: "/" });
-        cookies.remove("RolId", { path: "/" });
-        cookies.remove("token", { path: "/" });
-
-        if (cookies.get("loginWith") === "local") {
-            dispatch(cerrarLogin());
-            navigate("/login");
-        } else logout();
-        cookies.remove("loginWith", { path: "/" });
+    const userConfig = () => {
+        console.log("userConfig");
+        navigate("/userConfig");
     };
 
     const solutions = [
         {
-            name: "Configuracion",
+            name: "Configuración",
+            href: userConfig,
         },
         {
             name: "Cerrar sesion",
+            href: cerrarSesion,
         },
     ];
+
+    function capitalizarPrimeraLetra(str:string) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
 
     const params = useLocation();
 
     const name = params.pathname.split("/").map((e, i) => e);
 
+    useEffect(() => {}, [cookies.get("RolId")]);
+
+    // console.log("user-->", cookies.get("RolId"));
     return (
         <div
             className={`${
@@ -110,7 +135,7 @@ const NavForm = ({ dashboard }: Props) => {
                                               : null
                                       } text-black hover:text-gray duration-500`}
                                   >
-                                      {elem.name}
+                                      {capitalizarPrimeraLetra(elem.name)}
                                   </Link>
                               </div>
                           ))
@@ -133,15 +158,16 @@ const NavForm = ({ dashboard }: Props) => {
             </div>
             {dashboard && (
                 <div className="mb-3 ">
-                    <Search
+                    {/* <Search
                         Placeholder="search..."
                         setName={false}
+                        dashboard={dashboard}
                         style={{
                             background: "transparent",
                             borderBottom: "1px solid #FEE2E2",
                             borderRadius: "0",
                         }}
-                    />
+                    /> */}
                 </div>
             )}
             <div
@@ -157,6 +183,7 @@ const NavForm = ({ dashboard }: Props) => {
                             <Link
                                 to={elem.link}
                                 className="text-black hover:text-gray duration-500 flex flex-row"
+                                onClick={elem.click}
                             >
                                 <div className="flex">
                                     {elem.name}
@@ -213,7 +240,9 @@ const NavForm = ({ dashboard }: Props) => {
                                                             (item) => (
                                                                 <div
                                                                     className="-m-3 flex items-center rounded-lg transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50 cursor-pointer"
-                                                                    onClick={cerrarSesion}
+                                                                    onClick={
+                                                                        item.href
+                                                                    }
                                                                 >
                                                                     <div className="flex h-10 w-10 shrink-0 items-center justify-center text-white sm:h-12 sm:w-12"></div>
                                                                     <div className="">

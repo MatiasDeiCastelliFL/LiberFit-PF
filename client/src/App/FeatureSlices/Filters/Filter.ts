@@ -3,7 +3,8 @@ import arraySet from "../../utils/arraySet";
 
 export interface filterState {
     data: any[];
-    dataByName: any[];
+    dataByName: any;
+    activeSearch: boolean;
     dataByPrice: any[];
     dataLocation: any[];
     products: any[];
@@ -23,7 +24,13 @@ export interface filterState {
 
 const initialState: filterState = {
     data: [],
-    dataByName: [],
+    dataByName: {
+        products: [],
+        machines: [],
+        exercises: [],
+        trainings: [],
+    },
+    activeSearch: false,
     dataLocation: [],
     dataByPrice: [],
     products: [],
@@ -62,12 +69,6 @@ const filterSlice = createSlice({
             state.filteredExercises = state.exercises;
             state.filteredTrainings = state.trainigns;
 
-            state.data = [
-                ...state.exercises,
-                ...state.products,
-                ...state.machines,
-                ...state.trainigns,
-            ];
         },
         openFilter: (state, action: PayloadAction<any>) => {
             state.open = action.payload;
@@ -125,51 +126,63 @@ const filterSlice = createSlice({
             }
         },
         filterDataName: (state, action: PayloadAction<any>) => {
+            state.activeSearch = true;
             if (location.pathname === "/home") {
-                state.dataByName = arraySet(
-                    [...state.data]
-                        .filter((d) =>
-                            d.name.toLowerCase().includes(action.payload)
-                        )
-                        .flat()
+                state.filteredProducts = state.products.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
                 );
+                state.filteredMachines = state.machines.filter((d) =>
+                d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+                state.filteredExercises = state.exercises.filter((d) =>
+                d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+                state.filteredTrainings = state.trainigns.filter((d) =>
+                d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+                state.dataByName.products = state.filteredProducts;
+                state.dataByName.machines = state.filteredMachines;
+                state.dataByName.exercises = state.filteredExercises;
+                state.dataByName.trainings = state.filteredTrainings;
             } else if (location.pathname === "/home/Exercises") {
-                state.exercises = arraySet(
-                    [...state.exercises]
-                        .filter((d) =>
-                            d.name.toLowerCase().includes(action.payload)
-                        )
-                        .flat()
+                state.filteredExercises = state.exercises.filter((d) =>
+                d.name.toLowerCase().includes(action.payload.toLowerCase())
                 );
+                state.dataByName.exercises = state.filteredExercises;
             } else if (location.pathname === "/home/Trainings") {
-                state.trainigns = arraySet(
-                    [...state.trainigns]
-                        .filter((d) =>
-                            d.name.toLowerCase().includes(action.payload)
-                        )
-                        .flat()
+                state.filteredTrainings = state.trainigns.filter((d) =>
+                d.name.toLowerCase().includes(action.payload.toLowerCase())
                 );
-            } else if (location.pathname === "/home/Products") {
-                state.products = arraySet(
-                    [...state.products]
-                        .filter((d) =>
-                            d.name.toLowerCase().includes(action.payload)
-                        )
-                        .flat()
-                );
+                state.dataByName.trainings = state.filteredTrainings;
             } else if (location.pathname === "/home/Machines") {
-                state.machines = arraySet(
-                    [...state.machines]
-                        .filter((d) =>
-                            d.name.toLowerCase().includes(action.payload)
-                        )
-                        .flat()
+                state.filteredMachines = state.machines.filter((d) =>
+                d.name.toLowerCase().includes(action.payload.toLowerCase())
                 );
-            }
+                state.dataByName.machines = state.filteredMachines;
+            } else if (location.pathname === "/home/Products") {
+                state.filteredProducts = state.products.filter((d) =>
+                    d.name.toLowerCase().includes(action.payload.toLowerCase())
+                );
+                state.dataByName.products = state.filteredProducts;
+            } 
         },
+        removeDataByName: (state) => {
+            state.dataByName = {
+                products: [],
+                machines: [],
+                exercises: [],
+                trainings: [],
+            };
+            state.filteredExercises = state.exercises;
+            state.filteredMachines = state.machines;
+            state.filteredProducts = state.products;
+            state.filteredTrainings = state.trainigns;
+            
+            state.activeSearch = false;
+        }
     },
 });
 
 export default filterSlice.reducer;
-export const { getData, filterDataName, filterDataPrice, openFilter, filterByMuscles, filterByBrands } =
+export const { getData, filterDataName, filterDataPrice, openFilter, filterByMuscles, filterByBrands, removeDataByName } =
     filterSlice.actions;

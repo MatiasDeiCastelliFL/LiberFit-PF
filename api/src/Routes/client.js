@@ -1,15 +1,25 @@
 const { Router } = require("express");
-const { getClientsRequest, postClientsRequest, deleteClientRequest, putClientRequest } = require("../controllers/clientControllers");
-const auth = require("../Helpers/auth");
-const routerClient= Router();
+const { getClientsRequest, postClientsRequest, deleteClientRequest, putClientRequest, getClientsPayments,postReview,FiltrarClienteInactivoConSede,FiltrarClienteActivoConSede,CantActivo,CantInacativo,FiltrarClienteInactivo,FiltrarClienteActivo,activarCliente,inactivarCliente,FiltrarRutinaConcliente } = require("../controllers/clientControllers");
 const {isAuthenticated}= require('../Helpers/auth')
+const routerClient= Router();
 const { upload } = require('../config/multer.config');
 
 
-routerClient.get("/clients", getClientsRequest); //QUERY: name, email
-routerClient.post("/clients",postClientsRequest); //BODY: { name, phone, email, password, image }
-routerClient.put("/clients",upload ,putClientRequest) //BODY: { id, name, phone, email, password, image }
-routerClient.delete("/clients", isAuthenticated,deleteClientRequest); //BODY: { id, name, email }
+routerClient.get("/clients",isAuthenticated,getClientsRequest);
+routerClient.get("/clients/payments",isAuthenticated, getClientsPayments); 
+routerClient.post("/clients",postClientsRequest);
+routerClient.post("/clients/review",isAuthenticated,postReview); 
+routerClient.put("/clients", upload, isAuthenticated, putClientRequest) 
+routerClient.delete("/clients/:id",isAuthenticated, deleteClientRequest);
+routerClient.put("/anuncioActivar",isAuthenticated,activarCliente);
+routerClient.get("/FiltrarclientsActivo",isAuthenticated,FiltrarClienteActivo)
+routerClient.get("/FiltrarclientsInactivo",isAuthenticated,FiltrarClienteInactivo)
+routerClient.get("/CantclientsInacativo",isAuthenticated,CantInacativo)
+routerClient.get("/CantclientsActivo",isAuthenticated,CantActivo)
+routerClient.get("/FiltrarClienteInactivoConSede",isAuthenticated,FiltrarClienteInactivoConSede)
+routerClient.get("/FiltrarClienteActivoConSede",isAuthenticated,FiltrarClienteActivoConSede)
+routerClient.get("/FiltrarRutinaConcliente",isAuthenticated,FiltrarRutinaConcliente)
 
 
+ 
 module.exports = routerClient;

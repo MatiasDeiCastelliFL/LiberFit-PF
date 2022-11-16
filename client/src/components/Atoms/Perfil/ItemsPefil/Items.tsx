@@ -15,13 +15,19 @@ function Items() {
                         <p className={`${style.textI} text-gray`}>
                             {cookies.get("name") || user?.name}
                         </p>
+                        {
+                            cookies.get("RolId") === "3" ? <p className={`${style.text2} text-semiRed`}>Cliente</p> : null
+                        }
+                        {
+                            cookies.get("RolId") === "1" ? <p className={`${style.text2} text-semiRed`}>Admin</p> : null
+                        }
                     </div>
                 ) : (
                     <div className="">
                         <p className={`${style.text} text-gray`}>Guest</p>
                         <Link to="/signup">
                             <p className={`${style.text2} text-semiRed`}>
-                                Register
+                                Registrarse
                             </p>
                         </Link>
                     </div>

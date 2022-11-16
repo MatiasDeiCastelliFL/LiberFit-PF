@@ -1,6 +1,6 @@
 //TODO busqueda de dato Cliente y empleado payments
 
-
+// const {paymentSuscription} = require("../db");
 
 
 /** Funcion para traer todas las cuenta de usuario, cliente , payments o otro modelo que tienen el atribute active */
@@ -33,6 +33,7 @@ const contarDatoActivo= async(modelo)=>{
         where: { active: true },
 
       })
+      
       return CantTotal; 
 }
 
@@ -51,7 +52,7 @@ const contarDatoInactivo= async(modelo)=>{
 
 //Estas 2 funciones seria para usar para cliente o empleado
 const MostrarDatoMultipleActivo = async(modelo1, modelo2)=>{
-     const UserLocal= modelo1.findAll({
+     const UserLocal= await  modelo1.findAll({
         include: modelo2,
         where:{
             active:true
@@ -60,7 +61,7 @@ const MostrarDatoMultipleActivo = async(modelo1, modelo2)=>{
      return UserLocal
 }
 const MostrarDatoMultipleInactivo = async(modelo1, modelo2)=>{
-    const UserLocal= modelo1.findAll({
+    const UserLocal= await  modelo1.findAll({
        include: modelo2,
        where:{
            active:false
@@ -70,10 +71,57 @@ const MostrarDatoMultipleInactivo = async(modelo1, modelo2)=>{
     return UserLocal
 }
 
+const MostrarDatorutinaConUser = async(modelo1, modelo2, modelo3,id,idRutine)=>{
+
+    const datos= await modelo2.findAll({
+        include:{
+            model:modelo1
+        },
+        where: {
+            id:id
+        }
+    });
+    const datosEjercio= await modelo1.findAll({
+       include:{
+        model:modelo3,
+        attributes:["name","repetition","series","video","image","muscle"],
+        trough:{
+            attributes:[]
+        }
+       },
+       where:{
+          id:idRutine
+       }
+    })
+    const variable= datos.concat(datosEjercio)
+    return variable 
+}
+
+const pagosActivo = async()=>{
+    const UserLocal= paymentSuscription.findAll()
+    
+    return UserLocal
+}
+
+const busquedaDeMoviento = async (modelo,id)=>{
+    const PagoRealizado = await modelo.findAll({
+        where:{
+            ClientId:id
+        }
+    })
+
+    console.log(PagoRealizado)
+
+    if(PagoRealizado.length>0){
+        return true
+    }else{
+        return false
+    }
+}
 
 
 
-module.exports = {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo};
+module.exports = {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,pagosActivo,MostrarDatorutinaConUser,busquedaDeMoviento};
 
 
 

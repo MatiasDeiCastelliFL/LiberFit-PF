@@ -1,4 +1,4 @@
-const crearGym = require('../services/gymServices')
+const {crearGym,GetGym} = require('../services/gymServices')
 // const { validate } = require('../validation/validations')
 const postGym = async (req, res) => {
   try {
@@ -11,4 +11,13 @@ const postGym = async (req, res) => {
   }
 }
 
-module.exports = postGym
+const getAll = async (req, res) => {
+  try {
+      const rutinas = await GetGym();
+      res.status(200).json(rutinas);
+  } catch (error) {
+      console.error(error);
+  }
+};
+
+module.exports = {postGym,getAll}

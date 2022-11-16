@@ -22,10 +22,18 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      active: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
+      },
+      timeSlot: {
+        type: DataTypes.STRING,
+        defaultValue: "Lunes a Viernes de 7:30 a 17:00hs",
+      }
     },
     {
       freezeTableName: true,
-      timestamps: false
+      timestamps: true
     }
   )
 }

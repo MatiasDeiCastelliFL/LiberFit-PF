@@ -36,6 +36,9 @@ const routerTraining = require('./Routes/training')
 const routerAnuncio = require('./Routes/Anuncio');
 const routerLog = require('./Routes/users')
 const inicio = require('./Routes/inicio')
+const routerVerify = require('./Routes/verify')
+const routerContraseña = require('./Routes/recuperarcontraseña')
+
 
 
 server.use('/', routerGeneral)
@@ -55,5 +58,6 @@ server.use('/', routerTraining)
 server.use('/', routerAnuncio)
 server.use('/', routerLog)
 server.use('/', inicio)
-
+server.use('/', routerVerify)
+server.use('/', routerContraseña)
 module.exports = server;

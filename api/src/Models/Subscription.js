@@ -13,16 +13,24 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     price: {
-      type: DataTypes.STRING,
+      type: DataTypes.DOUBLE,
       allowNull: false,
     },
     description: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    duration:{
+      type: DataTypes.INTEGER,
+      defaultValue:1
+    },
+    active: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     }
   },
   {
     freezeTableName: true,
-    timestamps: false,
+    timestamps: true,
   }
 )};

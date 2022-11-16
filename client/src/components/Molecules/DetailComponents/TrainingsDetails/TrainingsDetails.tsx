@@ -27,7 +27,7 @@ const TrainingsDetails = () => {
     }, []);
     
     return (
-        <div className="flex flex-col w-custom_3 mb-5 p-4 bg-gray-100">
+        <div className="flex flex-col w-full mb-5 p-4 bg-gray-100">
             <div className="flex flex-row w-max mb-3">
                 <div className="w-2/5 flex items-center">
                     <img src={details.image} alt={details.name} />
