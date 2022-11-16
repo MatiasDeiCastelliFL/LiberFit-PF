@@ -72,9 +72,6 @@ const dataSlice = createSlice({
             state.trainings = action.payload;
         },
         deleteClientsReducer: (state, action: PayloadAction<any>) => {
-            // let filtrado = state.allClients.map((e: any) => e.id !== action.payload )
-            // console.log(state.clients.filter((e: any) => e.id !== action.payload ));
-            // const filtrado = state.allClients
             state.clients = state.clients.filter((e: any) => e.id !== action.payload )
         },
         getGymReducer: (state, action: PayloadAction<any>) => {
@@ -86,6 +83,7 @@ const dataSlice = createSlice({
         getReviewsReducer: (state, action: PayloadAction<any>) => {
             state.reviews = action.payload;
         }
+
     },
 });
 

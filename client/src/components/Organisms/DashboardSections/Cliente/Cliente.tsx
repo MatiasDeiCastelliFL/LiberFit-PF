@@ -36,13 +36,13 @@ function Cliente() {
     return (
         <div className="select-none">
             {location.pathname === `/dashboard/${user}/ejercicios` ? (
-                <Ejercicios />
+                <Timer/>
             ) : location.pathname.includes("rutinas") ? (
                 <Rutinas />
             ) : location.pathname.includes("pagos") ? (
                 <Payments />
             ): location.pathname === `/dashboard/${user}/ejercicios/${params.ejercicio}` ? (
-                <Timer/>
+                <Ejercicios/>
             ) : (<DashHomeClient/>)}
         </div>
     );
