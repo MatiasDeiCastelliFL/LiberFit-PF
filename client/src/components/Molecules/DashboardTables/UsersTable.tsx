@@ -40,8 +40,10 @@ export default function Table({ link }: any) {
                 'Eliminado!',
                 'El registro fue eliminado',
                 'success'
-              )
-              window.location.href=("/dashboard/admin")
+              ).then(resposne => {
+                navigate("/dashboard/admin")
+              })
+            //   window.location.href=("/dashboard/admin")
             }
           })
     };
