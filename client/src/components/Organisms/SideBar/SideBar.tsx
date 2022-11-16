@@ -308,6 +308,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                                     <Item
                                                         title={d.title}
                                                         type="cliente"
+                                                        icon=""
                                                     />
                                                 </Link>
                                             ) : (
@@ -329,6 +330,7 @@ function SideBar({ handle, setName, dashboard }: Props) {
                                                     <Item
                                                         title={d.title}
                                                         type="admin"
+                                                        icon=""
                                                     />
                                                 </Link>
                                             ) : (
