@@ -86,7 +86,7 @@ const Calendar = () => {
                     {
                         week.map((day:any, index:any) => {
                             return (
-                                <div key={Math.random()} className={`flex group  hover:bg-purple-100 ${day===currentDay? 'bg-redClare':null} hover:shadow-lg hover-light-shadow rounded-lg mx-1 transition-all	duration-300  cursor-pointer justify-center w-16`}>
+                                <div key={Math.random()} className={`flex group  hover:bg-purple-100 ${day===currentDay? 'bg-redClare':null} hover:shadow-lg hover-light-shadow rounded-lg mx-1 transition-all	duration-300  cursor-pointer justify-center w-full`}>
                                     <div className='flex items-center px-4 py-4'>
                                         <div className='text-center'>
                                             <p className='text-gray-900 font-semibold group-hover:text-purple-900 text-sm transition-all duration-300'>{weekDaysName[index]}</p>

@@ -68,21 +68,21 @@ const SingUp = () => {
               </div>
               <div className="pt-4">
                 <p className="font-bold text-red-400">
-                  regístrate para continuar
+                  Debe regístrarse para continuar
                 </p>
                 <div className="border-2 w-14 border-red-400 inline-block mb-2"></div>
               </div>
               <form onSubmit={onSubmit} className="flex flex-col items-center">
 
                 <div className="w-64 p-2 flex flex-col mb-1">
-                  <label className=" text-left">Full Name</label>
+                  <label className=" text-left">Nombre y Apellido</label>
                   <input
                     type="text"
                     {...register("name", {
                       required: true,
                       pattern: /^[a-zA-Z\s]+$/
                     })}
-                    placeholder="Ibra Cardozo"
+                    placeholder="Ingrese su nombre"
                     className="bg-transparent text-sm focus:outline-none border-b border-red-400 tracking-wider"
                   />
                 </div>
@@ -96,14 +96,14 @@ const SingUp = () => {
                 </div>
 
                 <div className="w-64 p-2 flex flex-col mb-1">
-                  <label className=" text-left">Phone</label>
+                  <label className=" text-left">Teléfono</label>
                   <input
                     type="text"
                     {...register("phone", {
                       required: true,
                       pattern: /^\d/
                     })}
-                    placeholder="54388123"
+                    placeholder="Ingrese su teléfono"
                     className="bg-transparent text-sm focus:outline-none border-b border-red-400 tracking-wider"
                   />
                 </div>
@@ -117,14 +117,14 @@ const SingUp = () => {
                 </div>
 
                 <div className="w-64 p-2 flex flex-col mb-1">
-                  <label className=" text-left">Email address</label>
+                  <label className=" text-left">Dirección de Correo</label>
                   <input
                     type="text"
                     {...register("email", {
                       pattern: /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
                       required: true,
                     })}
-                    placeholder="ibracardozo15@gmail.com"
+                    placeholder="ejemplo@gmail.com"
                     className="bg-transparent text-sm focus:outline-none border-b border-red-400 tracking-wider"
                   />
                 </div>
@@ -138,7 +138,7 @@ const SingUp = () => {
                 </div>
                 
                 <div className="w-64 p-2 flex flex-col mb-1">
-                  <label className=" text-left">Password</label>
+                  <label className=" text-left">Contraseña</label>
                   <div className="flex justify-between items-center">
                     <input
                     type={pass ? "text" : "password"}
@@ -146,7 +146,7 @@ const SingUp = () => {
                       required: true,
                       pattern: /^[a-zA-Z0-9\_\-\+]+$/i,
                     })}
-                    placeholder="password"
+                    placeholder="Ingrese su contraseña"
                     className="bg-transparent text-sm focus:outline-none w-full border-b border-red-400 tracking-wider"
                     />
                     <div className="cursor-pointer"  onClick={() => setPass(!pass)}>
@@ -176,7 +176,7 @@ const SingUp = () => {
             </div>
             {/*  */}
             <div className="w-2/5 bg-red-400 text-white rounded-tr-2xl rounded-br-2xl py-36 px-12">
-              <h2 className="text-3xl font-bold mb-2">Hola amigo Gym!</h2>
+              <h2 className="text-3xl font-bold mb-2">Hola amigo Fitness!</h2>
               <div className="border-2 w-10 border-whithe inline-block mb-2"></div>
               <p className="mb-2">¿Ya tienes una cuenta?</p>
               <Link

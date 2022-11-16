@@ -80,7 +80,7 @@ function CardReview({name, id}:Props) {
     return (   
         <div className="flex bg-semiBlack text-white rounded-xl justify-between p-6 gap-2 " key={Math.random()}>
                 <div className="flex flex-col gap-3 justify-start items-center">
-                    <h2 className="w-96">Califica la Sede {name}</h2>
+                    <h2 className="w-96">Califica la {name}</h2>
 
                     <div className='flex gap-2 items-center'>
                         <Rating
