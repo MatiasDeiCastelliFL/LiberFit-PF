@@ -100,10 +100,10 @@ function App() {
                     <Route path="/home/:category/:name" element={<Details />} />
                 </Route>
                 <Route path="/about" element={<About/>}/>
-                {cookies.get("name") || user?.name ? null : (
+                {cookies.get("name") || user?.name ? <Route path="/login" element={<LoginForm />} /> : (
                     <Route path="/login" element={<LoginForm />} />
                 )}
-                {cookies.get("name") || user?.name ? null : (
+                {cookies.get("name") || user?.name ? <Route path="/signup" element={<SingUp />} /> : (
                     <Route path="/signup" element={<SingUp />} />
                 )}
                 <Route path="/recuperacion" element={<Constrase />} />

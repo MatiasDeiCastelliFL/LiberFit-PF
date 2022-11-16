@@ -154,7 +154,7 @@ const NavForm = ({ dashboard }: Props) => {
             </div>
             {dashboard && (
                 <div className="mb-3 ">
-                    <Search
+                    {/* <Search
                         Placeholder="search..."
                         setName={false}
                         dashboard={dashboard}
@@ -163,7 +163,7 @@ const NavForm = ({ dashboard }: Props) => {
                             borderBottom: "1px solid #FEE2E2",
                             borderRadius: "0",
                         }}
-                    />
+                    /> */}
                 </div>
             )}
             <div
