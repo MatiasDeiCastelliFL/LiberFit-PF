@@ -105,6 +105,10 @@ const NavForm = ({ dashboard }: Props) => {
         },
     ];
 
+    function capitalizarPrimeraLetra(str:string) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
     const params = useLocation();
 
     const name = params.pathname.split("/").map((e, i) => e);
@@ -131,7 +135,7 @@ const NavForm = ({ dashboard }: Props) => {
                                               : null
                                       } text-black hover:text-gray duration-500`}
                                   >
-                                      {elem.name}
+                                      {capitalizarPrimeraLetra(elem.name)}
                                   </Link>
                               </div>
                           ))
