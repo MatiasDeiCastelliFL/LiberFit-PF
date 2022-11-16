@@ -102,7 +102,7 @@ const EmployeeForm = ({background}:Props) => {
             {errors.email?.type === 'required' && <p className="text-red-500">Este campo es requerido</p>}
             {errors.email?.type === 'pattern' && <p className="text-red-500">Este campo no es un email</p>}
 
-            <input  type="text"
+            <input  type="password"
                     {...register('password', {required:true})}
                     placeholder='Contraseña'
                     className="px-4 font-sans text-xl border border-cyan-600 rounded-full font-light w-full text-gray-500"

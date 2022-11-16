@@ -6,6 +6,7 @@ import { useForm, Controller } from "react-hook-form";
 import Select  from  "react-select";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom"
+import Cookies from "universal-cookie";
 
 interface Props {
     background: React.CSSProperties
@@ -24,6 +25,7 @@ const LocacionForm = ({background}:Props) => {
     const gym =  useAppSelector((state) => state.data.gym)
     // console.log("esto es --->",sedes);
     const navigate = useNavigate()
+    const cookies = new Cookies()
     
     const { register, handleSubmit, formState: { errors }, control } = useForm();
     const [image, setImage] = useState("")
@@ -69,7 +71,7 @@ const LocacionForm = ({background}:Props) => {
     });
 
     useEffect(() => {
-      dispatch(getGym())
+      dispatch(getGym({token: cookies.get("token")}))
     }, [])
 
     return (
@@ -110,7 +112,7 @@ const LocacionForm = ({background}:Props) => {
               }
             </select>
 
-            <input type="submit" value='Crear Empleado' className="flex justify-center items-center font-black rounded-full py-1 px-3 text-white font-sans text-xl w-fit ml-15 mt-10" style={background}/>
+            <input type="submit" value='Crear Sede' className="flex justify-center items-center font-black rounded-full py-1 px-3 text-white font-sans text-xl w-fit ml-15 mt-10" style={background}/>
         </form>
 
         

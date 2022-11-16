@@ -10,7 +10,7 @@ routerClient.get("/clients/payments",isAuthenticated, getClientsPayments);
 routerClient.post("/clients",postClientsRequest);
 routerClient.post("/clients/review",isAuthenticated,postReview); 
 routerClient.put("/clients", upload, isAuthenticated, putClientRequest) 
-routerClient.delete("/clients/:id", deleteClientRequest);
+routerClient.delete("/clients/:id",isAuthenticated, deleteClientRequest);
 routerClient.put("/anuncioActivar",isAuthenticated,activarCliente);
 routerClient.get("/FiltrarclientsActivo",isAuthenticated,FiltrarClienteActivo)
 routerClient.get("/FiltrarclientsInactivo",isAuthenticated,FiltrarClienteInactivo)

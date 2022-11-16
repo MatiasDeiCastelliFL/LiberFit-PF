@@ -3,7 +3,7 @@ const {postGym,getAll}= require("../controllers/gymControllers")
 const routerGym= Router();
 const {isAuthenticated}= require('../Helpers/auth')
 
-routerGym.get("/gym",getAll);
+routerGym.get("/gym",isAuthenticated,getAll);
 routerGym.post("/gym",isAuthenticated,postGym);
 
 module.exports =routerGym 

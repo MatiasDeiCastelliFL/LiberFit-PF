@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import EmployeeForm from "../../../../Molecules/CreateInputsContainer/EmployeeForm/EmployeeForm";
 import LocacionForm from "../../../../Molecules/CreateInputsContainer/LocacionForm/LocacionForm";
 import LocationsTable from "../../../../Molecules/DashboardTables/LocationsTable"
 
@@ -14,6 +13,14 @@ export default function DashLocations({ link }: any) {
     };
     return (
         <div>
+            <button
+                className={`${
+                  location ? "hidden" : null
+                } bg-redClare px-4 py-2 rounded-xl mx-1`}
+                onClick={locationForm}
+            >
+                Crear Sede
+            </button>
             {!location ? (
                 <div className="w-100">
                     <div className="w-tables overflow-hidden ">
@@ -25,14 +32,6 @@ export default function DashLocations({ link }: any) {
                 background={background} 
                 />
             )}
-            <button
-                className={`${
-                  location ? "hidden" : null
-                } bg-redClare px-4 py-2 rounded-xl mx-1`}
-                onClick={locationForm}
-            >
-                Crear Sede
-            </button>
         </div>
     );
 }

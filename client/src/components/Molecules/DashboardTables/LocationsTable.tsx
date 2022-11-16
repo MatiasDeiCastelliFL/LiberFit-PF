@@ -5,11 +5,13 @@ import { useAppSelector, useAppDispatch } from "../../../App/Hooks/Hooks";
 import Avatar from "react-avatar";
 import Swal from "sweetalert2"
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 export default function LocationsTable({ link }: any) {
     const allData: any = useAppSelector((state) => state.data);
     const dispatch = useAppDispatch();
     const navigate = useNavigate()
+    const cookies = new Cookies()
 
     useEffect(() => {
         dispatch(getLocations())
@@ -27,7 +29,9 @@ export default function LocationsTable({ link }: any) {
             confirmButtonText: 'Si, eliminarlo!'
           }).then((result) => {
             if (result.isConfirmed) {
-                dispatch(deleteLocacion(id))
+                dispatch(deleteLocacion({
+                    id,token: cookies.get("token")
+                  }))
               Swal.fire(
                 'Eliminado!',
                 'El registro fue eliminado',
