@@ -6,6 +6,7 @@ import Item2 from "./Item2";
 interface Props {
     title: string;
     type: string;
+    icon: any;
 }
 
 function Item({ title, type }: Props) {
@@ -20,15 +21,16 @@ function Item({ title, type }: Props) {
                     <div className="">
                         {type === "cliente" ? (
                             <div className="">
-                                <Item2 title="Visualizar" active={false} />
-                                <Item2 title="Ampliar" active={false} />
+                                <Item2 title="Visualizar" active={false} icon=""/>
+                                <Item2 title="Ampliar" active={false} icon=""/>
                             </div>
                         ) : type === "admin" ? (
                             <div className="">
-                                <Item2 title="Crear" active={false} />
+                                <Item2 title="Crear" active={false} icon=""/>
                                 <Item2
                                     title="Borrar o Actualizar"
                                     active={false}
+                                    icon=""
                                 />
                             </div>
                         ) : null}
