@@ -8,7 +8,7 @@ interface Props {
 function NavBar({ dashboard }: Props) {
     return (
         <header className="w-max">
-            <div className=" h-16 border-b border-redGray">
+            <div className=" h-16 border-b  border-redGray bg-white ">
                 <NavForm dashboard={dashboard} />
             </div>
         </header>

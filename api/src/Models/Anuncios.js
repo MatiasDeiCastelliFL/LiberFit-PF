@@ -25,11 +25,15 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      active: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
+      }
    
     },
     {
       freezeTableName: true,
-      timestamps: false
+      timestamps: true
     }
   )
 }

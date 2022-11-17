@@ -10,7 +10,11 @@ const {
     busquedaDatDesactive,
     contarDatoActivo,
     contarDatoInactivo,
+    MostrarDatoMultipleInactivo,
+    MostrarDatoMultipleActivo,
 } = require("../Helpers/busqueda");
+const {Products, Locacions}  = require('../db') 
+
 
 const getProduct = async (req, res) => {
     try {
@@ -32,10 +36,9 @@ const postProduct = async (req, res) => {
             size,
             brand,
             active,
-            image,
             LocacionId,
         } = req.body;
-        // const { path } = req.file
+        const { path } = req.file
         const datoProduct = await crearProduct(
             name,
             price,
@@ -45,8 +48,8 @@ const postProduct = async (req, res) => {
             size,
             brand,
             active,
-            image,
-            LocacionId
+            LocacionId,
+            path
         );
 
         await res.status(200).json(datoProduct);
@@ -87,7 +90,7 @@ const activarProduc = async (req, res) => {
     try {
         const { id } = req.body;
 
-        const accountActive = await CuentaActiva(id, Employees);
+        const accountActive = false//await CuentaActiva(id, Employees);
         if (accountActive === false) {
             await activarProducto(id);
             res.status(200).json("El producto se activo correctamente");
@@ -100,28 +103,41 @@ const activarProduc = async (req, res) => {
 };
 
 const FiltrarProductoActivo= async (req, res) => {
-    const productoActive = await busquedaDatActive(products);
+    const productoActive = await busquedaDatActive(Products);
 
     res.status(200).json({ productoActive });
 };
 
 const FiltrarProductoDesactivado = async (req, res) => {
-    const ProductoInactive = await busquedaDatDesactive(products);
+    const ProductoInactive = await busquedaDatDesactive(Products);
 
     res.status(200).json({ ProductoInactive });
 };
 
 const CantInacativo = async (req, res) => {
-    const cantidadActivo = await contarDatoInactivo(products);
+    const cantidadInactivo = await contarDatoInactivo(Products);
 
-    res.status(200).json({ cantidadActivo });
+    res.status(200).json({ cantidadInactivo });
 };
 
 const CantActivo = async (req, res) => {
-    const cantidadActivo = await contarDatoActivo(products);
+    const cantidadActivo = await contarDatoActivo(Products);
 
     res.status(200).json({ cantidadActivo });
 };
+
+const FiltrarProductoActivoConSede= async(req,res)=>{
+    const productoActive= await MostrarDatoMultipleActivo(Products,Locacions);
+
+    res.status(200).json({productoActive});
+}
+
+const FiltrarProductoInactivoConSede= async(req,res)=>{
+    
+    const productoInactive= await MostrarDatoMultipleInactivo(Products,Locacions);
+
+    res.status(200).json({productoInactive});
+}
 
 module.exports = {
     getProduct,
@@ -132,5 +148,7 @@ module.exports = {
     CantActivo,
     CantInacativo,
     FiltrarProductoDesactivado,
-    FiltrarProductoActivo
+    FiltrarProductoActivo,
+    FiltrarProductoInactivoConSede,
+    FiltrarProductoActivoConSede
 };

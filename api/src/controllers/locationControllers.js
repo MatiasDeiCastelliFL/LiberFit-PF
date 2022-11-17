@@ -1,5 +1,5 @@
 const LocationInstance = require("../Models/Locacion")
-const {crearLocacion,enviarLocacion,borrarlocacion,actualizarLacacion,locacionById}= require("../services/locationServices")
+const {crearLocacion,enviarLocacion,borrarlocacion,actualizarLacacion,locacionById, getLocationReview}= require("../services/locationServices")
 
 const postLocacion = async (req, res) => {
   try {
@@ -52,6 +52,17 @@ const putLocacion= async(req, res)=>{
    }
 }
 
+const getLocationReviewController = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const review = await getLocationReview(id);
+    res.status(200).json(review);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+
 const deleteLocacion= async(req, res)=>{
   try {
     const {id}= req.params
@@ -61,4 +72,4 @@ const deleteLocacion= async(req, res)=>{
     res.status(404).json({msg:'locacion no se elimino'})
   }
 }
-module.exports = {getLocacion,getLocacionById,postLocacion,putLocacion,deleteLocacion }
+module.exports = {getLocacion,getLocacionById,postLocacion,putLocacion,deleteLocacion, getLocationReviewController }

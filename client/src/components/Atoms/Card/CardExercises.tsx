@@ -10,7 +10,7 @@ interface Props{
 
 function CardExercises({minutos, ejercicio, descripcion, icon}:Props) {
     return (
-        <div>
+        <div className="">
             <div className="relative block rounded border border-gray-100 p-8 shadow-sm hover:shadow-redGray hover:shadow-md">
                 <span className="absolute right-4 top-4 rounded-full bg-green-100 px-3 py-1.5 text-xs font-medium text-green-600">
                     {minutos}

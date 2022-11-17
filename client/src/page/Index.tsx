@@ -1,2 +1,11 @@
-export {default as Landing} from './Landing/Landing'
-export {default as Home} from './Home/Home'
+export {default as Landing} from './Landing/Landing';
+export {default as Home} from './Home/Home';
+export {default as Dashboard} from './Dashboard/Dashboard';
+export {default as UserConfig} from '../components/Organisms/UserConfig/UserConfig'
+export {default as SingUp} from "../components/Molecules/LoginSignup/LoginSignup";
+export {default as Details} from "../components/Organisms/Details/Details";
+export {default as CardsCategory} from "../components/Molecules/CardCategory/CardsCategory";
+export {default as LoginForm} from "../components/Molecules/LoginForm/LoginForm";
+export {default as PaymentComplet} from './payment/paymentComplet';
+export {default as PaymentCancel} from './payment/paymentCancel';
+export {default as About} from './About/About';

@@ -1,4 +1,4 @@
-const { Locacions } = require("../db");
+const { Locacions, LocacionReviews } = require("../db");
 
 const actualizarLacacion = async (name, address, phone, id) => {
     const location = await Locacions.findByPk(id);
@@ -51,6 +51,26 @@ const locacionById = async (id) => {
   }
 };
 
+
+const getLocationReview = async (id) => {
+
+  if (id) {
+    const review = await LocacionReviews.findAll({
+      where: {
+        id : id,
+      },
+    });
+    return review;
+  }else{
+    const review = await LocacionReviews.findAll();
+    return review;
+  }
+}
+
+
+
+
+
 const borrarlocacion = async (id) => {
     const location = await Locacions.destroy({ where: { id: `${id}` } });
     return location;
@@ -62,4 +82,5 @@ module.exports = {
     borrarlocacion,
     actualizarLacacion,
     locacionById,
+    getLocationReview
 };

@@ -54,7 +54,7 @@ const ProductsDetails = () => {
     }, [details]);
     return (
         <div>
-            <div className="flex flex-row  w-custom_3 mb-3">
+            <div className="flex flex-row w-full mb-3">
                 <div className="w-2/5 flex flex-col justify-center items-center">
                     <img src={details.image} alt={details.name} />
                     <p className={details.stock? 'text-green-600 ': 'text-red-600'}>Stock {details.stock ? "Disponible" : "No disponible"}</p>

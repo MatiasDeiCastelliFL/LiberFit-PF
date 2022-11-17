@@ -26,11 +26,16 @@ module.exports = (sequelize) => {
     },
     avatar: {
       type: DataTypes.STRING,
-      allowNull: "https://i.pravatar.cc/300",
+      defaultValue: "https://i.pravatar.cc/300",
+      allowNull: true,
+    },
+    active: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     }
   },
   {
     freezeTableName: true,
-    timestamps: false,
+    timestamps: true,
   }
 )};

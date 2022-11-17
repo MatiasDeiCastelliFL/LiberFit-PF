@@ -10,9 +10,9 @@ const {
     activarCuenta,
     
 } = require("../services/employeServices");
-const {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo} = require("../Helpers/busqueda")
+const {busquedaDatActive,busquedaDatDesactive,contarDatoActivo,contarDatoInactivo,MostrarDatoMultipleActivo,MostrarDatoMultipleInactivo,MostrarDatorutinaConUser,busquedaDeMoviento} = require("../Helpers/busqueda")
 
-const { Employees,Locacions } = require("../db");
+const { Employees,Locacions,Rutines } = require("../db");
 
 const {
     validate,
@@ -24,18 +24,14 @@ const {
 const bcrypt = require("bcrypt");
 const postEmpleado = async (req, res) => {
     try {
-        
-        const datoValidacion = await validate(req.body,Employees);
-       
-       
 
+        const datoValidacion = await validate(req.body,Employees);
         if (datoValidacion.length > 0) {
             res.status(404).json(datoValidacion);
-            
+
         } else {
-            const { name, email, phone, password, active, RolId } = req.body;
-            const {path} = req.file;
-            console.log(req.file);
+            const { name, email, phone, password,  active, RolId,LocacionId } = req.body;
+            // const {path} = req.file;
             const passwordEncript = await bcrypt.hash(password, 15);
 
             const datoEmpleado = await crearEmpleado(
@@ -44,15 +40,21 @@ const postEmpleado = async (req, res) => {
                 phone,
                 passwordEncript,
                 active,
-                path,
-                RolId
+                // image,
+                RolId,
+                LocacionId
+
             );
+
+            
+
             res.status(200).json(datoEmpleado);
         }
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
+
 const getEmpleado = async (req, res) => {
     const { name, email } = req.query;
     if (name && !email) {
@@ -109,13 +111,21 @@ const modificarEmpleado = async (req, res) => {
 
 const deleteEmployee = async (req, res) => {
     try {
-        const { id } = req.body;
-        const employeeDelete = await datoEliminado(id);
-        if (employeeDelete) {
-            res.status(200).json("El usuario fue eliminado");
-        } else {
-            res.status(400).json("El usuario a eliminar no existe");
+        const { id } = req.params;
+        const verificacionDato = await busquedaDeMoviento(Rutines,id);
+
+        if(verificacionDato===false){
+            console.log("llegue")
+            const employeeDelete = await datoEliminado(id);
+            if (employeeDelete) {
+                res.status(200).json("El usuario fue eliminado");
+            } else {
+                res.status(400).json("El usuario a eliminar no existe");
+            }
+        }else{
+            res.status(400).json("No se puede elminar el cliente. Debido que posee rutina creada, Recomendacion inactive su cuenta")
         }
+        
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -128,9 +138,9 @@ const FiltrarUsuarioActivo= async(req,res)=>{
 }
 
 const FiltrarUsuarioInactivo= async(req,res)=>{
-    const usuarioInactive= await busquedaDatDesactive(Employees);
+    const DatoUser= await busquedaDatDesactive(Employees);
 
-    res.status(200).json({usuarioInactive});
+    res.status(200).json({DatoUser});
 }
 
 const CantInacativo= async(req,res)=>{
@@ -187,15 +197,29 @@ const activarEmployee = async (req, res) => {
 };
 
 const FiltrarUsuarioActivoConSede= async(req,res)=>{
-    const usuarioInactive= await MostrarDatoMultipleActivo(Employees,Locacions);
+    const DatoUser= await MostrarDatoMultipleActivo(Employees,Locacions);
 
-    res.status(200).json({usuarioInactive});
+    res.status(200).json({DatoUser});
 }
 
 const FiltrarUsuarioInactivoConSede= async(req,res)=>{
-    const usuarioInactive= await MostrarDatoMultipleInactivo(Employees,Locacions);
+    const DatoUser= await MostrarDatoMultipleInactivo(Employees,Locacions);
 
-    res.status(200).json({usuarioInactive});
+    res.status(200).json({DatoUser});
+}
+
+const FiltrarRutinaConUsuario= async(req,res)=>{
+    const { id,idRutine } = req.body;
+
+    if(id && idRutine){
+
+        const DatoUser= await MostrarDatorutinaConUser(Rutines,Employees,Exercises,id,idRutine);
+        res.status(200).json({DatoUser});
+
+    }else{
+        res.status(400).json({error:"No se ingresaron todos los parametros"})
+    }
+
 }
 
 module.exports = {
@@ -210,5 +234,6 @@ module.exports = {
     CantActivo,
     CantInacativo,
     FiltrarUsuarioInactivoConSede,
-    FiltrarUsuarioActivoConSede
+    FiltrarUsuarioActivoConSede,
+    FiltrarRutinaConUsuario
 };
