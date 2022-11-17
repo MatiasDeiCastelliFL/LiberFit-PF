@@ -91,7 +91,7 @@ const LoginForm = () => {
         timer: 3000,
         footer: 'Welcome to Liberfit - gym 2022!'
       }).then( response => {
-        if (cookies.get("RolId")) window.location.href="/home"
+        if (cookies.get("RolId")) window.location.href="https://liber-fit-cu0z2j3u6-crisd3v.vercel.app/home"
       })
       // if (cookies.get("RolId")) navigate("/home")
       // if (cookies.get("RolId") === "1") navigate("/dashboard/admin") //url del rol id 1
